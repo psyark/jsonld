@@ -73,7 +73,7 @@ func (c *Class) IsDataType() bool {
 
 func (c *Class) Code() jen.Code {
 	sort.Slice(c.Members, func(i, j int) bool {
-		return strings.Compare(c.Members[i].goID, c.Members[j].goID) < 0
+		return strings.Compare(c.Members[i].Name, c.Members[j].Name) < 0
 	})
 
 	code := jen.Comment(c.comment).Line()
@@ -98,7 +98,9 @@ func (c *Class) buildStruct(code *jen.Statement) {
 		if i == 0 && len(fields) != 0 {
 			fields.Line()
 		}
-		code := jen.Id(p.GetFieldID()).Interface().Tag(p.jsonTag()).Comment(p.Comment)
+
+		jsonTag := map[string]string{"json": p.Name + ",omitempty"}
+		code := jen.Id(strings.Title(p.Name)).Interface().Tag(jsonTag).Comment(p.Comment)
 		fields.Add(code)
 	}
 	code.Type().Id(c.TypeName()).Struct(fields...).Line()

@@ -33,24 +33,7 @@ func NewBuilder(d Document) *Builder {
 	}
 	for _, g := range d.Graph {
 		if g.HasType("rdf:Property") {
-			p := &Property{
-				Name:    strings.TrimPrefix(g.ID, "schema:"),
-				goID:    g.GetGoID(),
-				Comment: g.Comment,
-			}
-
-			if len(g.RangeIncludes) == 1 {
-				// p.Type = b.getClass(g.RangeIncludes[0].ID)
-			} else if len(g.RangeIncludes) > 1 {
-				classes := []*Class{}
-				for _, ref := range g.RangeIncludes {
-					classes = append(classes, b.getClass(ref.ID))
-				}
-
-				// p.Type = union
-				// p.Type = b.getClass(g.RangeIncludes[0].ID)
-			}
-
+			p := &Property{Name: strings.TrimPrefix(g.ID, "schema:"), Comment: g.Comment}
 			for _, ref := range g.DomainIncludes {
 				c := b.getClass(ref.ID)
 				// このプロパティをクラスメンバーに追加
