@@ -26,7 +26,7 @@ func NewBuilder(d Document) *Builder {
 			// 親クラスを設定
 			for _, ref := range g.SubClassOf {
 				if ref.ID != "rdfs:Class" {
-					c.parents[b.getClass(ref.ID)] = &parentOption{}
+					c.parents = append(c.parents, b.getClass(ref.ID))
 				}
 			}
 		}
