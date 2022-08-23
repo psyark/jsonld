@@ -2,18 +2,7 @@ package jsonld
 
 import (
 	"encoding/json"
-	"fmt"
 )
-
-type DecodeOptions struct {
-	ExpectText            bool
-	ExpectDate            bool
-	ExpectDateTime        bool
-	ExpectTime            bool
-	ExpectURL             bool
-	ExpectCssSelectorType bool
-	ExpectXPathType       bool
-}
 
 func bracket(data []byte) []byte {
 	if len(data) == 0 || data[0] != '[' {
@@ -22,21 +11,10 @@ func bracket(data []byte) []byte {
 	return data
 }
 
-func DecodeObject(data []byte, options DecodeOptions) (interface{}, error) {
+func DecodeObject(data []byte) (interface{}, error) {
 	if len(data) != 0 && data[0] == '"' {
-		var str interface{}
-		switch {
-		case options.ExpectDate:
-			str = &dateStruct{}
-		case options.ExpectText:
-			str = &textStruct{}
-		case options.ExpectURL:
-			str = &uRLStruct{}
-		default:
-			return nil, fmt.Errorf("文字列のクラスを決定できません: %v, %v", options, string(data))
-		}
-
-		if err := json.Unmarshal(data, str); err != nil {
+		var str string
+		if err := json.Unmarshal(data, &str); err != nil {
 			return nil, err
 		}
 		return str, nil
@@ -49,7 +27,7 @@ func DecodeObject(data []byte, options DecodeOptions) (interface{}, error) {
 		return nil, err
 	}
 
-	var thing Thing = NewThing(typeCheck.Type)
+	thing := NewThing(typeCheck.Type)
 	if err := json.Unmarshal(data, thing); err != nil {
 		return nil, err
 	}
@@ -57,7 +35,7 @@ func DecodeObject(data []byte, options DecodeOptions) (interface{}, error) {
 	return thing, nil
 }
 
-func DecodeObjects(data []byte, options DecodeOptions) ([]interface{}, error) {
+func DecodeObjects(data []byte) ([]interface{}, error) {
 	items := []json.RawMessage{}
 	if err := json.Unmarshal(bracket(data), &items); err != nil {
 		return nil, err
@@ -65,7 +43,7 @@ func DecodeObjects(data []byte, options DecodeOptions) ([]interface{}, error) {
 
 	objects := make([]interface{}, len(items))
 	for i, msg := range items {
-		t, err := DecodeObject(msg, options)
+		t, err := DecodeObject(msg)
 		if err != nil {
 			return nil, err
 		}
