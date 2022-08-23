@@ -2,7 +2,6 @@ package codegen
 
 import (
 	"encoding/json"
-	"strings"
 )
 
 type Document struct {
@@ -34,29 +33,8 @@ func (g Graph) HasType(typeName string) bool {
 	return false
 }
 
-func (g Graph) GetGoID() string {
-	return getGoID(g.ID)
-}
-
 type Ref struct {
 	ID string `json:"@id"`
-}
-
-func (r Ref) GetGoID() string {
-	return getGoID(r.ID)
-}
-
-func getGoID(id string) string {
-	id = strings.TrimPrefix(id, "schema:")
-	switch id {
-	case "3DModel":
-		return "ThreeDModel"
-	case "map":
-		return "map_"
-	case "error":
-		return "error_"
-	}
-	return id
 }
 
 type Strings []string

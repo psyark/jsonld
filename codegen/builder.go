@@ -39,6 +39,9 @@ func NewBuilder(d Document) *Builder {
 				// このプロパティをクラスメンバーに追加
 				c.Members = append(c.Members, p)
 			}
+			for _, ref := range g.RangeIncludes {
+				p.Types = append(p.Types, strings.TrimPrefix(ref.ID, "schema:"))
+			}
 		}
 	}
 

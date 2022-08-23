@@ -2,7 +2,6 @@ package jsonld
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 type Values []interface{}
@@ -15,24 +14,28 @@ func (v Values) Get() interface{} {
 }
 
 func (v *Values) UnmarshalJSON(data []byte) error {
+	return decodeObjectsAs((*[]interface{})(v), data, "")
+}
+
+func decodeObjectsAs(dst *[]interface{}, data []byte, defType string) error {
 	items := []json.RawMessage{}
 	if err := json.Unmarshal(bracket(data), &items); err != nil {
 		return err
 	}
 
-	*v = make([]interface{}, len(items))
+	*dst = make([]interface{}, len(items))
 	for i, msg := range items {
-		t, err := DecodeObject(msg)
+		t, err := decodeObjectAs(msg, defType)
 		if err != nil {
 			return err
 		}
-		(*v)[i] = t
+		(*dst)[i] = t
 	}
 
 	return nil
 }
 
-func DecodeObject(data []byte) (interface{}, error) {
+func decodeObjectAs(data []byte, defType string) (interface{}, error) {
 	var x interface{}
 	if err := json.Unmarshal(data, &x); err != nil {
 		return nil, err
@@ -40,19 +43,24 @@ func DecodeObject(data []byte) (interface{}, error) {
 
 	switch x := x.(type) {
 	case map[string]interface{}:
-		if typeName, ok := x["@type"].(string); ok {
-			thing := NewThing(typeName)
-			if err := json.Unmarshal(data, thing); err != nil {
-				return nil, err
-			}
-			return thing, nil
+		typeName := defType
+		if tn, ok := x["@type"].(string); ok {
+			typeName = tn
 		}
-		fmt.Println(string(data))
-		return nil, nil
+
+		thing := NewThing(typeName)
+		if err := json.Unmarshal(data, thing); err != nil {
+			return nil, err
+		}
+		return thing, nil
 
 	default:
 		return x, nil
 	}
+}
+
+func DecodeObject(data []byte) (interface{}, error) {
+	return decodeObjectAs(data, "")
 }
 
 func bracket(data []byte) []byte {

@@ -10,6 +10,7 @@ import (
 type Property struct {
 	Name    string
 	Comment string
+	Types   []string
 }
 
 type Class struct {
@@ -62,12 +63,35 @@ func (c *Class) Code() jen.Code {
 			fields.Line()
 		}
 
-		jsonTag := map[string]string{"json": p.Name + ",omitempty"}
-		code := jen.Id(strings.Title(p.Name)).Id("Values").Tag(jsonTag).Comment(p.Comment)
+		code := jen.Id(strings.Title(p.Name))
+
+		if len(p.Types) == 1 {
+			code.Id(p.Types[0] + "Values")
+		} else {
+			code.Id("Values")
+		}
+
+		code.Tag(map[string]string{"json": p.Name + ",omitempty"})
+		code.Comment(p.Comment)
+
 		fields.Add(code)
 	}
 
 	code := jen.Comment(c.Comment).Line()
 	code.Type().Id(c.GoID()).Struct(fields...).Line()
+
+	{ // Values
+		code.Type().Id(c.GoID() + "Values").Index().Interface().Line()
+		code.Func().Params(jen.Id("v").Op("*").Id(c.GoID() + "Values")).Id("UnmarshalJSON").Params(
+			jen.Id("data").Index().Byte(),
+		).Error().Block(
+			jen.Return().Id("decodeObjectsAs").Call(
+				jen.Parens(jen.Op("*").Index().Interface()).Call(jen.Id("v")),
+				jen.Id("data"),
+				jen.Lit(c.GoID()),
+			),
+		)
+	}
+
 	return code
 }
