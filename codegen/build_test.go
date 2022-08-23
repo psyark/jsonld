@@ -1,4 +1,4 @@
-package build
+package codegen
 
 import (
 	_ "embed"
