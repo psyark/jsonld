@@ -19,8 +19,8 @@ func NewBuilder(d Document) *Builder {
 		if g.HasType("rdfs:Class") {
 			// クラス作成
 			c := b.getClass(g.ID)
-			c.goID = g.GetGoID()
-			c.comment = g.Comment
+			c.Name = g.GetGoID()
+			c.Comment = g.Comment
 			c.isDataType = g.HasType("schema:DataType")
 
 			// 親クラスを設定
@@ -74,7 +74,7 @@ func (b *Builder) buildClasses() error {
 	for _, k := range classNames {
 		c := b.classMap[k]
 		if !c.IsDataType() {
-			code := jen.Case(jen.Lit(c.TypeName())).Return().Op("&").Id(c.TypeName()).Block()
+			code := jen.Case(jen.Lit(c.Name)).Return().Op("&").Id(c.Name).Block()
 			cases.Add(code)
 		}
 	}

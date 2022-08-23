@@ -13,8 +13,8 @@ type Property struct {
 }
 
 type Class struct {
-	goID       string
-	comment    string
+	Name       string
+	Comment    string
 	isDataType bool
 	parents    []*Class
 	Members    []*Property
@@ -32,13 +32,9 @@ func (c *Class) getParents() []*Class {
 		i++
 	}
 	sort.Slice(parents, func(i, j int) bool {
-		return parents[i].TypeName() < parents[j].TypeName()
+		return parents[i].Name < parents[j].Name
 	})
 	return parents
-}
-
-func (c *Class) TypeName() string {
-	return c.goID
 }
 
 func (c *Class) IsDataType() bool {
@@ -47,7 +43,7 @@ func (c *Class) IsDataType() bool {
 			return true
 		}
 	}
-	return c.isDataType || c.TypeName() == "DataType"
+	return c.isDataType || c.Name == "DataType"
 }
 
 func (c *Class) Code() jen.Code {
@@ -58,9 +54,9 @@ func (c *Class) Code() jen.Code {
 	var fields = jen.Statement{}
 	for i, p := range c.getParents() {
 		if i == 0 {
-			fields.Add(jen.Id(p.TypeName()))
+			fields.Add(jen.Id(p.Name))
 		} else {
-			fields.Add(jen.Comment("TODO: " + p.TypeName()))
+			fields.Add(jen.Comment("TODO: " + p.Name))
 		}
 	}
 	for i, p := range c.Members {
@@ -73,7 +69,7 @@ func (c *Class) Code() jen.Code {
 		fields.Add(code)
 	}
 
-	code := jen.Comment(c.comment).Line()
-	code.Type().Id(c.TypeName()).Struct(fields...).Line()
+	code := jen.Comment(c.Comment).Line()
+	code.Type().Id(c.Name).Struct(fields...).Line()
 	return code
 }
