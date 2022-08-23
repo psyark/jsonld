@@ -148,7 +148,7 @@ func (c *Class) buildStruct(code *jen.Statement) {
 		if i == 0 && len(fields) != 0 {
 			fields.Line()
 		}
-		code := jen.Id(p.GetFieldID()).Interface().Tag(p.jsonTag())
+		code := jen.Id(p.GetFieldID()).Interface().Tag(p.jsonTag()).Comment(p.comment)
 		fields.Add(code)
 	}
 	code.Type().Id(c.TypeName()).Struct(fields...).Line()
