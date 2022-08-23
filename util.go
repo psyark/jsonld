@@ -2,6 +2,7 @@ package jsonld
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 type Values []interface{}
@@ -39,11 +40,15 @@ func DecodeObject(data []byte) (interface{}, error) {
 
 	switch x := x.(type) {
 	case map[string]interface{}:
-		thing := NewThing(x["@type"].(string))
-		if err := json.Unmarshal(data, thing); err != nil {
-			return nil, err
+		if typeName, ok := x["@type"].(string); ok {
+			thing := NewThing(typeName)
+			if err := json.Unmarshal(data, thing); err != nil {
+				return nil, err
+			}
+			return thing, nil
 		}
-		return thing, nil
+		fmt.Println(string(data))
+		return nil, nil
 
 	default:
 		return x, nil

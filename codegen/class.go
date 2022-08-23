@@ -13,7 +13,7 @@ type Property struct {
 }
 
 type Class struct {
-	Name       string
+	RawID      string
 	Comment    string
 	isDataType bool
 	Parents    []*Class
@@ -22,6 +22,14 @@ type Class struct {
 
 func newClass() *Class {
 	return &Class{}
+}
+
+func (c *Class) GoID() string {
+	switch c.RawID {
+	case "3DModel":
+		return "ThreeDModel"
+	}
+	return c.RawID
 }
 
 func (c *Class) IsDataType() bool {
@@ -38,15 +46,15 @@ func (c *Class) Code() jen.Code {
 		return strings.Compare(c.Members[i].Name, c.Members[j].Name) < 0
 	})
 	sort.Slice(c.Parents, func(i, j int) bool {
-		return strings.Compare(c.Parents[i].Name, c.Parents[j].Name) < 0
+		return strings.Compare(c.Parents[i].RawID, c.Parents[j].RawID) < 0
 	})
 
 	var fields = jen.Statement{}
 	for i, p := range c.Parents {
 		if i == 0 {
-			fields.Add(jen.Id(p.Name))
+			fields.Add(jen.Id(p.GoID()))
 		} else {
-			fields.Add(jen.Comment("TODO: " + p.Name))
+			fields.Add(jen.Comment("TODO: " + p.GoID()))
 		}
 	}
 	for i, p := range c.Members {
@@ -60,6 +68,6 @@ func (c *Class) Code() jen.Code {
 	}
 
 	code := jen.Comment(c.Comment).Line()
-	code.Type().Id(c.Name).Struct(fields...).Line()
+	code.Type().Id(c.GoID()).Struct(fields...).Line()
 	return code
 }

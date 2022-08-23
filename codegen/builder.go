@@ -19,9 +19,9 @@ func NewBuilder(d Document) *Builder {
 		if g.HasType("rdfs:Class") {
 			// クラス作成
 			c := b.getClass(g.ID)
-			c.Name = g.GetGoID()
+			c.RawID = strings.TrimPrefix(g.ID, "schema:")
 			c.Comment = g.Comment
-			c.isDataType = g.HasType("schema:DataType") || c.Name == "DataType"
+			c.isDataType = g.HasType("schema:DataType") || c.RawID == "DataType"
 
 			// 親クラスを設定
 			for _, ref := range g.SubClassOf {
@@ -74,12 +74,12 @@ func (b *Builder) buildClasses() error {
 	for _, k := range classNames {
 		c := b.classMap[k]
 		if !c.IsDataType() {
-			code := jen.Case(jen.Lit(c.Name)).Return().Op("&").Id(c.Name).Block()
+			code := jen.Case(jen.Lit(strings.ToLower(c.RawID))).Return().Op("&").Id(c.GoID()).Block()
 			cases.Add(code)
 		}
 	}
 	classGo.Func().Id("NewThing").Call(jen.Id("name").String()).Interface().Block(
-		jen.Switch(jen.Id("name")).Block(cases...),
+		jen.Switch(jen.Qual("strings", "ToLower").Call(jen.Id("name"))).Block(cases...),
 		jen.Panic(jen.Id("name")),
 	)
 
