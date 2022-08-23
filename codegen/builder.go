@@ -21,12 +21,12 @@ func NewBuilder(d Document) *Builder {
 			c := b.getClass(g.ID)
 			c.Name = g.GetGoID()
 			c.Comment = g.Comment
-			c.isDataType = g.HasType("schema:DataType")
+			c.isDataType = g.HasType("schema:DataType") || c.Name == "DataType"
 
 			// 親クラスを設定
 			for _, ref := range g.SubClassOf {
 				if ref.ID != "rdfs:Class" {
-					c.parents = append(c.parents, b.getClass(ref.ID))
+					c.Parents = append(c.Parents, b.getClass(ref.ID))
 				}
 			}
 		}

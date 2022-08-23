@@ -16,7 +16,7 @@ type Class struct {
 	Name       string
 	Comment    string
 	isDataType bool
-	parents    []*Class
+	Parents    []*Class
 	Members    []*Property
 }
 
@@ -24,35 +24,25 @@ func newClass() *Class {
 	return &Class{}
 }
 
-func (c *Class) getParents() []*Class {
-	parents := make([]*Class, len(c.parents))
-	i := 0
-	for _, p := range c.parents {
-		parents[i] = p
-		i++
-	}
-	sort.Slice(parents, func(i, j int) bool {
-		return parents[i].Name < parents[j].Name
-	})
-	return parents
-}
-
 func (c *Class) IsDataType() bool {
-	for _, p := range c.parents {
+	for _, p := range c.Parents {
 		if p.IsDataType() {
 			return true
 		}
 	}
-	return c.isDataType || c.Name == "DataType"
+	return c.isDataType
 }
 
 func (c *Class) Code() jen.Code {
 	sort.Slice(c.Members, func(i, j int) bool {
 		return strings.Compare(c.Members[i].Name, c.Members[j].Name) < 0
 	})
+	sort.Slice(c.Parents, func(i, j int) bool {
+		return strings.Compare(c.Parents[i].Name, c.Parents[j].Name) < 0
+	})
 
 	var fields = jen.Statement{}
-	for i, p := range c.getParents() {
+	for i, p := range c.Parents {
 		if i == 0 {
 			fields.Add(jen.Id(p.Name))
 		} else {
