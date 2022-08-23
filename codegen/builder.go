@@ -2,6 +2,7 @@ package codegen
 
 import (
 	"sort"
+	"strings"
 
 	"github.com/dave/jennifer/jen"
 )
@@ -33,8 +34,9 @@ func NewBuilder(d Document) *Builder {
 	for _, g := range d.Graph {
 		if g.HasType("rdf:Property") {
 			p := &Property{
+				Name:    strings.TrimPrefix(g.ID, "schema:"),
 				goID:    g.GetGoID(),
-				comment: g.Comment,
+				Comment: g.Comment,
 			}
 
 			if len(g.RangeIncludes) == 1 {
@@ -68,11 +70,6 @@ func (b *Builder) getClass(id string) *Class {
 }
 
 func (b *Builder) Build() error {
-	// 同じ深さのフィールドの重複チェック
-	for _, c := range b.classMap {
-		c.AdjustFieldDepths()
-	}
-
 	if err := b.buildClasses(); err != nil {
 		return err
 	}

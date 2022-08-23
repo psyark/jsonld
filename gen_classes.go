@@ -1859,7 +1859,7 @@ type Action struct {
 	ActionStatus interface{} `json:"actionStatus,omitempty"` // Indicates the current disposition of the Action.
 	Agent        interface{} `json:"agent,omitempty"`        // The direct performer or driver of the action (animate or inanimate). e.g. *John* wrote a book.
 	EndTime      interface{} `json:"endTime,omitempty"`      // The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
-	Error_       interface{} `json:"error_,omitempty"`       // For failed actions, more information on the cause of the failure.
+	Error_       interface{} `json:"error,omitempty"`        // For failed actions, more information on the cause of the failure.
 	Instrument   interface{} `json:"instrument,omitempty"`   // The object that helped the agent perform the action. e.g. John wrote a book with *a pen*.
 	Location     interface{} `json:"location,omitempty"`     // The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
 	Object       interface{} `json:"object,omitempty"`       // The object upon which the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). e.g. John read *a book*.
@@ -7133,7 +7133,7 @@ type Place struct {
 	Latitude                         interface{} `json:"latitude,omitempty"`                         // The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
 	Logo                             interface{} `json:"logo,omitempty"`                             // An associated logo.
 	Longitude                        interface{} `json:"longitude,omitempty"`                        // The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
-	Map_                             interface{} `json:"map_,omitempty"`                             // A URL to a map of the place.
+	Map_                             interface{} `json:"map,omitempty"`                              // A URL to a map of the place.
 	Maps                             interface{} `json:"maps,omitempty"`                             // A URL to a map of the place.
 	MaximumAttendeeCapacity          interface{} `json:"maximumAttendeeCapacity,omitempty"`          // The total number of individuals that may attend an event or venue.
 	OpeningHoursSpecification        interface{} `json:"openingHoursSpecification,omitempty"`        // The opening hours of a certain place.

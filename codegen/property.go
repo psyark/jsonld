@@ -11,31 +11,15 @@ import (
 // このため、とあるクラスに同じプロパティは重複して出現しない。
 
 type Property struct {
+	Name    string
 	goID    string
-	comment string
-	// Type    PropertyType
+	Comment string
 }
 
-func (p *Property) GetImplementID() string {
-	return "implements" + strings.Title(p.goID)
-}
 func (p *Property) GetFieldID() string {
 	return strings.Title(p.goID)
 }
-func (p *Property) GetMethodID() string {
-	return strings.Title(p.goID)
-}
+
 func (p *Property) jsonTag() map[string]string {
-	return map[string]string{"json": p.goID + ",omitempty"}
-}
-
-type PropertyType interface {
-	TypeName() string
-	Expects(string) bool
-}
-
-var _ PropertyType = &Class{}
-
-func SliceTypeName(pt PropertyType) string {
-	return pt.TypeName() + "Slice"
+	return map[string]string{"json": p.Name + ",omitempty"}
 }
