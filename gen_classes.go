@@ -1775,7 +1775,7 @@ case of a single file published after Zip compression, the convention of appendi
 type ThreeDModel struct {
 	MediaObject
 
-	IsResizable interface{} `json:"isResizable,omitempty"` // Whether the 3DModel allows resizing. For example, room layout applications often do not allow 3DModel elements to be resized to reflect reality.
+	IsResizable Values `json:"isResizable,omitempty"` // Whether the 3DModel allows resizing. For example, room layout applications often do not allow 3DModel elements to be resized to reflect reality.
 }
 
 // A radio channel that uses AM.
@@ -1787,11 +1787,11 @@ type AMRadioChannel struct {
 type APIReference struct {
 	TechArticle
 
-	Assembly              interface{} `json:"assembly,omitempty"`              // Library file name e.g., mscorlib.dll, system.web.dll.
-	AssemblyVersion       interface{} `json:"assemblyVersion,omitempty"`       // Associated product/technology version. e.g., .NET Framework 4.5.
-	ExecutableLibraryName interface{} `json:"executableLibraryName,omitempty"` // Library file name e.g., mscorlib.dll, system.web.dll.
-	ProgrammingModel      interface{} `json:"programmingModel,omitempty"`      // Indicates whether API is managed or unmanaged.
-	TargetPlatform        interface{} `json:"targetPlatform,omitempty"`        // Type of app development: phone, Metro style, desktop, XBox, etc.
+	Assembly              Values `json:"assembly,omitempty"`              // Library file name e.g., mscorlib.dll, system.web.dll.
+	AssemblyVersion       Values `json:"assemblyVersion,omitempty"`       // Associated product/technology version. e.g., .NET Framework 4.5.
+	ExecutableLibraryName Values `json:"executableLibraryName,omitempty"` // Library file name e.g., mscorlib.dll, system.web.dll.
+	ProgrammingModel      Values `json:"programmingModel,omitempty"`      // Indicates whether API is managed or unmanaged.
+	TargetPlatform        Values `json:"targetPlatform,omitempty"`        // Type of app development: phone, Metro style, desktop, XBox, etc.
 }
 
 // Web page type: About page.
@@ -1813,30 +1813,30 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
 type Accommodation struct {
 	Place
 
-	AccommodationCategory  interface{} `json:"accommodationCategory,omitempty"`  // Category of an [[Accommodation]], following real estate conventions e.g. RESO (see [PropertySubType](https://ddwiki.reso.org/display/DDW17/PropertySubType+Field), and [PropertyType](https://ddwiki.reso.org/display/DDW17/PropertyType+Field) fields  for suggested values).
-	AccommodationFloorPlan interface{} `json:"accommodationFloorPlan,omitempty"` // A floorplan of some [[Accommodation]].
-	AmenityFeature         interface{} `json:"amenityFeature,omitempty"`         // An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
-	FloorLevel             interface{} `json:"floorLevel,omitempty"`             /*
+	AccommodationCategory  Values `json:"accommodationCategory,omitempty"`  // Category of an [[Accommodation]], following real estate conventions e.g. RESO (see [PropertySubType](https://ddwiki.reso.org/display/DDW17/PropertySubType+Field), and [PropertyType](https://ddwiki.reso.org/display/DDW17/PropertyType+Field) fields  for suggested values).
+	AccommodationFloorPlan Values `json:"accommodationFloorPlan,omitempty"` // A floorplan of some [[Accommodation]].
+	AmenityFeature         Values `json:"amenityFeature,omitempty"`         // An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
+	FloorLevel             Values `json:"floorLevel,omitempty"`             /*
 	The floor level for an [[Accommodation]] in a multi-storey building. Since counting
 	  systems [vary internationally](https://en.wikipedia.org/wiki/Storey#Consecutive_number_floor_designations), the local system should be used where possible.
 	*/
-	FloorSize interface{} `json:"floorSize,omitempty"` /*
+	FloorSize Values `json:"floorSize,omitempty"` /*
 	The size of the accommodation, e.g. in square meter or squarefoot.
 	Typical unit code(s): MTK for square meter, FTK for square foot, or YDK for square yard
 	*/
-	LeaseLength              interface{} `json:"leaseLength,omitempty"`              // Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.
-	NumberOfBathroomsTotal   interface{} `json:"numberOfBathroomsTotal,omitempty"`   // The total integer number of bathrooms in a some [[Accommodation]], following real estate conventions as [documented in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsTotalInteger+Field): "The simple sum of the number of bathrooms. For example for a property with two Full Bathrooms and one Half Bathroom, the Bathrooms Total Integer will be 3.". See also [[numberOfRooms]].
-	NumberOfBedrooms         interface{} `json:"numberOfBedrooms,omitempty"`         // The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].
-	NumberOfFullBathrooms    interface{} `json:"numberOfFullBathrooms,omitempty"`    // Number of full bathrooms - The total number of full and ¾ bathrooms in an [[Accommodation]]. This corresponds to the [BathroomsFull field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsFull+Field).
-	NumberOfPartialBathrooms interface{} `json:"numberOfPartialBathrooms,omitempty"` // Number of partial bathrooms - The total number of half and ¼ bathrooms in an [[Accommodation]]. This corresponds to the [BathroomsPartial field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsPartial+Field).
-	NumberOfRooms            interface{} `json:"numberOfRooms,omitempty"`            /*
+	LeaseLength              Values `json:"leaseLength,omitempty"`              // Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.
+	NumberOfBathroomsTotal   Values `json:"numberOfBathroomsTotal,omitempty"`   // The total integer number of bathrooms in a some [[Accommodation]], following real estate conventions as [documented in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsTotalInteger+Field): "The simple sum of the number of bathrooms. For example for a property with two Full Bathrooms and one Half Bathroom, the Bathrooms Total Integer will be 3.". See also [[numberOfRooms]].
+	NumberOfBedrooms         Values `json:"numberOfBedrooms,omitempty"`         // The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].
+	NumberOfFullBathrooms    Values `json:"numberOfFullBathrooms,omitempty"`    // Number of full bathrooms - The total number of full and ¾ bathrooms in an [[Accommodation]]. This corresponds to the [BathroomsFull field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsFull+Field).
+	NumberOfPartialBathrooms Values `json:"numberOfPartialBathrooms,omitempty"` // Number of partial bathrooms - The total number of half and ¼ bathrooms in an [[Accommodation]]. This corresponds to the [BathroomsPartial field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsPartial+Field).
+	NumberOfRooms            Values `json:"numberOfRooms,omitempty"`            /*
 	The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business.
 	Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
 	*/
-	PermittedUsage  interface{} `json:"permittedUsage,omitempty"`  // Indications regarding the permitted usage of the accommodation.
-	PetsAllowed     interface{} `json:"petsAllowed,omitempty"`     // Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
-	TourBookingPage interface{} `json:"tourBookingPage,omitempty"` // A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]] or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.
-	YearBuilt       interface{} `json:"yearBuilt,omitempty"`       // The year an [[Accommodation]] was constructed. This corresponds to the [YearBuilt field in RESO](https://ddwiki.reso.org/display/DDW17/YearBuilt+Field).
+	PermittedUsage  Values `json:"permittedUsage,omitempty"`  // Indications regarding the permitted usage of the accommodation.
+	PetsAllowed     Values `json:"petsAllowed,omitempty"`     // Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
+	TourBookingPage Values `json:"tourBookingPage,omitempty"` // A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]] or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.
+	YearBuilt       Values `json:"yearBuilt,omitempty"`       // The year an [[Accommodation]] was constructed. This corresponds to the [YearBuilt field in RESO](https://ddwiki.reso.org/display/DDW17/YearBuilt+Field).
 }
 
 /*
@@ -1856,37 +1856,37 @@ type AchieveAction struct {
 type Action struct {
 	Thing
 
-	ActionStatus interface{} `json:"actionStatus,omitempty"` // Indicates the current disposition of the Action.
-	Agent        interface{} `json:"agent,omitempty"`        // The direct performer or driver of the action (animate or inanimate). e.g. *John* wrote a book.
-	EndTime      interface{} `json:"endTime,omitempty"`      // The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
-	Error        interface{} `json:"error,omitempty"`        // For failed actions, more information on the cause of the failure.
-	Instrument   interface{} `json:"instrument,omitempty"`   // The object that helped the agent perform the action. e.g. John wrote a book with *a pen*.
-	Location     interface{} `json:"location,omitempty"`     // The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
-	Object       interface{} `json:"object,omitempty"`       // The object upon which the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). e.g. John read *a book*.
-	Participant  interface{} `json:"participant,omitempty"`  // Other co-agents that participated in the action indirectly. e.g. John wrote a book with *Steve*.
-	Provider     interface{} `json:"provider,omitempty"`     // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
-	Result       interface{} `json:"result,omitempty"`       // The result produced in the action. e.g. John wrote *a book*.
-	StartTime    interface{} `json:"startTime,omitempty"`    // The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
-	Target       interface{} `json:"target,omitempty"`       // Indicates a target EntryPoint for an Action.
+	ActionStatus Values `json:"actionStatus,omitempty"` // Indicates the current disposition of the Action.
+	Agent        Values `json:"agent,omitempty"`        // The direct performer or driver of the action (animate or inanimate). e.g. *John* wrote a book.
+	EndTime      Values `json:"endTime,omitempty"`      // The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
+	Error        Values `json:"error,omitempty"`        // For failed actions, more information on the cause of the failure.
+	Instrument   Values `json:"instrument,omitempty"`   // The object that helped the agent perform the action. e.g. John wrote a book with *a pen*.
+	Location     Values `json:"location,omitempty"`     // The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+	Object       Values `json:"object,omitempty"`       // The object upon which the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). e.g. John read *a book*.
+	Participant  Values `json:"participant,omitempty"`  // Other co-agents that participated in the action indirectly. e.g. John wrote a book with *Steve*.
+	Provider     Values `json:"provider,omitempty"`     // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+	Result       Values `json:"result,omitempty"`       // The result produced in the action. e.g. John wrote *a book*.
+	StartTime    Values `json:"startTime,omitempty"`    // The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
+	Target       Values `json:"target,omitempty"`       // Indicates a target EntryPoint for an Action.
 }
 
 // A set of requirements that a must be fulfilled in order to perform an Action.
 type ActionAccessSpecification struct {
 	Intangible
 
-	AvailabilityEnds   interface{} `json:"availabilityEnds,omitempty"`   // The end of the availability of the product or service included in the offer.
-	AvailabilityStarts interface{} `json:"availabilityStarts,omitempty"` // The beginning of the availability of the product or service included in the offer.
-	Category           interface{} `json:"category,omitempty"`           // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
-	EligibleRegion     interface{} `json:"eligibleRegion,omitempty"`     /*
+	AvailabilityEnds   Values `json:"availabilityEnds,omitempty"`   // The end of the availability of the product or service included in the offer.
+	AvailabilityStarts Values `json:"availabilityStarts,omitempty"` // The beginning of the availability of the product or service included in the offer.
+	Category           Values `json:"category,omitempty"`           // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+	EligibleRegion     Values `json:"eligibleRegion,omitempty"`     /*
 	The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\n\nSee also [[ineligibleRegion]].
 
 	*/
-	ExpectsAcceptanceOf interface{} `json:"expectsAcceptanceOf,omitempty"` // An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it.
-	IneligibleRegion    interface{} `json:"ineligibleRegion,omitempty"`    /*
+	ExpectsAcceptanceOf Values `json:"expectsAcceptanceOf,omitempty"` // An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it.
+	IneligibleRegion    Values `json:"ineligibleRegion,omitempty"`    /*
 	The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\n\nSee also [[eligibleRegion]].
 
 	*/
-	RequiresSubscription interface{} `json:"requiresSubscription,omitempty"` // Indicates if use of the media require a subscription  (either paid or free). Allowed values are ```true``` or ```false``` (note that an earlier version had 'yes', 'no').
+	RequiresSubscription Values `json:"requiresSubscription,omitempty"` // Indicates if use of the media require a subscription  (either paid or free). Allowed values are ```true``` or ```false``` (note that an earlier version had 'yes', 'no').
 }
 
 // The status of an Action.
@@ -1928,10 +1928,10 @@ type AdvertiserContentArticle struct {
 type AggregateOffer struct {
 	Offer
 
-	HighPrice  interface{} `json:"highPrice,omitempty"`  // The highest price of all offers available.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
-	LowPrice   interface{} `json:"lowPrice,omitempty"`   // The lowest price of all offers available.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
-	OfferCount interface{} `json:"offerCount,omitempty"` // The number of offers for the product.
-	Offers     interface{} `json:"offers,omitempty"`     /*
+	HighPrice  Values `json:"highPrice,omitempty"`  // The highest price of all offers available.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+	LowPrice   Values `json:"lowPrice,omitempty"`   // The lowest price of all offers available.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+	OfferCount Values `json:"offerCount,omitempty"` // The number of offers for the product.
+	Offers     Values `json:"offers,omitempty"`     /*
 	An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
 
 	*/
@@ -1941,9 +1941,9 @@ type AggregateOffer struct {
 type AggregateRating struct {
 	Rating
 
-	ItemReviewed interface{} `json:"itemReviewed,omitempty"` // The item that is being reviewed/rated.
-	RatingCount  interface{} `json:"ratingCount,omitempty"`  // The count of total number of ratings.
-	ReviewCount  interface{} `json:"reviewCount,omitempty"`  // The count of total number of reviews.
+	ItemReviewed Values `json:"itemReviewed,omitempty"` // The item that is being reviewed/rated.
+	RatingCount  Values `json:"ratingCount,omitempty"`  // The count of total number of ratings.
+	ReviewCount  Values `json:"reviewCount,omitempty"`  // The count of total number of reviews.
 }
 
 // The act of expressing a consistency of opinion with the object. An agent agrees to/about an object (a proposition, topic or theme) with participants.
@@ -1955,16 +1955,16 @@ type AgreeAction struct {
 type Airline struct {
 	Organization
 
-	BoardingPolicy interface{} `json:"boardingPolicy,omitempty"` // The type of boarding policy used by the airline (e.g. zone-based or group-based).
-	IataCode       interface{} `json:"iataCode,omitempty"`       // IATA identifier for an airline or airport.
+	BoardingPolicy Values `json:"boardingPolicy,omitempty"` // The type of boarding policy used by the airline (e.g. zone-based or group-based).
+	IataCode       Values `json:"iataCode,omitempty"`       // IATA identifier for an airline or airport.
 }
 
 // An airport.
 type Airport struct {
 	CivicStructure
 
-	IataCode interface{} `json:"iataCode,omitempty"` // IATA identifier for an airline or airport.
-	IcaoCode interface{} `json:"icaoCode,omitempty"` // ICAO identifier for an airport.
+	IataCode Values `json:"iataCode,omitempty"` // IATA identifier for an airline or airport.
+	IcaoCode Values `json:"icaoCode,omitempty"` // ICAO identifier for an airport.
 }
 
 /*
@@ -1975,11 +1975,11 @@ Should not be used where the nature of the alignment can be described using a si
 type AlignmentObject struct {
 	Intangible
 
-	AlignmentType        interface{} `json:"alignmentType,omitempty"`        // A category of alignment between the learning resource and the framework node. Recommended values include: 'requires', 'textComplexity', 'readingLevel', and 'educationalSubject'.
-	EducationalFramework interface{} `json:"educationalFramework,omitempty"` // The framework to which the resource being described is aligned.
-	TargetDescription    interface{} `json:"targetDescription,omitempty"`    // The description of a node in an established educational framework.
-	TargetName           interface{} `json:"targetName,omitempty"`           // The name of a node in an established educational framework.
-	TargetUrl            interface{} `json:"targetUrl,omitempty"`            // The URL of a node in an established educational framework.
+	AlignmentType        Values `json:"alignmentType,omitempty"`        // A category of alignment between the learning resource and the framework node. Recommended values include: 'requires', 'textComplexity', 'readingLevel', and 'educationalSubject'.
+	EducationalFramework Values `json:"educationalFramework,omitempty"` // The framework to which the resource being described is aligned.
+	TargetDescription    Values `json:"targetDescription,omitempty"`    // The description of a node in an established educational framework.
+	TargetName           Values `json:"targetName,omitempty"`           // The name of a node in an established educational framework.
+	TargetUrl            Values `json:"targetUrl,omitempty"`            // The URL of a node in an established educational framework.
 }
 
 // The act of organizing tasks/objects/events by associating resources to it.
@@ -2007,25 +2007,25 @@ type AnalysisNewsArticle struct {
 type AnatomicalStructure struct {
 	MedicalEntity
 
-	AssociatedPathophysiology interface{} `json:"associatedPathophysiology,omitempty"` // If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system.
-	BodyLocation              interface{} `json:"bodyLocation,omitempty"`              // Location in the body of the anatomical structure.
-	ConnectedTo               interface{} `json:"connectedTo,omitempty"`               // Other anatomical structures to which this structure is connected.
-	Diagram                   interface{} `json:"diagram,omitempty"`                   // An image containing a diagram that illustrates the structure and/or its component substructures and/or connections with other structures.
-	PartOfSystem              interface{} `json:"partOfSystem,omitempty"`              // The anatomical or organ system that this structure is part of.
-	RelatedCondition          interface{} `json:"relatedCondition,omitempty"`          // A medical condition associated with this anatomy.
-	RelatedTherapy            interface{} `json:"relatedTherapy,omitempty"`            // A medical therapy related to this anatomy.
-	SubStructure              interface{} `json:"subStructure,omitempty"`              // Component (sub-)structure(s) that comprise this anatomical structure.
+	AssociatedPathophysiology Values `json:"associatedPathophysiology,omitempty"` // If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system.
+	BodyLocation              Values `json:"bodyLocation,omitempty"`              // Location in the body of the anatomical structure.
+	ConnectedTo               Values `json:"connectedTo,omitempty"`               // Other anatomical structures to which this structure is connected.
+	Diagram                   Values `json:"diagram,omitempty"`                   // An image containing a diagram that illustrates the structure and/or its component substructures and/or connections with other structures.
+	PartOfSystem              Values `json:"partOfSystem,omitempty"`              // The anatomical or organ system that this structure is part of.
+	RelatedCondition          Values `json:"relatedCondition,omitempty"`          // A medical condition associated with this anatomy.
+	RelatedTherapy            Values `json:"relatedTherapy,omitempty"`            // A medical therapy related to this anatomy.
+	SubStructure              Values `json:"subStructure,omitempty"`              // Component (sub-)structure(s) that comprise this anatomical structure.
 }
 
 // An anatomical system is a group of anatomical structures that work together to perform a certain task. Anatomical systems, such as organ systems, are one organizing principle of anatomy, and can includes circulatory, digestive, endocrine, integumentary, immune, lymphatic, muscular, nervous, reproductive, respiratory, skeletal, urinary, vestibular, and other systems.
 type AnatomicalSystem struct {
 	MedicalEntity
 
-	AssociatedPathophysiology interface{} `json:"associatedPathophysiology,omitempty"` // If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system.
-	ComprisedOf               interface{} `json:"comprisedOf,omitempty"`               // Specifying something physically contained by something else. Typically used here for the underlying anatomical structures, such as organs, that comprise the anatomical system.
-	RelatedCondition          interface{} `json:"relatedCondition,omitempty"`          // A medical condition associated with this anatomy.
-	RelatedStructure          interface{} `json:"relatedStructure,omitempty"`          // Related anatomical structure(s) that are not part of the system but relate or connect to it, such as vascular bundles associated with an organ system.
-	RelatedTherapy            interface{} `json:"relatedTherapy,omitempty"`            // A medical therapy related to this anatomy.
+	AssociatedPathophysiology Values `json:"associatedPathophysiology,omitempty"` // If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system.
+	ComprisedOf               Values `json:"comprisedOf,omitempty"`               // Specifying something physically contained by something else. Typically used here for the underlying anatomical structures, such as organs, that comprise the anatomical system.
+	RelatedCondition          Values `json:"relatedCondition,omitempty"`          // A medical condition associated with this anatomy.
+	RelatedStructure          Values `json:"relatedStructure,omitempty"`          // Related anatomical structure(s) that are not part of the system but relate or connect to it, such as vascular bundles associated with an organ system.
+	RelatedTherapy            Values `json:"relatedTherapy,omitempty"`            // A medical therapy related to this anatomy.
 }
 
 // Animal shelter.
@@ -2037,18 +2037,18 @@ type AnimalShelter struct {
 type Answer struct {
 	Comment
 
-	AnswerExplanation interface{} `json:"answerExplanation,omitempty"` // A step-by-step or full explanation about Answer. Can outline how this Answer was achieved or contain more broad clarification or statement about it.
+	AnswerExplanation Values `json:"answerExplanation,omitempty"` // A step-by-step or full explanation about Answer. Can outline how this Answer was achieved or contain more broad clarification or statement about it.
 }
 
 // An apartment (in American English) or flat (in British English) is a self-contained housing unit (a type of residential real estate) that occupies only part of a building (Source: Wikipedia, the free encyclopedia, see <a href="http://en.wikipedia.org/wiki/Apartment">http://en.wikipedia.org/wiki/Apartment</a>).
 type Apartment struct {
 	Accommodation
 
-	NumberOfRooms interface{} `json:"numberOfRooms,omitempty"` /*
+	NumberOfRooms Values `json:"numberOfRooms,omitempty"` /*
 	The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business.
 	Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
 	*/
-	Occupancy interface{} `json:"occupancy,omitempty"` /*
+	Occupancy Values `json:"occupancy,omitempty"` /*
 	The allowed total occupancy for the accommodation in persons (including infants etc). For individual accommodations, this is not necessarily the legal maximum but defines the permitted usage as per the contractual agreement (e.g. a double room used by a single person).
 	Typical unit code(s): C62 for person
 	*/
@@ -2058,11 +2058,11 @@ type Apartment struct {
 type ApartmentComplex struct {
 	Residence
 
-	NumberOfAccommodationUnits          interface{} `json:"numberOfAccommodationUnits,omitempty"`          // Indicates the total (available plus unavailable) number of accommodation units in an [[ApartmentComplex]], or the number of accommodation units for a specific [[FloorPlan]] (within its specific [[ApartmentComplex]]). See also [[numberOfAvailableAccommodationUnits]].
-	NumberOfAvailableAccommodationUnits interface{} `json:"numberOfAvailableAccommodationUnits,omitempty"` // Indicates the number of available accommodation units in an [[ApartmentComplex]], or the number of accommodation units for a specific [[FloorPlan]] (within its specific [[ApartmentComplex]]). See also [[numberOfAccommodationUnits]].
-	NumberOfBedrooms                    interface{} `json:"numberOfBedrooms,omitempty"`                    // The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].
-	PetsAllowed                         interface{} `json:"petsAllowed,omitempty"`                         // Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
-	TourBookingPage                     interface{} `json:"tourBookingPage,omitempty"`                     // A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]] or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.
+	NumberOfAccommodationUnits          Values `json:"numberOfAccommodationUnits,omitempty"`          // Indicates the total (available plus unavailable) number of accommodation units in an [[ApartmentComplex]], or the number of accommodation units for a specific [[FloorPlan]] (within its specific [[ApartmentComplex]]). See also [[numberOfAvailableAccommodationUnits]].
+	NumberOfAvailableAccommodationUnits Values `json:"numberOfAvailableAccommodationUnits,omitempty"` // Indicates the number of available accommodation units in an [[ApartmentComplex]], or the number of accommodation units for a specific [[FloorPlan]] (within its specific [[ApartmentComplex]]). See also [[numberOfAccommodationUnits]].
+	NumberOfBedrooms                    Values `json:"numberOfBedrooms,omitempty"`                    // The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].
+	PetsAllowed                         Values `json:"petsAllowed,omitempty"`                         // Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
+	TourBookingPage                     Values `json:"tourBookingPage,omitempty"`                     // A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]] or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.
 }
 
 // The act of inserting at the end if an ordered collection.
@@ -2089,15 +2089,15 @@ type Aquarium struct {
 type ArchiveComponent struct {
 	CreativeWork
 
-	HoldingArchive interface{} `json:"holdingArchive,omitempty"` //
-	ItemLocation   interface{} `json:"itemLocation,omitempty"`   //
+	HoldingArchive Values `json:"holdingArchive,omitempty"` //
+	ItemLocation   Values `json:"itemLocation,omitempty"`   //
 }
 
 //
 type ArchiveOrganization struct {
 	LocalBusiness
 
-	ArchiveHeld interface{} `json:"archiveHeld,omitempty"` //
+	ArchiveHeld Values `json:"archiveHeld,omitempty"` //
 }
 
 // The act of arriving at a place. An agent arrives at a destination from a fromLocation, optionally with participants.
@@ -2114,21 +2114,21 @@ type ArtGallery struct {
 type Artery struct {
 	Vessel
 
-	ArterialBranch interface{} `json:"arterialBranch,omitempty"` // The branches that comprise the arterial structure.
-	SupplyTo       interface{} `json:"supplyTo,omitempty"`       // The area to which the artery supplies blood.
+	ArterialBranch Values `json:"arterialBranch,omitempty"` // The branches that comprise the arterial structure.
+	SupplyTo       Values `json:"supplyTo,omitempty"`       // The area to which the artery supplies blood.
 }
 
 // An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all.\n\nSee also [blog post](http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html).
 type Article struct {
 	CreativeWork
 
-	ArticleBody    interface{} `json:"articleBody,omitempty"`    // The actual body of the article.
-	ArticleSection interface{} `json:"articleSection,omitempty"` // Articles may belong to one or more 'sections' in a magazine or newspaper, such as Sports, Lifestyle, etc.
-	Backstory      interface{} `json:"backstory,omitempty"`      // For an [[Article]], typically a [[NewsArticle]], the backstory property provides a textual summary giving a brief explanation of why and how an article was created. In a journalistic setting this could include information about reporting process, methods, interviews, data sources, etc.
-	PageEnd        interface{} `json:"pageEnd,omitempty"`        // The page on which the work ends; for example "138" or "xvi".
-	PageStart      interface{} `json:"pageStart,omitempty"`      // The page on which the work starts; for example "135" or "xiii".
-	Pagination     interface{} `json:"pagination,omitempty"`     // Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
-	Speakable      interface{} `json:"speakable,omitempty"`      /*
+	ArticleBody    Values `json:"articleBody,omitempty"`    // The actual body of the article.
+	ArticleSection Values `json:"articleSection,omitempty"` // Articles may belong to one or more 'sections' in a magazine or newspaper, such as Sports, Lifestyle, etc.
+	Backstory      Values `json:"backstory,omitempty"`      // For an [[Article]], typically a [[NewsArticle]], the backstory property provides a textual summary giving a brief explanation of why and how an article was created. In a journalistic setting this could include information about reporting process, methods, interviews, data sources, etc.
+	PageEnd        Values `json:"pageEnd,omitempty"`        // The page on which the work ends; for example "138" or "xvi".
+	PageStart      Values `json:"pageStart,omitempty"`      // The page on which the work starts; for example "135" or "xiii".
+	Pagination     Values `json:"pagination,omitempty"`     // Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
+	Speakable      Values `json:"speakable,omitempty"`      /*
 	Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the 'speakable' property serves to indicate the parts most likely to be generally useful for speech.
 
 	The *speakable* property can be repeated an arbitrary number of times, with three kinds of possible 'content-locator' values:
@@ -2144,14 +2144,14 @@ type Article struct {
 	we define a supporting type, [[SpeakableSpecification]]  which is defined to be a possible value of the *speakable* property.
 
 	*/
-	WordCount interface{} `json:"wordCount,omitempty"` // The number of words in the text of the Article.
+	WordCount Values `json:"wordCount,omitempty"` // The number of words in the text of the Article.
 }
 
 // The act of posing a question / favor to someone.\n\nRelated actions:\n\n* [[ReplyAction]]: Appears generally as a response to AskAction.
 type AskAction struct {
 	CommunicateAction
 
-	Question interface{} `json:"question,omitempty"` // A sub property of object. A question.
+	Question Values `json:"question,omitempty"` // A sub property of object. A question.
 }
 
 // A [[NewsArticle]] expressing an open call by a [[NewsMediaOrganization]] asking the public for input, insights, clarifications, anecdotes, documentation, etc., on an issue, for reporting purposes.
@@ -2183,17 +2183,17 @@ type Attorney struct {
 type Audience struct {
 	Intangible
 
-	AudienceType   interface{} `json:"audienceType,omitempty"`   // The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.).
-	GeographicArea interface{} `json:"geographicArea,omitempty"` // The geographic area associated with the audience.
+	AudienceType   Values `json:"audienceType,omitempty"`   // The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.).
+	GeographicArea Values `json:"geographicArea,omitempty"` // The geographic area associated with the audience.
 }
 
 // An audio file.
 type AudioObject struct {
 	MediaObject
 
-	Caption             interface{} `json:"caption,omitempty"`             // The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].
-	EmbeddedTextCaption interface{} `json:"embeddedTextCaption,omitempty"` // Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'.
-	Transcript          interface{} `json:"transcript,omitempty"`          // If this MediaObject is an AudioObject or VideoObject, the transcript of that object.
+	Caption             Values `json:"caption,omitempty"`             // The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].
+	EmbeddedTextCaption Values `json:"embeddedTextCaption,omitempty"` // Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'.
+	Transcript          Values `json:"transcript,omitempty"`          // If this MediaObject is an AudioObject or VideoObject, the transcript of that object.
 }
 
 // A specific and exact (byte-for-byte) version of an [[AudioObject]]. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity.
@@ -2206,15 +2206,15 @@ type Audiobook struct {
 	AudioObject
 	// TODO: Book
 
-	Duration interface{} `json:"duration,omitempty"` // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
-	ReadBy   interface{} `json:"readBy,omitempty"`   // A person who reads (performs) the audiobook.
+	Duration Values `json:"duration,omitempty"` // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
+	ReadBy   Values `json:"readBy,omitempty"`   // A person who reads (performs) the audiobook.
 }
 
 // The act of granting permission to an object.
 type AuthorizeAction struct {
 	AllocateAction
 
-	Recipient interface{} `json:"recipient,omitempty"` // A sub property of participant. The participant who is at the receiving end of the action.
+	Recipient Values `json:"recipient,omitempty"` // A sub property of participant. The participant who is at the receiving end of the action.
 }
 
 // Auto body shop.
@@ -2272,9 +2272,9 @@ type Bakery struct {
 type BankAccount struct {
 	FinancialProduct
 
-	AccountMinimumInflow  interface{} `json:"accountMinimumInflow,omitempty"`  // A minimum amount that has to be paid in every month.
-	AccountOverdraftLimit interface{} `json:"accountOverdraftLimit,omitempty"` // An overdraft is an extension of credit from a lending institution when an account reaches zero. An overdraft allows the individual to continue withdrawing money even if the account has no funds in it. Basically the bank allows people to borrow a set amount of money.
-	BankAccountType       interface{} `json:"bankAccountType,omitempty"`       // The type of a bank account.
+	AccountMinimumInflow  Values `json:"accountMinimumInflow,omitempty"`  // A minimum amount that has to be paid in every month.
+	AccountOverdraftLimit Values `json:"accountOverdraftLimit,omitempty"` // An overdraft is an extension of credit from a lending institution when an account reaches zero. An overdraft allows the individual to continue withdrawing money even if the account has no funds in it. Basically the bank allows people to borrow a set amount of money.
+	BankAccountType       Values `json:"bankAccountType,omitempty"`       // The type of a bank account.
 }
 
 // Bank or credit union.
@@ -2315,8 +2315,8 @@ type BedAndBreakfast struct {
 type BedDetails struct {
 	Intangible
 
-	NumberOfBeds interface{} `json:"numberOfBeds,omitempty"` // The quantity of the given bed type available in the HotelRoom, Suite, House, or Apartment.
-	TypeOfBed    interface{} `json:"typeOfBed,omitempty"`    // The type of bed to which the BedDetail refers, i.e. the type of bed available in the quantity indicated by quantity.
+	NumberOfBeds Values `json:"numberOfBeds,omitempty"` // The quantity of the given bed type available in the HotelRoom, Suite, House, or Apartment.
+	TypeOfBed    Values `json:"typeOfBed,omitempty"`    // The type of bed to which the BedDetail refers, i.e. the type of bed available in the quantity indicated by quantity.
 }
 
 // A type of bed. This is used for indicating the bed or beds available in an accommodation.
@@ -2338,28 +2338,28 @@ type BikeStore struct {
 type BioChemEntity struct {
 	Thing
 
-	AssociatedDisease              interface{} `json:"associatedDisease,omitempty"`              // Disease associated to this BioChemEntity. Such disease can be a MedicalCondition or a URL. If you want to add an evidence supporting the association, please use PropertyValue.
-	BioChemInteraction             interface{} `json:"bioChemInteraction,omitempty"`             // A BioChemEntity that is known to interact with this item.
-	BioChemSimilarity              interface{} `json:"bioChemSimilarity,omitempty"`              // A similar BioChemEntity, e.g., obtained by fingerprint similarity algorithms.
-	BiologicalRole                 interface{} `json:"biologicalRole,omitempty"`                 // A role played by the BioChemEntity within a biological context.
-	Funding                        interface{} `json:"funding,omitempty"`                        // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
-	HasBioChemEntityPart           interface{} `json:"hasBioChemEntityPart,omitempty"`           // Indicates a BioChemEntity that (in some sense) has this BioChemEntity as a part.
-	HasMolecularFunction           interface{} `json:"hasMolecularFunction,omitempty"`           // Molecular function performed by this BioChemEntity; please use PropertyValue if you want to include any evidence.
-	HasRepresentation              interface{} `json:"hasRepresentation,omitempty"`              // A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image.
-	IsEncodedByBioChemEntity       interface{} `json:"isEncodedByBioChemEntity,omitempty"`       // Another BioChemEntity encoding by this one.
-	IsInvolvedInBiologicalProcess  interface{} `json:"isInvolvedInBiologicalProcess,omitempty"`  // Biological process this BioChemEntity is involved in; please use PropertyValue if you want to include any evidence.
-	IsLocatedInSubcellularLocation interface{} `json:"isLocatedInSubcellularLocation,omitempty"` // Subcellular location where this BioChemEntity is located; please use PropertyValue if you want to include any evidence.
-	IsPartOfBioChemEntity          interface{} `json:"isPartOfBioChemEntity,omitempty"`          // Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.
-	TaxonomicRange                 interface{} `json:"taxonomicRange,omitempty"`                 // The taxonomic grouping of the organism that expresses, encodes, or in someway related to the BioChemEntity.
+	AssociatedDisease              Values `json:"associatedDisease,omitempty"`              // Disease associated to this BioChemEntity. Such disease can be a MedicalCondition or a URL. If you want to add an evidence supporting the association, please use PropertyValue.
+	BioChemInteraction             Values `json:"bioChemInteraction,omitempty"`             // A BioChemEntity that is known to interact with this item.
+	BioChemSimilarity              Values `json:"bioChemSimilarity,omitempty"`              // A similar BioChemEntity, e.g., obtained by fingerprint similarity algorithms.
+	BiologicalRole                 Values `json:"biologicalRole,omitempty"`                 // A role played by the BioChemEntity within a biological context.
+	Funding                        Values `json:"funding,omitempty"`                        // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
+	HasBioChemEntityPart           Values `json:"hasBioChemEntityPart,omitempty"`           // Indicates a BioChemEntity that (in some sense) has this BioChemEntity as a part.
+	HasMolecularFunction           Values `json:"hasMolecularFunction,omitempty"`           // Molecular function performed by this BioChemEntity; please use PropertyValue if you want to include any evidence.
+	HasRepresentation              Values `json:"hasRepresentation,omitempty"`              // A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image.
+	IsEncodedByBioChemEntity       Values `json:"isEncodedByBioChemEntity,omitempty"`       // Another BioChemEntity encoding by this one.
+	IsInvolvedInBiologicalProcess  Values `json:"isInvolvedInBiologicalProcess,omitempty"`  // Biological process this BioChemEntity is involved in; please use PropertyValue if you want to include any evidence.
+	IsLocatedInSubcellularLocation Values `json:"isLocatedInSubcellularLocation,omitempty"` // Subcellular location where this BioChemEntity is located; please use PropertyValue if you want to include any evidence.
+	IsPartOfBioChemEntity          Values `json:"isPartOfBioChemEntity,omitempty"`          // Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.
+	TaxonomicRange                 Values `json:"taxonomicRange,omitempty"`                 // The taxonomic grouping of the organism that expresses, encodes, or in someway related to the BioChemEntity.
 }
 
 // A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a "weblog". Note that the individual posts ([[BlogPosting]]s) in a [[Blog]] are often colloqually referred to by the same term.
 type Blog struct {
 	CreativeWork
 
-	BlogPost  interface{} `json:"blogPost,omitempty"`  // A posting that is part of this blog.
-	BlogPosts interface{} `json:"blogPosts,omitempty"` // Indicates a post that is part of a [[Blog]]. Note that historically, what we term a "Blog" was once known as a "weblog", and that what we term a "BlogPosting" is now often colloquially referred to as a "blog".
-	Issn      interface{} `json:"issn,omitempty"`      // The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
+	BlogPost  Values `json:"blogPost,omitempty"`  // A posting that is part of this blog.
+	BlogPosts Values `json:"blogPosts,omitempty"` // Indicates a post that is part of a [[Blog]]. Note that historically, what we term a "Blog" was once known as a "weblog", and that what we term a "BlogPosting" is now often colloquially referred to as a "blog".
+	Issn      Values `json:"issn,omitempty"`      // The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
 }
 
 // A blog post.
@@ -2395,8 +2395,8 @@ type BoatTerminal struct {
 type BoatTrip struct {
 	Trip
 
-	ArrivalBoatTerminal   interface{} `json:"arrivalBoatTerminal,omitempty"`   // The terminal or port from which the boat arrives.
-	DepartureBoatTerminal interface{} `json:"departureBoatTerminal,omitempty"` // The terminal or port from which the boat departs.
+	ArrivalBoatTerminal   Values `json:"arrivalBoatTerminal,omitempty"`   // The terminal or port from which the boat arrives.
+	DepartureBoatTerminal Values `json:"departureBoatTerminal,omitempty"` // The terminal or port from which the boat departs.
 }
 
 // Enumerates types (or dimensions) of a person's body measurements, for example for fitting of clothes.
@@ -2418,12 +2418,12 @@ type Bone struct {
 type Book struct {
 	CreativeWork
 
-	Abridged      interface{} `json:"abridged,omitempty"`      // Indicates whether the book is an abridged edition.
-	BookEdition   interface{} `json:"bookEdition,omitempty"`   // The edition of the book.
-	BookFormat    interface{} `json:"bookFormat,omitempty"`    // The format of the book.
-	Illustrator   interface{} `json:"illustrator,omitempty"`   // The illustrator of the book.
-	Isbn          interface{} `json:"isbn,omitempty"`          // The ISBN of the book.
-	NumberOfPages interface{} `json:"numberOfPages,omitempty"` // The number of pages in the book.
+	Abridged      Values `json:"abridged,omitempty"`      // Indicates whether the book is an abridged edition.
+	BookEdition   Values `json:"bookEdition,omitempty"`   // The edition of the book.
+	BookFormat    Values `json:"bookFormat,omitempty"`    // The format of the book.
+	Illustrator   Values `json:"illustrator,omitempty"`   // The illustrator of the book.
+	Isbn          Values `json:"isbn,omitempty"`          // The ISBN of the book.
+	NumberOfPages Values `json:"numberOfPages,omitempty"` // The number of pages in the book.
 }
 
 // The publication format of the book.
@@ -2453,7 +2453,7 @@ type Boolean struct{}
 type BorrowAction struct {
 	TransferAction
 
-	Lender interface{} `json:"lender,omitempty"` // A sub property of participant. The person that lends the object being borrowed.
+	Lender Values `json:"lender,omitempty"` // A sub property of participant. The person that lends the object being borrowed.
 }
 
 // A bowling alley.
@@ -2470,10 +2470,10 @@ type BrainStructure struct {
 type Brand struct {
 	Intangible
 
-	AggregateRating interface{} `json:"aggregateRating,omitempty"` // The overall rating, based on a collection of reviews or ratings, of the item.
-	Logo            interface{} `json:"logo,omitempty"`            // An associated logo.
-	Review          interface{} `json:"review,omitempty"`          // A review of the item.
-	Slogan          interface{} `json:"slogan,omitempty"`          // A slogan or motto associated with the item.
+	AggregateRating Values `json:"aggregateRating,omitempty"` // The overall rating, based on a collection of reviews or ratings, of the item.
+	Logo            Values `json:"logo,omitempty"`            // An associated logo.
+	Review          Values `json:"review,omitempty"`          // A review of the item.
+	Slogan          Values `json:"slogan,omitempty"`          // A slogan or motto associated with the item.
 }
 
 /*
@@ -2498,48 +2498,48 @@ type Bridge struct {
 type BroadcastChannel struct {
 	Intangible
 
-	BroadcastChannelId       interface{} `json:"broadcastChannelId,omitempty"`       // The unique address by which the BroadcastService can be identified in a provider lineup. In US, this is typically a number.
-	BroadcastFrequency       interface{} `json:"broadcastFrequency,omitempty"`       // The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels, e.g. "87 FM".
-	BroadcastServiceTier     interface{} `json:"broadcastServiceTier,omitempty"`     // The type of service required to have access to the channel (e.g. Standard or Premium).
-	Genre                    interface{} `json:"genre,omitempty"`                    // Genre of the creative work, broadcast channel or group.
-	InBroadcastLineup        interface{} `json:"inBroadcastLineup,omitempty"`        // The CableOrSatelliteService offering the channel.
-	ProvidesBroadcastService interface{} `json:"providesBroadcastService,omitempty"` // The BroadcastService offered on this channel.
+	BroadcastChannelId       Values `json:"broadcastChannelId,omitempty"`       // The unique address by which the BroadcastService can be identified in a provider lineup. In US, this is typically a number.
+	BroadcastFrequency       Values `json:"broadcastFrequency,omitempty"`       // The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels, e.g. "87 FM".
+	BroadcastServiceTier     Values `json:"broadcastServiceTier,omitempty"`     // The type of service required to have access to the channel (e.g. Standard or Premium).
+	Genre                    Values `json:"genre,omitempty"`                    // Genre of the creative work, broadcast channel or group.
+	InBroadcastLineup        Values `json:"inBroadcastLineup,omitempty"`        // The CableOrSatelliteService offering the channel.
+	ProvidesBroadcastService Values `json:"providesBroadcastService,omitempty"` // The BroadcastService offered on this channel.
 }
 
 // An over the air or online broadcast event.
 type BroadcastEvent struct {
 	PublicationEvent
 
-	BroadcastOfEvent interface{} `json:"broadcastOfEvent,omitempty"` // The event being broadcast such as a sporting event or awards ceremony.
-	IsLiveBroadcast  interface{} `json:"isLiveBroadcast,omitempty"`  // True if the broadcast is of a live event.
-	SubtitleLanguage interface{} `json:"subtitleLanguage,omitempty"` // Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
-	VideoFormat      interface{} `json:"videoFormat,omitempty"`      // The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).
+	BroadcastOfEvent Values `json:"broadcastOfEvent,omitempty"` // The event being broadcast such as a sporting event or awards ceremony.
+	IsLiveBroadcast  Values `json:"isLiveBroadcast,omitempty"`  // True if the broadcast is of a live event.
+	SubtitleLanguage Values `json:"subtitleLanguage,omitempty"` // Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
+	VideoFormat      Values `json:"videoFormat,omitempty"`      // The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).
 }
 
 // The frequency in MHz and the modulation used for a particular BroadcastService.
 type BroadcastFrequencySpecification struct {
 	Intangible
 
-	BroadcastFrequencyValue   interface{} `json:"broadcastFrequencyValue,omitempty"`   // The frequency in MHz for a particular broadcast.
-	BroadcastSignalModulation interface{} `json:"broadcastSignalModulation,omitempty"` // The modulation (e.g. FM, AM, etc) used by a particular broadcast service.
-	BroadcastSubChannel       interface{} `json:"broadcastSubChannel,omitempty"`       // The subchannel used for the broadcast.
+	BroadcastFrequencyValue   Values `json:"broadcastFrequencyValue,omitempty"`   // The frequency in MHz for a particular broadcast.
+	BroadcastSignalModulation Values `json:"broadcastSignalModulation,omitempty"` // The modulation (e.g. FM, AM, etc) used by a particular broadcast service.
+	BroadcastSubChannel       Values `json:"broadcastSubChannel,omitempty"`       // The subchannel used for the broadcast.
 }
 
 // A delivery service through which content is provided via broadcast over the air or online.
 type BroadcastService struct {
 	Service
 
-	Area                 interface{} `json:"area,omitempty"`                 // The area within which users can expect to reach the broadcast service.
-	BroadcastAffiliateOf interface{} `json:"broadcastAffiliateOf,omitempty"` // The media network(s) whose content is broadcast on this station.
-	BroadcastDisplayName interface{} `json:"broadcastDisplayName,omitempty"` // The name displayed in the channel guide. For many US affiliates, it is the network name.
-	BroadcastFrequency   interface{} `json:"broadcastFrequency,omitempty"`   // The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels, e.g. "87 FM".
-	BroadcastTimezone    interface{} `json:"broadcastTimezone,omitempty"`    // The timezone in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) for which the service bases its broadcasts
-	Broadcaster          interface{} `json:"broadcaster,omitempty"`          // The organization owning or operating the broadcast service.
-	CallSign             interface{} `json:"callSign,omitempty"`             // A [callsign](https://en.wikipedia.org/wiki/Call_sign), as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles.
-	HasBroadcastChannel  interface{} `json:"hasBroadcastChannel,omitempty"`  // A broadcast channel of a broadcast service.
-	InLanguage           interface{} `json:"inLanguage,omitempty"`           // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
-	ParentService        interface{} `json:"parentService,omitempty"`        // A broadcast service to which the broadcast service may belong to such as regional variations of a national channel.
-	VideoFormat          interface{} `json:"videoFormat,omitempty"`          // The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).
+	Area                 Values `json:"area,omitempty"`                 // The area within which users can expect to reach the broadcast service.
+	BroadcastAffiliateOf Values `json:"broadcastAffiliateOf,omitempty"` // The media network(s) whose content is broadcast on this station.
+	BroadcastDisplayName Values `json:"broadcastDisplayName,omitempty"` // The name displayed in the channel guide. For many US affiliates, it is the network name.
+	BroadcastFrequency   Values `json:"broadcastFrequency,omitempty"`   // The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels, e.g. "87 FM".
+	BroadcastTimezone    Values `json:"broadcastTimezone,omitempty"`    // The timezone in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) for which the service bases its broadcasts
+	Broadcaster          Values `json:"broadcaster,omitempty"`          // The organization owning or operating the broadcast service.
+	CallSign             Values `json:"callSign,omitempty"`             // A [callsign](https://en.wikipedia.org/wiki/Call_sign), as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles.
+	HasBroadcastChannel  Values `json:"hasBroadcastChannel,omitempty"`  // A broadcast channel of a broadcast service.
+	InLanguage           Values `json:"inLanguage,omitempty"`           // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+	ParentService        Values `json:"parentService,omitempty"`        // A broadcast service to which the broadcast service may belong to such as regional variations of a national channel.
+	VideoFormat          Values `json:"videoFormat,omitempty"`          // The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).
 }
 
 // An account that allows an investor to deposit funds and place investment orders with a licensed broker or brokerage firm.
@@ -2556,8 +2556,8 @@ type BuddhistTemple struct {
 type BusOrCoach struct {
 	Vehicle
 
-	AcrissCode interface{} `json:"acrissCode,omitempty"` // The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.
-	RoofLoad   interface{} `json:"roofLoad,omitempty"`   // The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]]\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges.
+	AcrissCode Values `json:"acrissCode,omitempty"` // The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.
+	RoofLoad   Values `json:"roofLoad,omitempty"`   // The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]]\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges.
 }
 
 // A reservation for bus travel. \n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].
@@ -2579,19 +2579,19 @@ type BusStop struct {
 type BusTrip struct {
 	Trip
 
-	ArrivalBusStop   interface{} `json:"arrivalBusStop,omitempty"`   // The stop or station from which the bus arrives.
-	BusName          interface{} `json:"busName,omitempty"`          // The name of the bus (e.g. Bolt Express).
-	BusNumber        interface{} `json:"busNumber,omitempty"`        // The unique identifier for the bus.
-	DepartureBusStop interface{} `json:"departureBusStop,omitempty"` // The stop or station from which the bus departs.
+	ArrivalBusStop   Values `json:"arrivalBusStop,omitempty"`   // The stop or station from which the bus arrives.
+	BusName          Values `json:"busName,omitempty"`          // The name of the bus (e.g. Bolt Express).
+	BusNumber        Values `json:"busNumber,omitempty"`        // The unique identifier for the bus.
+	DepartureBusStop Values `json:"departureBusStop,omitempty"` // The stop or station from which the bus departs.
 }
 
 // A set of characteristics belonging to businesses, e.g. who compose an item's target audience.
 type BusinessAudience struct {
 	Audience
 
-	NumberOfEmployees interface{} `json:"numberOfEmployees,omitempty"` // The number of employees in an organization e.g. business.
-	YearlyRevenue     interface{} `json:"yearlyRevenue,omitempty"`     // The size of the business in annual revenue.
-	YearsInOperation  interface{} `json:"yearsInOperation,omitempty"`  // The age of the business.
+	NumberOfEmployees Values `json:"numberOfEmployees,omitempty"` // The number of employees in an organization e.g. business.
+	YearlyRevenue     Values `json:"yearlyRevenue,omitempty"`     // The size of the business in annual revenue.
+	YearsInOperation  Values `json:"yearsInOperation,omitempty"`  // The age of the business.
 }
 
 /*
@@ -2619,9 +2619,9 @@ type BusinessFunction struct {
 type BuyAction struct {
 	TradeAction
 
-	Seller          interface{} `json:"seller,omitempty"`          // An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
-	Vendor          interface{} `json:"vendor,omitempty"`          // 'vendor' is an earlier term for 'seller'.
-	WarrantyPromise interface{} `json:"warrantyPromise,omitempty"` // The warranty promise(s) included in the offer.
+	Seller          Values `json:"seller,omitempty"`          // An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
+	Vendor          Values `json:"vendor,omitempty"`          // 'vendor' is an earlier term for 'seller'.
+	WarrantyPromise Values `json:"warrantyPromise,omitempty"` // The warranty promise(s) included in the offer.
 }
 
 /*
@@ -2633,23 +2633,23 @@ A CDCPMDRecord is a data structure representing a record in a CDC tabular data f
 type CDCPMDRecord struct {
 	StructuredValue
 
-	CvdCollectionDate       interface{} `json:"cvdCollectionDate,omitempty"`       // collectiondate - Date for which patient counts are reported.
-	CvdFacilityCounty       interface{} `json:"cvdFacilityCounty,omitempty"`       // Name of the County of the NHSN facility that this data record applies to. Use [[cvdFacilityId]] to identify the facility. To provide other details, [[healthcareReportingData]] can be used on a [[Hospital]] entry.
-	CvdFacilityId           interface{} `json:"cvdFacilityId,omitempty"`           // Identifier of the NHSN facility that this data record applies to. Use [[cvdFacilityCounty]] to indicate the county. To provide other details, [[healthcareReportingData]] can be used on a [[Hospital]] entry.
-	CvdNumBeds              interface{} `json:"cvdNumBeds,omitempty"`              // numbeds - HOSPITAL INPATIENT BEDS: Inpatient beds, including all staffed, licensed, and overflow (surge) beds used for inpatients.
-	CvdNumBedsOcc           interface{} `json:"cvdNumBedsOcc,omitempty"`           // numbedsocc - HOSPITAL INPATIENT BED OCCUPANCY: Total number of staffed inpatient beds that are occupied.
-	CvdNumC19Died           interface{} `json:"cvdNumC19Died,omitempty"`           // numc19died - DEATHS: Patients with suspected or confirmed COVID-19 who died in the hospital, ED, or any overflow location.
-	CvdNumC19HOPats         interface{} `json:"cvdNumC19HOPats,omitempty"`         // numc19hopats - HOSPITAL ONSET: Patients hospitalized in an NHSN inpatient care location with onset of suspected or confirmed COVID-19 14 or more days after hospitalization.
-	CvdNumC19HospPats       interface{} `json:"cvdNumC19HospPats,omitempty"`       // numc19hosppats - HOSPITALIZED: Patients currently hospitalized in an inpatient care location who have suspected or confirmed COVID-19.
-	CvdNumC19MechVentPats   interface{} `json:"cvdNumC19MechVentPats,omitempty"`   // numc19mechventpats - HOSPITALIZED and VENTILATED: Patients hospitalized in an NHSN inpatient care location who have suspected or confirmed COVID-19 and are on a mechanical ventilator.
-	CvdNumC19OFMechVentPats interface{} `json:"cvdNumC19OFMechVentPats,omitempty"` // numc19ofmechventpats - ED/OVERFLOW and VENTILATED: Patients with suspected or confirmed COVID-19 who are in the ED or any overflow location awaiting an inpatient bed and on a mechanical ventilator.
-	CvdNumC19OverflowPats   interface{} `json:"cvdNumC19OverflowPats,omitempty"`   // numc19overflowpats - ED/OVERFLOW: Patients with suspected or confirmed COVID-19 who are in the ED or any overflow location awaiting an inpatient bed.
-	CvdNumICUBeds           interface{} `json:"cvdNumICUBeds,omitempty"`           // numicubeds - ICU BEDS: Total number of staffed inpatient intensive care unit (ICU) beds.
-	CvdNumICUBedsOcc        interface{} `json:"cvdNumICUBedsOcc,omitempty"`        // numicubedsocc - ICU BED OCCUPANCY: Total number of staffed inpatient ICU beds that are occupied.
-	CvdNumTotBeds           interface{} `json:"cvdNumTotBeds,omitempty"`           // numtotbeds - ALL HOSPITAL BEDS: Total number of all Inpatient and outpatient beds, including all staffed,ICU, licensed, and overflow (surge) beds used for inpatients or outpatients.
-	CvdNumVent              interface{} `json:"cvdNumVent,omitempty"`              // numvent - MECHANICAL VENTILATORS: Total number of ventilators available.
-	CvdNumVentUse           interface{} `json:"cvdNumVentUse,omitempty"`           // numventuse - MECHANICAL VENTILATORS IN USE: Total number of ventilators in use.
-	DatePosted              interface{} `json:"datePosted,omitempty"`              // Publication date of an online listing.
+	CvdCollectionDate       Values `json:"cvdCollectionDate,omitempty"`       // collectiondate - Date for which patient counts are reported.
+	CvdFacilityCounty       Values `json:"cvdFacilityCounty,omitempty"`       // Name of the County of the NHSN facility that this data record applies to. Use [[cvdFacilityId]] to identify the facility. To provide other details, [[healthcareReportingData]] can be used on a [[Hospital]] entry.
+	CvdFacilityId           Values `json:"cvdFacilityId,omitempty"`           // Identifier of the NHSN facility that this data record applies to. Use [[cvdFacilityCounty]] to indicate the county. To provide other details, [[healthcareReportingData]] can be used on a [[Hospital]] entry.
+	CvdNumBeds              Values `json:"cvdNumBeds,omitempty"`              // numbeds - HOSPITAL INPATIENT BEDS: Inpatient beds, including all staffed, licensed, and overflow (surge) beds used for inpatients.
+	CvdNumBedsOcc           Values `json:"cvdNumBedsOcc,omitempty"`           // numbedsocc - HOSPITAL INPATIENT BED OCCUPANCY: Total number of staffed inpatient beds that are occupied.
+	CvdNumC19Died           Values `json:"cvdNumC19Died,omitempty"`           // numc19died - DEATHS: Patients with suspected or confirmed COVID-19 who died in the hospital, ED, or any overflow location.
+	CvdNumC19HOPats         Values `json:"cvdNumC19HOPats,omitempty"`         // numc19hopats - HOSPITAL ONSET: Patients hospitalized in an NHSN inpatient care location with onset of suspected or confirmed COVID-19 14 or more days after hospitalization.
+	CvdNumC19HospPats       Values `json:"cvdNumC19HospPats,omitempty"`       // numc19hosppats - HOSPITALIZED: Patients currently hospitalized in an inpatient care location who have suspected or confirmed COVID-19.
+	CvdNumC19MechVentPats   Values `json:"cvdNumC19MechVentPats,omitempty"`   // numc19mechventpats - HOSPITALIZED and VENTILATED: Patients hospitalized in an NHSN inpatient care location who have suspected or confirmed COVID-19 and are on a mechanical ventilator.
+	CvdNumC19OFMechVentPats Values `json:"cvdNumC19OFMechVentPats,omitempty"` // numc19ofmechventpats - ED/OVERFLOW and VENTILATED: Patients with suspected or confirmed COVID-19 who are in the ED or any overflow location awaiting an inpatient bed and on a mechanical ventilator.
+	CvdNumC19OverflowPats   Values `json:"cvdNumC19OverflowPats,omitempty"`   // numc19overflowpats - ED/OVERFLOW: Patients with suspected or confirmed COVID-19 who are in the ED or any overflow location awaiting an inpatient bed.
+	CvdNumICUBeds           Values `json:"cvdNumICUBeds,omitempty"`           // numicubeds - ICU BEDS: Total number of staffed inpatient intensive care unit (ICU) beds.
+	CvdNumICUBedsOcc        Values `json:"cvdNumICUBedsOcc,omitempty"`        // numicubedsocc - ICU BED OCCUPANCY: Total number of staffed inpatient ICU beds that are occupied.
+	CvdNumTotBeds           Values `json:"cvdNumTotBeds,omitempty"`           // numtotbeds - ALL HOSPITAL BEDS: Total number of all Inpatient and outpatient beds, including all staffed,ICU, licensed, and overflow (surge) beds used for inpatients or outpatients.
+	CvdNumVent              Values `json:"cvdNumVent,omitempty"`              // numvent - MECHANICAL VENTILATORS: Total number of ventilators available.
+	CvdNumVentUse           Values `json:"cvdNumVentUse,omitempty"`           // numventuse - MECHANICAL VENTILATORS IN USE: Total number of ventilators in use.
+	DatePosted              Values `json:"datePosted,omitempty"`              // Publication date of an online listing.
 }
 
 // A service which provides access to media programming like TV or radio. Access may be via cable or satellite.
@@ -2697,8 +2697,8 @@ type CancelAction struct {
 type Car struct {
 	Vehicle
 
-	AcrissCode interface{} `json:"acrissCode,omitempty"` // The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.
-	RoofLoad   interface{} `json:"roofLoad,omitempty"`   // The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]]\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges.
+	AcrissCode Values `json:"acrissCode,omitempty"` // The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.
+	RoofLoad   Values `json:"roofLoad,omitempty"`   // The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]]\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges.
 }
 
 // A value indicating a special usage of a car, e.g. commercial rental, driving school, or as a taxi.
@@ -2715,15 +2715,15 @@ type Casino struct {
 type CategoryCode struct {
 	DefinedTerm
 
-	CodeValue interface{} `json:"codeValue,omitempty"` // A short textual code that uniquely identifies the value.
-	InCodeSet interface{} `json:"inCodeSet,omitempty"` // A [[CategoryCodeSet]] that contains this category code.
+	CodeValue Values `json:"codeValue,omitempty"` // A short textual code that uniquely identifies the value.
+	InCodeSet Values `json:"inCodeSet,omitempty"` // A [[CategoryCodeSet]] that contains this category code.
 }
 
 // A set of Category Code values.
 type CategoryCodeSet struct {
 	DefinedTermSet
 
-	HasCategoryCode interface{} `json:"hasCategoryCode,omitempty"` // A Category code contained in this code set.
+	HasCategoryCode Values `json:"hasCategoryCode,omitempty"` // A Category code contained in this code set.
 }
 
 // A Catholic church.
@@ -2740,9 +2740,9 @@ type Cemetery struct {
 type Chapter struct {
 	CreativeWork
 
-	PageEnd    interface{} `json:"pageEnd,omitempty"`    // The page on which the work ends; for example "138" or "xvi".
-	PageStart  interface{} `json:"pageStart,omitempty"`  // The page on which the work starts; for example "135" or "xiii".
-	Pagination interface{} `json:"pagination,omitempty"` // Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
+	PageEnd    Values `json:"pageEnd,omitempty"`    // The page on which the work ends; for example "138" or "xvi".
+	PageStart  Values `json:"pageStart,omitempty"`  // The page on which the work starts; for example "135" or "xiii".
+	Pagination Values `json:"pagination,omitempty"` // Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
 }
 
 // An agent inspects, determines, investigates, inquires, or examines an object's accuracy, quality, condition, or state.
@@ -2769,9 +2769,9 @@ type CheckoutPage struct {
 type ChemicalSubstance struct {
 	BioChemEntity
 
-	ChemicalComposition interface{} `json:"chemicalComposition,omitempty"` // The chemical composition describes the identity and relative ratio of the chemical elements that make up the substance.
-	ChemicalRole        interface{} `json:"chemicalRole,omitempty"`        // A role played by the BioChemEntity within a chemical context.
-	PotentialUse        interface{} `json:"potentialUse,omitempty"`        // Intended use of the BioChemEntity by humans.
+	ChemicalComposition Values `json:"chemicalComposition,omitempty"` // The chemical composition describes the identity and relative ratio of the chemical elements that make up the substance.
+	ChemicalRole        Values `json:"chemicalRole,omitempty"`        // A role played by the BioChemEntity within a chemical context.
+	PotentialUse        Values `json:"potentialUse,omitempty"`        // Intended use of the BioChemEntity by humans.
 }
 
 // A Childcare center.
@@ -2788,8 +2788,8 @@ type ChildrensEvent struct {
 type ChooseAction struct {
 	AssessAction
 
-	ActionOption interface{} `json:"actionOption,omitempty"` // A sub property of object. The options subject to this action.
-	Option       interface{} `json:"option,omitempty"`       // A sub property of object. The options subject to this action.
+	ActionOption Values `json:"actionOption,omitempty"` // A sub property of object. The options subject to this action.
+	Option       Values `json:"option,omitempty"`       // A sub property of object. The options subject to this action.
 }
 
 // A church.
@@ -2811,7 +2811,7 @@ type CityHall struct {
 type CivicStructure struct {
 	Place
 
-	OpeningHours interface{} `json:"openingHours,omitempty"` // The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.\n\n* Days are specified using the following two-letter combinations: ```Mo```, ```Tu```, ```We```, ```Th```, ```Fr```, ```Sa```, ```Su```.\n* Times are specified using 24:00 format. For example, 3pm is specified as ```15:00```, 10am as ```10:00```. \n* Here is an example: <code>&lt;time itemprop="openingHours" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.\n* If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.
+	OpeningHours Values `json:"openingHours,omitempty"` // The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.\n\n* Days are specified using the following two-letter combinations: ```Mo```, ```Tu```, ```We```, ```Th```, ```Fr```, ```Sa```, ```Su```.\n* Times are specified using 24:00 format. For example, 3pm is specified as ```15:00```, 10am as ```10:00```. \n* Here is an example: <code>&lt;time itemprop="openingHours" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.\n* If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.
 }
 
 /*
@@ -2825,43 +2825,43 @@ A [[Claim]] in Schema.org represents a specific, factually-oriented claim that c
 type Claim struct {
 	CreativeWork
 
-	Appearance       interface{} `json:"appearance,omitempty"`       // Indicates an occurence of a [[Claim]] in some [[CreativeWork]].
-	ClaimInterpreter interface{} `json:"claimInterpreter,omitempty"` /*
+	Appearance       Values `json:"appearance,omitempty"`       // Indicates an occurence of a [[Claim]] in some [[CreativeWork]].
+	ClaimInterpreter Values `json:"claimInterpreter,omitempty"` /*
 	For a [[Claim]] interpreted from [[MediaObject]] content
 	    sed to indicate a claim contained, implied or refined from the content of a [[MediaObject]].
 	*/
-	FirstAppearance interface{} `json:"firstAppearance,omitempty"` // Indicates the first known occurence of a [[Claim]] in some [[CreativeWork]].
+	FirstAppearance Values `json:"firstAppearance,omitempty"` // Indicates the first known occurence of a [[Claim]] in some [[CreativeWork]].
 }
 
 // A fact-checking review of claims made (or reported) in some creative work (referenced via itemReviewed).
 type ClaimReview struct {
 	Review
 
-	ClaimReviewed interface{} `json:"claimReviewed,omitempty"` // A short summary of the specific claims reviewed in a ClaimReview.
+	ClaimReviewed Values `json:"claimReviewed,omitempty"` // A short summary of the specific claims reviewed in a ClaimReview.
 }
 
 // A class, also often called a 'Type'; equivalent to rdfs:Class.
 type Class struct {
 	Intangible
 
-	SupersededBy interface{} `json:"supersededBy,omitempty"` // Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
+	SupersededBy Values `json:"supersededBy,omitempty"` // Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
 }
 
 // A short TV or radio program or a segment/part of a program.
 type Clip struct {
 	CreativeWork
 
-	Actor         interface{} `json:"actor,omitempty"`         // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
-	Actors        interface{} `json:"actors,omitempty"`        // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
-	ClipNumber    interface{} `json:"clipNumber,omitempty"`    // Position of the clip within an ordered group of clips.
-	Director      interface{} `json:"director,omitempty"`      // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
-	Directors     interface{} `json:"directors,omitempty"`     // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
-	EndOffset     interface{} `json:"endOffset,omitempty"`     // The end time of the clip expressed as the number of seconds from the beginning of the work.
-	MusicBy       interface{} `json:"musicBy,omitempty"`       // The composer of the soundtrack.
-	PartOfEpisode interface{} `json:"partOfEpisode,omitempty"` // The episode to which this clip belongs.
-	PartOfSeason  interface{} `json:"partOfSeason,omitempty"`  // The season to which this episode belongs.
-	PartOfSeries  interface{} `json:"partOfSeries,omitempty"`  // The series to which this episode or season belongs.
-	StartOffset   interface{} `json:"startOffset,omitempty"`   // The start time of the clip expressed as the number of seconds from the beginning of the work.
+	Actor         Values `json:"actor,omitempty"`         // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+	Actors        Values `json:"actors,omitempty"`        // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
+	ClipNumber    Values `json:"clipNumber,omitempty"`    // Position of the clip within an ordered group of clips.
+	Director      Values `json:"director,omitempty"`      // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
+	Directors     Values `json:"directors,omitempty"`     // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
+	EndOffset     Values `json:"endOffset,omitempty"`     // The end time of the clip expressed as the number of seconds from the beginning of the work.
+	MusicBy       Values `json:"musicBy,omitempty"`       // The composer of the soundtrack.
+	PartOfEpisode Values `json:"partOfEpisode,omitempty"` // The episode to which this clip belongs.
+	PartOfSeason  Values `json:"partOfSeason,omitempty"`  // The season to which this episode belongs.
+	PartOfSeries  Values `json:"partOfSeries,omitempty"`  // The series to which this episode or season belongs.
+	StartOffset   Values `json:"startOffset,omitempty"`   // The start time of the clip expressed as the number of seconds from the beginning of the work.
 }
 
 // A clothing store.
@@ -2878,7 +2878,7 @@ type Code struct {
 type Collection struct {
 	CreativeWork
 
-	CollectionSize interface{} `json:"collectionSize,omitempty"` //
+	CollectionSize Values `json:"collectionSize,omitempty"` //
 }
 
 // Web page type: Collection page.
@@ -2918,16 +2918,16 @@ Individual comic issues are serially published as
 type ComicIssue struct {
 	PublicationIssue
 
-	Artist interface{} `json:"artist,omitempty"` /*
+	Artist Values `json:"artist,omitempty"` /*
 	The primary artist for a work
 	    	in a medium other than pencils or digital line art--for example, if the
 	    	primary artwork is done in watercolors or digital paints.
 	*/
-	Colorist     interface{} `json:"colorist,omitempty"`     // The individual who adds color to inked drawings.
-	Inker        interface{} `json:"inker,omitempty"`        // The individual who traces over the pencil drawings in ink after pencils are complete.
-	Letterer     interface{} `json:"letterer,omitempty"`     // The individual who adds lettering, including speech balloons and sound effects, to artwork.
-	Penciler     interface{} `json:"penciler,omitempty"`     // The individual who draws the primary narrative artwork.
-	VariantCover interface{} `json:"variantCover,omitempty"` /*
+	Colorist     Values `json:"colorist,omitempty"`     // The individual who adds color to inked drawings.
+	Inker        Values `json:"inker,omitempty"`        // The individual who traces over the pencil drawings in ink after pencils are complete.
+	Letterer     Values `json:"letterer,omitempty"`     // The individual who adds lettering, including speech balloons and sound effects, to artwork.
+	Penciler     Values `json:"penciler,omitempty"`     // The individual who draws the primary narrative artwork.
+	VariantCover Values `json:"variantCover,omitempty"` /*
 	A description of the variant cover
 	    	for the issue, if the issue is a variant printing. For example, "Bryan Hitch
 	    	Variant Cover" or "2nd Printing Variant".
@@ -2951,41 +2951,41 @@ The term "story" is any indivisible, re-printable
 type ComicStory struct {
 	CreativeWork
 
-	Artist interface{} `json:"artist,omitempty"` /*
+	Artist Values `json:"artist,omitempty"` /*
 	The primary artist for a work
 	    	in a medium other than pencils or digital line art--for example, if the
 	    	primary artwork is done in watercolors or digital paints.
 	*/
-	Colorist interface{} `json:"colorist,omitempty"` // The individual who adds color to inked drawings.
-	Inker    interface{} `json:"inker,omitempty"`    // The individual who traces over the pencil drawings in ink after pencils are complete.
-	Letterer interface{} `json:"letterer,omitempty"` // The individual who adds lettering, including speech balloons and sound effects, to artwork.
-	Penciler interface{} `json:"penciler,omitempty"` // The individual who draws the primary narrative artwork.
+	Colorist Values `json:"colorist,omitempty"` // The individual who adds color to inked drawings.
+	Inker    Values `json:"inker,omitempty"`    // The individual who traces over the pencil drawings in ink after pencils are complete.
+	Letterer Values `json:"letterer,omitempty"` // The individual who adds lettering, including speech balloons and sound effects, to artwork.
+	Penciler Values `json:"penciler,omitempty"` // The individual who draws the primary narrative artwork.
 }
 
 // A comment on an item - for example, a comment on a blog post. The comment's content is expressed via the [[text]] property, and its topic via [[about]], properties shared with all CreativeWorks.
 type Comment struct {
 	CreativeWork
 
-	DownvoteCount interface{} `json:"downvoteCount,omitempty"` // The number of downvotes this question, answer or comment has received from the community.
-	ParentItem    interface{} `json:"parentItem,omitempty"`    // The parent of a question, answer or item in general.
-	UpvoteCount   interface{} `json:"upvoteCount,omitempty"`   // The number of upvotes this question, answer or comment has received from the community.
+	DownvoteCount Values `json:"downvoteCount,omitempty"` // The number of downvotes this question, answer or comment has received from the community.
+	ParentItem    Values `json:"parentItem,omitempty"`    // The parent of a question, answer or item in general.
+	UpvoteCount   Values `json:"upvoteCount,omitempty"`   // The number of upvotes this question, answer or comment has received from the community.
 }
 
 // The act of generating a comment about a subject.
 type CommentAction struct {
 	CommunicateAction
 
-	ResultComment interface{} `json:"resultComment,omitempty"` // A sub property of result. The Comment created or sent as a result of this action.
+	ResultComment Values `json:"resultComment,omitempty"` // A sub property of result. The Comment created or sent as a result of this action.
 }
 
 // The act of conveying information to another person via a communication medium (instrument) such as speech, email, or telephone conversation.
 type CommunicateAction struct {
 	InteractAction
 
-	About      interface{} `json:"about,omitempty"`      // The subject matter of the content.
-	InLanguage interface{} `json:"inLanguage,omitempty"` // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
-	Language   interface{} `json:"language,omitempty"`   // A sub property of instrument. The language used on this action.
-	Recipient  interface{} `json:"recipient,omitempty"`  // A sub property of participant. The participant who is at the receiving end of the action.
+	About      Values `json:"about,omitempty"`      // The subject matter of the content.
+	InLanguage Values `json:"inLanguage,omitempty"` // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+	Language   Values `json:"language,omitempty"`   // A sub property of instrument. The language used on this action.
+	Recipient  Values `json:"recipient,omitempty"`  // A sub property of participant. The participant who is at the receiving end of the action.
 }
 
 /*
@@ -3001,8 +3001,8 @@ type CompleteDataFeed struct {
 type CompoundPriceSpecification struct {
 	PriceSpecification
 
-	PriceComponent interface{} `json:"priceComponent,omitempty"` // This property links to all [[UnitPriceSpecification]] nodes that apply in parallel for the [[CompoundPriceSpecification]] node.
-	PriceType      interface{} `json:"priceType,omitempty"`      // Defines the type of a price specified for an offered product, for example a list price, a (temporary) sale price or a manufacturer suggested retail price. If multiple prices are specified for an offer the [[priceType]] property can be used to identify the type of each such specified price. The value of priceType can be specified as a value from enumeration PriceTypeEnumeration or as a free form text string for price types that are not already predefined in PriceTypeEnumeration.
+	PriceComponent Values `json:"priceComponent,omitempty"` // This property links to all [[UnitPriceSpecification]] nodes that apply in parallel for the [[CompoundPriceSpecification]] node.
+	PriceType      Values `json:"priceType,omitempty"`      // Defines the type of a price specified for an offered product, for example a list price, a (temporary) sale price or a manufacturer suggested retail price. If multiple prices are specified for an offer the [[priceType]] property can be used to identify the type of each such specified price. The value of priceType can be specified as a value from enumeration PriceTypeEnumeration or as a free form text string for price types that are not already predefined in PriceTypeEnumeration.
 }
 
 // This type covers computer programming languages such as Scheme and Lisp, as well as other language-like computer representations. Natural languages are best represented with the [[Language]] type.
@@ -3029,8 +3029,8 @@ type Consortium struct {
 type ConsumeAction struct {
 	Action
 
-	ActionAccessibilityRequirement interface{} `json:"actionAccessibilityRequirement,omitempty"` // A set of requirements that a must be fulfilled in order to perform an Action. If more than one value is specied, fulfilling one set of requirements will allow the Action to be performed.
-	ExpectsAcceptanceOf            interface{} `json:"expectsAcceptanceOf,omitempty"`            // An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it.
+	ActionAccessibilityRequirement Values `json:"actionAccessibilityRequirement,omitempty"` // A set of requirements that a must be fulfilled in order to perform an Action. If more than one value is specied, fulfilling one set of requirements will allow the Action to be performed.
+	ExpectsAcceptanceOf            Values `json:"expectsAcceptanceOf,omitempty"`            // An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it.
 }
 
 // Web page type: Contact page.
@@ -3042,16 +3042,16 @@ type ContactPage struct {
 type ContactPoint struct {
 	StructuredValue
 
-	AreaServed        interface{} `json:"areaServed,omitempty"`        // The geographic area where a service or offered item is provided.
-	AvailableLanguage interface{} `json:"availableLanguage,omitempty"` // A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]]
-	ContactOption     interface{} `json:"contactOption,omitempty"`     // An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers).
-	ContactType       interface{} `json:"contactType,omitempty"`       // A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point.
-	Email             interface{} `json:"email,omitempty"`             // Email address.
-	FaxNumber         interface{} `json:"faxNumber,omitempty"`         // The fax number.
-	HoursAvailable    interface{} `json:"hoursAvailable,omitempty"`    // The hours during which this service or contact is available.
-	ProductSupported  interface{} `json:"productSupported,omitempty"`  // The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. "iPhone") or a general category of products or services (e.g. "smartphones").
-	ServiceArea       interface{} `json:"serviceArea,omitempty"`       // The geographic area where the service is provided.
-	Telephone         interface{} `json:"telephone,omitempty"`         // The telephone number.
+	AreaServed        Values `json:"areaServed,omitempty"`        // The geographic area where a service or offered item is provided.
+	AvailableLanguage Values `json:"availableLanguage,omitempty"` // A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]]
+	ContactOption     Values `json:"contactOption,omitempty"`     // An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers).
+	ContactType       Values `json:"contactType,omitempty"`       // A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point.
+	Email             Values `json:"email,omitempty"`             // Email address.
+	FaxNumber         Values `json:"faxNumber,omitempty"`         // The fax number.
+	HoursAvailable    Values `json:"hoursAvailable,omitempty"`    // The hours during which this service or contact is available.
+	ProductSupported  Values `json:"productSupported,omitempty"`  // The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. "iPhone") or a general category of products or services (e.g. "smartphones").
+	ServiceArea       Values `json:"serviceArea,omitempty"`       // The geographic area where the service is provided.
+	Telephone         Values `json:"telephone,omitempty"`         // The telephone number.
 }
 
 // Enumerated options related to a ContactPoint.
@@ -3083,16 +3083,16 @@ type Conversation struct {
 type CookAction struct {
 	CreateAction
 
-	FoodEstablishment interface{} `json:"foodEstablishment,omitempty"` // A sub property of location. The specific food establishment where the action occurred.
-	FoodEvent         interface{} `json:"foodEvent,omitempty"`         // A sub property of location. The specific food event where the action occurred.
-	Recipe            interface{} `json:"recipe,omitempty"`            // A sub property of instrument. The recipe/instructions used to perform the action.
+	FoodEstablishment Values `json:"foodEstablishment,omitempty"` // A sub property of location. The specific food establishment where the action occurred.
+	FoodEvent         Values `json:"foodEvent,omitempty"`         // A sub property of location. The specific food event where the action occurred.
+	Recipe            Values `json:"recipe,omitempty"`            // A sub property of instrument. The recipe/instructions used to perform the action.
 }
 
 // Organization: A business corporation.
 type Corporation struct {
 	Organization
 
-	TickerSymbol interface{} `json:"tickerSymbol,omitempty"` // The exchange traded instrument associated with a Corporation object. The tickerSymbol is expressed as an exchange and an instrument name separated by a space character. For the exchange component of the tickerSymbol attribute, we recommend using the controlled vocabulary of Market Identifier Codes (MIC) specified in ISO15022.
+	TickerSymbol Values `json:"tickerSymbol,omitempty"` // The exchange traded instrument associated with a Corporation object. The tickerSymbol is expressed as an exchange and an instrument name separated by a space character. For the exchange component of the tickerSymbol attribute, we recommend using the controlled vocabulary of Market Identifier Codes (MIC) specified in ISO15022.
 }
 
 // A [[comment]] that corrects [[CreativeWork]].
@@ -3110,21 +3110,21 @@ type Course struct {
 	CreativeWork
 	// TODO: LearningResource
 
-	CourseCode                    interface{} `json:"courseCode,omitempty"`                    // The identifier for the [[Course]] used by the course [[provider]] (e.g. CS101 or 6.001).
-	CoursePrerequisites           interface{} `json:"coursePrerequisites,omitempty"`           // Requirements for taking the Course. May be completion of another [[Course]] or a textual description like "permission of instructor". Requirements may be a pre-requisite competency, referenced using [[AlignmentObject]].
-	EducationalCredentialAwarded  interface{} `json:"educationalCredentialAwarded,omitempty"`  // A description of the qualification, award, certificate, diploma or other educational credential awarded as a consequence of successful completion of this course or program.
-	HasCourseInstance             interface{} `json:"hasCourseInstance,omitempty"`             // An offering of the course at a specific time and place or through specific media or mode of study or to a specific section of students.
-	NumberOfCredits               interface{} `json:"numberOfCredits,omitempty"`               // The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.
-	OccupationalCredentialAwarded interface{} `json:"occupationalCredentialAwarded,omitempty"` // A description of the qualification, award, certificate, diploma or other occupational credential awarded as a consequence of successful completion of this course or program.
+	CourseCode                    Values `json:"courseCode,omitempty"`                    // The identifier for the [[Course]] used by the course [[provider]] (e.g. CS101 or 6.001).
+	CoursePrerequisites           Values `json:"coursePrerequisites,omitempty"`           // Requirements for taking the Course. May be completion of another [[Course]] or a textual description like "permission of instructor". Requirements may be a pre-requisite competency, referenced using [[AlignmentObject]].
+	EducationalCredentialAwarded  Values `json:"educationalCredentialAwarded,omitempty"`  // A description of the qualification, award, certificate, diploma or other educational credential awarded as a consequence of successful completion of this course or program.
+	HasCourseInstance             Values `json:"hasCourseInstance,omitempty"`             // An offering of the course at a specific time and place or through specific media or mode of study or to a specific section of students.
+	NumberOfCredits               Values `json:"numberOfCredits,omitempty"`               // The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.
+	OccupationalCredentialAwarded Values `json:"occupationalCredentialAwarded,omitempty"` // A description of the qualification, award, certificate, diploma or other occupational credential awarded as a consequence of successful completion of this course or program.
 }
 
 // An instance of a [[Course]] which is distinct from other instances because it is offered at a different time or location or through different media or modes of study or to a specific section of students.
 type CourseInstance struct {
 	Event
 
-	CourseMode     interface{} `json:"courseMode,omitempty"`     // The medium or means of delivery of the course instance or the mode of study, either as a text label (e.g. "online", "onsite" or "blended"; "synchronous" or "asynchronous"; "full-time" or "part-time") or as a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous ).
-	CourseWorkload interface{} `json:"courseWorkload,omitempty"` // The amount of work expected of students taking the course, often provided as a figure per week or per month, and may be broken down by type. For example, "2 hours of lectures, 1 hour of lab work and 3 hours of independent study per week".
-	Instructor     interface{} `json:"instructor,omitempty"`     // A person assigned to instruct or provide instructional assistance for the [[CourseInstance]].
+	CourseMode     Values `json:"courseMode,omitempty"`     // The medium or means of delivery of the course instance or the mode of study, either as a text label (e.g. "online", "onsite" or "blended"; "synchronous" or "asynchronous"; "full-time" or "part-time") or as a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous ).
+	CourseWorkload Values `json:"courseWorkload,omitempty"` // The amount of work expected of students taking the course, often provided as a figure per week or per month, and may be broken down by type. For example, "2 hours of lectures, 1 hour of lab work and 3 hours of independent study per week".
+	Instructor     Values `json:"instructor,omitempty"`     // A person assigned to instruct or provide instructional assistance for the [[CourseInstance]].
 }
 
 // A courthouse.
@@ -3157,193 +3157,193 @@ type CreateAction struct {
 type CreativeWork struct {
 	Thing
 
-	About                interface{} `json:"about,omitempty"`                // The subject matter of the content.
-	Abstract             interface{} `json:"abstract,omitempty"`             // An abstract is a short description that summarizes a [[CreativeWork]].
-	AccessMode           interface{} `json:"accessMode,omitempty"`           // The human sensory perceptual system or cognitive faculty through which a person may process or perceive information. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessMode-vocabulary).
-	AccessModeSufficient interface{} `json:"accessModeSufficient,omitempty"` // A list of single or combined accessModes that are sufficient to understand all the intellectual content of a resource. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessModeSufficient-vocabulary).
-	AccessibilityAPI     interface{} `json:"accessibilityAPI,omitempty"`     // Indicates that the resource is compatible with the referenced accessibility API. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityAPI-vocabulary).
-	AccessibilityControl interface{} `json:"accessibilityControl,omitempty"` // Identifies input methods that are sufficient to fully control the described resource. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityControl-vocabulary).
-	AccessibilityFeature interface{} `json:"accessibilityFeature,omitempty"` // Content features of the resource, such as accessible media, alternatives and supported enhancements for accessibility. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityFeature-vocabulary).
-	AccessibilityHazard  interface{} `json:"accessibilityHazard,omitempty"`  // A characteristic of the described resource that is physiologically dangerous to some users. Related to WCAG 2.0 guideline 2.3. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityHazard-vocabulary).
-	AccessibilitySummary interface{} `json:"accessibilitySummary,omitempty"` // A human-readable summary of specific accessibility features or deficiencies, consistent with the other accessibility metadata but expressing subtleties such as "short descriptions are present but long descriptions will be needed for non-visual users" or "short descriptions are present and no long descriptions are needed."
-	AccountablePerson    interface{} `json:"accountablePerson,omitempty"`    // Specifies the Person that is legally accountable for the CreativeWork.
-	AcquireLicensePage   interface{} `json:"acquireLicensePage,omitempty"`   // Indicates a page documenting how licenses can be purchased or otherwise acquired, for the current item.
-	AggregateRating      interface{} `json:"aggregateRating,omitempty"`      // The overall rating, based on a collection of reviews or ratings, of the item.
-	AlternativeHeadline  interface{} `json:"alternativeHeadline,omitempty"`  // A secondary title of the CreativeWork.
-	ArchivedAt           interface{} `json:"archivedAt,omitempty"`           // Indicates a page or other link involved in archival of a [[CreativeWork]]. In the case of [[MediaReview]], the items in a [[MediaReviewItem]] may often become inaccessible, but be archived by archival, journalistic, activist, or law enforcement organizations. In such cases, the referenced page may not directly publish the content.
-	Assesses             interface{} `json:"assesses,omitempty"`             // The item being described is intended to assess the competency or learning outcome defined by the referenced term.
-	AssociatedMedia      interface{} `json:"associatedMedia,omitempty"`      // A media object that encodes this CreativeWork. This property is a synonym for encoding.
-	Audience             interface{} `json:"audience,omitempty"`             // An intended audience, i.e. a group for whom something was created.
-	Audio                interface{} `json:"audio,omitempty"`                // An embedded audio object.
-	Author               interface{} `json:"author,omitempty"`               // The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.
-	Award                interface{} `json:"award,omitempty"`                // An award won by or for this item.
-	Awards               interface{} `json:"awards,omitempty"`               // Awards won by or for this item.
-	Character            interface{} `json:"character,omitempty"`            // Fictional person connected with a creative work.
-	Citation             interface{} `json:"citation,omitempty"`             // A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.
-	Comment              interface{} `json:"comment,omitempty"`              // Comments, typically from users.
-	CommentCount         interface{} `json:"commentCount,omitempty"`         // The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere.
-	ConditionsOfAccess   interface{} `json:"conditionsOfAccess,omitempty"`   // Conditions that affect the availability of, or method(s) of access to, an item. Typically used for real world items such as an [[ArchiveComponent]] held by an [[ArchiveOrganization]]. This property is not suitable for use as a general Web access control mechanism. It is expressed only in natural language.\n\nFor example "Available by appointment from the Reading Room" or "Accessible only from logged-in accounts ".
-	ContentLocation      interface{} `json:"contentLocation,omitempty"`      // The location depicted or described in the content. For example, the location in a photograph or painting.
-	ContentRating        interface{} `json:"contentRating,omitempty"`        // Official rating of a piece of content&#x2014;for example,'MPAA PG-13'.
-	ContentReferenceTime interface{} `json:"contentReferenceTime,omitempty"` // The specific time described by a creative work, for works (e.g. articles, video objects etc.) that emphasise a particular moment within an Event.
-	Contributor          interface{} `json:"contributor,omitempty"`          // A secondary contributor to the CreativeWork or Event.
-	CopyrightHolder      interface{} `json:"copyrightHolder,omitempty"`      // The party holding the legal copyright to the CreativeWork.
-	CopyrightNotice      interface{} `json:"copyrightNotice,omitempty"`      // Text of a notice appropriate for describing the copyright aspects of this Creative Work, ideally indicating the owner of the copyright for the Work.
-	CopyrightYear        interface{} `json:"copyrightYear,omitempty"`        // The year during which the claimed copyright for the CreativeWork was first asserted.
-	Correction           interface{} `json:"correction,omitempty"`           // Indicates a correction to a [[CreativeWork]], either via a [[CorrectionComment]], textually or in another document.
-	CountryOfOrigin      interface{} `json:"countryOfOrigin,omitempty"`      /*
+	About                Values `json:"about,omitempty"`                // The subject matter of the content.
+	Abstract             Values `json:"abstract,omitempty"`             // An abstract is a short description that summarizes a [[CreativeWork]].
+	AccessMode           Values `json:"accessMode,omitempty"`           // The human sensory perceptual system or cognitive faculty through which a person may process or perceive information. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessMode-vocabulary).
+	AccessModeSufficient Values `json:"accessModeSufficient,omitempty"` // A list of single or combined accessModes that are sufficient to understand all the intellectual content of a resource. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessModeSufficient-vocabulary).
+	AccessibilityAPI     Values `json:"accessibilityAPI,omitempty"`     // Indicates that the resource is compatible with the referenced accessibility API. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityAPI-vocabulary).
+	AccessibilityControl Values `json:"accessibilityControl,omitempty"` // Identifies input methods that are sufficient to fully control the described resource. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityControl-vocabulary).
+	AccessibilityFeature Values `json:"accessibilityFeature,omitempty"` // Content features of the resource, such as accessible media, alternatives and supported enhancements for accessibility. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityFeature-vocabulary).
+	AccessibilityHazard  Values `json:"accessibilityHazard,omitempty"`  // A characteristic of the described resource that is physiologically dangerous to some users. Related to WCAG 2.0 guideline 2.3. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityHazard-vocabulary).
+	AccessibilitySummary Values `json:"accessibilitySummary,omitempty"` // A human-readable summary of specific accessibility features or deficiencies, consistent with the other accessibility metadata but expressing subtleties such as "short descriptions are present but long descriptions will be needed for non-visual users" or "short descriptions are present and no long descriptions are needed."
+	AccountablePerson    Values `json:"accountablePerson,omitempty"`    // Specifies the Person that is legally accountable for the CreativeWork.
+	AcquireLicensePage   Values `json:"acquireLicensePage,omitempty"`   // Indicates a page documenting how licenses can be purchased or otherwise acquired, for the current item.
+	AggregateRating      Values `json:"aggregateRating,omitempty"`      // The overall rating, based on a collection of reviews or ratings, of the item.
+	AlternativeHeadline  Values `json:"alternativeHeadline,omitempty"`  // A secondary title of the CreativeWork.
+	ArchivedAt           Values `json:"archivedAt,omitempty"`           // Indicates a page or other link involved in archival of a [[CreativeWork]]. In the case of [[MediaReview]], the items in a [[MediaReviewItem]] may often become inaccessible, but be archived by archival, journalistic, activist, or law enforcement organizations. In such cases, the referenced page may not directly publish the content.
+	Assesses             Values `json:"assesses,omitempty"`             // The item being described is intended to assess the competency or learning outcome defined by the referenced term.
+	AssociatedMedia      Values `json:"associatedMedia,omitempty"`      // A media object that encodes this CreativeWork. This property is a synonym for encoding.
+	Audience             Values `json:"audience,omitempty"`             // An intended audience, i.e. a group for whom something was created.
+	Audio                Values `json:"audio,omitempty"`                // An embedded audio object.
+	Author               Values `json:"author,omitempty"`               // The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.
+	Award                Values `json:"award,omitempty"`                // An award won by or for this item.
+	Awards               Values `json:"awards,omitempty"`               // Awards won by or for this item.
+	Character            Values `json:"character,omitempty"`            // Fictional person connected with a creative work.
+	Citation             Values `json:"citation,omitempty"`             // A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.
+	Comment              Values `json:"comment,omitempty"`              // Comments, typically from users.
+	CommentCount         Values `json:"commentCount,omitempty"`         // The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere.
+	ConditionsOfAccess   Values `json:"conditionsOfAccess,omitempty"`   // Conditions that affect the availability of, or method(s) of access to, an item. Typically used for real world items such as an [[ArchiveComponent]] held by an [[ArchiveOrganization]]. This property is not suitable for use as a general Web access control mechanism. It is expressed only in natural language.\n\nFor example "Available by appointment from the Reading Room" or "Accessible only from logged-in accounts ".
+	ContentLocation      Values `json:"contentLocation,omitempty"`      // The location depicted or described in the content. For example, the location in a photograph or painting.
+	ContentRating        Values `json:"contentRating,omitempty"`        // Official rating of a piece of content&#x2014;for example,'MPAA PG-13'.
+	ContentReferenceTime Values `json:"contentReferenceTime,omitempty"` // The specific time described by a creative work, for works (e.g. articles, video objects etc.) that emphasise a particular moment within an Event.
+	Contributor          Values `json:"contributor,omitempty"`          // A secondary contributor to the CreativeWork or Event.
+	CopyrightHolder      Values `json:"copyrightHolder,omitempty"`      // The party holding the legal copyright to the CreativeWork.
+	CopyrightNotice      Values `json:"copyrightNotice,omitempty"`      // Text of a notice appropriate for describing the copyright aspects of this Creative Work, ideally indicating the owner of the copyright for the Work.
+	CopyrightYear        Values `json:"copyrightYear,omitempty"`        // The year during which the claimed copyright for the CreativeWork was first asserted.
+	Correction           Values `json:"correction,omitempty"`           // Indicates a correction to a [[CreativeWork]], either via a [[CorrectionComment]], textually or in another document.
+	CountryOfOrigin      Values `json:"countryOfOrigin,omitempty"`      /*
 	The country of origin of something, including products as well as creative  works such as movie and TV content.
 
 	In the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of [[CreativeWork]] it is difficult to provide fully general guidance, and properties such as [[contentLocation]] and [[locationCreated]] may be more applicable.
 
 	In the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.
 	*/
-	CreativeWorkStatus interface{} `json:"creativeWorkStatus,omitempty"` // The status of a creative work in terms of its stage in a lifecycle. Example terms include Incomplete, Draft, Published, Obsolete. Some organizations define a set of terms for the stages of their publication lifecycle.
-	Creator            interface{} `json:"creator,omitempty"`            // The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.
-	CreditText         interface{} `json:"creditText,omitempty"`         // Text that can be used to credit person(s) and/or organization(s) associated with a published Creative Work.
-	DateCreated        interface{} `json:"dateCreated,omitempty"`        // The date on which the CreativeWork was created or the item was added to a DataFeed.
-	DateModified       interface{} `json:"dateModified,omitempty"`       // The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.
-	DatePublished      interface{} `json:"datePublished,omitempty"`      // Date of first broadcast/publication.
-	DiscussionUrl      interface{} `json:"discussionUrl,omitempty"`      // A link to the page containing the comments of the CreativeWork.
-	EditEIDR           interface{} `json:"editEIDR,omitempty"`           /*
+	CreativeWorkStatus Values `json:"creativeWorkStatus,omitempty"` // The status of a creative work in terms of its stage in a lifecycle. Example terms include Incomplete, Draft, Published, Obsolete. Some organizations define a set of terms for the stages of their publication lifecycle.
+	Creator            Values `json:"creator,omitempty"`            // The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.
+	CreditText         Values `json:"creditText,omitempty"`         // Text that can be used to credit person(s) and/or organization(s) associated with a published Creative Work.
+	DateCreated        Values `json:"dateCreated,omitempty"`        // The date on which the CreativeWork was created or the item was added to a DataFeed.
+	DateModified       Values `json:"dateModified,omitempty"`       // The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.
+	DatePublished      Values `json:"datePublished,omitempty"`      // Date of first broadcast/publication.
+	DiscussionUrl      Values `json:"discussionUrl,omitempty"`      // A link to the page containing the comments of the CreativeWork.
+	EditEIDR           Values `json:"editEIDR,omitempty"`           /*
 	An [EIDR](https://eidr.org/) (Entertainment Identifier Registry) [[identifier]] representing a specific edit / edition for a work of film or television.
 
 	For example, the motion picture known as "Ghostbusters" whose [[titleEIDR]] is "10.5240/7EC7-228A-510A-053E-CBB8-J", has several edits e.g. "10.5240/1F2A-E1C5-680A-14C6-E76B-I" and "10.5240/8A35-3BEE-6497-5D12-9E4F-3".
 
 	Since schema.org types like [[Movie]] and [[TVEpisode]] can be used for both works and their multiple expressions, it is possible to use [[titleEIDR]] alone (for a general description), or alongside [[editEIDR]] for a more edit-specific description.
 	*/
-	Editor               interface{} `json:"editor,omitempty"`               // Specifies the Person who edited the CreativeWork.
-	EducationalAlignment interface{} `json:"educationalAlignment,omitempty"` /*
+	Editor               Values `json:"editor,omitempty"`               // Specifies the Person who edited the CreativeWork.
+	EducationalAlignment Values `json:"educationalAlignment,omitempty"` /*
 	An alignment to an established educational framework.
 
 	This property should not be used where the nature of the alignment can be described using a simple property, for example to express that a resource [[teaches]] or [[assesses]] a competency.
 	*/
-	EducationalLevel interface{} `json:"educationalLevel,omitempty"` // The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
-	EducationalUse   interface{} `json:"educationalUse,omitempty"`   // The purpose of a work in the context of education; for example, 'assignment', 'group work'.
-	Encoding         interface{} `json:"encoding,omitempty"`         // A media object that encodes this CreativeWork. This property is a synonym for associatedMedia.
-	EncodingFormat   interface{} `json:"encodingFormat,omitempty"`   /*
+	EducationalLevel Values `json:"educationalLevel,omitempty"` // The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
+	EducationalUse   Values `json:"educationalUse,omitempty"`   // The purpose of a work in the context of education; for example, 'assignment', 'group work'.
+	Encoding         Values `json:"encoding,omitempty"`         // A media object that encodes this CreativeWork. This property is a synonym for associatedMedia.
+	EncodingFormat   Values `json:"encodingFormat,omitempty"`   /*
 	Media type typically expressed using a MIME format (see [IANA site](http://www.iana.org/assignments/media-types/media-types.xhtml) and [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)) e.g. application/zip for a SoftwareApplication binary, audio/mpeg for .mp3 etc.).
 
 	In cases where a [[CreativeWork]] has several media type representations, [[encoding]] can be used to indicate each [[MediaObject]] alongside particular [[encodingFormat]] information.
 
 	Unregistered or niche encoding and file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia/Wikidata entry.
 	*/
-	Encodings            interface{} `json:"encodings,omitempty"`            // A media object that encodes this CreativeWork.
-	ExampleOfWork        interface{} `json:"exampleOfWork,omitempty"`        // A creative work that this work is an example/instance/realization/derivation of.
-	Expires              interface{} `json:"expires,omitempty"`              // Date the content expires and is no longer useful or available. For example a [[VideoObject]] or [[NewsArticle]] whose availability or relevance is time-limited, or a [[ClaimReview]] fact check whose publisher wants to indicate that it may no longer be relevant (or helpful to highlight) after some date.
-	FileFormat           interface{} `json:"fileFormat,omitempty"`           // Media type, typically MIME format (see [IANA site](http://www.iana.org/assignments/media-types/media-types.xhtml)) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry.
-	Funder               interface{} `json:"funder,omitempty"`               // A person or organization that supports (sponsors) something through some kind of financial contribution.
-	Funding              interface{} `json:"funding,omitempty"`              // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
-	Genre                interface{} `json:"genre,omitempty"`                // Genre of the creative work, broadcast channel or group.
-	HasPart              interface{} `json:"hasPart,omitempty"`              // Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).
-	Headline             interface{} `json:"headline,omitempty"`             // Headline of the article.
-	InLanguage           interface{} `json:"inLanguage,omitempty"`           // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
-	InteractionStatistic interface{} `json:"interactionStatistic,omitempty"` // The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.
-	InteractivityType    interface{} `json:"interactivityType,omitempty"`    // The predominant mode of learning supported by the learning resource. Acceptable values are 'active', 'expositive', or 'mixed'.
-	InterpretedAsClaim   interface{} `json:"interpretedAsClaim,omitempty"`   // Used to indicate a specific claim contained, implied, translated or refined from the content of a [[MediaObject]] or other [[CreativeWork]]. The interpreting party can be indicated using [[claimInterpreter]].
-	IsAccessibleForFree  interface{} `json:"isAccessibleForFree,omitempty"`  // A flag to signal that the item, event, or place is accessible for free.
-	IsBasedOn            interface{} `json:"isBasedOn,omitempty"`            // A resource from which this work is derived or from which it is a modification or adaption.
-	IsBasedOnUrl         interface{} `json:"isBasedOnUrl,omitempty"`         // A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html.
-	IsFamilyFriendly     interface{} `json:"isFamilyFriendly,omitempty"`     // Indicates whether this content is family friendly.
-	IsPartOf             interface{} `json:"isPartOf,omitempty"`             // Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.
-	Keywords             interface{} `json:"keywords,omitempty"`             // Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
-	LearningResourceType interface{} `json:"learningResourceType,omitempty"` // The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.
-	License              interface{} `json:"license,omitempty"`              // A license document that applies to this content, typically indicated by URL.
-	LocationCreated      interface{} `json:"locationCreated,omitempty"`      // The location where the CreativeWork was created, which may not be the same as the location depicted in the CreativeWork.
-	MainEntity           interface{} `json:"mainEntity,omitempty"`           // Indicates the primary entity described in some page or other CreativeWork.
-	Maintainer           interface{} `json:"maintainer,omitempty"`           /*
+	Encodings            Values `json:"encodings,omitempty"`            // A media object that encodes this CreativeWork.
+	ExampleOfWork        Values `json:"exampleOfWork,omitempty"`        // A creative work that this work is an example/instance/realization/derivation of.
+	Expires              Values `json:"expires,omitempty"`              // Date the content expires and is no longer useful or available. For example a [[VideoObject]] or [[NewsArticle]] whose availability or relevance is time-limited, or a [[ClaimReview]] fact check whose publisher wants to indicate that it may no longer be relevant (or helpful to highlight) after some date.
+	FileFormat           Values `json:"fileFormat,omitempty"`           // Media type, typically MIME format (see [IANA site](http://www.iana.org/assignments/media-types/media-types.xhtml)) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry.
+	Funder               Values `json:"funder,omitempty"`               // A person or organization that supports (sponsors) something through some kind of financial contribution.
+	Funding              Values `json:"funding,omitempty"`              // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
+	Genre                Values `json:"genre,omitempty"`                // Genre of the creative work, broadcast channel or group.
+	HasPart              Values `json:"hasPart,omitempty"`              // Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).
+	Headline             Values `json:"headline,omitempty"`             // Headline of the article.
+	InLanguage           Values `json:"inLanguage,omitempty"`           // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+	InteractionStatistic Values `json:"interactionStatistic,omitempty"` // The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.
+	InteractivityType    Values `json:"interactivityType,omitempty"`    // The predominant mode of learning supported by the learning resource. Acceptable values are 'active', 'expositive', or 'mixed'.
+	InterpretedAsClaim   Values `json:"interpretedAsClaim,omitempty"`   // Used to indicate a specific claim contained, implied, translated or refined from the content of a [[MediaObject]] or other [[CreativeWork]]. The interpreting party can be indicated using [[claimInterpreter]].
+	IsAccessibleForFree  Values `json:"isAccessibleForFree,omitempty"`  // A flag to signal that the item, event, or place is accessible for free.
+	IsBasedOn            Values `json:"isBasedOn,omitempty"`            // A resource from which this work is derived or from which it is a modification or adaption.
+	IsBasedOnUrl         Values `json:"isBasedOnUrl,omitempty"`         // A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html.
+	IsFamilyFriendly     Values `json:"isFamilyFriendly,omitempty"`     // Indicates whether this content is family friendly.
+	IsPartOf             Values `json:"isPartOf,omitempty"`             // Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.
+	Keywords             Values `json:"keywords,omitempty"`             // Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
+	LearningResourceType Values `json:"learningResourceType,omitempty"` // The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.
+	License              Values `json:"license,omitempty"`              // A license document that applies to this content, typically indicated by URL.
+	LocationCreated      Values `json:"locationCreated,omitempty"`      // The location where the CreativeWork was created, which may not be the same as the location depicted in the CreativeWork.
+	MainEntity           Values `json:"mainEntity,omitempty"`           // Indicates the primary entity described in some page or other CreativeWork.
+	Maintainer           Values `json:"maintainer,omitempty"`           /*
 	A maintainer of a [[Dataset]], software package ([[SoftwareApplication]]), or other [[Project]]. A maintainer is a [[Person]] or [[Organization]] that manages contributions to, and/or publication of, some (typically complex) artifact. It is common for distributions of software and data to be based on "upstream" sources. When [[maintainer]] is applied to a specific version of something e.g. a particular version or packaging of a [[Dataset]], it is always  possible that the upstream source has a different maintainer. The [[isBasedOn]] property can be used to indicate such relationships between datasets to make the different maintenance roles clear. Similarly in the case of software, a package may have dedicated maintainers working on integration into software distributions such as Ubuntu, as well as upstream maintainers of the underlying work.
 
 	*/
-	Material       interface{} `json:"material,omitempty"`       // A material that something is made from, e.g. leather, wool, cotton, paper.
-	MaterialExtent interface{} `json:"materialExtent,omitempty"` //
-	Mentions       interface{} `json:"mentions,omitempty"`       // Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept.
-	Offers         interface{} `json:"offers,omitempty"`         /*
+	Material       Values `json:"material,omitempty"`       // A material that something is made from, e.g. leather, wool, cotton, paper.
+	MaterialExtent Values `json:"materialExtent,omitempty"` //
+	Mentions       Values `json:"mentions,omitempty"`       // Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept.
+	Offers         Values `json:"offers,omitempty"`         /*
 	An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
 
 	*/
-	Pattern              interface{} `json:"pattern,omitempty"`              // A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'. Values are typically expressed as text, although links to controlled value schemes are also supported.
-	Position             interface{} `json:"position,omitempty"`             // The position of an item in a series or sequence of items.
-	Producer             interface{} `json:"producer,omitempty"`             // The person or organization who produced the work (e.g. music album, movie, tv/radio series etc.).
-	Provider             interface{} `json:"provider,omitempty"`             // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
-	Publication          interface{} `json:"publication,omitempty"`          // A publication event associated with the item.
-	Publisher            interface{} `json:"publisher,omitempty"`            // The publisher of the creative work.
-	PublisherImprint     interface{} `json:"publisherImprint,omitempty"`     // The publishing division which published the comic.
-	PublishingPrinciples interface{} `json:"publishingPrinciples,omitempty"` /*
+	Pattern              Values `json:"pattern,omitempty"`              // A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'. Values are typically expressed as text, although links to controlled value schemes are also supported.
+	Position             Values `json:"position,omitempty"`             // The position of an item in a series or sequence of items.
+	Producer             Values `json:"producer,omitempty"`             // The person or organization who produced the work (e.g. music album, movie, tv/radio series etc.).
+	Provider             Values `json:"provider,omitempty"`             // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+	Publication          Values `json:"publication,omitempty"`          // A publication event associated with the item.
+	Publisher            Values `json:"publisher,omitempty"`            // The publisher of the creative work.
+	PublisherImprint     Values `json:"publisherImprint,omitempty"`     // The publishing division which published the comic.
+	PublishingPrinciples Values `json:"publishingPrinciples,omitempty"` /*
 	The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].
 
 	While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology.
 	*/
-	RecordedAt    interface{} `json:"recordedAt,omitempty"`    // The Event where the CreativeWork was recorded. The CreativeWork may capture all or part of the event.
-	ReleasedEvent interface{} `json:"releasedEvent,omitempty"` // The place and time the release was issued, expressed as a PublicationEvent.
-	Review        interface{} `json:"review,omitempty"`        // A review of the item.
-	Reviews       interface{} `json:"reviews,omitempty"`       // Review of the item.
-	SchemaVersion interface{} `json:"schemaVersion,omitempty"` /*
+	RecordedAt    Values `json:"recordedAt,omitempty"`    // The Event where the CreativeWork was recorded. The CreativeWork may capture all or part of the event.
+	ReleasedEvent Values `json:"releasedEvent,omitempty"` // The place and time the release was issued, expressed as a PublicationEvent.
+	Review        Values `json:"review,omitempty"`        // A review of the item.
+	Reviews       Values `json:"reviews,omitempty"`       // Review of the item.
+	SchemaVersion Values `json:"schemaVersion,omitempty"` /*
 	Indicates (by URL or string) a particular version of a schema used in some CreativeWork. This property was created primarily to
 	    indicate the use of a specific schema.org release, e.g. ```10.0``` as a simple string, or more explicitly via URL, ```https://schema.org/docs/releases.html#v10.0```. There may be situations in which other schemas might usefully be referenced this way, e.g. ```http://dublincore.org/specifications/dublin-core/dces/1999-07-02/``` but this has not been carefully explored in the community.
 	*/
-	SdDatePublished interface{} `json:"sdDatePublished,omitempty"` // Indicates the date on which the current structured data was generated / published. Typically used alongside [[sdPublisher]]
-	SdLicense       interface{} `json:"sdLicense,omitempty"`       // A license document that applies to this structured data, typically indicated by URL.
-	SdPublisher     interface{} `json:"sdPublisher,omitempty"`     /*
+	SdDatePublished Values `json:"sdDatePublished,omitempty"` // Indicates the date on which the current structured data was generated / published. Typically used alongside [[sdPublisher]]
+	SdLicense       Values `json:"sdLicense,omitempty"`       // A license document that applies to this structured data, typically indicated by URL.
+	SdPublisher     Values `json:"sdPublisher,omitempty"`     /*
 	Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The
 	[[sdPublisher]] property helps make such practices more explicit.
 	*/
-	Size               interface{} `json:"size,omitempty"`               // A standardized size of a product or creative work, specified either through a simple textual string (for example 'XL', '32Wx34L'), a  QuantitativeValue with a unitCode, or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]], [[height]], [[depth]] and [[weight]] properties may be more applicable.
-	SourceOrganization interface{} `json:"sourceOrganization,omitempty"` // The Organization on whose behalf the creator was working.
-	Spatial            interface{} `json:"spatial,omitempty"`            /*
+	Size               Values `json:"size,omitempty"`               // A standardized size of a product or creative work, specified either through a simple textual string (for example 'XL', '32Wx34L'), a  QuantitativeValue with a unitCode, or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]], [[height]], [[depth]] and [[weight]] properties may be more applicable.
+	SourceOrganization Values `json:"sourceOrganization,omitempty"` // The Organization on whose behalf the creator was working.
+	Spatial            Values `json:"spatial,omitempty"`            /*
 	The "spatial" property can be used in cases when more specific properties
 	(e.g. [[locationCreated]], [[spatialCoverage]], [[contentLocation]]) are not known to be appropriate.
 	*/
-	SpatialCoverage interface{} `json:"spatialCoverage,omitempty"` /*
+	SpatialCoverage Values `json:"spatialCoverage,omitempty"` /*
 	The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content. It is a subproperty of
 	      contentLocation intended primarily for more technical and detailed materials. For example with a Dataset, it indicates
 	      areas that the dataset describes: a dataset of New York weather would have spatialCoverage which was the place: the state of New York.
 	*/
-	Sponsor  interface{} `json:"sponsor,omitempty"`  // A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
-	Teaches  interface{} `json:"teaches,omitempty"`  // The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.
-	Temporal interface{} `json:"temporal,omitempty"` /*
+	Sponsor  Values `json:"sponsor,omitempty"`  // A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+	Teaches  Values `json:"teaches,omitempty"`  // The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.
+	Temporal Values `json:"temporal,omitempty"` /*
 	The "temporal" property can be used in cases where more specific properties
 	(e.g. [[temporalCoverage]], [[dateCreated]], [[dateModified]], [[datePublished]]) are not known to be appropriate.
 	*/
-	TemporalCoverage interface{} `json:"temporalCoverage,omitempty"` /*
+	TemporalCoverage Values `json:"temporalCoverage,omitempty"` /*
 	The temporalCoverage of a CreativeWork indicates the period that the content applies to, i.e. that it describes, either as a DateTime or as a textual string indicating a time period in [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals). In
 	      the case of a Dataset it will typically indicate the relevant time period in a precise notation (e.g. for a 2011 census dataset, the year 2011 would be written "2011/2012"). Other forms of content e.g. ScholarlyArticle, Book, TVSeries or TVEpisode may indicate their temporalCoverage in broader terms - textually or via well-known URL.
 	      Written works such as books may sometimes have precise temporal coverage too, e.g. a work set in 1939 - 1945 can be indicated in ISO 8601 interval format format via "1939/1945".
 
 	Open-ended date ranges can be written with ".." in place of the end date. For example, "2015-11/.." indicates a range beginning in November 2015 and with no specified final date. This is tentative and might be updated in future when ISO 8601 is officially updated.
 	*/
-	Text              interface{} `json:"text,omitempty"`              // The textual content of this CreativeWork.
-	ThumbnailUrl      interface{} `json:"thumbnailUrl,omitempty"`      // A thumbnail image relevant to the Thing.
-	TimeRequired      interface{} `json:"timeRequired,omitempty"`      // Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'PT30M', 'PT1H25M'.
-	TranslationOfWork interface{} `json:"translationOfWork,omitempty"` // The work that this work has been translated from. e.g. 物种起源 is a translationOf “On the Origin of Species”
-	Translator        interface{} `json:"translator,omitempty"`        // Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event.
-	TypicalAgeRange   interface{} `json:"typicalAgeRange,omitempty"`   // The typical expected age range, e.g. '7-9', '11-'.
-	UsageInfo         interface{} `json:"usageInfo,omitempty"`         /*
+	Text              Values `json:"text,omitempty"`              // The textual content of this CreativeWork.
+	ThumbnailUrl      Values `json:"thumbnailUrl,omitempty"`      // A thumbnail image relevant to the Thing.
+	TimeRequired      Values `json:"timeRequired,omitempty"`      // Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'PT30M', 'PT1H25M'.
+	TranslationOfWork Values `json:"translationOfWork,omitempty"` // The work that this work has been translated from. e.g. 物种起源 is a translationOf “On the Origin of Species”
+	Translator        Values `json:"translator,omitempty"`        // Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event.
+	TypicalAgeRange   Values `json:"typicalAgeRange,omitempty"`   // The typical expected age range, e.g. '7-9', '11-'.
+	UsageInfo         Values `json:"usageInfo,omitempty"`         /*
 	The schema.org [[usageInfo]] property indicates further information about a [[CreativeWork]]. This property is applicable both to works that are freely available and to those that require payment or other transactions. It can reference additional information e.g. community expectations on preferred linking and citation conventions, as well as purchasing details. For something that can be commercially licensed, usageInfo can provide detailed, resource-specific information about licensing options.
 
 	This property can be used alongside the license property which indicates license(s) applicable to some piece of content. The usageInfo property can provide information about other licensing options, e.g. acquiring commercial usage rights for an image that is also available under non-commercial creative commons licenses.
 	*/
-	Version         interface{} `json:"version,omitempty"`         // The version of the CreativeWork embodied by a specified resource.
-	Video           interface{} `json:"video,omitempty"`           // An embedded video object.
-	WorkExample     interface{} `json:"workExample,omitempty"`     // Example/instance/realization/derivation of the concept of this creative work. eg. The paperback edition, first edition, or eBook.
-	WorkTranslation interface{} `json:"workTranslation,omitempty"` // A work that is a translation of the content of this work. e.g. 西遊記 has an English workTranslation “Journey to the West”,a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo.
+	Version         Values `json:"version,omitempty"`         // The version of the CreativeWork embodied by a specified resource.
+	Video           Values `json:"video,omitempty"`           // An embedded video object.
+	WorkExample     Values `json:"workExample,omitempty"`     // Example/instance/realization/derivation of the concept of this creative work. eg. The paperback edition, first edition, or eBook.
+	WorkTranslation Values `json:"workTranslation,omitempty"` // A work that is a translation of the content of this work. e.g. 西遊記 has an English workTranslation “Journey to the West”,a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo.
 }
 
 // A media season e.g. tv, radio, video game etc.
 type CreativeWorkSeason struct {
 	CreativeWork
 
-	Actor             interface{} `json:"actor,omitempty"`             // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
-	Director          interface{} `json:"director,omitempty"`          // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
-	EndDate           interface{} `json:"endDate,omitempty"`           // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
-	Episode           interface{} `json:"episode,omitempty"`           // An episode of a tv, radio or game media within a series or season.
-	Episodes          interface{} `json:"episodes,omitempty"`          // An episode of a TV/radio series or season.
-	NumberOfEpisodes  interface{} `json:"numberOfEpisodes,omitempty"`  // The number of episodes in this season or series.
-	PartOfSeries      interface{} `json:"partOfSeries,omitempty"`      // The series to which this episode or season belongs.
-	ProductionCompany interface{} `json:"productionCompany,omitempty"` // The production company or studio responsible for the item e.g. series, video game, episode etc.
-	SeasonNumber      interface{} `json:"seasonNumber,omitempty"`      // Position of the season within an ordered group of seasons.
-	StartDate         interface{} `json:"startDate,omitempty"`         // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
-	Trailer           interface{} `json:"trailer,omitempty"`           // The trailer of a movie or tv/radio series, season, episode, etc.
+	Actor             Values `json:"actor,omitempty"`             // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+	Director          Values `json:"director,omitempty"`          // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
+	EndDate           Values `json:"endDate,omitempty"`           // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	Episode           Values `json:"episode,omitempty"`           // An episode of a tv, radio or game media within a series or season.
+	Episodes          Values `json:"episodes,omitempty"`          // An episode of a TV/radio series or season.
+	NumberOfEpisodes  Values `json:"numberOfEpisodes,omitempty"`  // The number of episodes in this season or series.
+	PartOfSeries      Values `json:"partOfSeries,omitempty"`      // The series to which this episode or season belongs.
+	ProductionCompany Values `json:"productionCompany,omitempty"` // The production company or studio responsible for the item e.g. series, video game, episode etc.
+	SeasonNumber      Values `json:"seasonNumber,omitempty"`      // Position of the season within an ordered group of seasons.
+	StartDate         Values `json:"startDate,omitempty"`         // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	Trailer           Values `json:"trailer,omitempty"`           // The trailer of a movie or tv/radio series, season, episode, etc.
 }
 
 /*
@@ -3354,9 +3354,9 @@ type CreativeWorkSeries struct {
 	CreativeWork
 	// TODO: Series
 
-	EndDate   interface{} `json:"endDate,omitempty"`   // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
-	Issn      interface{} `json:"issn,omitempty"`      // The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
-	StartDate interface{} `json:"startDate,omitempty"` // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	EndDate   Values `json:"endDate,omitempty"`   // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	Issn      Values `json:"issn,omitempty"`      // The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
+	StartDate Values `json:"startDate,omitempty"` // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
 }
 
 /*
@@ -3392,8 +3392,8 @@ type CurrencyConversionService struct {
 type DDxElement struct {
 	MedicalIntangible
 
-	Diagnosis          interface{} `json:"diagnosis,omitempty"`          // One or more alternative conditions considered in the differential diagnosis process as output of a diagnosis process.
-	DistinguishingSign interface{} `json:"distinguishingSign,omitempty"` // One of a set of signs and symptoms that can be used to distinguish this diagnosis from others in the differential diagnosis.
+	Diagnosis          Values `json:"diagnosis,omitempty"`          // One or more alternative conditions considered in the differential diagnosis process as output of a diagnosis process.
+	DistinguishingSign Values `json:"distinguishingSign,omitempty"` // One of a set of signs and symptoms that can be used to distinguish this diagnosis from others in the differential diagnosis.
 }
 
 // Event type: A social dance.
@@ -3410,8 +3410,8 @@ type DanceGroup struct {
 type DataCatalog struct {
 	CreativeWork
 
-	Dataset              interface{} `json:"dataset,omitempty"`              // A dataset contained in this catalog.
-	MeasurementTechnique interface{} `json:"measurementTechnique,omitempty"` /*
+	Dataset              Values `json:"dataset,omitempty"`              // A dataset contained in this catalog.
+	MeasurementTechnique Values `json:"measurementTechnique,omitempty"` /*
 	A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),
 	corresponding to the method used for measuring the corresponding variable(s) (described using [[variableMeasured]]). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.
 
@@ -3428,7 +3428,7 @@ type DataCatalog struct {
 type DataDownload struct {
 	MediaObject
 
-	MeasurementTechnique interface{} `json:"measurementTechnique,omitempty"` /*
+	MeasurementTechnique Values `json:"measurementTechnique,omitempty"` /*
 	A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),
 	corresponding to the method used for measuring the corresponding variable(s) (described using [[variableMeasured]]). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.
 
@@ -3445,17 +3445,17 @@ type DataDownload struct {
 type DataFeed struct {
 	Dataset
 
-	DataFeedElement interface{} `json:"dataFeedElement,omitempty"` // An item within in a data feed. Data feeds may have many elements.
+	DataFeedElement Values `json:"dataFeedElement,omitempty"` // An item within in a data feed. Data feeds may have many elements.
 }
 
 // A single item within a larger data feed.
 type DataFeedItem struct {
 	Intangible
 
-	DateCreated  interface{} `json:"dateCreated,omitempty"`  // The date on which the CreativeWork was created or the item was added to a DataFeed.
-	DateDeleted  interface{} `json:"dateDeleted,omitempty"`  // The datetime the item was removed from the DataFeed.
-	DateModified interface{} `json:"dateModified,omitempty"` // The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.
-	Item         interface{} `json:"item,omitempty"`         // An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')’.
+	DateCreated  Values `json:"dateCreated,omitempty"`  // The date on which the CreativeWork was created or the item was added to a DataFeed.
+	DateDeleted  Values `json:"dateDeleted,omitempty"`  // The datetime the item was removed from the DataFeed.
+	DateModified Values `json:"dateModified,omitempty"` // The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.
+	Item         Values `json:"item,omitempty"`         // An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')’.
 }
 
 // The basic data types such as Integers, Strings, etc.
@@ -3465,13 +3465,13 @@ type DataType struct{}
 type Dataset struct {
 	CreativeWork
 
-	Catalog               interface{} `json:"catalog,omitempty"`               // A data catalog which contains this dataset.
-	DatasetTimeInterval   interface{} `json:"datasetTimeInterval,omitempty"`   // The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the year 2011 (in ISO 8601 time interval format).
-	Distribution          interface{} `json:"distribution,omitempty"`          // A downloadable form of this dataset, at a specific location, in a specific format.
-	IncludedDataCatalog   interface{} `json:"includedDataCatalog,omitempty"`   // A data catalog which contains this dataset (this property was previously 'catalog', preferred name is now 'includedInDataCatalog').
-	IncludedInDataCatalog interface{} `json:"includedInDataCatalog,omitempty"` // A data catalog which contains this dataset.
-	Issn                  interface{} `json:"issn,omitempty"`                  // The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
-	MeasurementTechnique  interface{} `json:"measurementTechnique,omitempty"`  /*
+	Catalog               Values `json:"catalog,omitempty"`               // A data catalog which contains this dataset.
+	DatasetTimeInterval   Values `json:"datasetTimeInterval,omitempty"`   // The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the year 2011 (in ISO 8601 time interval format).
+	Distribution          Values `json:"distribution,omitempty"`          // A downloadable form of this dataset, at a specific location, in a specific format.
+	IncludedDataCatalog   Values `json:"includedDataCatalog,omitempty"`   // A data catalog which contains this dataset (this property was previously 'catalog', preferred name is now 'includedInDataCatalog').
+	IncludedInDataCatalog Values `json:"includedInDataCatalog,omitempty"` // A data catalog which contains this dataset.
+	Issn                  Values `json:"issn,omitempty"`                  // The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
+	MeasurementTechnique  Values `json:"measurementTechnique,omitempty"`  /*
 	A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),
 	corresponding to the method used for measuring the corresponding variable(s) (described using [[variableMeasured]]). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.
 
@@ -3482,7 +3482,7 @@ type Dataset struct {
 	If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]].
 
 	*/
-	VariableMeasured interface{} `json:"variableMeasured,omitempty"` // The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.
+	VariableMeasured Values `json:"variableMeasured,omitempty"` // The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.
 }
 
 // A date value in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
@@ -3495,10 +3495,10 @@ type DateTime struct{}
 type DatedMoneySpecification struct {
 	StructuredValue
 
-	Amount    interface{} `json:"amount,omitempty"`    // The amount of money.
-	Currency  interface{} `json:"currency,omitempty"`  // The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
-	EndDate   interface{} `json:"endDate,omitempty"`   // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
-	StartDate interface{} `json:"startDate,omitempty"` // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	Amount    Values `json:"amount,omitempty"`    // The amount of money.
+	Currency  Values `json:"currency,omitempty"`  // The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
+	EndDate   Values `json:"endDate,omitempty"`   // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	StartDate Values `json:"startDate,omitempty"` // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
 }
 
 /*
@@ -3544,26 +3544,26 @@ Region = state, canton, prefecture, autonomous community...
 type DefinedRegion struct {
 	StructuredValue
 
-	AddressCountry   interface{} `json:"addressCountry,omitempty"`   // The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).
-	AddressRegion    interface{} `json:"addressRegion,omitempty"`    // The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country)
-	PostalCode       interface{} `json:"postalCode,omitempty"`       // The postal code. For example, 94043.
-	PostalCodePrefix interface{} `json:"postalCodePrefix,omitempty"` // A defined range of postal codes indicated by a common textual prefix. Used for non-numeric systems such as UK.
-	PostalCodeRange  interface{} `json:"postalCodeRange,omitempty"`  // A defined range of postal codes.
+	AddressCountry   Values `json:"addressCountry,omitempty"`   // The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).
+	AddressRegion    Values `json:"addressRegion,omitempty"`    // The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country)
+	PostalCode       Values `json:"postalCode,omitempty"`       // The postal code. For example, 94043.
+	PostalCodePrefix Values `json:"postalCodePrefix,omitempty"` // A defined range of postal codes indicated by a common textual prefix. Used for non-numeric systems such as UK.
+	PostalCodeRange  Values `json:"postalCodeRange,omitempty"`  // A defined range of postal codes.
 }
 
 // A word, name, acronym, phrase, etc. with a formal definition. Often used in the context of category or subject classification, glossaries or dictionaries, product or creative work types, etc. Use the name property for the term being defined, use termCode if the term has an alpha-numeric code allocated, use description to provide the definition of the term.
 type DefinedTerm struct {
 	Intangible
 
-	InDefinedTermSet interface{} `json:"inDefinedTermSet,omitempty"` // A [[DefinedTermSet]] that contains this term.
-	TermCode         interface{} `json:"termCode,omitempty"`         // A code that identifies this [[DefinedTerm]] within a [[DefinedTermSet]]
+	InDefinedTermSet Values `json:"inDefinedTermSet,omitempty"` // A [[DefinedTermSet]] that contains this term.
+	TermCode         Values `json:"termCode,omitempty"`         // A code that identifies this [[DefinedTerm]] within a [[DefinedTermSet]]
 }
 
 // A set of defined terms for example a set of categories or a classification scheme, a glossary, dictionary or enumeration.
 type DefinedTermSet struct {
 	CreativeWork
 
-	HasDefinedTerm interface{} `json:"hasDefinedTerm,omitempty"` // A Defined Term contained in this term set.
+	HasDefinedTerm Values `json:"hasDefinedTerm,omitempty"` // A Defined Term contained in this term set.
 }
 
 // The act of editing a recipient by removing one of its objects.
@@ -3575,13 +3575,13 @@ type DeleteAction struct {
 type DeliveryChargeSpecification struct {
 	PriceSpecification
 
-	AppliesToDeliveryMethod interface{} `json:"appliesToDeliveryMethod,omitempty"` // The delivery method(s) to which the delivery charge or payment charge specification applies.
-	AreaServed              interface{} `json:"areaServed,omitempty"`              // The geographic area where a service or offered item is provided.
-	EligibleRegion          interface{} `json:"eligibleRegion,omitempty"`          /*
+	AppliesToDeliveryMethod Values `json:"appliesToDeliveryMethod,omitempty"` // The delivery method(s) to which the delivery charge or payment charge specification applies.
+	AreaServed              Values `json:"areaServed,omitempty"`              // The geographic area where a service or offered item is provided.
+	EligibleRegion          Values `json:"eligibleRegion,omitempty"`          /*
 	The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\n\nSee also [[ineligibleRegion]].
 
 	*/
-	IneligibleRegion interface{} `json:"ineligibleRegion,omitempty"` /*
+	IneligibleRegion Values `json:"ineligibleRegion,omitempty"` /*
 	The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\n\nSee also [[eligibleRegion]].
 
 	*/
@@ -3591,10 +3591,10 @@ type DeliveryChargeSpecification struct {
 type DeliveryEvent struct {
 	Event
 
-	AccessCode        interface{} `json:"accessCode,omitempty"`        // Password, PIN, or access code needed for delivery (e.g. from a locker).
-	AvailableFrom     interface{} `json:"availableFrom,omitempty"`     // When the item is available for pickup from the store, locker, etc.
-	AvailableThrough  interface{} `json:"availableThrough,omitempty"`  // After this date, the item will no longer be available for pickup.
-	HasDeliveryMethod interface{} `json:"hasDeliveryMethod,omitempty"` // Method used for delivery or shipping.
+	AccessCode        Values `json:"accessCode,omitempty"`        // Password, PIN, or access code needed for delivery (e.g. from a locker).
+	AvailableFrom     Values `json:"availableFrom,omitempty"`     // When the item is available for pickup from the store, locker, etc.
+	AvailableThrough  Values `json:"availableThrough,omitempty"`  // After this date, the item will no longer be available for pickup.
+	HasDeliveryMethod Values `json:"hasDeliveryMethod,omitempty"` // Method used for delivery or shipping.
 }
 
 /*
@@ -3609,58 +3609,58 @@ type DeliveryMethod struct {
 type DeliveryTimeSettings struct {
 	StructuredValue
 
-	DeliveryTime         interface{} `json:"deliveryTime,omitempty"`         // The total delay between the receipt of the order and the goods reaching the final customer.
-	IsUnlabelledFallback interface{} `json:"isUnlabelledFallback,omitempty"` // This can be marked 'true' to indicate that some published [[DeliveryTimeSettings]] or [[ShippingRateSettings]] are intended to apply to all [[OfferShippingDetails]] published by the same merchant, when referenced by a [[shippingSettingsLink]] in those settings. It is not meaningful to use a 'true' value for this property alongside a transitTimeLabel (for [[DeliveryTimeSettings]]) or shippingLabel (for [[ShippingRateSettings]]), since this property is for use with unlabelled settings.
-	ShippingDestination  interface{} `json:"shippingDestination,omitempty"`  // indicates (possibly multiple) shipping destinations. These can be defined in several ways e.g. postalCode ranges.
-	TransitTimeLabel     interface{} `json:"transitTimeLabel,omitempty"`     // Label to match an [[OfferShippingDetails]] with a [[DeliveryTimeSettings]] (within the context of a [[shippingSettingsLink]] cross-reference).
+	DeliveryTime         Values `json:"deliveryTime,omitempty"`         // The total delay between the receipt of the order and the goods reaching the final customer.
+	IsUnlabelledFallback Values `json:"isUnlabelledFallback,omitempty"` // This can be marked 'true' to indicate that some published [[DeliveryTimeSettings]] or [[ShippingRateSettings]] are intended to apply to all [[OfferShippingDetails]] published by the same merchant, when referenced by a [[shippingSettingsLink]] in those settings. It is not meaningful to use a 'true' value for this property alongside a transitTimeLabel (for [[DeliveryTimeSettings]]) or shippingLabel (for [[ShippingRateSettings]]), since this property is for use with unlabelled settings.
+	ShippingDestination  Values `json:"shippingDestination,omitempty"`  // indicates (possibly multiple) shipping destinations. These can be defined in several ways e.g. postalCode ranges.
+	TransitTimeLabel     Values `json:"transitTimeLabel,omitempty"`     // Label to match an [[OfferShippingDetails]] with a [[DeliveryTimeSettings]] (within the context of a [[shippingSettingsLink]] cross-reference).
 }
 
 // A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply.
 type Demand struct {
 	Intangible
 
-	AcceptedPaymentMethod     interface{} `json:"acceptedPaymentMethod,omitempty"`     // The payment method(s) accepted by seller for this offer.
-	AdvanceBookingRequirement interface{} `json:"advanceBookingRequirement,omitempty"` // The amount of time that is required between accepting the offer and the actual usage of the resource or service.
-	AreaServed                interface{} `json:"areaServed,omitempty"`                // The geographic area where a service or offered item is provided.
-	Availability              interface{} `json:"availability,omitempty"`              // The availability of this item&#x2014;for example In stock, Out of stock, Pre-order, etc.
-	AvailabilityEnds          interface{} `json:"availabilityEnds,omitempty"`          // The end of the availability of the product or service included in the offer.
-	AvailabilityStarts        interface{} `json:"availabilityStarts,omitempty"`        // The beginning of the availability of the product or service included in the offer.
-	AvailableAtOrFrom         interface{} `json:"availableAtOrFrom,omitempty"`         // The place(s) from which the offer can be obtained (e.g. store locations).
-	AvailableDeliveryMethod   interface{} `json:"availableDeliveryMethod,omitempty"`   // The delivery method(s) available for this offer.
-	BusinessFunction          interface{} `json:"businessFunction,omitempty"`          // The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
-	DeliveryLeadTime          interface{} `json:"deliveryLeadTime,omitempty"`          // The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup.
-	EligibleCustomerType      interface{} `json:"eligibleCustomerType,omitempty"`      // The type(s) of customers for which the given offer is valid.
-	EligibleDuration          interface{} `json:"eligibleDuration,omitempty"`          // The duration for which the given offer is valid.
-	EligibleQuantity          interface{} `json:"eligibleQuantity,omitempty"`          // The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.
-	EligibleRegion            interface{} `json:"eligibleRegion,omitempty"`            /*
+	AcceptedPaymentMethod     Values `json:"acceptedPaymentMethod,omitempty"`     // The payment method(s) accepted by seller for this offer.
+	AdvanceBookingRequirement Values `json:"advanceBookingRequirement,omitempty"` // The amount of time that is required between accepting the offer and the actual usage of the resource or service.
+	AreaServed                Values `json:"areaServed,omitempty"`                // The geographic area where a service or offered item is provided.
+	Availability              Values `json:"availability,omitempty"`              // The availability of this item&#x2014;for example In stock, Out of stock, Pre-order, etc.
+	AvailabilityEnds          Values `json:"availabilityEnds,omitempty"`          // The end of the availability of the product or service included in the offer.
+	AvailabilityStarts        Values `json:"availabilityStarts,omitempty"`        // The beginning of the availability of the product or service included in the offer.
+	AvailableAtOrFrom         Values `json:"availableAtOrFrom,omitempty"`         // The place(s) from which the offer can be obtained (e.g. store locations).
+	AvailableDeliveryMethod   Values `json:"availableDeliveryMethod,omitempty"`   // The delivery method(s) available for this offer.
+	BusinessFunction          Values `json:"businessFunction,omitempty"`          // The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
+	DeliveryLeadTime          Values `json:"deliveryLeadTime,omitempty"`          // The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup.
+	EligibleCustomerType      Values `json:"eligibleCustomerType,omitempty"`      // The type(s) of customers for which the given offer is valid.
+	EligibleDuration          Values `json:"eligibleDuration,omitempty"`          // The duration for which the given offer is valid.
+	EligibleQuantity          Values `json:"eligibleQuantity,omitempty"`          // The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.
+	EligibleRegion            Values `json:"eligibleRegion,omitempty"`            /*
 	The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\n\nSee also [[ineligibleRegion]].
 
 	*/
-	EligibleTransactionVolume interface{} `json:"eligibleTransactionVolume,omitempty"` // The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount.
-	Gtin                      interface{} `json:"gtin,omitempty"`                      /*
+	EligibleTransactionVolume Values `json:"eligibleTransactionVolume,omitempty"` // The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount.
+	Gtin                      Values `json:"gtin,omitempty"`                      /*
 	A Global Trade Item Number ([GTIN](https://www.gs1.org/standards/id-keys/gtin)). GTINs identify trade items, including products and services, using numeric identification codes. The [[gtin]] property generalizes the earlier [[gtin8]], [[gtin12]], [[gtin13]], and [[gtin14]] properties. The GS1 [digital link specifications](https://www.gs1.org/standards/Digital-Link/) express GTINs as URLs. A correct [[gtin]] value should be a valid GTIN, which means that it should be an all-numeric string of either 8, 12, 13 or 14 digits, or a "GS1 Digital Link" URL based on such a string. The numeric component should also have a [valid GS1 check digit](https://www.gs1.org/services/check-digit-calculator) and meet the other rules for valid GTINs. See also [GS1's GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) and [Wikipedia](https://en.wikipedia.org/wiki/Global_Trade_Item_Number) for more details. Left-padding of the gtin values is not required or encouraged.
 
 	*/
-	Gtin12           interface{} `json:"gtin12,omitempty"`           // The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	Gtin13           interface{} `json:"gtin13,omitempty"`           // The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceding zero. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	Gtin14           interface{} `json:"gtin14,omitempty"`           // The GTIN-14 code of the product, or the product to which the offer refers. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	Gtin8            interface{} `json:"gtin8,omitempty"`            // The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	IncludesObject   interface{} `json:"includesObject,omitempty"`   // This links to a node or nodes indicating the exact quantity of the products included in  an [[Offer]] or [[ProductCollection]].
-	IneligibleRegion interface{} `json:"ineligibleRegion,omitempty"` /*
+	Gtin12           Values `json:"gtin12,omitempty"`           // The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	Gtin13           Values `json:"gtin13,omitempty"`           // The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceding zero. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	Gtin14           Values `json:"gtin14,omitempty"`           // The GTIN-14 code of the product, or the product to which the offer refers. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	Gtin8            Values `json:"gtin8,omitempty"`            // The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	IncludesObject   Values `json:"includesObject,omitempty"`   // This links to a node or nodes indicating the exact quantity of the products included in  an [[Offer]] or [[ProductCollection]].
+	IneligibleRegion Values `json:"ineligibleRegion,omitempty"` /*
 	The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\n\nSee also [[eligibleRegion]].
 
 	*/
-	InventoryLevel     interface{} `json:"inventoryLevel,omitempty"`     // The current approximate inventory level for the item or items.
-	ItemCondition      interface{} `json:"itemCondition,omitempty"`      // A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns.
-	ItemOffered        interface{} `json:"itemOffered,omitempty"`        // An item being offered (or demanded). The transactional nature of the offer or demand is documented using [[businessFunction]], e.g. sell, lease etc. While several common expected types are listed explicitly in this definition, others can be used. Using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
-	Mpn                interface{} `json:"mpn,omitempty"`                // The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
-	PriceSpecification interface{} `json:"priceSpecification,omitempty"` // One or more detailed price specifications, indicating the unit price and delivery or payment charges.
-	Seller             interface{} `json:"seller,omitempty"`             // An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
-	SerialNumber       interface{} `json:"serialNumber,omitempty"`       // The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
-	Sku                interface{} `json:"sku,omitempty"`                // The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
-	ValidFrom          interface{} `json:"validFrom,omitempty"`          // The date when the item becomes valid.
-	ValidThrough       interface{} `json:"validThrough,omitempty"`       // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	Warranty           interface{} `json:"warranty,omitempty"`           // The warranty promise(s) included in the offer.
+	InventoryLevel     Values `json:"inventoryLevel,omitempty"`     // The current approximate inventory level for the item or items.
+	ItemCondition      Values `json:"itemCondition,omitempty"`      // A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns.
+	ItemOffered        Values `json:"itemOffered,omitempty"`        // An item being offered (or demanded). The transactional nature of the offer or demand is documented using [[businessFunction]], e.g. sell, lease etc. While several common expected types are listed explicitly in this definition, others can be used. Using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
+	Mpn                Values `json:"mpn,omitempty"`                // The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
+	PriceSpecification Values `json:"priceSpecification,omitempty"` // One or more detailed price specifications, indicating the unit price and delivery or payment charges.
+	Seller             Values `json:"seller,omitempty"`             // An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
+	SerialNumber       Values `json:"serialNumber,omitempty"`       // The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
+	Sku                Values `json:"sku,omitempty"`                // The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
+	ValidFrom          Values `json:"validFrom,omitempty"`          // The date when the item becomes valid.
+	ValidThrough       Values `json:"validThrough,omitempty"`       // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
+	Warranty           Values `json:"warranty,omitempty"`           // The warranty promise(s) included in the offer.
 }
 
 // A dentist.
@@ -3690,7 +3690,7 @@ type DepositAccount struct {
 type DiagnosticLab struct {
 	MedicalOrganization
 
-	AvailableTest interface{} `json:"availableTest,omitempty"` // A diagnostic test or procedure offered by this lab.
+	AvailableTest Values `json:"availableTest,omitempty"` // A diagnostic test or procedure offered by this lab.
 }
 
 // A medical procedure intended primarily for diagnostic, as opposed to therapeutic, purposes.
@@ -3703,43 +3703,43 @@ type Diet struct {
 	CreativeWork
 	// TODO: LifestyleModification
 
-	DietFeatures          interface{} `json:"dietFeatures,omitempty"`          // Nutritional information specific to the dietary plan. May include dietary recommendations on what foods to avoid, what foods to consume, and specific alterations/deviations from the USDA or other regulatory body's approved dietary guidelines.
-	Endorsers             interface{} `json:"endorsers,omitempty"`             // People or organizations that endorse the plan.
-	ExpertConsiderations  interface{} `json:"expertConsiderations,omitempty"`  // Medical expert advice related to the plan.
-	PhysiologicalBenefits interface{} `json:"physiologicalBenefits,omitempty"` // Specific physiologic benefits associated to the plan.
-	Risks                 interface{} `json:"risks,omitempty"`                 // Specific physiologic risks associated to the diet plan.
+	DietFeatures          Values `json:"dietFeatures,omitempty"`          // Nutritional information specific to the dietary plan. May include dietary recommendations on what foods to avoid, what foods to consume, and specific alterations/deviations from the USDA or other regulatory body's approved dietary guidelines.
+	Endorsers             Values `json:"endorsers,omitempty"`             // People or organizations that endorse the plan.
+	ExpertConsiderations  Values `json:"expertConsiderations,omitempty"`  // Medical expert advice related to the plan.
+	PhysiologicalBenefits Values `json:"physiologicalBenefits,omitempty"` // Specific physiologic benefits associated to the plan.
+	Risks                 Values `json:"risks,omitempty"`                 // Specific physiologic risks associated to the diet plan.
 }
 
 // A product taken by mouth that contains a dietary ingredient intended to supplement the diet. Dietary ingredients may include vitamins, minerals, herbs or other botanicals, amino acids, and substances such as enzymes, organ tissues, glandulars and metabolites.
 type DietarySupplement struct {
 	Substance
 
-	ActiveIngredient    interface{} `json:"activeIngredient,omitempty"`    // An active ingredient, typically chemical compounds and/or biologic substances.
-	IsProprietary       interface{} `json:"isProprietary,omitempty"`       // True if this item's name is a proprietary/brand name (vs. generic name).
-	LegalStatus         interface{} `json:"legalStatus,omitempty"`         // The drug or supplement's legal status, including any controlled substance schedules that apply.
-	Manufacturer        interface{} `json:"manufacturer,omitempty"`        // The manufacturer of the product.
-	MaximumIntake       interface{} `json:"maximumIntake,omitempty"`       // Recommended intake of this supplement for a given population as defined by a specific recommending authority.
-	MechanismOfAction   interface{} `json:"mechanismOfAction,omitempty"`   // The specific biochemical interaction through which this drug or supplement produces its pharmacological effect.
-	NonProprietaryName  interface{} `json:"nonProprietaryName,omitempty"`  // The generic name of this drug or supplement.
-	ProprietaryName     interface{} `json:"proprietaryName,omitempty"`     // Proprietary name given to the diet plan, typically by its originator or creator.
-	RecommendedIntake   interface{} `json:"recommendedIntake,omitempty"`   // Recommended intake of this supplement for a given population as defined by a specific recommending authority.
-	SafetyConsideration interface{} `json:"safetyConsideration,omitempty"` // Any potential safety concern associated with the supplement. May include interactions with other drugs and foods, pregnancy, breastfeeding, known adverse reactions, and documented efficacy of the supplement.
-	TargetPopulation    interface{} `json:"targetPopulation,omitempty"`    // Characteristics of the population for which this is intended, or which typically uses it, e.g. 'adults'.
+	ActiveIngredient    Values `json:"activeIngredient,omitempty"`    // An active ingredient, typically chemical compounds and/or biologic substances.
+	IsProprietary       Values `json:"isProprietary,omitempty"`       // True if this item's name is a proprietary/brand name (vs. generic name).
+	LegalStatus         Values `json:"legalStatus,omitempty"`         // The drug or supplement's legal status, including any controlled substance schedules that apply.
+	Manufacturer        Values `json:"manufacturer,omitempty"`        // The manufacturer of the product.
+	MaximumIntake       Values `json:"maximumIntake,omitempty"`       // Recommended intake of this supplement for a given population as defined by a specific recommending authority.
+	MechanismOfAction   Values `json:"mechanismOfAction,omitempty"`   // The specific biochemical interaction through which this drug or supplement produces its pharmacological effect.
+	NonProprietaryName  Values `json:"nonProprietaryName,omitempty"`  // The generic name of this drug or supplement.
+	ProprietaryName     Values `json:"proprietaryName,omitempty"`     // Proprietary name given to the diet plan, typically by its originator or creator.
+	RecommendedIntake   Values `json:"recommendedIntake,omitempty"`   // Recommended intake of this supplement for a given population as defined by a specific recommending authority.
+	SafetyConsideration Values `json:"safetyConsideration,omitempty"` // Any potential safety concern associated with the supplement. May include interactions with other drugs and foods, pregnancy, breastfeeding, known adverse reactions, and documented efficacy of the supplement.
+	TargetPopulation    Values `json:"targetPopulation,omitempty"`    // Characteristics of the population for which this is intended, or which typically uses it, e.g. 'adults'.
 }
 
 // An electronic file or document.
 type DigitalDocument struct {
 	CreativeWork
 
-	HasDigitalDocumentPermission interface{} `json:"hasDigitalDocumentPermission,omitempty"` // A permission related to the access to this document (e.g. permission to read or write an electronic document). For a public document, specify a grantee with an Audience with audienceType equal to "public".
+	HasDigitalDocumentPermission Values `json:"hasDigitalDocumentPermission,omitempty"` // A permission related to the access to this document (e.g. permission to read or write an electronic document). For a public document, specify a grantee with an Audience with audienceType equal to "public".
 }
 
 // A permission for a particular person or group to access a particular file.
 type DigitalDocumentPermission struct {
 	Intangible
 
-	Grantee        interface{} `json:"grantee,omitempty"`        // The person, organization, contact point, or audience that has been granted this permission.
-	PermissionType interface{} `json:"permissionType,omitempty"` // The type of permission granted the person, organization, or audience.
+	Grantee        Values `json:"grantee,omitempty"`        // The person, organization, contact point, or audience that has been granted this permission.
+	PermissionType Values `json:"permissionType,omitempty"` // The type of permission granted the person, organization, or audience.
 }
 
 // A type of permission which can be granted for accessing a digital document.
@@ -3786,17 +3786,17 @@ type Distillery struct {
 type DonateAction struct {
 	TradeAction
 
-	Recipient interface{} `json:"recipient,omitempty"` // A sub property of participant. The participant who is at the receiving end of the action.
+	Recipient Values `json:"recipient,omitempty"` // A sub property of participant. The participant who is at the receiving end of the action.
 }
 
 // A specific dosing schedule for a drug or supplement.
 type DoseSchedule struct {
 	MedicalIntangible
 
-	DoseUnit         interface{} `json:"doseUnit,omitempty"`         // The unit of the dose, e.g. 'mg'.
-	DoseValue        interface{} `json:"doseValue,omitempty"`        // The value of the dose, e.g. 500.
-	Frequency        interface{} `json:"frequency,omitempty"`        // How often the dose is taken, e.g. 'daily'.
-	TargetPopulation interface{} `json:"targetPopulation,omitempty"` // Characteristics of the population for which this is intended, or which typically uses it, e.g. 'adults'.
+	DoseUnit         Values `json:"doseUnit,omitempty"`         // The unit of the dose, e.g. 'mg'.
+	DoseValue        Values `json:"doseValue,omitempty"`        // The value of the dose, e.g. 500.
+	Frequency        Values `json:"frequency,omitempty"`        // How often the dose is taken, e.g. 'daily'.
+	TargetPopulation Values `json:"targetPopulation,omitempty"` // Characteristics of the population for which this is intended, or which typically uses it, e.g. 'adults'.
 }
 
 // The act of downloading an object.
@@ -3828,56 +3828,56 @@ type DriveWheelConfigurationValue struct {
 type Drug struct {
 	Substance
 
-	ActiveIngredient              interface{} `json:"activeIngredient,omitempty"`              // An active ingredient, typically chemical compounds and/or biologic substances.
-	AdministrationRoute           interface{} `json:"administrationRoute,omitempty"`           // A route by which this drug may be administered, e.g. 'oral'.
-	AlcoholWarning                interface{} `json:"alcoholWarning,omitempty"`                // Any precaution, guidance, contraindication, etc. related to consumption of alcohol while taking this drug.
-	AvailableStrength             interface{} `json:"availableStrength,omitempty"`             // An available dosage strength for the drug.
-	BreastfeedingWarning          interface{} `json:"breastfeedingWarning,omitempty"`          // Any precaution, guidance, contraindication, etc. related to this drug's use by breastfeeding mothers.
-	ClincalPharmacology           interface{} `json:"clincalPharmacology,omitempty"`           // Description of the absorption and elimination of drugs, including their concentration (pharmacokinetics, pK) and biological effects (pharmacodynamics, pD).
-	ClinicalPharmacology          interface{} `json:"clinicalPharmacology,omitempty"`          // Description of the absorption and elimination of drugs, including their concentration (pharmacokinetics, pK) and biological effects (pharmacodynamics, pD).
-	DosageForm                    interface{} `json:"dosageForm,omitempty"`                    // A dosage form in which this drug/supplement is available, e.g. 'tablet', 'suspension', 'injection'.
-	DoseSchedule                  interface{} `json:"doseSchedule,omitempty"`                  // A dosing schedule for the drug for a given population, either observed, recommended, or maximum dose based on the type used.
-	DrugClass                     interface{} `json:"drugClass,omitempty"`                     // The class of drug this belongs to (e.g., statins).
-	DrugUnit                      interface{} `json:"drugUnit,omitempty"`                      // The unit in which the drug is measured, e.g. '5 mg tablet'.
-	FoodWarning                   interface{} `json:"foodWarning,omitempty"`                   // Any precaution, guidance, contraindication, etc. related to consumption of specific foods while taking this drug.
-	IncludedInHealthInsurancePlan interface{} `json:"includedInHealthInsurancePlan,omitempty"` // The insurance plans that cover this drug.
-	InteractingDrug               interface{} `json:"interactingDrug,omitempty"`               // Another drug that is known to interact with this drug in a way that impacts the effect of this drug or causes a risk to the patient. Note: disease interactions are typically captured as contraindications.
-	IsAvailableGenerically        interface{} `json:"isAvailableGenerically,omitempty"`        // True if the drug is available in a generic form (regardless of name).
-	IsProprietary                 interface{} `json:"isProprietary,omitempty"`                 // True if this item's name is a proprietary/brand name (vs. generic name).
-	LabelDetails                  interface{} `json:"labelDetails,omitempty"`                  // Link to the drug's label details.
-	LegalStatus                   interface{} `json:"legalStatus,omitempty"`                   // The drug or supplement's legal status, including any controlled substance schedules that apply.
-	Manufacturer                  interface{} `json:"manufacturer,omitempty"`                  // The manufacturer of the product.
-	MaximumIntake                 interface{} `json:"maximumIntake,omitempty"`                 // Recommended intake of this supplement for a given population as defined by a specific recommending authority.
-	MechanismOfAction             interface{} `json:"mechanismOfAction,omitempty"`             // The specific biochemical interaction through which this drug or supplement produces its pharmacological effect.
-	NonProprietaryName            interface{} `json:"nonProprietaryName,omitempty"`            // The generic name of this drug or supplement.
-	Overdosage                    interface{} `json:"overdosage,omitempty"`                    // Any information related to overdose on a drug, including signs or symptoms, treatments, contact information for emergency response.
-	PregnancyCategory             interface{} `json:"pregnancyCategory,omitempty"`             // Pregnancy category of this drug.
-	PregnancyWarning              interface{} `json:"pregnancyWarning,omitempty"`              // Any precaution, guidance, contraindication, etc. related to this drug's use during pregnancy.
-	PrescribingInfo               interface{} `json:"prescribingInfo,omitempty"`               // Link to prescribing information for the drug.
-	PrescriptionStatus            interface{} `json:"prescriptionStatus,omitempty"`            // Indicates the status of drug prescription eg. local catalogs classifications or whether the drug is available by prescription or over-the-counter, etc.
-	ProprietaryName               interface{} `json:"proprietaryName,omitempty"`               // Proprietary name given to the diet plan, typically by its originator or creator.
-	RelatedDrug                   interface{} `json:"relatedDrug,omitempty"`                   // Any other drug related to this one, for example commonly-prescribed alternatives.
-	Rxcui                         interface{} `json:"rxcui,omitempty"`                         // The RxCUI drug identifier from RXNORM.
-	Warning                       interface{} `json:"warning,omitempty"`                       // Any FDA or other warnings about the drug (text or URL).
+	ActiveIngredient              Values `json:"activeIngredient,omitempty"`              // An active ingredient, typically chemical compounds and/or biologic substances.
+	AdministrationRoute           Values `json:"administrationRoute,omitempty"`           // A route by which this drug may be administered, e.g. 'oral'.
+	AlcoholWarning                Values `json:"alcoholWarning,omitempty"`                // Any precaution, guidance, contraindication, etc. related to consumption of alcohol while taking this drug.
+	AvailableStrength             Values `json:"availableStrength,omitempty"`             // An available dosage strength for the drug.
+	BreastfeedingWarning          Values `json:"breastfeedingWarning,omitempty"`          // Any precaution, guidance, contraindication, etc. related to this drug's use by breastfeeding mothers.
+	ClincalPharmacology           Values `json:"clincalPharmacology,omitempty"`           // Description of the absorption and elimination of drugs, including their concentration (pharmacokinetics, pK) and biological effects (pharmacodynamics, pD).
+	ClinicalPharmacology          Values `json:"clinicalPharmacology,omitempty"`          // Description of the absorption and elimination of drugs, including their concentration (pharmacokinetics, pK) and biological effects (pharmacodynamics, pD).
+	DosageForm                    Values `json:"dosageForm,omitempty"`                    // A dosage form in which this drug/supplement is available, e.g. 'tablet', 'suspension', 'injection'.
+	DoseSchedule                  Values `json:"doseSchedule,omitempty"`                  // A dosing schedule for the drug for a given population, either observed, recommended, or maximum dose based on the type used.
+	DrugClass                     Values `json:"drugClass,omitempty"`                     // The class of drug this belongs to (e.g., statins).
+	DrugUnit                      Values `json:"drugUnit,omitempty"`                      // The unit in which the drug is measured, e.g. '5 mg tablet'.
+	FoodWarning                   Values `json:"foodWarning,omitempty"`                   // Any precaution, guidance, contraindication, etc. related to consumption of specific foods while taking this drug.
+	IncludedInHealthInsurancePlan Values `json:"includedInHealthInsurancePlan,omitempty"` // The insurance plans that cover this drug.
+	InteractingDrug               Values `json:"interactingDrug,omitempty"`               // Another drug that is known to interact with this drug in a way that impacts the effect of this drug or causes a risk to the patient. Note: disease interactions are typically captured as contraindications.
+	IsAvailableGenerically        Values `json:"isAvailableGenerically,omitempty"`        // True if the drug is available in a generic form (regardless of name).
+	IsProprietary                 Values `json:"isProprietary,omitempty"`                 // True if this item's name is a proprietary/brand name (vs. generic name).
+	LabelDetails                  Values `json:"labelDetails,omitempty"`                  // Link to the drug's label details.
+	LegalStatus                   Values `json:"legalStatus,omitempty"`                   // The drug or supplement's legal status, including any controlled substance schedules that apply.
+	Manufacturer                  Values `json:"manufacturer,omitempty"`                  // The manufacturer of the product.
+	MaximumIntake                 Values `json:"maximumIntake,omitempty"`                 // Recommended intake of this supplement for a given population as defined by a specific recommending authority.
+	MechanismOfAction             Values `json:"mechanismOfAction,omitempty"`             // The specific biochemical interaction through which this drug or supplement produces its pharmacological effect.
+	NonProprietaryName            Values `json:"nonProprietaryName,omitempty"`            // The generic name of this drug or supplement.
+	Overdosage                    Values `json:"overdosage,omitempty"`                    // Any information related to overdose on a drug, including signs or symptoms, treatments, contact information for emergency response.
+	PregnancyCategory             Values `json:"pregnancyCategory,omitempty"`             // Pregnancy category of this drug.
+	PregnancyWarning              Values `json:"pregnancyWarning,omitempty"`              // Any precaution, guidance, contraindication, etc. related to this drug's use during pregnancy.
+	PrescribingInfo               Values `json:"prescribingInfo,omitempty"`               // Link to prescribing information for the drug.
+	PrescriptionStatus            Values `json:"prescriptionStatus,omitempty"`            // Indicates the status of drug prescription eg. local catalogs classifications or whether the drug is available by prescription or over-the-counter, etc.
+	ProprietaryName               Values `json:"proprietaryName,omitempty"`               // Proprietary name given to the diet plan, typically by its originator or creator.
+	RelatedDrug                   Values `json:"relatedDrug,omitempty"`                   // Any other drug related to this one, for example commonly-prescribed alternatives.
+	Rxcui                         Values `json:"rxcui,omitempty"`                         // The RxCUI drug identifier from RXNORM.
+	Warning                       Values `json:"warning,omitempty"`                       // Any FDA or other warnings about the drug (text or URL).
 }
 
 // A class of medical drugs, e.g., statins. Classes can represent general pharmacological class, common mechanisms of action, common physiological effects, etc.
 type DrugClass struct {
 	MedicalEntity
 
-	Drug interface{} `json:"drug,omitempty"` // Specifying a drug or medicine used in a medication procedure.
+	Drug Values `json:"drug,omitempty"` // Specifying a drug or medicine used in a medication procedure.
 }
 
 // The cost per unit of a medical drug. Note that this type is not meant to represent the price in an offer of a drug for sale; see the Offer type for that. This type will typically be used to tag wholesale or average retail cost of a drug, or maximum reimbursable cost. Costs of medical drugs vary widely depending on how and where they are paid for, so while this type captures some of the variables, costs should be used with caution by consumers of this schema's markup.
 type DrugCost struct {
 	MedicalEntity
 
-	ApplicableLocation interface{} `json:"applicableLocation,omitempty"` // The location in which the status applies.
-	CostCategory       interface{} `json:"costCategory,omitempty"`       // The category of cost, such as wholesale, retail, reimbursement cap, etc.
-	CostCurrency       interface{} `json:"costCurrency,omitempty"`       // The currency (in 3-letter of the drug cost. See: http://en.wikipedia.org/wiki/ISO_4217.
-	CostOrigin         interface{} `json:"costOrigin,omitempty"`         // Additional details to capture the origin of the cost data. For example, 'Medicare Part B'.
-	CostPerUnit        interface{} `json:"costPerUnit,omitempty"`        // The cost per unit of the drug.
-	DrugUnit           interface{} `json:"drugUnit,omitempty"`           // The unit in which the drug is measured, e.g. '5 mg tablet'.
+	ApplicableLocation Values `json:"applicableLocation,omitempty"` // The location in which the status applies.
+	CostCategory       Values `json:"costCategory,omitempty"`       // The category of cost, such as wholesale, retail, reimbursement cap, etc.
+	CostCurrency       Values `json:"costCurrency,omitempty"`       // The currency (in 3-letter of the drug cost. See: http://en.wikipedia.org/wiki/ISO_4217.
+	CostOrigin         Values `json:"costOrigin,omitempty"`         // Additional details to capture the origin of the cost data. For example, 'Medicare Part B'.
+	CostPerUnit        Values `json:"costPerUnit,omitempty"`        // The cost per unit of the drug.
+	DrugUnit           Values `json:"drugUnit,omitempty"`           // The unit in which the drug is measured, e.g. '5 mg tablet'.
 }
 
 // Enumerated categories of medical drug costs.
@@ -3889,7 +3889,7 @@ type DrugCostCategory struct {
 type DrugLegalStatus struct {
 	MedicalIntangible
 
-	ApplicableLocation interface{} `json:"applicableLocation,omitempty"` // The location in which the status applies.
+	ApplicableLocation Values `json:"applicableLocation,omitempty"` // The location in which the status applies.
 }
 
 // Categories that represent an assessment of the risk of fetal injury due to a drug or pharmaceutical used as directed by the mother during pregnancy.
@@ -3906,11 +3906,11 @@ type DrugPrescriptionStatus struct {
 type DrugStrength struct {
 	MedicalIntangible
 
-	ActiveIngredient interface{} `json:"activeIngredient,omitempty"` // An active ingredient, typically chemical compounds and/or biologic substances.
-	AvailableIn      interface{} `json:"availableIn,omitempty"`      // The location in which the strength is available.
-	MaximumIntake    interface{} `json:"maximumIntake,omitempty"`    // Recommended intake of this supplement for a given population as defined by a specific recommending authority.
-	StrengthUnit     interface{} `json:"strengthUnit,omitempty"`     // The units of an active ingredient's strength, e.g. mg.
-	StrengthValue    interface{} `json:"strengthValue,omitempty"`    // The value of an active ingredient's strength, e.g. 325.
+	ActiveIngredient Values `json:"activeIngredient,omitempty"` // An active ingredient, typically chemical compounds and/or biologic substances.
+	AvailableIn      Values `json:"availableIn,omitempty"`      // The location in which the strength is available.
+	MaximumIntake    Values `json:"maximumIntake,omitempty"`    // Recommended intake of this supplement for a given population as defined by a specific recommending authority.
+	StrengthUnit     Values `json:"strengthUnit,omitempty"`     // The units of an active ingredient's strength, e.g. mg.
+	StrengthValue    Values `json:"strengthValue,omitempty"`    // The value of an active ingredient's strength, e.g. 325.
 }
 
 // A dry-cleaning business.
@@ -3937,64 +3937,64 @@ type EatAction struct {
 type EducationEvent struct {
 	Event
 
-	Assesses         interface{} `json:"assesses,omitempty"`         // The item being described is intended to assess the competency or learning outcome defined by the referenced term.
-	EducationalLevel interface{} `json:"educationalLevel,omitempty"` // The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
-	Teaches          interface{} `json:"teaches,omitempty"`          // The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.
+	Assesses         Values `json:"assesses,omitempty"`         // The item being described is intended to assess the competency or learning outcome defined by the referenced term.
+	EducationalLevel Values `json:"educationalLevel,omitempty"` // The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
+	Teaches          Values `json:"teaches,omitempty"`          // The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.
 }
 
 // An EducationalAudience.
 type EducationalAudience struct {
 	Audience
 
-	EducationalRole interface{} `json:"educationalRole,omitempty"` // An educationalRole of an EducationalAudience.
+	EducationalRole Values `json:"educationalRole,omitempty"` // An educationalRole of an EducationalAudience.
 }
 
 // An educational or occupational credential. A diploma, academic degree, certification, qualification, badge, etc., that may be awarded to a person or other entity that meets the requirements defined by the credentialer.
 type EducationalOccupationalCredential struct {
 	CreativeWork
 
-	CompetencyRequired interface{} `json:"competencyRequired,omitempty"` // Knowledge, skill, ability or personal attribute that must be demonstrated by a person or other entity in order to do something such as earn an Educational Occupational Credential or understand a LearningResource.
-	CredentialCategory interface{} `json:"credentialCategory,omitempty"` // The category or type of credential being described, for example "degree”, “certificate”, “badge”, or more specific term.
-	EducationalLevel   interface{} `json:"educationalLevel,omitempty"`   // The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
-	RecognizedBy       interface{} `json:"recognizedBy,omitempty"`       // An organization that acknowledges the validity, value or utility of a credential. Note: recognition may include a process of quality assurance or accreditation.
-	ValidFor           interface{} `json:"validFor,omitempty"`           // The duration of validity of a permit or similar thing.
-	ValidIn            interface{} `json:"validIn,omitempty"`            // The geographic area where a permit or similar thing is valid.
+	CompetencyRequired Values `json:"competencyRequired,omitempty"` // Knowledge, skill, ability or personal attribute that must be demonstrated by a person or other entity in order to do something such as earn an Educational Occupational Credential or understand a LearningResource.
+	CredentialCategory Values `json:"credentialCategory,omitempty"` // The category or type of credential being described, for example "degree”, “certificate”, “badge”, or more specific term.
+	EducationalLevel   Values `json:"educationalLevel,omitempty"`   // The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
+	RecognizedBy       Values `json:"recognizedBy,omitempty"`       // An organization that acknowledges the validity, value or utility of a credential. Note: recognition may include a process of quality assurance or accreditation.
+	ValidFor           Values `json:"validFor,omitempty"`           // The duration of validity of a permit or similar thing.
+	ValidIn            Values `json:"validIn,omitempty"`            // The geographic area where a permit or similar thing is valid.
 }
 
 // A program offered by an institution which determines the learning progress to achieve an outcome, usually a credential like a degree or certificate. This would define a discrete set of opportunities (e.g., job, courses) that together constitute a program with a clear start, end, set of requirements, and transition to a new occupational opportunity (e.g., a job), or sometimes a higher educational opportunity (e.g., an advanced degree).
 type EducationalOccupationalProgram struct {
 	Intangible
 
-	ApplicationDeadline          interface{} `json:"applicationDeadline,omitempty"`          // The date at which the program stops collecting applications for the next enrollment cycle.
-	ApplicationStartDate         interface{} `json:"applicationStartDate,omitempty"`         // The date at which the program begins collecting applications for the next enrollment cycle.
-	DayOfWeek                    interface{} `json:"dayOfWeek,omitempty"`                    // The day of the week for which these opening hours are valid.
-	EducationalCredentialAwarded interface{} `json:"educationalCredentialAwarded,omitempty"` // A description of the qualification, award, certificate, diploma or other educational credential awarded as a consequence of successful completion of this course or program.
-	EducationalProgramMode       interface{} `json:"educationalProgramMode,omitempty"`       // Similar to courseMode, The medium or means of delivery of the program as a whole. The value may either be a text label (e.g. "online", "onsite" or "blended"; "synchronous" or "asynchronous"; "full-time" or "part-time") or a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous ).
-	EndDate                      interface{} `json:"endDate,omitempty"`                      // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
-	FinancialAidEligible         interface{} `json:"financialAidEligible,omitempty"`         // A financial aid type or program which students may use to pay for tuition or fees associated with the program.
-	HasCourse                    interface{} `json:"hasCourse,omitempty"`                    // A course or class that is one of the learning opportunities that constitute an educational / occupational program. No information is implied about whether the course is mandatory or optional; no guarantee is implied about whether the course will be available to everyone on the program.
-	MaximumEnrollment            interface{} `json:"maximumEnrollment,omitempty"`            // The maximum number of students who may be enrolled in the program.
-	NumberOfCredits              interface{} `json:"numberOfCredits,omitempty"`              // The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.
-	OccupationalCategory         interface{} `json:"occupationalCategory,omitempty"`         /*
+	ApplicationDeadline          Values `json:"applicationDeadline,omitempty"`          // The date at which the program stops collecting applications for the next enrollment cycle.
+	ApplicationStartDate         Values `json:"applicationStartDate,omitempty"`         // The date at which the program begins collecting applications for the next enrollment cycle.
+	DayOfWeek                    Values `json:"dayOfWeek,omitempty"`                    // The day of the week for which these opening hours are valid.
+	EducationalCredentialAwarded Values `json:"educationalCredentialAwarded,omitempty"` // A description of the qualification, award, certificate, diploma or other educational credential awarded as a consequence of successful completion of this course or program.
+	EducationalProgramMode       Values `json:"educationalProgramMode,omitempty"`       // Similar to courseMode, The medium or means of delivery of the program as a whole. The value may either be a text label (e.g. "online", "onsite" or "blended"; "synchronous" or "asynchronous"; "full-time" or "part-time") or a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous ).
+	EndDate                      Values `json:"endDate,omitempty"`                      // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	FinancialAidEligible         Values `json:"financialAidEligible,omitempty"`         // A financial aid type or program which students may use to pay for tuition or fees associated with the program.
+	HasCourse                    Values `json:"hasCourse,omitempty"`                    // A course or class that is one of the learning opportunities that constitute an educational / occupational program. No information is implied about whether the course is mandatory or optional; no guarantee is implied about whether the course will be available to everyone on the program.
+	MaximumEnrollment            Values `json:"maximumEnrollment,omitempty"`            // The maximum number of students who may be enrolled in the program.
+	NumberOfCredits              Values `json:"numberOfCredits,omitempty"`              // The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.
+	OccupationalCategory         Values `json:"occupationalCategory,omitempty"`         /*
 	A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\n
 	Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.
 	*/
-	OccupationalCredentialAwarded interface{} `json:"occupationalCredentialAwarded,omitempty"` // A description of the qualification, award, certificate, diploma or other occupational credential awarded as a consequence of successful completion of this course or program.
-	Offers                        interface{} `json:"offers,omitempty"`                        /*
+	OccupationalCredentialAwarded Values `json:"occupationalCredentialAwarded,omitempty"` // A description of the qualification, award, certificate, diploma or other occupational credential awarded as a consequence of successful completion of this course or program.
+	Offers                        Values `json:"offers,omitempty"`                        /*
 	An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
 
 	*/
-	ProgramPrerequisites  interface{} `json:"programPrerequisites,omitempty"`  // Prerequisites for enrolling in the program.
-	ProgramType           interface{} `json:"programType,omitempty"`           // The type of educational or occupational program. For example, classroom, internship, alternance, etc..
-	Provider              interface{} `json:"provider,omitempty"`              // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
-	SalaryUponCompletion  interface{} `json:"salaryUponCompletion,omitempty"`  // The expected salary upon completing the training.
-	StartDate             interface{} `json:"startDate,omitempty"`             // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
-	TermDuration          interface{} `json:"termDuration,omitempty"`          // The amount of time in a term as defined by the institution. A term is a length of time where students take one or more classes. Semesters and quarters are common units for term.
-	TermsPerYear          interface{} `json:"termsPerYear,omitempty"`          // The number of times terms of study are offered per year. Semesters and quarters are common units for term. For example, if the student can only take 2 semesters for the program in one year, then termsPerYear should be 2.
-	TimeOfDay             interface{} `json:"timeOfDay,omitempty"`             // The time of day the program normally runs. For example, "evenings".
-	TimeToComplete        interface{} `json:"timeToComplete,omitempty"`        // The expected length of time to complete the program if attending full-time.
-	TrainingSalary        interface{} `json:"trainingSalary,omitempty"`        // The estimated salary earned while in the program.
-	TypicalCreditsPerTerm interface{} `json:"typicalCreditsPerTerm,omitempty"` // The number of credits or units a full-time student would be expected to take in 1 term however 'term' is defined by the institution.
+	ProgramPrerequisites  Values `json:"programPrerequisites,omitempty"`  // Prerequisites for enrolling in the program.
+	ProgramType           Values `json:"programType,omitempty"`           // The type of educational or occupational program. For example, classroom, internship, alternance, etc..
+	Provider              Values `json:"provider,omitempty"`              // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+	SalaryUponCompletion  Values `json:"salaryUponCompletion,omitempty"`  // The expected salary upon completing the training.
+	StartDate             Values `json:"startDate,omitempty"`             // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	TermDuration          Values `json:"termDuration,omitempty"`          // The amount of time in a term as defined by the institution. A term is a length of time where students take one or more classes. Semesters and quarters are common units for term.
+	TermsPerYear          Values `json:"termsPerYear,omitempty"`          // The number of times terms of study are offered per year. Semesters and quarters are common units for term. For example, if the student can only take 2 semesters for the program in one year, then termsPerYear should be 2.
+	TimeOfDay             Values `json:"timeOfDay,omitempty"`             // The time of day the program normally runs. For example, "evenings".
+	TimeToComplete        Values `json:"timeToComplete,omitempty"`        // The expected length of time to complete the program if attending full-time.
+	TrainingSalary        Values `json:"trainingSalary,omitempty"`        // The estimated salary earned while in the program.
+	TypicalCreditsPerTerm Values `json:"typicalCreditsPerTerm,omitempty"` // The number of credits or units a full-time student would be expected to take in 1 term however 'term' is defined by the institution.
 }
 
 // An educational organization.
@@ -4002,7 +4002,7 @@ type EducationalOrganization struct {
 	CivicStructure
 	// TODO: Organization
 
-	Alumni interface{} `json:"alumni,omitempty"` // Alumni of an organization.
+	Alumni Values `json:"alumni,omitempty"` // Alumni of an organization.
 }
 
 // An electrician.
@@ -4039,8 +4039,8 @@ type EmergencyService struct {
 type EmployeeRole struct {
 	OrganizationRole
 
-	BaseSalary     interface{} `json:"baseSalary,omitempty"`     // The base salary of the job or of an employee in an EmployeeRole.
-	SalaryCurrency interface{} `json:"salaryCurrency,omitempty"` // The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) ) used for the main salary information in this job posting or for this employee.
+	BaseSalary     Values `json:"baseSalary,omitempty"`     // The base salary of the job or of an employee in an EmployeeRole.
+	SalaryCurrency Values `json:"salaryCurrency,omitempty"` // The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) ) used for the main salary information in this job posting or for this employee.
 }
 
 // An aggregate rating of an Organization related to its role as an employer.
@@ -4062,7 +4062,7 @@ type EmploymentAgency struct {
 type EndorseAction struct {
 	ReactAction
 
-	Endorsee interface{} `json:"endorsee,omitempty"` // A sub property of participant. The person/organization being supported.
+	Endorsee Values `json:"endorsee,omitempty"` // A sub property of participant. The person/organization being supported.
 }
 
 /*
@@ -4086,9 +4086,9 @@ type Energy struct {
 type EnergyConsumptionDetails struct {
 	Intangible
 
-	EnergyEfficiencyScaleMax    interface{} `json:"energyEfficiencyScaleMax,omitempty"`    // Specifies the most energy efficient class on the regulated EU energy consumption scale for the product category a product belongs to. For example, energy consumption for televisions placed on the market after January 1, 2020 is scaled from D to A+++.
-	EnergyEfficiencyScaleMin    interface{} `json:"energyEfficiencyScaleMin,omitempty"`    // Specifies the least energy efficient class on the regulated EU energy consumption scale for the product category a product belongs to. For example, energy consumption for televisions placed on the market after January 1, 2020 is scaled from D to A+++.
-	HasEnergyEfficiencyCategory interface{} `json:"hasEnergyEfficiencyCategory,omitempty"` // Defines the energy efficiency Category (which could be either a rating out of range of values or a yes/no certification) for a product according to an international energy efficiency standard.
+	EnergyEfficiencyScaleMax    Values `json:"energyEfficiencyScaleMax,omitempty"`    // Specifies the most energy efficient class on the regulated EU energy consumption scale for the product category a product belongs to. For example, energy consumption for televisions placed on the market after January 1, 2020 is scaled from D to A+++.
+	EnergyEfficiencyScaleMin    Values `json:"energyEfficiencyScaleMin,omitempty"`    // Specifies the least energy efficient class on the regulated EU energy consumption scale for the product category a product belongs to. For example, energy consumption for televisions placed on the market after January 1, 2020 is scaled from D to A+++.
+	HasEnergyEfficiencyCategory Values `json:"hasEnergyEfficiencyCategory,omitempty"` // Defines the energy efficiency Category (which could be either a rating out of range of values or a yes/no certification) for a product according to an international energy efficiency standard.
 }
 
 // Enumerates energy efficiency levels (also known as "classes" or "ratings") and certifications that are part of several international energy efficiency standards.
@@ -4105,14 +4105,14 @@ type EnergyStarEnergyEfficiencyEnumeration struct {
 type EngineSpecification struct {
 	StructuredValue
 
-	EngineDisplacement interface{} `json:"engineDisplacement,omitempty"` // The volume swept by all of the pistons inside the cylinders of an internal combustion engine in a single movement. \n\nTypical unit code(s): CMQ for cubic centimeter, LTR for liters, INQ for cubic inches\n* Note 1: You can link to information about how the given value has been determined using the [[valueReference]] property.\n* Note 2: You can use [[minValue]] and [[maxValue]] to indicate ranges.
-	EnginePower        interface{} `json:"enginePower,omitempty"`        /*
+	EngineDisplacement Values `json:"engineDisplacement,omitempty"` // The volume swept by all of the pistons inside the cylinders of an internal combustion engine in a single movement. \n\nTypical unit code(s): CMQ for cubic centimeter, LTR for liters, INQ for cubic inches\n* Note 1: You can link to information about how the given value has been determined using the [[valueReference]] property.\n* Note 2: You can use [[minValue]] and [[maxValue]] to indicate ranges.
+	EnginePower        Values `json:"enginePower,omitempty"`        /*
 	The power of the vehicle's engine.
 	    Typical unit code(s): KWT for kilowatt, BHP for brake horsepower, N12 for metric horsepower (PS, with 1 PS = 735,49875 W)\n\n* Note 1: There are many different ways of measuring an engine's power. For an overview, see  [http://en.wikipedia.org/wiki/Horsepower#Engine_power_test_codes](http://en.wikipedia.org/wiki/Horsepower#Engine_power_test_codes).\n* Note 2: You can link to information about how the given value has been determined using the [[valueReference]] property.\n* Note 3: You can use [[minValue]] and [[maxValue]] to indicate ranges.
 	*/
-	EngineType interface{} `json:"engineType,omitempty"` // The type of engine or engines powering the vehicle.
-	FuelType   interface{} `json:"fuelType,omitempty"`   // The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.
-	Torque     interface{} `json:"torque,omitempty"`     // The torque (turning force) of the vehicle's engine.\n\nTypical unit code(s): NU for newton metre (N m), F17 for pound-force per foot, or F48 for pound-force per inch\n\n* Note 1: You can link to information about how the given value has been determined (e.g. reference RPM) using the [[valueReference]] property.\n* Note 2: You can use [[minValue]] and [[maxValue]] to indicate ranges.
+	EngineType Values `json:"engineType,omitempty"` // The type of engine or engines powering the vehicle.
+	FuelType   Values `json:"fuelType,omitempty"`   // The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.
+	Torque     Values `json:"torque,omitempty"`     // The torque (turning force) of the vehicle's engine.\n\nTypical unit code(s): NU for newton metre (N m), F17 for pound-force per foot, or F48 for pound-force per inch\n\n* Note 1: You can link to information about how the given value has been determined (e.g. reference RPM) using the [[valueReference]] property.\n* Note 2: You can use [[minValue]] and [[maxValue]] to indicate ranges.
 }
 
 // A business providing entertainment.
@@ -4124,57 +4124,57 @@ type EntertainmentBusiness struct {
 type EntryPoint struct {
 	Intangible
 
-	ActionApplication interface{} `json:"actionApplication,omitempty"` // An application that can complete the request.
-	ActionPlatform    interface{} `json:"actionPlatform,omitempty"`    // The high level platform(s) where the Action can be performed for the given URL. To specify a specific application or operating system instance, use actionApplication.
-	Application       interface{} `json:"application,omitempty"`       // An application that can complete the request.
-	ContentType       interface{} `json:"contentType,omitempty"`       // The supported content type(s) for an EntryPoint response.
-	EncodingType      interface{} `json:"encodingType,omitempty"`      // The supported encoding type(s) for an EntryPoint request.
-	HttpMethod        interface{} `json:"httpMethod,omitempty"`        // An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint. Values are capitalized strings as used in HTTP.
-	UrlTemplate       interface{} `json:"urlTemplate,omitempty"`       // An url template (RFC6570) that will be used to construct the target of the execution of the action.
+	ActionApplication Values `json:"actionApplication,omitempty"` // An application that can complete the request.
+	ActionPlatform    Values `json:"actionPlatform,omitempty"`    // The high level platform(s) where the Action can be performed for the given URL. To specify a specific application or operating system instance, use actionApplication.
+	Application       Values `json:"application,omitempty"`       // An application that can complete the request.
+	ContentType       Values `json:"contentType,omitempty"`       // The supported content type(s) for an EntryPoint response.
+	EncodingType      Values `json:"encodingType,omitempty"`      // The supported encoding type(s) for an EntryPoint request.
+	HttpMethod        Values `json:"httpMethod,omitempty"`        // An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint. Values are capitalized strings as used in HTTP.
+	UrlTemplate       Values `json:"urlTemplate,omitempty"`       // An url template (RFC6570) that will be used to construct the target of the execution of the action.
 }
 
 // Lists or enumerations—for example, a list of cuisines or music genres, etc.
 type Enumeration struct {
 	Intangible
 
-	SupersededBy interface{} `json:"supersededBy,omitempty"` // Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
+	SupersededBy Values `json:"supersededBy,omitempty"` // Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
 }
 
 // A media episode (e.g. TV, radio, video game) which can be part of a series or season.
 type Episode struct {
 	CreativeWork
 
-	Actor             interface{} `json:"actor,omitempty"`             // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
-	Actors            interface{} `json:"actors,omitempty"`            // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
-	Director          interface{} `json:"director,omitempty"`          // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
-	Directors         interface{} `json:"directors,omitempty"`         // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
-	Duration          interface{} `json:"duration,omitempty"`          // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
-	EpisodeNumber     interface{} `json:"episodeNumber,omitempty"`     // Position of the episode within an ordered group of episodes.
-	MusicBy           interface{} `json:"musicBy,omitempty"`           // The composer of the soundtrack.
-	PartOfSeason      interface{} `json:"partOfSeason,omitempty"`      // The season to which this episode belongs.
-	PartOfSeries      interface{} `json:"partOfSeries,omitempty"`      // The series to which this episode or season belongs.
-	ProductionCompany interface{} `json:"productionCompany,omitempty"` // The production company or studio responsible for the item e.g. series, video game, episode etc.
-	Trailer           interface{} `json:"trailer,omitempty"`           // The trailer of a movie or tv/radio series, season, episode, etc.
+	Actor             Values `json:"actor,omitempty"`             // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+	Actors            Values `json:"actors,omitempty"`            // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
+	Director          Values `json:"director,omitempty"`          // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
+	Directors         Values `json:"directors,omitempty"`         // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
+	Duration          Values `json:"duration,omitempty"`          // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
+	EpisodeNumber     Values `json:"episodeNumber,omitempty"`     // Position of the episode within an ordered group of episodes.
+	MusicBy           Values `json:"musicBy,omitempty"`           // The composer of the soundtrack.
+	PartOfSeason      Values `json:"partOfSeason,omitempty"`      // The season to which this episode belongs.
+	PartOfSeries      Values `json:"partOfSeries,omitempty"`      // The series to which this episode or season belongs.
+	ProductionCompany Values `json:"productionCompany,omitempty"` // The production company or studio responsible for the item e.g. series, video game, episode etc.
+	Trailer           Values `json:"trailer,omitempty"`           // The trailer of a movie or tv/radio series, season, episode, etc.
 }
 
 // An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the [[offers]] property. Repeated events may be structured as separate Event objects.
 type Event struct {
 	Thing
 
-	About               interface{} `json:"about,omitempty"`               // The subject matter of the content.
-	Actor               interface{} `json:"actor,omitempty"`               // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
-	AggregateRating     interface{} `json:"aggregateRating,omitempty"`     // The overall rating, based on a collection of reviews or ratings, of the item.
-	Attendee            interface{} `json:"attendee,omitempty"`            // A person or organization attending the event.
-	Attendees           interface{} `json:"attendees,omitempty"`           // A person attending the event.
-	Audience            interface{} `json:"audience,omitempty"`            // An intended audience, i.e. a group for whom something was created.
-	Composer            interface{} `json:"composer,omitempty"`            // The person or organization who wrote a composition, or who is the composer of a work performed at some event.
-	Contributor         interface{} `json:"contributor,omitempty"`         // A secondary contributor to the CreativeWork or Event.
-	Director            interface{} `json:"director,omitempty"`            // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
-	DoorTime            interface{} `json:"doorTime,omitempty"`            // The time admission will commence.
-	Duration            interface{} `json:"duration,omitempty"`            // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
-	EndDate             interface{} `json:"endDate,omitempty"`             // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
-	EventAttendanceMode interface{} `json:"eventAttendanceMode,omitempty"` // The eventAttendanceMode of an event indicates whether it occurs online, offline, or a mix.
-	EventSchedule       interface{} `json:"eventSchedule,omitempty"`       /*
+	About               Values `json:"about,omitempty"`               // The subject matter of the content.
+	Actor               Values `json:"actor,omitempty"`               // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+	AggregateRating     Values `json:"aggregateRating,omitempty"`     // The overall rating, based on a collection of reviews or ratings, of the item.
+	Attendee            Values `json:"attendee,omitempty"`            // A person or organization attending the event.
+	Attendees           Values `json:"attendees,omitempty"`           // A person attending the event.
+	Audience            Values `json:"audience,omitempty"`            // An intended audience, i.e. a group for whom something was created.
+	Composer            Values `json:"composer,omitempty"`            // The person or organization who wrote a composition, or who is the composer of a work performed at some event.
+	Contributor         Values `json:"contributor,omitempty"`         // A secondary contributor to the CreativeWork or Event.
+	Director            Values `json:"director,omitempty"`            // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
+	DoorTime            Values `json:"doorTime,omitempty"`            // The time admission will commence.
+	Duration            Values `json:"duration,omitempty"`            // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
+	EndDate             Values `json:"endDate,omitempty"`             // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	EventAttendanceMode Values `json:"eventAttendanceMode,omitempty"` // The eventAttendanceMode of an event indicates whether it occurs online, offline, or a mix.
+	EventSchedule       Values `json:"eventSchedule,omitempty"`       /*
 	Associates an [[Event]] with a [[Schedule]]. There are circumstances where it is preferable to share a schedule for a series of
 	      repeating events rather than data on the individual events themselves. For example, a website or application might prefer to publish a schedule for a weekly
 	      gym class rather than provide data on every event. A schedule could be processed by applications to add forthcoming events to a calendar. An [[Event]] that
@@ -4182,39 +4182,39 @@ type Event struct {
 	      [[Schedule]], this avoids any ambiguity for clients using the data. The property might have repeated values to specify different schedules, e.g. for different months
 	      or seasons.
 	*/
-	EventStatus                     interface{} `json:"eventStatus,omitempty"`                     // An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled.
-	Funder                          interface{} `json:"funder,omitempty"`                          // A person or organization that supports (sponsors) something through some kind of financial contribution.
-	Funding                         interface{} `json:"funding,omitempty"`                         // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
-	InLanguage                      interface{} `json:"inLanguage,omitempty"`                      // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
-	IsAccessibleForFree             interface{} `json:"isAccessibleForFree,omitempty"`             // A flag to signal that the item, event, or place is accessible for free.
-	Keywords                        interface{} `json:"keywords,omitempty"`                        // Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
-	Location                        interface{} `json:"location,omitempty"`                        // The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
-	MaximumAttendeeCapacity         interface{} `json:"maximumAttendeeCapacity,omitempty"`         // The total number of individuals that may attend an event or venue.
-	MaximumPhysicalAttendeeCapacity interface{} `json:"maximumPhysicalAttendeeCapacity,omitempty"` // The maximum physical attendee capacity of an [[Event]] whose [[eventAttendanceMode]] is [[OfflineEventAttendanceMode]] (or the offline aspects, in the case of a [[MixedEventAttendanceMode]]).
-	MaximumVirtualAttendeeCapacity  interface{} `json:"maximumVirtualAttendeeCapacity,omitempty"`  // The maximum physical attendee capacity of an [[Event]] whose [[eventAttendanceMode]] is [[OnlineEventAttendanceMode]] (or the online aspects, in the case of a [[MixedEventAttendanceMode]]).
-	Offers                          interface{} `json:"offers,omitempty"`                          /*
+	EventStatus                     Values `json:"eventStatus,omitempty"`                     // An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled.
+	Funder                          Values `json:"funder,omitempty"`                          // A person or organization that supports (sponsors) something through some kind of financial contribution.
+	Funding                         Values `json:"funding,omitempty"`                         // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
+	InLanguage                      Values `json:"inLanguage,omitempty"`                      // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+	IsAccessibleForFree             Values `json:"isAccessibleForFree,omitempty"`             // A flag to signal that the item, event, or place is accessible for free.
+	Keywords                        Values `json:"keywords,omitempty"`                        // Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
+	Location                        Values `json:"location,omitempty"`                        // The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+	MaximumAttendeeCapacity         Values `json:"maximumAttendeeCapacity,omitempty"`         // The total number of individuals that may attend an event or venue.
+	MaximumPhysicalAttendeeCapacity Values `json:"maximumPhysicalAttendeeCapacity,omitempty"` // The maximum physical attendee capacity of an [[Event]] whose [[eventAttendanceMode]] is [[OfflineEventAttendanceMode]] (or the offline aspects, in the case of a [[MixedEventAttendanceMode]]).
+	MaximumVirtualAttendeeCapacity  Values `json:"maximumVirtualAttendeeCapacity,omitempty"`  // The maximum physical attendee capacity of an [[Event]] whose [[eventAttendanceMode]] is [[OnlineEventAttendanceMode]] (or the online aspects, in the case of a [[MixedEventAttendanceMode]]).
+	Offers                          Values `json:"offers,omitempty"`                          /*
 	An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
 
 	*/
-	Organizer                 interface{} `json:"organizer,omitempty"`                 // An organizer of an Event.
-	Performer                 interface{} `json:"performer,omitempty"`                 // A performer at the event&#x2014;for example, a presenter, musician, musical group or actor.
-	Performers                interface{} `json:"performers,omitempty"`                // The main performer or performers of the event&#x2014;for example, a presenter, musician, or actor.
-	PreviousStartDate         interface{} `json:"previousStartDate,omitempty"`         // Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated.
-	RecordedIn                interface{} `json:"recordedIn,omitempty"`                // The CreativeWork that captured all or part of this Event.
-	RemainingAttendeeCapacity interface{} `json:"remainingAttendeeCapacity,omitempty"` // The number of attendee places for an event that remain unallocated.
-	Review                    interface{} `json:"review,omitempty"`                    // A review of the item.
-	Sponsor                   interface{} `json:"sponsor,omitempty"`                   // A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
-	StartDate                 interface{} `json:"startDate,omitempty"`                 // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
-	SubEvent                  interface{} `json:"subEvent,omitempty"`                  // An Event that is part of this event. For example, a conference event includes many presentations, each of which is a subEvent of the conference.
-	SubEvents                 interface{} `json:"subEvents,omitempty"`                 // Events that are a part of this event. For example, a conference event includes many presentations, each subEvents of the conference.
-	SuperEvent                interface{} `json:"superEvent,omitempty"`                // An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.
-	Translator                interface{} `json:"translator,omitempty"`                // Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event.
-	TypicalAgeRange           interface{} `json:"typicalAgeRange,omitempty"`           // The typical expected age range, e.g. '7-9', '11-'.
-	WorkFeatured              interface{} `json:"workFeatured,omitempty"`              /*
+	Organizer                 Values `json:"organizer,omitempty"`                 // An organizer of an Event.
+	Performer                 Values `json:"performer,omitempty"`                 // A performer at the event&#x2014;for example, a presenter, musician, musical group or actor.
+	Performers                Values `json:"performers,omitempty"`                // The main performer or performers of the event&#x2014;for example, a presenter, musician, or actor.
+	PreviousStartDate         Values `json:"previousStartDate,omitempty"`         // Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated.
+	RecordedIn                Values `json:"recordedIn,omitempty"`                // The CreativeWork that captured all or part of this Event.
+	RemainingAttendeeCapacity Values `json:"remainingAttendeeCapacity,omitempty"` // The number of attendee places for an event that remain unallocated.
+	Review                    Values `json:"review,omitempty"`                    // A review of the item.
+	Sponsor                   Values `json:"sponsor,omitempty"`                   // A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+	StartDate                 Values `json:"startDate,omitempty"`                 // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	SubEvent                  Values `json:"subEvent,omitempty"`                  // An Event that is part of this event. For example, a conference event includes many presentations, each of which is a subEvent of the conference.
+	SubEvents                 Values `json:"subEvents,omitempty"`                 // Events that are a part of this event. For example, a conference event includes many presentations, each subEvents of the conference.
+	SuperEvent                Values `json:"superEvent,omitempty"`                // An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.
+	Translator                Values `json:"translator,omitempty"`                // Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event.
+	TypicalAgeRange           Values `json:"typicalAgeRange,omitempty"`           // The typical expected age range, e.g. '7-9', '11-'.
+	WorkFeatured              Values `json:"workFeatured,omitempty"`              /*
 	A work featured in some event, e.g. exhibited in an ExhibitionEvent.
 	       Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent).
 	*/
-	WorkPerformed interface{} `json:"workPerformed,omitempty"` // A work performed in some event, for example a play performed in a TheaterEvent.
+	WorkPerformed Values `json:"workPerformed,omitempty"` // A work performed in some event, for example a play performed in a TheaterEvent.
 }
 
 // An EventAttendanceModeEnumeration value is one of potentially several modes of organising an event, relating to whether it is online or offline.
@@ -4262,28 +4262,28 @@ type EventVenue struct {
 type ExchangeRateSpecification struct {
 	StructuredValue
 
-	Currency            interface{} `json:"currency,omitempty"`            // The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
-	CurrentExchangeRate interface{} `json:"currentExchangeRate,omitempty"` // The current price of a currency.
-	ExchangeRateSpread  interface{} `json:"exchangeRateSpread,omitempty"`  // The difference between the price at which a broker or other intermediary buys and sells foreign currency.
+	Currency            Values `json:"currency,omitempty"`            // The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
+	CurrentExchangeRate Values `json:"currentExchangeRate,omitempty"` // The current price of a currency.
+	ExchangeRateSpread  Values `json:"exchangeRateSpread,omitempty"`  // The difference between the price at which a broker or other intermediary buys and sells foreign currency.
 }
 
 // The act of participating in exertive activity for the purposes of improving health and fitness.
 type ExerciseAction struct {
 	PlayAction
 
-	Course                 interface{} `json:"course,omitempty"`                 // A sub property of location. The course where this action was taken.
-	Diet                   interface{} `json:"diet,omitempty"`                   // A sub property of instrument. The diet used in this action.
-	Distance               interface{} `json:"distance,omitempty"`               // The distance travelled, e.g. exercising or travelling.
-	ExerciseCourse         interface{} `json:"exerciseCourse,omitempty"`         // A sub property of location. The course where this action was taken.
-	ExercisePlan           interface{} `json:"exercisePlan,omitempty"`           // A sub property of instrument. The exercise plan used on this action.
-	ExerciseRelatedDiet    interface{} `json:"exerciseRelatedDiet,omitempty"`    // A sub property of instrument. The diet used in this action.
-	ExerciseType           interface{} `json:"exerciseType,omitempty"`           // Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc.
-	FromLocation           interface{} `json:"fromLocation,omitempty"`           // A sub property of location. The original location of the object or the agent before the action.
-	Opponent               interface{} `json:"opponent,omitempty"`               // A sub property of participant. The opponent on this action.
-	SportsActivityLocation interface{} `json:"sportsActivityLocation,omitempty"` // A sub property of location. The sports activity location where this action occurred.
-	SportsEvent            interface{} `json:"sportsEvent,omitempty"`            // A sub property of location. The sports event where this action occurred.
-	SportsTeam             interface{} `json:"sportsTeam,omitempty"`             // A sub property of participant. The sports team that participated on this action.
-	ToLocation             interface{} `json:"toLocation,omitempty"`             // A sub property of location. The final location of the object or the agent after the action.
+	Course                 Values `json:"course,omitempty"`                 // A sub property of location. The course where this action was taken.
+	Diet                   Values `json:"diet,omitempty"`                   // A sub property of instrument. The diet used in this action.
+	Distance               Values `json:"distance,omitempty"`               // The distance travelled, e.g. exercising or travelling.
+	ExerciseCourse         Values `json:"exerciseCourse,omitempty"`         // A sub property of location. The course where this action was taken.
+	ExercisePlan           Values `json:"exercisePlan,omitempty"`           // A sub property of instrument. The exercise plan used on this action.
+	ExerciseRelatedDiet    Values `json:"exerciseRelatedDiet,omitempty"`    // A sub property of instrument. The diet used in this action.
+	ExerciseType           Values `json:"exerciseType,omitempty"`           // Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc.
+	FromLocation           Values `json:"fromLocation,omitempty"`           // A sub property of location. The original location of the object or the agent before the action.
+	Opponent               Values `json:"opponent,omitempty"`               // A sub property of participant. The opponent on this action.
+	SportsActivityLocation Values `json:"sportsActivityLocation,omitempty"` // A sub property of location. The sports activity location where this action occurred.
+	SportsEvent            Values `json:"sportsEvent,omitempty"`            // A sub property of location. The sports event where this action occurred.
+	SportsTeam             Values `json:"sportsTeam,omitempty"`             // A sub property of participant. The sports team that participated on this action.
+	ToLocation             Values `json:"toLocation,omitempty"`             // A sub property of location. The final location of the object or the agent after the action.
 }
 
 // A gym.
@@ -4296,14 +4296,14 @@ type ExercisePlan struct {
 	CreativeWork
 	// TODO: PhysicalActivity
 
-	ActivityDuration   interface{} `json:"activityDuration,omitempty"`   // Length of time to engage in the activity.
-	ActivityFrequency  interface{} `json:"activityFrequency,omitempty"`  // How often one should engage in the activity.
-	AdditionalVariable interface{} `json:"additionalVariable,omitempty"` // Any additional component of the exercise prescription that may need to be articulated to the patient. This may include the order of exercises, the number of repetitions of movement, quantitative distance, progressions over time, etc.
-	ExerciseType       interface{} `json:"exerciseType,omitempty"`       // Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc.
-	Intensity          interface{} `json:"intensity,omitempty"`          // Quantitative measure gauging the degree of force involved in the exercise, for example, heartbeats per minute. May include the velocity of the movement.
-	Repetitions        interface{} `json:"repetitions,omitempty"`        // Number of times one should repeat the activity.
-	RestPeriods        interface{} `json:"restPeriods,omitempty"`        // How often one should break from the activity.
-	Workload           interface{} `json:"workload,omitempty"`           // Quantitative measure of the physiologic output of the exercise; also referred to as energy expenditure.
+	ActivityDuration   Values `json:"activityDuration,omitempty"`   // Length of time to engage in the activity.
+	ActivityFrequency  Values `json:"activityFrequency,omitempty"`  // How often one should engage in the activity.
+	AdditionalVariable Values `json:"additionalVariable,omitempty"` // Any additional component of the exercise prescription that may need to be articulated to the patient. This may include the order of exercises, the number of repetitions of movement, quantitative distance, progressions over time, etc.
+	ExerciseType       Values `json:"exerciseType,omitempty"`       // Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc.
+	Intensity          Values `json:"intensity,omitempty"`          // Quantitative measure gauging the degree of force involved in the exercise, for example, heartbeats per minute. May include the velocity of the movement.
+	Repetitions        Values `json:"repetitions,omitempty"`        // Number of times one should repeat the activity.
+	RestPeriods        Values `json:"restPeriods,omitempty"`        // How often one should break from the activity.
+	Workload           Values `json:"workload,omitempty"`           // Quantitative measure of the physiologic output of the exercise; also referred to as energy expenditure.
 }
 
 // Event type: Exhibition event, e.g. at a museum, library, archive, tradeshow, ...
@@ -4340,16 +4340,16 @@ type FilmAction struct {
 type FinancialProduct struct {
 	Service
 
-	AnnualPercentageRate            interface{} `json:"annualPercentageRate,omitempty"`            // The annual rate that is charged for borrowing (or made by investing), expressed as a single percentage number that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction.
-	FeesAndCommissionsSpecification interface{} `json:"feesAndCommissionsSpecification,omitempty"` // Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
-	InterestRate                    interface{} `json:"interestRate,omitempty"`                    // The interest rate, charged or paid, applicable to the financial product. Note: This is different from the calculated annualPercentageRate.
+	AnnualPercentageRate            Values `json:"annualPercentageRate,omitempty"`            // The annual rate that is charged for borrowing (or made by investing), expressed as a single percentage number that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction.
+	FeesAndCommissionsSpecification Values `json:"feesAndCommissionsSpecification,omitempty"` // Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
+	InterestRate                    Values `json:"interestRate,omitempty"`                    // The interest rate, charged or paid, applicable to the financial product. Note: This is different from the calculated annualPercentageRate.
 }
 
 // Financial services business.
 type FinancialService struct {
 	LocalBusiness
 
-	FeesAndCommissionsSpecification interface{} `json:"feesAndCommissionsSpecification,omitempty"` // Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
+	FeesAndCommissionsSpecification Values `json:"feesAndCommissionsSpecification,omitempty"` // Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
 }
 
 // The act of finding an object.\n\nRelated actions:\n\n* [[SearchAction]]: FindAction is generally lead by a SearchAction, but not necessarily.
@@ -4367,31 +4367,31 @@ type FireStation struct {
 type Flight struct {
 	Trip
 
-	Aircraft                interface{} `json:"aircraft,omitempty"`                // The kind of aircraft (e.g., "Boeing 747").
-	ArrivalAirport          interface{} `json:"arrivalAirport,omitempty"`          // The airport where the flight terminates.
-	ArrivalGate             interface{} `json:"arrivalGate,omitempty"`             // Identifier of the flight's arrival gate.
-	ArrivalTerminal         interface{} `json:"arrivalTerminal,omitempty"`         // Identifier of the flight's arrival terminal.
-	BoardingPolicy          interface{} `json:"boardingPolicy,omitempty"`          // The type of boarding policy used by the airline (e.g. zone-based or group-based).
-	Carrier                 interface{} `json:"carrier,omitempty"`                 // 'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights.
-	DepartureAirport        interface{} `json:"departureAirport,omitempty"`        // The airport where the flight originates.
-	DepartureGate           interface{} `json:"departureGate,omitempty"`           // Identifier of the flight's departure gate.
-	DepartureTerminal       interface{} `json:"departureTerminal,omitempty"`       // Identifier of the flight's departure terminal.
-	EstimatedFlightDuration interface{} `json:"estimatedFlightDuration,omitempty"` // The estimated time the flight will take.
-	FlightDistance          interface{} `json:"flightDistance,omitempty"`          // The distance of the flight.
-	FlightNumber            interface{} `json:"flightNumber,omitempty"`            // The unique identifier for a flight including the airline IATA code. For example, if describing United flight 110, where the IATA code for United is 'UA', the flightNumber is 'UA110'.
-	MealService             interface{} `json:"mealService,omitempty"`             // Description of the meals that will be provided or available for purchase.
-	Seller                  interface{} `json:"seller,omitempty"`                  // An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
-	WebCheckinTime          interface{} `json:"webCheckinTime,omitempty"`          // The time when a passenger can check into the flight online.
+	Aircraft                Values `json:"aircraft,omitempty"`                // The kind of aircraft (e.g., "Boeing 747").
+	ArrivalAirport          Values `json:"arrivalAirport,omitempty"`          // The airport where the flight terminates.
+	ArrivalGate             Values `json:"arrivalGate,omitempty"`             // Identifier of the flight's arrival gate.
+	ArrivalTerminal         Values `json:"arrivalTerminal,omitempty"`         // Identifier of the flight's arrival terminal.
+	BoardingPolicy          Values `json:"boardingPolicy,omitempty"`          // The type of boarding policy used by the airline (e.g. zone-based or group-based).
+	Carrier                 Values `json:"carrier,omitempty"`                 // 'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights.
+	DepartureAirport        Values `json:"departureAirport,omitempty"`        // The airport where the flight originates.
+	DepartureGate           Values `json:"departureGate,omitempty"`           // Identifier of the flight's departure gate.
+	DepartureTerminal       Values `json:"departureTerminal,omitempty"`       // Identifier of the flight's departure terminal.
+	EstimatedFlightDuration Values `json:"estimatedFlightDuration,omitempty"` // The estimated time the flight will take.
+	FlightDistance          Values `json:"flightDistance,omitempty"`          // The distance of the flight.
+	FlightNumber            Values `json:"flightNumber,omitempty"`            // The unique identifier for a flight including the airline IATA code. For example, if describing United flight 110, where the IATA code for United is 'UA', the flightNumber is 'UA110'.
+	MealService             Values `json:"mealService,omitempty"`             // Description of the meals that will be provided or available for purchase.
+	Seller                  Values `json:"seller,omitempty"`                  // An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
+	WebCheckinTime          Values `json:"webCheckinTime,omitempty"`          // The time when a passenger can check into the flight online.
 }
 
 // A reservation for air travel.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].
 type FlightReservation struct {
 	Reservation
 
-	BoardingGroup           interface{} `json:"boardingGroup,omitempty"`           // The airline-specific indicator of boarding order / preference.
-	PassengerPriorityStatus interface{} `json:"passengerPriorityStatus,omitempty"` // The priority status assigned to a passenger for security or boarding (e.g. FastTrack or Priority).
-	PassengerSequenceNumber interface{} `json:"passengerSequenceNumber,omitempty"` // The passenger's sequence number as assigned by the airline.
-	SecurityScreening       interface{} `json:"securityScreening,omitempty"`       // The type of security screening the passenger is subject to.
+	BoardingGroup           Values `json:"boardingGroup,omitempty"`           // The airline-specific indicator of boarding order / preference.
+	PassengerPriorityStatus Values `json:"passengerPriorityStatus,omitempty"` // The priority status assigned to a passenger for security or boarding (e.g. FastTrack or Priority).
+	PassengerSequenceNumber Values `json:"passengerSequenceNumber,omitempty"` // The passenger's sequence number as assigned by the airline.
+	SecurityScreening       Values `json:"securityScreening,omitempty"`       // The type of security screening the passenger is subject to.
 }
 
 // Data type: Floating number.
@@ -4403,24 +4403,24 @@ type Float struct {
 type FloorPlan struct {
 	Intangible
 
-	AmenityFeature interface{} `json:"amenityFeature,omitempty"` // An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
-	FloorSize      interface{} `json:"floorSize,omitempty"`      /*
+	AmenityFeature Values `json:"amenityFeature,omitempty"` // An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
+	FloorSize      Values `json:"floorSize,omitempty"`      /*
 	The size of the accommodation, e.g. in square meter or squarefoot.
 	Typical unit code(s): MTK for square meter, FTK for square foot, or YDK for square yard
 	*/
-	IsPlanForApartment                  interface{} `json:"isPlanForApartment,omitempty"`                  // Indicates some accommodation that this floor plan describes.
-	LayoutImage                         interface{} `json:"layoutImage,omitempty"`                         // A schematic image showing the floorplan layout.
-	NumberOfAccommodationUnits          interface{} `json:"numberOfAccommodationUnits,omitempty"`          // Indicates the total (available plus unavailable) number of accommodation units in an [[ApartmentComplex]], or the number of accommodation units for a specific [[FloorPlan]] (within its specific [[ApartmentComplex]]). See also [[numberOfAvailableAccommodationUnits]].
-	NumberOfAvailableAccommodationUnits interface{} `json:"numberOfAvailableAccommodationUnits,omitempty"` // Indicates the number of available accommodation units in an [[ApartmentComplex]], or the number of accommodation units for a specific [[FloorPlan]] (within its specific [[ApartmentComplex]]). See also [[numberOfAccommodationUnits]].
-	NumberOfBathroomsTotal              interface{} `json:"numberOfBathroomsTotal,omitempty"`              // The total integer number of bathrooms in a some [[Accommodation]], following real estate conventions as [documented in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsTotalInteger+Field): "The simple sum of the number of bathrooms. For example for a property with two Full Bathrooms and one Half Bathroom, the Bathrooms Total Integer will be 3.". See also [[numberOfRooms]].
-	NumberOfBedrooms                    interface{} `json:"numberOfBedrooms,omitempty"`                    // The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].
-	NumberOfFullBathrooms               interface{} `json:"numberOfFullBathrooms,omitempty"`               // Number of full bathrooms - The total number of full and ¾ bathrooms in an [[Accommodation]]. This corresponds to the [BathroomsFull field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsFull+Field).
-	NumberOfPartialBathrooms            interface{} `json:"numberOfPartialBathrooms,omitempty"`            // Number of partial bathrooms - The total number of half and ¼ bathrooms in an [[Accommodation]]. This corresponds to the [BathroomsPartial field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsPartial+Field).
-	NumberOfRooms                       interface{} `json:"numberOfRooms,omitempty"`                       /*
+	IsPlanForApartment                  Values `json:"isPlanForApartment,omitempty"`                  // Indicates some accommodation that this floor plan describes.
+	LayoutImage                         Values `json:"layoutImage,omitempty"`                         // A schematic image showing the floorplan layout.
+	NumberOfAccommodationUnits          Values `json:"numberOfAccommodationUnits,omitempty"`          // Indicates the total (available plus unavailable) number of accommodation units in an [[ApartmentComplex]], or the number of accommodation units for a specific [[FloorPlan]] (within its specific [[ApartmentComplex]]). See also [[numberOfAvailableAccommodationUnits]].
+	NumberOfAvailableAccommodationUnits Values `json:"numberOfAvailableAccommodationUnits,omitempty"` // Indicates the number of available accommodation units in an [[ApartmentComplex]], or the number of accommodation units for a specific [[FloorPlan]] (within its specific [[ApartmentComplex]]). See also [[numberOfAccommodationUnits]].
+	NumberOfBathroomsTotal              Values `json:"numberOfBathroomsTotal,omitempty"`              // The total integer number of bathrooms in a some [[Accommodation]], following real estate conventions as [documented in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsTotalInteger+Field): "The simple sum of the number of bathrooms. For example for a property with two Full Bathrooms and one Half Bathroom, the Bathrooms Total Integer will be 3.". See also [[numberOfRooms]].
+	NumberOfBedrooms                    Values `json:"numberOfBedrooms,omitempty"`                    // The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].
+	NumberOfFullBathrooms               Values `json:"numberOfFullBathrooms,omitempty"`               // Number of full bathrooms - The total number of full and ¾ bathrooms in an [[Accommodation]]. This corresponds to the [BathroomsFull field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsFull+Field).
+	NumberOfPartialBathrooms            Values `json:"numberOfPartialBathrooms,omitempty"`            // Number of partial bathrooms - The total number of half and ¼ bathrooms in an [[Accommodation]]. This corresponds to the [BathroomsPartial field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsPartial+Field).
+	NumberOfRooms                       Values `json:"numberOfRooms,omitempty"`                       /*
 	The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business.
 	Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
 	*/
-	PetsAllowed interface{} `json:"petsAllowed,omitempty"` // Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
+	PetsAllowed Values `json:"petsAllowed,omitempty"` // Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
 }
 
 // A florist.
@@ -4432,27 +4432,27 @@ type Florist struct {
 type FollowAction struct {
 	InteractAction
 
-	Followee interface{} `json:"followee,omitempty"` // A sub property of object. The person or organization being followed.
+	Followee Values `json:"followee,omitempty"` // A sub property of object. The person or organization being followed.
 }
 
 // A food-related business.
 type FoodEstablishment struct {
 	LocalBusiness
 
-	AcceptsReservations interface{} `json:"acceptsReservations,omitempty"` // Indicates whether a FoodEstablishment accepts reservations. Values can be Boolean, an URL at which reservations can be made or (for backwards compatibility) the strings ```Yes``` or ```No```.
-	HasMenu             interface{} `json:"hasMenu,omitempty"`             // Either the actual menu as a structured representation, as text, or a URL of the menu.
-	Menu                interface{} `json:"menu,omitempty"`                // Either the actual menu as a structured representation, as text, or a URL of the menu.
-	ServesCuisine       interface{} `json:"servesCuisine,omitempty"`       // The cuisine of the restaurant.
-	StarRating          interface{} `json:"starRating,omitempty"`          // An official rating for a lodging business or food establishment, e.g. from national associations or standards bodies. Use the author property to indicate the rating organization, e.g. as an Organization with name such as (e.g. HOTREC, DEHOGA, WHR, or Hotelstars).
+	AcceptsReservations Values `json:"acceptsReservations,omitempty"` // Indicates whether a FoodEstablishment accepts reservations. Values can be Boolean, an URL at which reservations can be made or (for backwards compatibility) the strings ```Yes``` or ```No```.
+	HasMenu             Values `json:"hasMenu,omitempty"`             // Either the actual menu as a structured representation, as text, or a URL of the menu.
+	Menu                Values `json:"menu,omitempty"`                // Either the actual menu as a structured representation, as text, or a URL of the menu.
+	ServesCuisine       Values `json:"servesCuisine,omitempty"`       // The cuisine of the restaurant.
+	StarRating          Values `json:"starRating,omitempty"`          // An official rating for a lodging business or food establishment, e.g. from national associations or standards bodies. Use the author property to indicate the rating organization, e.g. as an Organization with name such as (e.g. HOTREC, DEHOGA, WHR, or Hotelstars).
 }
 
 // A reservation to dine at a food-related business.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
 type FoodEstablishmentReservation struct {
 	Reservation
 
-	EndTime   interface{} `json:"endTime,omitempty"`   // The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
-	PartySize interface{} `json:"partySize,omitempty"` // Number of people the reservation should accommodate.
-	StartTime interface{} `json:"startTime,omitempty"` // The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
+	EndTime   Values `json:"endTime,omitempty"`   // The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
+	PartySize Values `json:"partySize,omitempty"` // Number of people the reservation should accommodate.
+	StartTime Values `json:"startTime,omitempty"` // The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
 }
 
 // Event type: Food event.
@@ -4495,11 +4495,11 @@ type FurnitureStore struct {
 type Game struct {
 	CreativeWork
 
-	CharacterAttribute interface{} `json:"characterAttribute,omitempty"` // A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage).
-	GameItem           interface{} `json:"gameItem,omitempty"`           // An item is an object within the game world that can be collected by a player or, occasionally, a non-player character.
-	GameLocation       interface{} `json:"gameLocation,omitempty"`       // Real or fictional location of the game (or part of game).
-	NumberOfPlayers    interface{} `json:"numberOfPlayers,omitempty"`    // Indicate how many people can play this game (minimum, maximum, or range).
-	Quest              interface{} `json:"quest,omitempty"`              // The task that a player-controlled character, or group of characters may complete in order to gain a reward.
+	CharacterAttribute Values `json:"characterAttribute,omitempty"` // A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage).
+	GameItem           Values `json:"gameItem,omitempty"`           // An item is an object within the game world that can be collected by a player or, occasionally, a non-player character.
+	GameLocation       Values `json:"gameLocation,omitempty"`       // Real or fictional location of the game (or part of game).
+	NumberOfPlayers    Values `json:"numberOfPlayers,omitempty"`    // Indicate how many people can play this game (minimum, maximum, or range).
+	Quest              Values `json:"quest,omitempty"`              // The task that a player-controlled character, or group of characters may complete in order to gain a reward.
 }
 
 // For a [[VideoGame]], such as used with a [[PlayGameAction]], an enumeration of the kind of game availability offered.
@@ -4516,9 +4516,9 @@ type GamePlayMode struct {
 type GameServer struct {
 	Intangible
 
-	Game          interface{} `json:"game,omitempty"`          // Video game which is played on this server.
-	PlayersOnline interface{} `json:"playersOnline,omitempty"` // Number of players on the server.
-	ServerStatus  interface{} `json:"serverStatus,omitempty"`  // Status of a game server.
+	Game          Values `json:"game,omitempty"`          // Video game which is played on this server.
+	PlayersOnline Values `json:"playersOnline,omitempty"` // Number of players on the server.
+	ServerStatus  Values `json:"serverStatus,omitempty"`  // Status of a game server.
 }
 
 // Status of a game server.
@@ -4550,10 +4550,10 @@ type GenderType struct {
 type Gene struct {
 	BioChemEntity
 
-	AlternativeOf         interface{} `json:"alternativeOf,omitempty"`         // Another gene which is a variation of this one.
-	EncodesBioChemEntity  interface{} `json:"encodesBioChemEntity,omitempty"`  // Another BioChemEntity encoded by this one.
-	ExpressedIn           interface{} `json:"expressedIn,omitempty"`           // Tissue, organ, biological sample, etc in which activity of this gene has been observed experimentally. For example brain, digestive system.
-	HasBioPolymerSequence interface{} `json:"hasBioPolymerSequence,omitempty"` // A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of a Gene or an amino acid sequence of a Protein.
+	AlternativeOf         Values `json:"alternativeOf,omitempty"`         // Another gene which is a variation of this one.
+	EncodesBioChemEntity  Values `json:"encodesBioChemEntity,omitempty"`  // Another BioChemEntity encoded by this one.
+	ExpressedIn           Values `json:"expressedIn,omitempty"`           // Tissue, organ, biological sample, etc in which activity of this gene has been observed experimentally. For example brain, digestive system.
+	HasBioPolymerSequence Values `json:"hasBioPolymerSequence,omitempty"` // A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of a Gene or an amino acid sequence of a Protein.
 }
 
 // A general contractor.
@@ -4570,57 +4570,57 @@ A GeoCircle is a GeoShape representing a circular geographic area. As it is a Ge
 type GeoCircle struct {
 	GeoShape
 
-	GeoMidpoint interface{} `json:"geoMidpoint,omitempty"` // Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle.
-	GeoRadius   interface{} `json:"geoRadius,omitempty"`   // Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation).
+	GeoMidpoint Values `json:"geoMidpoint,omitempty"` // Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle.
+	GeoRadius   Values `json:"geoRadius,omitempty"`   // Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation).
 }
 
 // The geographic coordinates of a place or event.
 type GeoCoordinates struct {
 	StructuredValue
 
-	Address        interface{} `json:"address,omitempty"`        // Physical address of the item.
-	AddressCountry interface{} `json:"addressCountry,omitempty"` // The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).
-	Elevation      interface{} `json:"elevation,omitempty"`      // The elevation of a location ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)). Values may be of the form 'NUMBER UNIT_OF_MEASUREMENT' (e.g., '1,000 m', '3,200 ft') while numbers alone should be assumed to be a value in meters.
-	Latitude       interface{} `json:"latitude,omitempty"`       // The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
-	Longitude      interface{} `json:"longitude,omitempty"`      // The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
-	PostalCode     interface{} `json:"postalCode,omitempty"`     // The postal code. For example, 94043.
+	Address        Values `json:"address,omitempty"`        // Physical address of the item.
+	AddressCountry Values `json:"addressCountry,omitempty"` // The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).
+	Elevation      Values `json:"elevation,omitempty"`      // The elevation of a location ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)). Values may be of the form 'NUMBER UNIT_OF_MEASUREMENT' (e.g., '1,000 m', '3,200 ft') while numbers alone should be assumed to be a value in meters.
+	Latitude       Values `json:"latitude,omitempty"`       // The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
+	Longitude      Values `json:"longitude,omitempty"`      // The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
+	PostalCode     Values `json:"postalCode,omitempty"`     // The postal code. For example, 94043.
 }
 
 // The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs. Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points.
 type GeoShape struct {
 	StructuredValue
 
-	Address        interface{} `json:"address,omitempty"`        // Physical address of the item.
-	AddressCountry interface{} `json:"addressCountry,omitempty"` // The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).
-	Box            interface{} `json:"box,omitempty"`            // A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character.
-	Circle         interface{} `json:"circle,omitempty"`         // A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.
-	Elevation      interface{} `json:"elevation,omitempty"`      // The elevation of a location ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)). Values may be of the form 'NUMBER UNIT_OF_MEASUREMENT' (e.g., '1,000 m', '3,200 ft') while numbers alone should be assumed to be a value in meters.
-	Line           interface{} `json:"line,omitempty"`           // A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space.
-	Polygon        interface{} `json:"polygon,omitempty"`        // A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.
-	PostalCode     interface{} `json:"postalCode,omitempty"`     // The postal code. For example, 94043.
+	Address        Values `json:"address,omitempty"`        // Physical address of the item.
+	AddressCountry Values `json:"addressCountry,omitempty"` // The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).
+	Box            Values `json:"box,omitempty"`            // A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character.
+	Circle         Values `json:"circle,omitempty"`         // A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.
+	Elevation      Values `json:"elevation,omitempty"`      // The elevation of a location ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)). Values may be of the form 'NUMBER UNIT_OF_MEASUREMENT' (e.g., '1,000 m', '3,200 ft') while numbers alone should be assumed to be a value in meters.
+	Line           Values `json:"line,omitempty"`           // A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space.
+	Polygon        Values `json:"polygon,omitempty"`        // A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.
+	PostalCode     Values `json:"postalCode,omitempty"`     // The postal code. For example, 94043.
 }
 
 // (Eventually to be defined as) a supertype of GeoShape designed to accommodate definitions from Geo-Spatial best practices.
 type GeospatialGeometry struct {
 	Intangible
 
-	GeoContains   interface{} `json:"geoContains,omitempty"`   // Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. "a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GeoCoveredBy  interface{} `json:"geoCoveredBy,omitempty"`  // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GeoCovers     interface{} `json:"geoCovers,omitempty"`     // Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. "Every point of b is a point of (the interior or boundary of) a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GeoCrosses    interface{} `json:"geoCrosses,omitempty"`    // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: "a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GeoDisjoint   interface{} `json:"geoDisjoint,omitempty"`   // Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: they have no point in common. They form a set of disconnected geometries." (a symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM))
-	GeoEquals     interface{} `json:"geoEquals,omitempty"`     // Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM). "Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other" (a symmetric relationship)
-	GeoIntersects interface{} `json:"geoIntersects,omitempty"` // Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GeoOverlaps   interface{} `json:"geoOverlaps,omitempty"`   // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GeoTouches    interface{} `json:"geoTouches,omitempty"`    // Represents spatial relations in which two geometries (or the places they represent) touch: they have at least one boundary point in common, but no interior points." (a symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM) )
-	GeoWithin     interface{} `json:"geoWithin,omitempty"`     // Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoContains   Values `json:"geoContains,omitempty"`   // Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. "a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoCoveredBy  Values `json:"geoCoveredBy,omitempty"`  // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoCovers     Values `json:"geoCovers,omitempty"`     // Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. "Every point of b is a point of (the interior or boundary of) a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoCrosses    Values `json:"geoCrosses,omitempty"`    // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: "a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoDisjoint   Values `json:"geoDisjoint,omitempty"`   // Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: they have no point in common. They form a set of disconnected geometries." (a symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM))
+	GeoEquals     Values `json:"geoEquals,omitempty"`     // Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM). "Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other" (a symmetric relationship)
+	GeoIntersects Values `json:"geoIntersects,omitempty"` // Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoOverlaps   Values `json:"geoOverlaps,omitempty"`   // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoTouches    Values `json:"geoTouches,omitempty"`    // Represents spatial relations in which two geometries (or the places they represent) touch: they have at least one boundary point in common, but no interior points." (a symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM) )
+	GeoWithin     Values `json:"geoWithin,omitempty"`     // Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
 }
 
 // The act of transferring ownership of an object to a destination. Reciprocal of TakeAction.\n\nRelated actions:\n\n* [[TakeAction]]: Reciprocal of GiveAction.\n* [[SendAction]]: Unlike SendAction, GiveAction implies that ownership is being transferred (e.g. I may send my laptop to you, but that doesn't mean I'm giving it to you).
 type GiveAction struct {
 	TransferAction
 
-	Recipient interface{} `json:"recipient,omitempty"` // A sub property of participant. The participant who is at the receiving end of the action.
+	Recipient Values `json:"recipient,omitempty"` // A sub property of participant. The participant who is at the receiving end of the action.
 }
 
 // A golf course.
@@ -4657,8 +4657,8 @@ type GovernmentPermit struct {
 type GovernmentService struct {
 	Service
 
-	Jurisdiction    interface{} `json:"jurisdiction,omitempty"`    // Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.
-	ServiceOperator interface{} `json:"serviceOperator,omitempty"` // The operating organization, if different from the provider.  This enables the representation of services that are provided by an organization, but operated by another organization like a subcontractor.
+	Jurisdiction    Values `json:"jurisdiction,omitempty"`    // Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.
+	ServiceOperator Values `json:"serviceOperator,omitempty"` // The operating organization, if different from the provider.  This enables the representation of services that are provided by an organization, but operated by another organization like a subcontractor.
 }
 
 /*
@@ -4673,9 +4673,9 @@ The amount of a [[Grant]] is represented using [[amount]] as a [[MonetaryAmount]
 type Grant struct {
 	Intangible
 
-	FundedItem interface{} `json:"fundedItem,omitempty"` // Indicates something directly or indirectly funded or sponsored through a [[Grant]]. See also [[ownershipFundingInfo]].
-	Funder     interface{} `json:"funder,omitempty"`     // A person or organization that supports (sponsors) something through some kind of financial contribution.
-	Sponsor    interface{} `json:"sponsor,omitempty"`    // A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+	FundedItem Values `json:"fundedItem,omitempty"` // Indicates something directly or indirectly funded or sponsored through a [[Grant]]. See also [[ownershipFundingInfo]].
+	Funder     Values `json:"funder,omitempty"`     // A person or organization that supports (sponsors) something through some kind of financial contribution.
+	Sponsor    Values `json:"sponsor,omitempty"`    // A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
 }
 
 // A grocery store.
@@ -4687,7 +4687,7 @@ type GroceryStore struct {
 type Guide struct {
 	CreativeWork
 
-	ReviewAspect interface{} `json:"reviewAspect,omitempty"` // This Review or Rating is relevant to this part or facet of the itemReviewed.
+	ReviewAspect Values `json:"reviewAspect,omitempty"` // This Review or Rating is relevant to this part or facet of the itemReviewed.
 }
 
 // A business that provide Heating, Ventilation and Air Conditioning services.
@@ -4730,44 +4730,44 @@ type HealthClub struct {
 type HealthInsurancePlan struct {
 	Intangible
 
-	BenefitsSummaryUrl          interface{} `json:"benefitsSummaryUrl,omitempty"`          // The URL that goes directly to the summary of benefits and coverage for the specific standard plan or plan variation.
-	ContactPoint                interface{} `json:"contactPoint,omitempty"`                // A contact point for a person or organization.
-	HealthPlanDrugOption        interface{} `json:"healthPlanDrugOption,omitempty"`        // TODO.
-	HealthPlanDrugTier          interface{} `json:"healthPlanDrugTier,omitempty"`          // The tier(s) of drugs offered by this formulary or insurance plan.
-	HealthPlanId                interface{} `json:"healthPlanId,omitempty"`                // The 14-character, HIOS-generated Plan ID number. (Plan IDs must be unique, even across different markets.)
-	HealthPlanMarketingUrl      interface{} `json:"healthPlanMarketingUrl,omitempty"`      // The URL that goes directly to the plan brochure for the specific standard plan or plan variation.
-	IncludesHealthPlanFormulary interface{} `json:"includesHealthPlanFormulary,omitempty"` // Formularies covered by this plan.
-	IncludesHealthPlanNetwork   interface{} `json:"includesHealthPlanNetwork,omitempty"`   // Networks covered by this plan.
-	UsesHealthPlanIdStandard    interface{} `json:"usesHealthPlanIdStandard,omitempty"`    // The standard for interpreting thePlan ID. The preferred is "HIOS". See the Centers for Medicare & Medicaid Services for more details.
+	BenefitsSummaryUrl          Values `json:"benefitsSummaryUrl,omitempty"`          // The URL that goes directly to the summary of benefits and coverage for the specific standard plan or plan variation.
+	ContactPoint                Values `json:"contactPoint,omitempty"`                // A contact point for a person or organization.
+	HealthPlanDrugOption        Values `json:"healthPlanDrugOption,omitempty"`        // TODO.
+	HealthPlanDrugTier          Values `json:"healthPlanDrugTier,omitempty"`          // The tier(s) of drugs offered by this formulary or insurance plan.
+	HealthPlanId                Values `json:"healthPlanId,omitempty"`                // The 14-character, HIOS-generated Plan ID number. (Plan IDs must be unique, even across different markets.)
+	HealthPlanMarketingUrl      Values `json:"healthPlanMarketingUrl,omitempty"`      // The URL that goes directly to the plan brochure for the specific standard plan or plan variation.
+	IncludesHealthPlanFormulary Values `json:"includesHealthPlanFormulary,omitempty"` // Formularies covered by this plan.
+	IncludesHealthPlanNetwork   Values `json:"includesHealthPlanNetwork,omitempty"`   // Networks covered by this plan.
+	UsesHealthPlanIdStandard    Values `json:"usesHealthPlanIdStandard,omitempty"`    // The standard for interpreting thePlan ID. The preferred is "HIOS". See the Centers for Medicare & Medicaid Services for more details.
 }
 
 // A description of costs to the patient under a given network or formulary.
 type HealthPlanCostSharingSpecification struct {
 	Intangible
 
-	HealthPlanCoinsuranceOption interface{} `json:"healthPlanCoinsuranceOption,omitempty"` // Whether the coinsurance applies before or after deductible, etc. TODO: Is this a closed set?
-	HealthPlanCoinsuranceRate   interface{} `json:"healthPlanCoinsuranceRate,omitempty"`   // Whether The rate of coinsurance expressed as a number between 0.0 and 1.0.
-	HealthPlanCopay             interface{} `json:"healthPlanCopay,omitempty"`             // Whether The copay amount.
-	HealthPlanCopayOption       interface{} `json:"healthPlanCopayOption,omitempty"`       // Whether the copay is before or after deductible, etc. TODO: Is this a closed set?
-	HealthPlanPharmacyCategory  interface{} `json:"healthPlanPharmacyCategory,omitempty"`  // The category or type of pharmacy associated with this cost sharing.
+	HealthPlanCoinsuranceOption Values `json:"healthPlanCoinsuranceOption,omitempty"` // Whether the coinsurance applies before or after deductible, etc. TODO: Is this a closed set?
+	HealthPlanCoinsuranceRate   Values `json:"healthPlanCoinsuranceRate,omitempty"`   // Whether The rate of coinsurance expressed as a number between 0.0 and 1.0.
+	HealthPlanCopay             Values `json:"healthPlanCopay,omitempty"`             // Whether The copay amount.
+	HealthPlanCopayOption       Values `json:"healthPlanCopayOption,omitempty"`       // Whether the copay is before or after deductible, etc. TODO: Is this a closed set?
+	HealthPlanPharmacyCategory  Values `json:"healthPlanPharmacyCategory,omitempty"`  // The category or type of pharmacy associated with this cost sharing.
 }
 
 // For a given health insurance plan, the specification for costs and coverage of prescription drugs.
 type HealthPlanFormulary struct {
 	Intangible
 
-	HealthPlanCostSharing    interface{} `json:"healthPlanCostSharing,omitempty"`    // Whether The costs to the patient for services under this network or formulary.
-	HealthPlanDrugTier       interface{} `json:"healthPlanDrugTier,omitempty"`       // The tier(s) of drugs offered by this formulary or insurance plan.
-	OffersPrescriptionByMail interface{} `json:"offersPrescriptionByMail,omitempty"` // Whether prescriptions can be delivered by mail.
+	HealthPlanCostSharing    Values `json:"healthPlanCostSharing,omitempty"`    // Whether The costs to the patient for services under this network or formulary.
+	HealthPlanDrugTier       Values `json:"healthPlanDrugTier,omitempty"`       // The tier(s) of drugs offered by this formulary or insurance plan.
+	OffersPrescriptionByMail Values `json:"offersPrescriptionByMail,omitempty"` // Whether prescriptions can be delivered by mail.
 }
 
 // A US-style health insurance plan network.
 type HealthPlanNetwork struct {
 	Intangible
 
-	HealthPlanCostSharing interface{} `json:"healthPlanCostSharing,omitempty"` // Whether The costs to the patient for services under this network or formulary.
-	HealthPlanNetworkId   interface{} `json:"healthPlanNetworkId,omitempty"`   // Name or unique ID of network. (Networks are often reused across different insurance plans).
-	HealthPlanNetworkTier interface{} `json:"healthPlanNetworkTier,omitempty"` // The tier(s) for this network.
+	HealthPlanCostSharing Values `json:"healthPlanCostSharing,omitempty"` // Whether The costs to the patient for services under this network or formulary.
+	HealthPlanNetworkId   Values `json:"healthPlanNetworkId,omitempty"`   // Name or unique ID of network. (Networks are often reused across different insurance plans).
+	HealthPlanNetworkTier Values `json:"healthPlanNetworkTier,omitempty"` // The tier(s) for this network.
 }
 
 /*
@@ -4777,7 +4777,7 @@ type HealthPlanNetwork struct {
 type HealthTopicContent struct {
 	WebContent
 
-	HasHealthAspect interface{} `json:"hasHealthAspect,omitempty"` // Indicates the aspect or aspects specifically addressed in some [[HealthTopicContent]]. For example, that the content is an overview, or that it talks about treatment, self-care, treatments or their side-effects.
+	HasHealthAspect Values `json:"hasHealthAspect,omitempty"` // Indicates the aspect or aspects specifically addressed in some [[HealthTopicContent]]. For example, that the content is an overview, or that it talks about treatment, self-care, treatments or their side-effects.
 }
 
 // A high school.
@@ -4811,9 +4811,9 @@ type Hospital struct {
 	// TODO: EmergencyService
 	// TODO: MedicalOrganization
 
-	AvailableService        interface{} `json:"availableService,omitempty"`        // A medical service available from this provider.
-	HealthcareReportingData interface{} `json:"healthcareReportingData,omitempty"` // Indicates data describing a hospital, e.g. a CDC [[CDCPMDRecord]] or as some kind of [[Dataset]].
-	MedicalSpecialty        interface{} `json:"medicalSpecialty,omitempty"`        // A medical specialty of the provider.
+	AvailableService        Values `json:"availableService,omitempty"`        // A medical service available from this provider.
+	HealthcareReportingData Values `json:"healthcareReportingData,omitempty"` // Indicates data describing a hospital, e.g. a CDC [[CDCPMDRecord]] or as some kind of [[Dataset]].
+	MedicalSpecialty        Values `json:"medicalSpecialty,omitempty"`        // A medical specialty of the provider.
 }
 
 /*
@@ -4842,11 +4842,11 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
 type HotelRoom struct {
 	Room
 
-	Bed interface{} `json:"bed,omitempty"` /*
+	Bed Values `json:"bed,omitempty"` /*
 	The type of bed or beds included in the accommodation. For the single case of just one bed of a certain type, you use bed directly with a text.
 	      If you want to indicate the quantity of a certain kind of bed, use an instance of BedDetails. For more detailed information, use the amenityFeature property.
 	*/
-	Occupancy interface{} `json:"occupancy,omitempty"` /*
+	Occupancy Values `json:"occupancy,omitempty"` /*
 	The allowed total occupancy for the accommodation in persons (including infants etc). For individual accommodations, this is not necessarily the legal maximum but defines the permitted usage as per the contractual agreement (e.g. a double room used by a single person).
 	Typical unit code(s): C62 for person
 	*/
@@ -4856,7 +4856,7 @@ type HotelRoom struct {
 type House struct {
 	Accommodation
 
-	NumberOfRooms interface{} `json:"numberOfRooms,omitempty"` /*
+	NumberOfRooms Values `json:"numberOfRooms,omitempty"` /*
 	The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business.
 	Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
 	*/
@@ -4871,15 +4871,15 @@ type HousePainter struct {
 type HowTo struct {
 	CreativeWork
 
-	EstimatedCost interface{} `json:"estimatedCost,omitempty"` // The estimated cost of the supply or supplies consumed when performing instructions.
-	PerformTime   interface{} `json:"performTime,omitempty"`   // The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
-	PrepTime      interface{} `json:"prepTime,omitempty"`      // The length of time it takes to prepare the items to be used in instructions or a direction, in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
-	Step          interface{} `json:"step,omitempty"`          // A single step item (as HowToStep, text, document, video, etc.) or a HowToSection.
-	Steps         interface{} `json:"steps,omitempty"`         // A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally misnamed 'steps'; 'step' is preferred).
-	Supply        interface{} `json:"supply,omitempty"`        // A sub-property of instrument. A supply consumed when performing instructions or a direction.
-	Tool          interface{} `json:"tool,omitempty"`          // A sub property of instrument. An object used (but not consumed) when performing instructions or a direction.
-	TotalTime     interface{} `json:"totalTime,omitempty"`     // The total time required to perform instructions or a direction (including time to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
-	Yield         interface{} `json:"yield,omitempty"`         // The quantity that results by performing instructions. For example, a paper airplane, 10 personalized candles.
+	EstimatedCost Values `json:"estimatedCost,omitempty"` // The estimated cost of the supply or supplies consumed when performing instructions.
+	PerformTime   Values `json:"performTime,omitempty"`   // The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+	PrepTime      Values `json:"prepTime,omitempty"`      // The length of time it takes to prepare the items to be used in instructions or a direction, in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+	Step          Values `json:"step,omitempty"`          // A single step item (as HowToStep, text, document, video, etc.) or a HowToSection.
+	Steps         Values `json:"steps,omitempty"`         // A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally misnamed 'steps'; 'step' is preferred).
+	Supply        Values `json:"supply,omitempty"`        // A sub-property of instrument. A supply consumed when performing instructions or a direction.
+	Tool          Values `json:"tool,omitempty"`          // A sub property of instrument. An object used (but not consumed) when performing instructions or a direction.
+	TotalTime     Values `json:"totalTime,omitempty"`     // The total time required to perform instructions or a direction (including time to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+	Yield         Values `json:"yield,omitempty"`         // The quantity that results by performing instructions. For example, a paper airplane, 10 personalized candles.
 }
 
 // A direction indicating a single action to do in the instructions for how to achieve a result.
@@ -4887,21 +4887,21 @@ type HowToDirection struct {
 	CreativeWork
 	// TODO: ListItem
 
-	AfterMedia  interface{} `json:"afterMedia,omitempty"`  // A media object representing the circumstances after performing this direction.
-	BeforeMedia interface{} `json:"beforeMedia,omitempty"` // A media object representing the circumstances before performing this direction.
-	DuringMedia interface{} `json:"duringMedia,omitempty"` // A media object representing the circumstances while performing this direction.
-	PerformTime interface{} `json:"performTime,omitempty"` // The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
-	PrepTime    interface{} `json:"prepTime,omitempty"`    // The length of time it takes to prepare the items to be used in instructions or a direction, in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
-	Supply      interface{} `json:"supply,omitempty"`      // A sub-property of instrument. A supply consumed when performing instructions or a direction.
-	Tool        interface{} `json:"tool,omitempty"`        // A sub property of instrument. An object used (but not consumed) when performing instructions or a direction.
-	TotalTime   interface{} `json:"totalTime,omitempty"`   // The total time required to perform instructions or a direction (including time to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+	AfterMedia  Values `json:"afterMedia,omitempty"`  // A media object representing the circumstances after performing this direction.
+	BeforeMedia Values `json:"beforeMedia,omitempty"` // A media object representing the circumstances before performing this direction.
+	DuringMedia Values `json:"duringMedia,omitempty"` // A media object representing the circumstances while performing this direction.
+	PerformTime Values `json:"performTime,omitempty"` // The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+	PrepTime    Values `json:"prepTime,omitempty"`    // The length of time it takes to prepare the items to be used in instructions or a direction, in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+	Supply      Values `json:"supply,omitempty"`      // A sub-property of instrument. A supply consumed when performing instructions or a direction.
+	Tool        Values `json:"tool,omitempty"`        // A sub property of instrument. An object used (but not consumed) when performing instructions or a direction.
+	TotalTime   Values `json:"totalTime,omitempty"`   // The total time required to perform instructions or a direction (including time to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
 }
 
 // An item used as either a tool or supply when performing the instructions for how to to achieve a result.
 type HowToItem struct {
 	ListItem
 
-	RequiredQuantity interface{} `json:"requiredQuantity,omitempty"` // The required quantity of the item(s).
+	RequiredQuantity Values `json:"requiredQuantity,omitempty"` // The required quantity of the item(s).
 }
 
 // A sub-grouping of steps in the instructions for how to achieve a result (e.g. steps for making a pie crust within a pie recipe).
@@ -4910,7 +4910,7 @@ type HowToSection struct {
 	// TODO: ItemList
 	// TODO: ListItem
 
-	Steps interface{} `json:"steps,omitempty"` // A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally misnamed 'steps'; 'step' is preferred).
+	Steps Values `json:"steps,omitempty"` // A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally misnamed 'steps'; 'step' is preferred).
 }
 
 // A step in the instructions for how to achieve a result. It is an ordered list with HowToDirection and/or HowToTip items.
@@ -4924,7 +4924,7 @@ type HowToStep struct {
 type HowToSupply struct {
 	HowToItem
 
-	EstimatedCost interface{} `json:"estimatedCost,omitempty"` // The estimated cost of the supply or supplies consumed when performing instructions.
+	EstimatedCost Values `json:"estimatedCost,omitempty"` // The estimated cost of the supply or supplies consumed when performing instructions.
 }
 
 // An explanation in the instructions for how to achieve a result. It provides supplementary information about a technique, supply, author's preference, etc. It can explain what could be done, or what should not be done, but doesn't specify what should be done (see HowToDirection).
@@ -4942,17 +4942,17 @@ type HowToTool struct {
 type HyperToc struct {
 	CreativeWork
 
-	AssociatedMedia interface{} `json:"associatedMedia,omitempty"` // A media object that encodes this CreativeWork. This property is a synonym for encoding.
-	TocEntry        interface{} `json:"tocEntry,omitempty"`        // Indicates a [[HyperTocEntry]] in a [[HyperToc]].
+	AssociatedMedia Values `json:"associatedMedia,omitempty"` // A media object that encodes this CreativeWork. This property is a synonym for encoding.
+	TocEntry        Values `json:"tocEntry,omitempty"`        // Indicates a [[HyperTocEntry]] in a [[HyperToc]].
 }
 
 // A HyperToEntry is an item within a [[HyperToc]], which represents a hypertext table of contents for complex media objects, such as [[VideoObject]], [[AudioObject]]. The media object itself is indicated using [[associatedMedia]]. Each section of interest within that content can be described with a [[HyperTocEntry]], with associated [[startOffset]] and [[endOffset]]. When several entries are all from the same file, [[associatedMedia]] is used on the overarching [[HyperTocEntry]]; if the content has been split into multiple files, they can be referenced using [[associatedMedia]] on each [[HyperTocEntry]].
 type HyperTocEntry struct {
 	CreativeWork
 
-	AssociatedMedia interface{} `json:"associatedMedia,omitempty"` // A media object that encodes this CreativeWork. This property is a synonym for encoding.
-	TocContinuation interface{} `json:"tocContinuation,omitempty"` // A [[HyperTocEntry]] can have a [[tocContinuation]] indicated, which is another [[HyperTocEntry]] that would be the default next item to play or render.
-	Utterances      interface{} `json:"utterances,omitempty"`      // Text of an utterances (spoken words, lyrics etc.) that occurs at a certain section of a media object, represented as a [[HyperTocEntry]].
+	AssociatedMedia Values `json:"associatedMedia,omitempty"` // A media object that encodes this CreativeWork. This property is a synonym for encoding.
+	TocContinuation Values `json:"tocContinuation,omitempty"` // A [[HyperTocEntry]] can have a [[tocContinuation]] indicated, which is another [[HyperTocEntry]] that would be the default next item to play or render.
+	Utterances      Values `json:"utterances,omitempty"`      // Text of an utterances (spoken words, lyrics etc.) that occurs at a certain section of a media object, represented as a [[HyperTocEntry]].
 }
 
 // An ice cream shop.
@@ -4974,11 +4974,11 @@ type ImageGallery struct {
 type ImageObject struct {
 	MediaObject
 
-	Caption              interface{} `json:"caption,omitempty"`              // The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].
-	EmbeddedTextCaption  interface{} `json:"embeddedTextCaption,omitempty"`  // Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'.
-	ExifData             interface{} `json:"exifData,omitempty"`             // exif data for this object.
-	RepresentativeOfPage interface{} `json:"representativeOfPage,omitempty"` // Indicates whether this image is representative of the content of the page.
-	Thumbnail            interface{} `json:"thumbnail,omitempty"`            // Thumbnail image for an image or video.
+	Caption              Values `json:"caption,omitempty"`              // The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].
+	EmbeddedTextCaption  Values `json:"embeddedTextCaption,omitempty"`  // Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'.
+	ExifData             Values `json:"exifData,omitempty"`             // exif data for this object.
+	RepresentativeOfPage Values `json:"representativeOfPage,omitempty"` // Indicates whether this image is representative of the content of the page.
+	Thumbnail            Values `json:"thumbnail,omitempty"`            // Thumbnail image for an image or video.
 }
 
 // A specific and exact (byte-for-byte) version of an [[ImageObject]]. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata (e.g. XMP, EXIF) the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity.
@@ -4990,14 +4990,14 @@ type ImageObjectSnapshot struct {
 type ImagingTest struct {
 	MedicalTest
 
-	ImagingTechnique interface{} `json:"imagingTechnique,omitempty"` // Imaging technique used.
+	ImagingTechnique Values `json:"imagingTechnique,omitempty"` // Imaging technique used.
 }
 
 // A single, identifiable product instance (e.g. a laptop with a particular serial number).
 type IndividualProduct struct {
 	Product
 
-	SerialNumber interface{} `json:"serialNumber,omitempty"` // The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
+	SerialNumber Values `json:"serialNumber,omitempty"` // The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
 }
 
 // Classes of agents or pathogens that transmit infectious diseases. Enumerated type.
@@ -5009,23 +5009,23 @@ type InfectiousAgentClass struct {
 type InfectiousDisease struct {
 	MedicalCondition
 
-	InfectiousAgent      interface{} `json:"infectiousAgent,omitempty"`      // The actual infectious agent, such as a specific bacterium.
-	InfectiousAgentClass interface{} `json:"infectiousAgentClass,omitempty"` // The class of infectious agent (bacteria, prion, etc.) that causes the disease.
-	TransmissionMethod   interface{} `json:"transmissionMethod,omitempty"`   // How the disease spreads, either as a route or vector, for example 'direct contact', 'Aedes aegypti', etc.
+	InfectiousAgent      Values `json:"infectiousAgent,omitempty"`      // The actual infectious agent, such as a specific bacterium.
+	InfectiousAgentClass Values `json:"infectiousAgentClass,omitempty"` // The class of infectious agent (bacteria, prion, etc.) that causes the disease.
+	TransmissionMethod   Values `json:"transmissionMethod,omitempty"`   // How the disease spreads, either as a route or vector, for example 'direct contact', 'Aedes aegypti', etc.
 }
 
 // The act of notifying someone of information pertinent to them, with no expectation of a response.
 type InformAction struct {
 	CommunicateAction
 
-	Event interface{} `json:"event,omitempty"` // Upcoming or past event associated with this place, organization, or action.
+	Event Values `json:"event,omitempty"` // Upcoming or past event associated with this place, organization, or action.
 }
 
 // The act of adding at a specific location in an ordered collection.
 type InsertAction struct {
 	AddAction
 
-	ToLocation interface{} `json:"toLocation,omitempty"` // A sub property of location. The final location of the object or the agent after the action.
+	ToLocation Values `json:"toLocation,omitempty"` // A sub property of location. The final location of the object or the agent after the action.
 }
 
 // The act of installing an application.
@@ -5057,12 +5057,12 @@ type InteractAction struct {
 type InteractionCounter struct {
 	StructuredValue
 
-	EndTime              interface{} `json:"endTime,omitempty"`              // The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
-	InteractionService   interface{} `json:"interactionService,omitempty"`   // The WebSite or SoftwareApplication where the interactions took place.
-	InteractionType      interface{} `json:"interactionType,omitempty"`      // The Action representing the type of interaction. For up votes, +1s, etc. use [[LikeAction]]. For down votes use [[DislikeAction]]. Otherwise, use the most specific Action.
-	Location             interface{} `json:"location,omitempty"`             // The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
-	StartTime            interface{} `json:"startTime,omitempty"`            // The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
-	UserInteractionCount interface{} `json:"userInteractionCount,omitempty"` // The number of interactions for the CreativeWork using the WebSite or SoftwareApplication.
+	EndTime              Values `json:"endTime,omitempty"`              // The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
+	InteractionService   Values `json:"interactionService,omitempty"`   // The WebSite or SoftwareApplication where the interactions took place.
+	InteractionType      Values `json:"interactionType,omitempty"`      // The Action representing the type of interaction. For up votes, +1s, etc. use [[LikeAction]]. For down votes use [[DislikeAction]]. Otherwise, use the most specific Action.
+	Location             Values `json:"location,omitempty"`             // The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+	StartTime            Values `json:"startTime,omitempty"`            // The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
+	UserInteractionCount Values `json:"userInteractionCount,omitempty"` // The number of interactions for the CreativeWork using the WebSite or SoftwareApplication.
 }
 
 // An internet cafe.
@@ -5079,36 +5079,36 @@ type InvestmentFund struct {
 type InvestmentOrDeposit struct {
 	FinancialProduct
 
-	Amount interface{} `json:"amount,omitempty"` // The amount of money.
+	Amount Values `json:"amount,omitempty"` // The amount of money.
 }
 
 // The act of asking someone to attend an event. Reciprocal of RsvpAction.
 type InviteAction struct {
 	CommunicateAction
 
-	Event interface{} `json:"event,omitempty"` // Upcoming or past event associated with this place, organization, or action.
+	Event Values `json:"event,omitempty"` // Upcoming or past event associated with this place, organization, or action.
 }
 
 // A statement of the money due for goods or services; a bill.
 type Invoice struct {
 	Intangible
 
-	AccountId            interface{} `json:"accountId,omitempty"`            // The identifier for the account the payment will be applied to.
-	BillingPeriod        interface{} `json:"billingPeriod,omitempty"`        // The time interval used to compute the invoice.
-	Broker               interface{} `json:"broker,omitempty"`               // An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
-	Category             interface{} `json:"category,omitempty"`             // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
-	ConfirmationNumber   interface{} `json:"confirmationNumber,omitempty"`   // A number that confirms the given order or payment has been received.
-	Customer             interface{} `json:"customer,omitempty"`             // Party placing the order or paying the invoice.
-	MinimumPaymentDue    interface{} `json:"minimumPaymentDue,omitempty"`    // The minimum payment required at this time.
-	PaymentDue           interface{} `json:"paymentDue,omitempty"`           // The date that payment is due.
-	PaymentDueDate       interface{} `json:"paymentDueDate,omitempty"`       // The date that payment is due.
-	PaymentMethod        interface{} `json:"paymentMethod,omitempty"`        // The name of the credit card or other method of payment for the order.
-	PaymentMethodId      interface{} `json:"paymentMethodId,omitempty"`      // An identifier for the method of payment used (e.g. the last 4 digits of the credit card).
-	PaymentStatus        interface{} `json:"paymentStatus,omitempty"`        // The status of payment; whether the invoice has been paid or not.
-	Provider             interface{} `json:"provider,omitempty"`             // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
-	ReferencesOrder      interface{} `json:"referencesOrder,omitempty"`      // The Order(s) related to this Invoice. One or more Orders may be combined into a single Invoice.
-	ScheduledPaymentDate interface{} `json:"scheduledPaymentDate,omitempty"` // The date the invoice is scheduled to be paid.
-	TotalPaymentDue      interface{} `json:"totalPaymentDue,omitempty"`      // The total amount due.
+	AccountId            Values `json:"accountId,omitempty"`            // The identifier for the account the payment will be applied to.
+	BillingPeriod        Values `json:"billingPeriod,omitempty"`        // The time interval used to compute the invoice.
+	Broker               Values `json:"broker,omitempty"`               // An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
+	Category             Values `json:"category,omitempty"`             // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+	ConfirmationNumber   Values `json:"confirmationNumber,omitempty"`   // A number that confirms the given order or payment has been received.
+	Customer             Values `json:"customer,omitempty"`             // Party placing the order or paying the invoice.
+	MinimumPaymentDue    Values `json:"minimumPaymentDue,omitempty"`    // The minimum payment required at this time.
+	PaymentDue           Values `json:"paymentDue,omitempty"`           // The date that payment is due.
+	PaymentDueDate       Values `json:"paymentDueDate,omitempty"`       // The date that payment is due.
+	PaymentMethod        Values `json:"paymentMethod,omitempty"`        // The name of the credit card or other method of payment for the order.
+	PaymentMethodId      Values `json:"paymentMethodId,omitempty"`      // An identifier for the method of payment used (e.g. the last 4 digits of the credit card).
+	PaymentStatus        Values `json:"paymentStatus,omitempty"`        // The status of payment; whether the invoice has been paid or not.
+	Provider             Values `json:"provider,omitempty"`             // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+	ReferencesOrder      Values `json:"referencesOrder,omitempty"`      // The Order(s) related to this Invoice. One or more Orders may be combined into a single Invoice.
+	ScheduledPaymentDate Values `json:"scheduledPaymentDate,omitempty"` // The date the invoice is scheduled to be paid.
+	TotalPaymentDue      Values `json:"totalPaymentDue,omitempty"`      // The total amount due.
 }
 
 // A list of possible product availability options.
@@ -5120,9 +5120,9 @@ type ItemAvailability struct {
 type ItemList struct {
 	Intangible
 
-	ItemListElement interface{} `json:"itemListElement,omitempty"` // For itemListElement values, you can use simple strings (e.g. "Peter", "Paul", "Mary"), existing entities, or use ListItem.\n\nText values are best if the elements in the list are plain strings. Existing entities are best for a simple, unordered list of existing things in your data. ListItem is used with ordered lists when you want to provide additional context about the element in that list or when the same item might be in different places in different lists.\n\nNote: The order of elements in your mark-up is not sufficient for indicating the order or elements.  Use ListItem with a 'position' property in such cases.
-	ItemListOrder   interface{} `json:"itemListOrder,omitempty"`   // Type of ordering (e.g. Ascending, Descending, Unordered).
-	NumberOfItems   interface{} `json:"numberOfItems,omitempty"`   // The number of items in an ItemList. Note that some descriptions might not fully describe all items in a list (e.g., multi-page pagination); in such cases, the numberOfItems would be for the entire list.
+	ItemListElement Values `json:"itemListElement,omitempty"` // For itemListElement values, you can use simple strings (e.g. "Peter", "Paul", "Mary"), existing entities, or use ListItem.\n\nText values are best if the elements in the list are plain strings. Existing entities are best for a simple, unordered list of existing things in your data. ListItem is used with ordered lists when you want to provide additional context about the element in that list or when the same item might be in different places in different lists.\n\nNote: The order of elements in your mark-up is not sufficient for indicating the order or elements.  Use ListItem with a 'position' property in such cases.
+	ItemListOrder   Values `json:"itemListOrder,omitempty"`   // Type of ordering (e.g. Ascending, Descending, Unordered).
+	NumberOfItems   Values `json:"numberOfItems,omitempty"`   // The number of items in an ItemList. Note that some descriptions might not fully describe all items in a list (e.g., multi-page pagination); in such cases, the numberOfItems would be for the entire list.
 }
 
 // Enumerated for values for itemListOrder for indicating how an ordered ItemList is organized.
@@ -5144,62 +5144,62 @@ type JewelryStore struct {
 type JobPosting struct {
 	Intangible
 
-	ApplicantLocationRequirements interface{} `json:"applicantLocationRequirements,omitempty"` // The location(s) applicants can apply from. This is usually used for telecommuting jobs where the applicant does not need to be in a physical office. Note: This should not be used for citizenship or work visa requirements.
-	ApplicationContact            interface{} `json:"applicationContact,omitempty"`            // Contact details for further information relevant to this job posting.
-	BaseSalary                    interface{} `json:"baseSalary,omitempty"`                    // The base salary of the job or of an employee in an EmployeeRole.
-	Benefits                      interface{} `json:"benefits,omitempty"`                      // Description of benefits associated with the job.
-	DatePosted                    interface{} `json:"datePosted,omitempty"`                    // Publication date of an online listing.
-	DirectApply                   interface{} `json:"directApply,omitempty"`                   // Indicates whether an [[url]] that is associated with a [[JobPosting]] enables direct application for the job, via the posting website. A job posting is considered to have directApply of [[True]] if an application process for the specified job can be directly initiated via the url(s) given (noting that e.g. multiple internet domains might nevertheless be involved at an implementation level). A value of [[False]] is appropriate if there is no clear path to applying directly online for the specified job, navigating directly from the JobPosting url(s) supplied.
-	EducationRequirements         interface{} `json:"educationRequirements,omitempty"`         // Educational background needed for the position or Occupation.
-	EligibilityToWorkRequirement  interface{} `json:"eligibilityToWorkRequirement,omitempty"`  // The legal requirements such as citizenship, visa and other documentation required for an applicant to this job.
-	EmployerOverview              interface{} `json:"employerOverview,omitempty"`              // A description of the employer, career opportunities and work environment for this position.
-	EmploymentType                interface{} `json:"employmentType,omitempty"`                // Type of employment (e.g. full-time, part-time, contract, temporary, seasonal, internship).
-	EmploymentUnit                interface{} `json:"employmentUnit,omitempty"`                // Indicates the department, unit and/or facility where the employee reports and/or in which the job is to be performed.
-	EstimatedSalary               interface{} `json:"estimatedSalary,omitempty"`               // An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.
-	ExperienceInPlaceOfEducation  interface{} `json:"experienceInPlaceOfEducation,omitempty"`  // Indicates whether a [[JobPosting]] will accept experience (as indicated by [[OccupationalExperienceRequirements]]) in place of its formal educational qualifications (as indicated by [[educationRequirements]]). If true, indicates that satisfying one of these requirements is sufficient.
-	ExperienceRequirements        interface{} `json:"experienceRequirements,omitempty"`        // Description of skills and experience needed for the position or Occupation.
-	HiringOrganization            interface{} `json:"hiringOrganization,omitempty"`            // Organization offering the job position.
-	IncentiveCompensation         interface{} `json:"incentiveCompensation,omitempty"`         // Description of bonus and commission compensation aspects of the job.
-	Incentives                    interface{} `json:"incentives,omitempty"`                    // Description of bonus and commission compensation aspects of the job.
-	Industry                      interface{} `json:"industry,omitempty"`                      // The industry associated with the job position.
-	JobBenefits                   interface{} `json:"jobBenefits,omitempty"`                   // Description of benefits associated with the job.
-	JobImmediateStart             interface{} `json:"jobImmediateStart,omitempty"`             // An indicator as to whether a position is available for an immediate start.
-	JobLocation                   interface{} `json:"jobLocation,omitempty"`                   // A (typically single) geographic location associated with the job position.
-	JobLocationType               interface{} `json:"jobLocationType,omitempty"`               // A description of the job location (e.g TELECOMMUTE for telecommute jobs).
-	JobStartDate                  interface{} `json:"jobStartDate,omitempty"`                  // The date on which a successful applicant for this job would be expected to start work. Choose a specific date in the future or use the jobImmediateStart property to indicate the position is to be filled as soon as possible.
-	OccupationalCategory          interface{} `json:"occupationalCategory,omitempty"`          /*
+	ApplicantLocationRequirements Values `json:"applicantLocationRequirements,omitempty"` // The location(s) applicants can apply from. This is usually used for telecommuting jobs where the applicant does not need to be in a physical office. Note: This should not be used for citizenship or work visa requirements.
+	ApplicationContact            Values `json:"applicationContact,omitempty"`            // Contact details for further information relevant to this job posting.
+	BaseSalary                    Values `json:"baseSalary,omitempty"`                    // The base salary of the job or of an employee in an EmployeeRole.
+	Benefits                      Values `json:"benefits,omitempty"`                      // Description of benefits associated with the job.
+	DatePosted                    Values `json:"datePosted,omitempty"`                    // Publication date of an online listing.
+	DirectApply                   Values `json:"directApply,omitempty"`                   // Indicates whether an [[url]] that is associated with a [[JobPosting]] enables direct application for the job, via the posting website. A job posting is considered to have directApply of [[True]] if an application process for the specified job can be directly initiated via the url(s) given (noting that e.g. multiple internet domains might nevertheless be involved at an implementation level). A value of [[False]] is appropriate if there is no clear path to applying directly online for the specified job, navigating directly from the JobPosting url(s) supplied.
+	EducationRequirements         Values `json:"educationRequirements,omitempty"`         // Educational background needed for the position or Occupation.
+	EligibilityToWorkRequirement  Values `json:"eligibilityToWorkRequirement,omitempty"`  // The legal requirements such as citizenship, visa and other documentation required for an applicant to this job.
+	EmployerOverview              Values `json:"employerOverview,omitempty"`              // A description of the employer, career opportunities and work environment for this position.
+	EmploymentType                Values `json:"employmentType,omitempty"`                // Type of employment (e.g. full-time, part-time, contract, temporary, seasonal, internship).
+	EmploymentUnit                Values `json:"employmentUnit,omitempty"`                // Indicates the department, unit and/or facility where the employee reports and/or in which the job is to be performed.
+	EstimatedSalary               Values `json:"estimatedSalary,omitempty"`               // An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.
+	ExperienceInPlaceOfEducation  Values `json:"experienceInPlaceOfEducation,omitempty"`  // Indicates whether a [[JobPosting]] will accept experience (as indicated by [[OccupationalExperienceRequirements]]) in place of its formal educational qualifications (as indicated by [[educationRequirements]]). If true, indicates that satisfying one of these requirements is sufficient.
+	ExperienceRequirements        Values `json:"experienceRequirements,omitempty"`        // Description of skills and experience needed for the position or Occupation.
+	HiringOrganization            Values `json:"hiringOrganization,omitempty"`            // Organization offering the job position.
+	IncentiveCompensation         Values `json:"incentiveCompensation,omitempty"`         // Description of bonus and commission compensation aspects of the job.
+	Incentives                    Values `json:"incentives,omitempty"`                    // Description of bonus and commission compensation aspects of the job.
+	Industry                      Values `json:"industry,omitempty"`                      // The industry associated with the job position.
+	JobBenefits                   Values `json:"jobBenefits,omitempty"`                   // Description of benefits associated with the job.
+	JobImmediateStart             Values `json:"jobImmediateStart,omitempty"`             // An indicator as to whether a position is available for an immediate start.
+	JobLocation                   Values `json:"jobLocation,omitempty"`                   // A (typically single) geographic location associated with the job position.
+	JobLocationType               Values `json:"jobLocationType,omitempty"`               // A description of the job location (e.g TELECOMMUTE for telecommute jobs).
+	JobStartDate                  Values `json:"jobStartDate,omitempty"`                  // The date on which a successful applicant for this job would be expected to start work. Choose a specific date in the future or use the jobImmediateStart property to indicate the position is to be filled as soon as possible.
+	OccupationalCategory          Values `json:"occupationalCategory,omitempty"`          /*
 	A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\n
 	Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.
 	*/
-	PhysicalRequirement          interface{} `json:"physicalRequirement,omitempty"`          // A description of the types of physical activity associated with the job. Defined terms such as those in O*net may be used, but note that there is no way to specify the level of ability as well as its nature when using a defined term.
-	Qualifications               interface{} `json:"qualifications,omitempty"`               // Specific qualifications required for this role or Occupation.
-	RelevantOccupation           interface{} `json:"relevantOccupation,omitempty"`           // The Occupation for the JobPosting.
-	Responsibilities             interface{} `json:"responsibilities,omitempty"`             // Responsibilities associated with this role or Occupation.
-	SalaryCurrency               interface{} `json:"salaryCurrency,omitempty"`               // The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) ) used for the main salary information in this job posting or for this employee.
-	SecurityClearanceRequirement interface{} `json:"securityClearanceRequirement,omitempty"` // A description of any security clearance requirements of the job.
-	SensoryRequirement           interface{} `json:"sensoryRequirement,omitempty"`           // A description of any sensory requirements and levels necessary to function on the job, including hearing and vision. Defined terms such as those in O*net may be used, but note that there is no way to specify the level of ability as well as its nature when using a defined term.
-	Skills                       interface{} `json:"skills,omitempty"`                       // A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is desired or required to fulfill this role or to work in this occupation.
-	SpecialCommitments           interface{} `json:"specialCommitments,omitempty"`           // Any special commitments associated with this job posting. Valid entries include VeteranCommit, MilitarySpouseCommit, etc.
-	Title                        interface{} `json:"title,omitempty"`                        // The title of the job.
-	TotalJobOpenings             interface{} `json:"totalJobOpenings,omitempty"`             // The number of positions open for this job posting. Use a positive integer. Do not use if the number of positions is unclear or not known.
-	ValidThrough                 interface{} `json:"validThrough,omitempty"`                 // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	WorkHours                    interface{} `json:"workHours,omitempty"`                    // The typical working hours for this job (e.g. 1st shift, night shift, 8am-5pm).
+	PhysicalRequirement          Values `json:"physicalRequirement,omitempty"`          // A description of the types of physical activity associated with the job. Defined terms such as those in O*net may be used, but note that there is no way to specify the level of ability as well as its nature when using a defined term.
+	Qualifications               Values `json:"qualifications,omitempty"`               // Specific qualifications required for this role or Occupation.
+	RelevantOccupation           Values `json:"relevantOccupation,omitempty"`           // The Occupation for the JobPosting.
+	Responsibilities             Values `json:"responsibilities,omitempty"`             // Responsibilities associated with this role or Occupation.
+	SalaryCurrency               Values `json:"salaryCurrency,omitempty"`               // The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) ) used for the main salary information in this job posting or for this employee.
+	SecurityClearanceRequirement Values `json:"securityClearanceRequirement,omitempty"` // A description of any security clearance requirements of the job.
+	SensoryRequirement           Values `json:"sensoryRequirement,omitempty"`           // A description of any sensory requirements and levels necessary to function on the job, including hearing and vision. Defined terms such as those in O*net may be used, but note that there is no way to specify the level of ability as well as its nature when using a defined term.
+	Skills                       Values `json:"skills,omitempty"`                       // A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is desired or required to fulfill this role or to work in this occupation.
+	SpecialCommitments           Values `json:"specialCommitments,omitempty"`           // Any special commitments associated with this job posting. Valid entries include VeteranCommit, MilitarySpouseCommit, etc.
+	Title                        Values `json:"title,omitempty"`                        // The title of the job.
+	TotalJobOpenings             Values `json:"totalJobOpenings,omitempty"`             // The number of positions open for this job posting. Use a positive integer. Do not use if the number of positions is unclear or not known.
+	ValidThrough                 Values `json:"validThrough,omitempty"`                 // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
+	WorkHours                    Values `json:"workHours,omitempty"`                    // The typical working hours for this job (e.g. 1st shift, night shift, 8am-5pm).
 }
 
 // An agent joins an event/group with participants/friends at a location.\n\nRelated actions:\n\n* [[RegisterAction]]: Unlike RegisterAction, JoinAction refers to joining a group/team of people.\n* [[SubscribeAction]]: Unlike SubscribeAction, JoinAction does not imply that you'll be receiving updates.\n* [[FollowAction]]: Unlike FollowAction, JoinAction does not imply that you'll be polling for updates.
 type JoinAction struct {
 	InteractAction
 
-	Event interface{} `json:"event,omitempty"` // Upcoming or past event associated with this place, organization, or action.
+	Event Values `json:"event,omitempty"` // Upcoming or past event associated with this place, organization, or action.
 }
 
 // The anatomical location at which two or more bones make contact.
 type Joint struct {
 	AnatomicalStructure
 
-	BiomechnicalClass interface{} `json:"biomechnicalClass,omitempty"` // The biomechanical properties of the bone.
-	FunctionalClass   interface{} `json:"functionalClass,omitempty"`   // The degree of mobility the joint allows.
-	StructuralClass   interface{} `json:"structuralClass,omitempty"`   // The name given to how bone physically connects to each other.
+	BiomechnicalClass Values `json:"biomechnicalClass,omitempty"` // The biomechanical properties of the bone.
+	FunctionalClass   Values `json:"functionalClass,omitempty"`   // The degree of mobility the joint allows.
+	StructuralClass   Values `json:"structuralClass,omitempty"`   // The name given to how bone physically connects to each other.
 }
 
 // A lake (for example, Lake Pontrachain).
@@ -5232,24 +5232,24 @@ The LearningResource type can be used to indicate [[CreativeWork]]s (whether phy
 type LearningResource struct {
 	CreativeWork
 
-	Assesses             interface{} `json:"assesses,omitempty"`             // The item being described is intended to assess the competency or learning outcome defined by the referenced term.
-	CompetencyRequired   interface{} `json:"competencyRequired,omitempty"`   // Knowledge, skill, ability or personal attribute that must be demonstrated by a person or other entity in order to do something such as earn an Educational Occupational Credential or understand a LearningResource.
-	EducationalAlignment interface{} `json:"educationalAlignment,omitempty"` /*
+	Assesses             Values `json:"assesses,omitempty"`             // The item being described is intended to assess the competency or learning outcome defined by the referenced term.
+	CompetencyRequired   Values `json:"competencyRequired,omitempty"`   // Knowledge, skill, ability or personal attribute that must be demonstrated by a person or other entity in order to do something such as earn an Educational Occupational Credential or understand a LearningResource.
+	EducationalAlignment Values `json:"educationalAlignment,omitempty"` /*
 	An alignment to an established educational framework.
 
 	This property should not be used where the nature of the alignment can be described using a simple property, for example to express that a resource [[teaches]] or [[assesses]] a competency.
 	*/
-	EducationalLevel     interface{} `json:"educationalLevel,omitempty"`     // The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
-	EducationalUse       interface{} `json:"educationalUse,omitempty"`       // The purpose of a work in the context of education; for example, 'assignment', 'group work'.
-	LearningResourceType interface{} `json:"learningResourceType,omitempty"` // The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.
-	Teaches              interface{} `json:"teaches,omitempty"`              // The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.
+	EducationalLevel     Values `json:"educationalLevel,omitempty"`     // The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
+	EducationalUse       Values `json:"educationalUse,omitempty"`       // The purpose of a work in the context of education; for example, 'assignment', 'group work'.
+	LearningResourceType Values `json:"learningResourceType,omitempty"` // The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.
+	Teaches              Values `json:"teaches,omitempty"`              // The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.
 }
 
 // An agent leaves an event / group with participants/friends at a location.\n\nRelated actions:\n\n* [[JoinAction]]: The antonym of LeaveAction.\n* [[UnRegisterAction]]: Unlike UnRegisterAction, LeaveAction implies leaving a group/team of people rather than a service.
 type LeaveAction struct {
 	InteractAction
 
-	Event interface{} `json:"event,omitempty"` // Upcoming or past event associated with this place, organization, or action.
+	Event Values `json:"event,omitempty"` // Upcoming or past event associated with this place, organization, or action.
 }
 
 // A list of possible statuses for the legal force of a legislation.
@@ -5271,19 +5271,19 @@ type LegalValueLevel struct {
 type Legislation struct {
 	CreativeWork
 
-	Jurisdiction            interface{} `json:"jurisdiction,omitempty"`            // Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.
-	LegislationApplies      interface{} `json:"legislationApplies,omitempty"`      // Indicates that this legislation (or part of a legislation) somehow transfers another legislation in a different legislative context. This is an informative link, and it has no legal value. For legally-binding links of transposition, use the <a href="/legislationTransposes">legislationTransposes</a> property. For example an informative consolidated law of a European Union's member state "applies" the consolidated version of the European Directive implemented in it.
-	LegislationChanges      interface{} `json:"legislationChanges,omitempty"`      // Another legislation that this legislation changes. This encompasses the notions of amendment, replacement, correction, repeal, or other types of change. This may be a direct change (textual or non-textual amendment) or a consequential or indirect change. The property is to be used to express the existence of a change relationship between two acts rather than the existence of a consolidated version of the text that shows the result of the change. For consolidation relationships, use the <a href="/legislationConsolidates">legislationConsolidates</a> property.
-	LegislationConsolidates interface{} `json:"legislationConsolidates,omitempty"` // Indicates another legislation taken into account in this consolidated legislation (which is usually the product of an editorial process that revises the legislation). This property should be used multiple times to refer to both the original version or the previous consolidated version, and to the legislations making the change.
-	LegislationDate         interface{} `json:"legislationDate,omitempty"`         // The date of adoption or signature of the legislation. This is the date at which the text is officially aknowledged to be a legislation, even though it might not even be published or in force.
-	LegislationDateVersion  interface{} `json:"legislationDateVersion,omitempty"`  // The point-in-time at which the provided description of the legislation is valid (e.g. : when looking at the law on the 2016-04-07 (= dateVersion), I get the consolidation of 2015-04-12 of the "National Insurance Contributions Act 2015")
-	LegislationIdentifier   interface{} `json:"legislationIdentifier,omitempty"`   // An identifier for the legislation. This can be either a string-based identifier, like the CELEX at EU level or the NOR in France, or a web-based, URL/URI identifier, like an ELI (European Legislation Identifier) or an URN-Lex.
-	LegislationJurisdiction interface{} `json:"legislationJurisdiction,omitempty"` // The jurisdiction from which the legislation originates.
-	LegislationLegalForce   interface{} `json:"legislationLegalForce,omitempty"`   // Whether the legislation is currently in force, not in force, or partially in force.
-	LegislationPassedBy     interface{} `json:"legislationPassedBy,omitempty"`     // The person or organization that originally passed or made the law : typically parliament (for primary legislation) or government (for secondary legislation). This indicates the "legal author" of the law, as opposed to its physical author.
-	LegislationResponsible  interface{} `json:"legislationResponsible,omitempty"`  // An individual or organization that has some kind of responsibility for the legislation. Typically the ministry who is/was in charge of elaborating the legislation, or the adressee for potential questions about the legislation once it is published.
-	LegislationTransposes   interface{} `json:"legislationTransposes,omitempty"`   // Indicates that this legislation (or part of legislation) fulfills the objectives set by another legislation, by passing appropriate implementation measures. Typically, some legislations of European Union's member states or regions transpose European Directives. This indicates a legally binding link between the 2 legislations.
-	LegislationType         interface{} `json:"legislationType,omitempty"`         // The type of the legislation. Examples of values are "law", "act", "directive", "decree", "regulation", "statutory instrument", "loi organique", "règlement grand-ducal", etc., depending on the country.
+	Jurisdiction            Values `json:"jurisdiction,omitempty"`            // Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.
+	LegislationApplies      Values `json:"legislationApplies,omitempty"`      // Indicates that this legislation (or part of a legislation) somehow transfers another legislation in a different legislative context. This is an informative link, and it has no legal value. For legally-binding links of transposition, use the <a href="/legislationTransposes">legislationTransposes</a> property. For example an informative consolidated law of a European Union's member state "applies" the consolidated version of the European Directive implemented in it.
+	LegislationChanges      Values `json:"legislationChanges,omitempty"`      // Another legislation that this legislation changes. This encompasses the notions of amendment, replacement, correction, repeal, or other types of change. This may be a direct change (textual or non-textual amendment) or a consequential or indirect change. The property is to be used to express the existence of a change relationship between two acts rather than the existence of a consolidated version of the text that shows the result of the change. For consolidation relationships, use the <a href="/legislationConsolidates">legislationConsolidates</a> property.
+	LegislationConsolidates Values `json:"legislationConsolidates,omitempty"` // Indicates another legislation taken into account in this consolidated legislation (which is usually the product of an editorial process that revises the legislation). This property should be used multiple times to refer to both the original version or the previous consolidated version, and to the legislations making the change.
+	LegislationDate         Values `json:"legislationDate,omitempty"`         // The date of adoption or signature of the legislation. This is the date at which the text is officially aknowledged to be a legislation, even though it might not even be published or in force.
+	LegislationDateVersion  Values `json:"legislationDateVersion,omitempty"`  // The point-in-time at which the provided description of the legislation is valid (e.g. : when looking at the law on the 2016-04-07 (= dateVersion), I get the consolidation of 2015-04-12 of the "National Insurance Contributions Act 2015")
+	LegislationIdentifier   Values `json:"legislationIdentifier,omitempty"`   // An identifier for the legislation. This can be either a string-based identifier, like the CELEX at EU level or the NOR in France, or a web-based, URL/URI identifier, like an ELI (European Legislation Identifier) or an URN-Lex.
+	LegislationJurisdiction Values `json:"legislationJurisdiction,omitempty"` // The jurisdiction from which the legislation originates.
+	LegislationLegalForce   Values `json:"legislationLegalForce,omitempty"`   // Whether the legislation is currently in force, not in force, or partially in force.
+	LegislationPassedBy     Values `json:"legislationPassedBy,omitempty"`     // The person or organization that originally passed or made the law : typically parliament (for primary legislation) or government (for secondary legislation). This indicates the "legal author" of the law, as opposed to its physical author.
+	LegislationResponsible  Values `json:"legislationResponsible,omitempty"`  // An individual or organization that has some kind of responsibility for the legislation. Typically the ministry who is/was in charge of elaborating the legislation, or the adressee for potential questions about the legislation once it is published.
+	LegislationTransposes   Values `json:"legislationTransposes,omitempty"`   // Indicates that this legislation (or part of legislation) fulfills the objectives set by another legislation, by passing appropriate implementation measures. Typically, some legislations of European Union's member states or regions transpose European Directives. This indicates a legally binding link between the 2 legislations.
+	LegislationType         Values `json:"legislationType,omitempty"`         // The type of the legislation. Examples of values are "law", "act", "directive", "decree", "regulation", "statutory instrument", "loi organique", "règlement grand-ducal", etc., depending on the country.
 }
 
 // A specific object or file containing a Legislation. Note that the same Legislation can be published in multiple files. For example, a digitally signed PDF, a plain PDF and an HTML version.
@@ -5291,7 +5291,7 @@ type LegislationObject struct {
 	Legislation
 	// TODO: MediaObject
 
-	LegislationLegalValue interface{} `json:"legislationLegalValue,omitempty"` // The legal value of this legislation file. The same legislation can be written in multiple files with different legal values. Typically a digitally signed PDF have a "stronger" legal value than the HTML file of the same act.
+	LegislationLegalValue Values `json:"legislationLegalValue,omitempty"` // The legal value of this legislation file. The same legislation can be written in multiple files with different legal values. Typically a digitally signed PDF have a "stronger" legal value than the HTML file of the same act.
 }
 
 // A legislative building&#x2014;for example, the state capitol.
@@ -5303,7 +5303,7 @@ type LegislativeBuilding struct {
 type LendAction struct {
 	TransferAction
 
-	Borrower interface{} `json:"borrower,omitempty"` // A sub property of participant. The person that borrows the object being lent.
+	Borrower Values `json:"borrower,omitempty"` // A sub property of participant. The person that borrows the object being lent.
 }
 
 // A library.
@@ -5335,8 +5335,8 @@ type LikeAction struct {
 type LinkRole struct {
 	Role
 
-	InLanguage       interface{} `json:"inLanguage,omitempty"`       // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
-	LinkRelationship interface{} `json:"linkRelationship,omitempty"` // Indicates the relationship type of a Web link.
+	InLanguage       Values `json:"inLanguage,omitempty"`       // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+	LinkRelationship Values `json:"linkRelationship,omitempty"` // Indicates the relationship type of a Web link.
 }
 
 // A shop that sells alcoholic drinks such as wine, beer, whisky and other spirits.
@@ -5348,10 +5348,10 @@ type LiquorStore struct {
 type ListItem struct {
 	Intangible
 
-	Item         interface{} `json:"item,omitempty"`         // An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')’.
-	NextItem     interface{} `json:"nextItem,omitempty"`     // A link to the ListItem that follows the current one.
-	Position     interface{} `json:"position,omitempty"`     // The position of an item in a series or sequence of items.
-	PreviousItem interface{} `json:"previousItem,omitempty"` // A link to the ListItem that preceeds the current one.
+	Item         Values `json:"item,omitempty"`         // An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')’.
+	NextItem     Values `json:"nextItem,omitempty"`     // A link to the ListItem that follows the current one.
+	Position     Values `json:"position,omitempty"`     // The position of an item in a series or sequence of items.
+	PreviousItem Values `json:"previousItem,omitempty"` // A link to the ListItem that preceeds the current one.
 }
 
 // The act of consuming audio content.
@@ -5368,24 +5368,24 @@ type LiteraryEvent struct {
 type LiveBlogPosting struct {
 	BlogPosting
 
-	CoverageEndTime   interface{} `json:"coverageEndTime,omitempty"`   // The time when the live blog will stop covering the Event. Note that coverage may continue after the Event concludes.
-	CoverageStartTime interface{} `json:"coverageStartTime,omitempty"` // The time when the live blog will begin covering the Event. Note that coverage may begin before the Event's start time. The LiveBlogPosting may also be created before coverage begins.
-	LiveBlogUpdate    interface{} `json:"liveBlogUpdate,omitempty"`    // An update to the LiveBlog.
+	CoverageEndTime   Values `json:"coverageEndTime,omitempty"`   // The time when the live blog will stop covering the Event. Note that coverage may continue after the Event concludes.
+	CoverageStartTime Values `json:"coverageStartTime,omitempty"` // The time when the live blog will begin covering the Event. Note that coverage may begin before the Event's start time. The LiveBlogPosting may also be created before coverage begins.
+	LiveBlogUpdate    Values `json:"liveBlogUpdate,omitempty"`    // An update to the LiveBlog.
 }
 
 // A financial product for the loaning of an amount of money, or line of credit, under agreed terms and charges.
 type LoanOrCredit struct {
 	FinancialProduct
 
-	Amount             interface{} `json:"amount,omitempty"`             // The amount of money.
-	Currency           interface{} `json:"currency,omitempty"`           // The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
-	GracePeriod        interface{} `json:"gracePeriod,omitempty"`        // The period of time after any due date that the borrower has to fulfil its obligations before a default (failure to pay) is deemed to have occurred.
-	LoanRepaymentForm  interface{} `json:"loanRepaymentForm,omitempty"`  // A form of paying back money previously borrowed from a lender. Repayment usually takes the form of periodic payments that normally include part principal plus interest in each payment.
-	LoanTerm           interface{} `json:"loanTerm,omitempty"`           // The duration of the loan or credit agreement.
-	LoanType           interface{} `json:"loanType,omitempty"`           // The type of a loan or credit.
-	RecourseLoan       interface{} `json:"recourseLoan,omitempty"`       // The only way you get the money back in the event of default is the security. Recourse is where you still have the opportunity to go back to the borrower for the rest of the money.
-	RenegotiableLoan   interface{} `json:"renegotiableLoan,omitempty"`   // Whether the terms for payment of interest can be renegotiated during the life of the loan.
-	RequiredCollateral interface{} `json:"requiredCollateral,omitempty"` // Assets required to secure loan or credit repayments. It may take form of third party pledge, goods, financial instruments (cash, securities, etc.)
+	Amount             Values `json:"amount,omitempty"`             // The amount of money.
+	Currency           Values `json:"currency,omitempty"`           // The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
+	GracePeriod        Values `json:"gracePeriod,omitempty"`        // The period of time after any due date that the borrower has to fulfil its obligations before a default (failure to pay) is deemed to have occurred.
+	LoanRepaymentForm  Values `json:"loanRepaymentForm,omitempty"`  // A form of paying back money previously borrowed from a lender. Repayment usually takes the form of periodic payments that normally include part principal plus interest in each payment.
+	LoanTerm           Values `json:"loanTerm,omitempty"`           // The duration of the loan or credit agreement.
+	LoanType           Values `json:"loanType,omitempty"`           // The type of a loan or credit.
+	RecourseLoan       Values `json:"recourseLoan,omitempty"`       // The only way you get the money back in the event of default is the security. Recourse is where you still have the opportunity to go back to the borrower for the rest of the money.
+	RenegotiableLoan   Values `json:"renegotiableLoan,omitempty"`   // Whether the terms for payment of interest can be renegotiated during the life of the loan.
+	RequiredCollateral Values `json:"requiredCollateral,omitempty"` // Assets required to secure loan or credit repayments. It may take form of third party pledge, goods, financial instruments (cash, securities, etc.)
 }
 
 // A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc.
@@ -5393,20 +5393,20 @@ type LocalBusiness struct {
 	Organization
 	// TODO: Place
 
-	BranchOf           interface{} `json:"branchOf,omitempty"`           // The larger organization that this local business is a branch of, if any. Not to be confused with (anatomical)[[branch]].
-	CurrenciesAccepted interface{} `json:"currenciesAccepted,omitempty"` // The currency accepted.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
-	OpeningHours       interface{} `json:"openingHours,omitempty"`       // The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.\n\n* Days are specified using the following two-letter combinations: ```Mo```, ```Tu```, ```We```, ```Th```, ```Fr```, ```Sa```, ```Su```.\n* Times are specified using 24:00 format. For example, 3pm is specified as ```15:00```, 10am as ```10:00```. \n* Here is an example: <code>&lt;time itemprop="openingHours" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.\n* If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.
-	PaymentAccepted    interface{} `json:"paymentAccepted,omitempty"`    // Cash, Credit Card, Cryptocurrency, Local Exchange Tradings System, etc.
-	PriceRange         interface{} `json:"priceRange,omitempty"`         // The price range of the business, for example ```$$$```.
+	BranchOf           Values `json:"branchOf,omitempty"`           // The larger organization that this local business is a branch of, if any. Not to be confused with (anatomical)[[branch]].
+	CurrenciesAccepted Values `json:"currenciesAccepted,omitempty"` // The currency accepted.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
+	OpeningHours       Values `json:"openingHours,omitempty"`       // The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.\n\n* Days are specified using the following two-letter combinations: ```Mo```, ```Tu```, ```We```, ```Th```, ```Fr```, ```Sa```, ```Su```.\n* Times are specified using 24:00 format. For example, 3pm is specified as ```15:00```, 10am as ```10:00```. \n* Here is an example: <code>&lt;time itemprop="openingHours" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.\n* If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.
+	PaymentAccepted    Values `json:"paymentAccepted,omitempty"`    // Cash, Credit Card, Cryptocurrency, Local Exchange Tradings System, etc.
+	PriceRange         Values `json:"priceRange,omitempty"`         // The price range of the business, for example ```$$$```.
 }
 
 // Specifies a location feature by providing a structured value representing a feature of an accommodation as a property-value pair of varying degrees of formality.
 type LocationFeatureSpecification struct {
 	PropertyValue
 
-	HoursAvailable interface{} `json:"hoursAvailable,omitempty"` // The hours during which this service or contact is available.
-	ValidFrom      interface{} `json:"validFrom,omitempty"`      // The date when the item becomes valid.
-	ValidThrough   interface{} `json:"validThrough,omitempty"`   // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
+	HoursAvailable Values `json:"hoursAvailable,omitempty"` // The hours during which this service or contact is available.
+	ValidFrom      Values `json:"validFrom,omitempty"`      // The date when the item becomes valid.
+	ValidThrough   Values `json:"validThrough,omitempty"`   // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
 }
 
 // A locksmith.
@@ -5418,45 +5418,45 @@ type Locksmith struct {
 type LodgingBusiness struct {
 	LocalBusiness
 
-	AmenityFeature    interface{} `json:"amenityFeature,omitempty"`    // An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
-	Audience          interface{} `json:"audience,omitempty"`          // An intended audience, i.e. a group for whom something was created.
-	AvailableLanguage interface{} `json:"availableLanguage,omitempty"` // A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]]
-	CheckinTime       interface{} `json:"checkinTime,omitempty"`       // The earliest someone may check into a lodging establishment.
-	CheckoutTime      interface{} `json:"checkoutTime,omitempty"`      // The latest someone may check out of a lodging establishment.
-	NumberOfRooms     interface{} `json:"numberOfRooms,omitempty"`     /*
+	AmenityFeature    Values `json:"amenityFeature,omitempty"`    // An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
+	Audience          Values `json:"audience,omitempty"`          // An intended audience, i.e. a group for whom something was created.
+	AvailableLanguage Values `json:"availableLanguage,omitempty"` // A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]]
+	CheckinTime       Values `json:"checkinTime,omitempty"`       // The earliest someone may check into a lodging establishment.
+	CheckoutTime      Values `json:"checkoutTime,omitempty"`      // The latest someone may check out of a lodging establishment.
+	NumberOfRooms     Values `json:"numberOfRooms,omitempty"`     /*
 	The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business.
 	Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
 	*/
-	PetsAllowed interface{} `json:"petsAllowed,omitempty"` // Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
-	StarRating  interface{} `json:"starRating,omitempty"`  // An official rating for a lodging business or food establishment, e.g. from national associations or standards bodies. Use the author property to indicate the rating organization, e.g. as an Organization with name such as (e.g. HOTREC, DEHOGA, WHR, or Hotelstars).
+	PetsAllowed Values `json:"petsAllowed,omitempty"` // Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
+	StarRating  Values `json:"starRating,omitempty"`  // An official rating for a lodging business or food establishment, e.g. from national associations or standards bodies. Use the author property to indicate the rating organization, e.g. as an Organization with name such as (e.g. HOTREC, DEHOGA, WHR, or Hotelstars).
 }
 
 // A reservation for lodging at a hotel, motel, inn, etc.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
 type LodgingReservation struct {
 	Reservation
 
-	CheckinTime            interface{} `json:"checkinTime,omitempty"`            // The earliest someone may check into a lodging establishment.
-	CheckoutTime           interface{} `json:"checkoutTime,omitempty"`           // The latest someone may check out of a lodging establishment.
-	LodgingUnitDescription interface{} `json:"lodgingUnitDescription,omitempty"` // A full description of the lodging unit.
-	LodgingUnitType        interface{} `json:"lodgingUnitType,omitempty"`        // Textual description of the unit type (including suite vs. room, size of bed, etc.).
-	NumAdults              interface{} `json:"numAdults,omitempty"`              // The number of adults staying in the unit.
-	NumChildren            interface{} `json:"numChildren,omitempty"`            // The number of children staying in the unit.
+	CheckinTime            Values `json:"checkinTime,omitempty"`            // The earliest someone may check into a lodging establishment.
+	CheckoutTime           Values `json:"checkoutTime,omitempty"`           // The latest someone may check out of a lodging establishment.
+	LodgingUnitDescription Values `json:"lodgingUnitDescription,omitempty"` // A full description of the lodging unit.
+	LodgingUnitType        Values `json:"lodgingUnitType,omitempty"`        // Textual description of the unit type (including suite vs. room, size of bed, etc.).
+	NumAdults              Values `json:"numAdults,omitempty"`              // The number of adults staying in the unit.
+	NumChildren            Values `json:"numChildren,omitempty"`            // The number of children staying in the unit.
 }
 
 // The act of being defeated in a competitive activity.
 type LoseAction struct {
 	AchieveAction
 
-	Winner interface{} `json:"winner,omitempty"` // A sub property of participant. The winner of the action.
+	Winner Values `json:"winner,omitempty"` // A sub property of participant. The winner of the action.
 }
 
 // A type of blood vessel that specifically carries lymph fluid unidirectionally toward the heart.
 type LymphaticVessel struct {
 	Vessel
 
-	OriginatesFrom interface{} `json:"originatesFrom,omitempty"` // The vasculature the lymphatic structure originates, or afferents, from.
-	RegionDrained  interface{} `json:"regionDrained,omitempty"`  // The anatomical or organ system drained by this vessel; generally refers to a specific part of an organ.
-	RunsTo         interface{} `json:"runsTo,omitempty"`         // The vasculature the lymphatic structure runs, or efferents, to.
+	OriginatesFrom Values `json:"originatesFrom,omitempty"` // The vasculature the lymphatic structure originates, or afferents, from.
+	RegionDrained  Values `json:"regionDrained,omitempty"`  // The anatomical or organ system drained by this vessel; generally refers to a specific part of an organ.
+	RunsTo         Values `json:"runsTo,omitempty"`         // The vasculature the lymphatic structure runs, or efferents, to.
 }
 
 // A book, document, or piece of music written by hand rather than typed or printed.
@@ -5468,7 +5468,7 @@ type Manuscript struct {
 type Map struct {
 	CreativeWork
 
-	MapType interface{} `json:"mapType,omitempty"` // Indicates the kind of Map, from the MapCategoryType Enumeration.
+	MapType Values `json:"mapType,omitempty"` // Indicates the kind of Map, from the MapCategoryType Enumeration.
 }
 
 // An enumeration of several kinds of Map.
@@ -5490,7 +5490,7 @@ type Mass struct {
 type MathSolver struct {
 	CreativeWork
 
-	MathExpression interface{} `json:"mathExpression,omitempty"` // A mathematical expression (e.g. 'x^2-3x=0') that may be solved for a specific variable, simplified, or transformed. This can take many formats, e.g. LaTeX, Ascii-Math, or math as you would write with a keyboard.
+	MathExpression Values `json:"mathExpression,omitempty"` // A mathematical expression (e.g. 'x^2-3x=0') that may be solved for a specific variable, simplified, or transformed. This can take many formats, e.g. LaTeX, Ascii-Math, or math as you would write with a keyboard.
 }
 
 // The maximum dosing schedule considered safe for a drug or supplement as recommended by an authority or by the drug/supplement's manufacturer. Capture the recommending authority in the recognizingAuthority property of MedicalEntity.
@@ -5517,35 +5517,35 @@ type MediaManipulationRatingEnumeration struct {
 type MediaObject struct {
 	CreativeWork
 
-	AssociatedArticle   interface{} `json:"associatedArticle,omitempty"`   // A NewsArticle associated with the Media Object.
-	Bitrate             interface{} `json:"bitrate,omitempty"`             // The bitrate of the media object.
-	ContentSize         interface{} `json:"contentSize,omitempty"`         // File size in (mega/kilo) bytes.
-	ContentUrl          interface{} `json:"contentUrl,omitempty"`          // Actual bytes of the media object, for example the image file or video file.
-	Duration            interface{} `json:"duration,omitempty"`            // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
-	EmbedUrl            interface{} `json:"embedUrl,omitempty"`            // A URL pointing to a player for a specific video. In general, this is the information in the ```src``` element of an ```embed``` tag and should not be the same as the content of the ```loc``` tag.
-	EncodesCreativeWork interface{} `json:"encodesCreativeWork,omitempty"` // The CreativeWork encoded by this media object.
-	EncodingFormat      interface{} `json:"encodingFormat,omitempty"`      /*
+	AssociatedArticle   Values `json:"associatedArticle,omitempty"`   // A NewsArticle associated with the Media Object.
+	Bitrate             Values `json:"bitrate,omitempty"`             // The bitrate of the media object.
+	ContentSize         Values `json:"contentSize,omitempty"`         // File size in (mega/kilo) bytes.
+	ContentUrl          Values `json:"contentUrl,omitempty"`          // Actual bytes of the media object, for example the image file or video file.
+	Duration            Values `json:"duration,omitempty"`            // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
+	EmbedUrl            Values `json:"embedUrl,omitempty"`            // A URL pointing to a player for a specific video. In general, this is the information in the ```src``` element of an ```embed``` tag and should not be the same as the content of the ```loc``` tag.
+	EncodesCreativeWork Values `json:"encodesCreativeWork,omitempty"` // The CreativeWork encoded by this media object.
+	EncodingFormat      Values `json:"encodingFormat,omitempty"`      /*
 	Media type typically expressed using a MIME format (see [IANA site](http://www.iana.org/assignments/media-types/media-types.xhtml) and [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)) e.g. application/zip for a SoftwareApplication binary, audio/mpeg for .mp3 etc.).
 
 	In cases where a [[CreativeWork]] has several media type representations, [[encoding]] can be used to indicate each [[MediaObject]] alongside particular [[encodingFormat]] information.
 
 	Unregistered or niche encoding and file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia/Wikidata entry.
 	*/
-	EndTime          interface{} `json:"endTime,omitempty"`          // The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
-	Height           interface{} `json:"height,omitempty"`           // The height of the item.
-	IneligibleRegion interface{} `json:"ineligibleRegion,omitempty"` /*
+	EndTime          Values `json:"endTime,omitempty"`          // The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
+	Height           Values `json:"height,omitempty"`           // The height of the item.
+	IneligibleRegion Values `json:"ineligibleRegion,omitempty"` /*
 	The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\n\nSee also [[eligibleRegion]].
 
 	*/
-	InterpretedAsClaim   interface{} `json:"interpretedAsClaim,omitempty"`   // Used to indicate a specific claim contained, implied, translated or refined from the content of a [[MediaObject]] or other [[CreativeWork]]. The interpreting party can be indicated using [[claimInterpreter]].
-	PlayerType           interface{} `json:"playerType,omitempty"`           // Player type required&#x2014;for example, Flash or Silverlight.
-	ProductionCompany    interface{} `json:"productionCompany,omitempty"`    // The production company or studio responsible for the item e.g. series, video game, episode etc.
-	RegionsAllowed       interface{} `json:"regionsAllowed,omitempty"`       // The regions where the media is allowed. If not specified, then it's assumed to be allowed everywhere. Specify the countries in [ISO 3166 format](http://en.wikipedia.org/wiki/ISO_3166).
-	RequiresSubscription interface{} `json:"requiresSubscription,omitempty"` // Indicates if use of the media require a subscription  (either paid or free). Allowed values are ```true``` or ```false``` (note that an earlier version had 'yes', 'no').
-	Sha256               interface{} `json:"sha256,omitempty"`               // The [SHA-2](https://en.wikipedia.org/wiki/SHA-2) SHA256 hash of the content of the item. For example, a zero-length input has value 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
-	StartTime            interface{} `json:"startTime,omitempty"`            // The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
-	UploadDate           interface{} `json:"uploadDate,omitempty"`           // Date when this media object was uploaded to this site.
-	Width                interface{} `json:"width,omitempty"`                // The width of the item.
+	InterpretedAsClaim   Values `json:"interpretedAsClaim,omitempty"`   // Used to indicate a specific claim contained, implied, translated or refined from the content of a [[MediaObject]] or other [[CreativeWork]]. The interpreting party can be indicated using [[claimInterpreter]].
+	PlayerType           Values `json:"playerType,omitempty"`           // Player type required&#x2014;for example, Flash or Silverlight.
+	ProductionCompany    Values `json:"productionCompany,omitempty"`    // The production company or studio responsible for the item e.g. series, video game, episode etc.
+	RegionsAllowed       Values `json:"regionsAllowed,omitempty"`       // The regions where the media is allowed. If not specified, then it's assumed to be allowed everywhere. Specify the countries in [ISO 3166 format](http://en.wikipedia.org/wiki/ISO_3166).
+	RequiresSubscription Values `json:"requiresSubscription,omitempty"` // Indicates if use of the media require a subscription  (either paid or free). Allowed values are ```true``` or ```false``` (note that an earlier version had 'yes', 'no').
+	Sha256               Values `json:"sha256,omitempty"`               // The [SHA-2](https://en.wikipedia.org/wiki/SHA-2) SHA256 hash of the content of the item. For example, a zero-length input has value 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+	StartTime            Values `json:"startTime,omitempty"`            // The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
+	UploadDate           Values `json:"uploadDate,omitempty"`           // Date when this media object was uploaded to this site.
+	Width                Values `json:"width,omitempty"`                // The width of the item.
 }
 
 /*
@@ -5557,24 +5557,24 @@ A [[MediaReview]] is a more specialized form of Review dedicated to the evaluati
 type MediaReview struct {
 	Review
 
-	MediaAuthenticityCategory       interface{} `json:"mediaAuthenticityCategory,omitempty"`       // Indicates a MediaManipulationRatingEnumeration classification of a media object (in the context of how it was published or shared).
-	OriginalMediaContextDescription interface{} `json:"originalMediaContextDescription,omitempty"` // Describes, in a [[MediaReview]] when dealing with [[DecontextualizedContent]], background information that can contribute to better interpretation of the [[MediaObject]].
-	OriginalMediaLink               interface{} `json:"originalMediaLink,omitempty"`               // Link to the page containing an original version of the content, or directly to an online copy of the original [[MediaObject]] content, e.g. video file.
+	MediaAuthenticityCategory       Values `json:"mediaAuthenticityCategory,omitempty"`       // Indicates a MediaManipulationRatingEnumeration classification of a media object (in the context of how it was published or shared).
+	OriginalMediaContextDescription Values `json:"originalMediaContextDescription,omitempty"` // Describes, in a [[MediaReview]] when dealing with [[DecontextualizedContent]], background information that can contribute to better interpretation of the [[MediaObject]].
+	OriginalMediaLink               Values `json:"originalMediaLink,omitempty"`               // Link to the page containing an original version of the content, or directly to an online copy of the original [[MediaObject]] content, e.g. video file.
 }
 
 // Represents an item or group of closely related items treated as a unit for the sake of evaluation in a [[MediaReview]]. Authorship etc. apply to the items rather than to the curation/grouping or reviewing party.
 type MediaReviewItem struct {
 	CreativeWork
 
-	MediaItemAppearance interface{} `json:"mediaItemAppearance,omitempty"` // In the context of a [[MediaReview]], indicates specific media item(s) that are grouped using a [[MediaReviewItem]].
+	MediaItemAppearance Values `json:"mediaItemAppearance,omitempty"` // In the context of a [[MediaReview]], indicates specific media item(s) that are grouped using a [[MediaReviewItem]].
 }
 
 // A subscription which allows a user to access media including audio, video, books, etc.
 type MediaSubscription struct {
 	Intangible
 
-	Authenticator       interface{} `json:"authenticator,omitempty"`       // The Organization responsible for authenticating the user's subscription. For example, many media apps require a cable/satellite provider to authenticate your subscription before playing media.
-	ExpectsAcceptanceOf interface{} `json:"expectsAcceptanceOf,omitempty"` // An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it.
+	Authenticator       Values `json:"authenticator,omitempty"`       // The Organization responsible for authenticating the user's subscription. For example, many media apps require a cable/satellite provider to authenticate your subscription before playing media.
+	ExpectsAcceptanceOf Values `json:"expectsAcceptanceOf,omitempty"` // An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it.
 }
 
 // Target audiences for medical web pages.
@@ -5597,7 +5597,7 @@ type MedicalBusiness struct {
 type MedicalCause struct {
 	MedicalEntity
 
-	CauseOf interface{} `json:"causeOf,omitempty"` // The condition, complication, symptom, sign, etc. caused.
+	CauseOf Values `json:"causeOf,omitempty"` // The condition, complication, symptom, sign, etc. caused.
 }
 
 // A facility, often associated with a hospital or medical school, that is devoted to the specific diagnosis and/or healthcare. Previously limited to outpatients but with evolution it may be open to inpatients as well.
@@ -5605,8 +5605,8 @@ type MedicalClinic struct {
 	MedicalBusiness
 	// TODO: MedicalOrganization
 
-	AvailableService interface{} `json:"availableService,omitempty"` // A medical service available from this provider.
-	MedicalSpecialty interface{} `json:"medicalSpecialty,omitempty"` // A medical specialty of the provider.
+	AvailableService Values `json:"availableService,omitempty"` // A medical service available from this provider.
+	MedicalSpecialty Values `json:"medicalSpecialty,omitempty"` // A medical specialty of the provider.
 }
 
 // A code for a medical entity.
@@ -5614,38 +5614,38 @@ type MedicalCode struct {
 	CategoryCode
 	// TODO: MedicalIntangible
 
-	CodeValue    interface{} `json:"codeValue,omitempty"`    // A short textual code that uniquely identifies the value.
-	CodingSystem interface{} `json:"codingSystem,omitempty"` // The coding system, e.g. 'ICD-10'.
+	CodeValue    Values `json:"codeValue,omitempty"`    // A short textual code that uniquely identifies the value.
+	CodingSystem Values `json:"codingSystem,omitempty"` // The coding system, e.g. 'ICD-10'.
 }
 
 // Any condition of the human body that affects the normal functioning of a person, whether physically or mentally. Includes diseases, injuries, disabilities, disorders, syndromes, etc.
 type MedicalCondition struct {
 	MedicalEntity
 
-	AssociatedAnatomy     interface{} `json:"associatedAnatomy,omitempty"`     // The anatomy of the underlying organ system or structures associated with this entity.
-	DifferentialDiagnosis interface{} `json:"differentialDiagnosis,omitempty"` // One of a set of differential diagnoses for the condition. Specifically, a closely-related or competing diagnosis typically considered later in the cognitive process whereby this medical condition is distinguished from others most likely responsible for a similar collection of signs and symptoms to reach the most parsimonious diagnosis or diagnoses in a patient.
-	Drug                  interface{} `json:"drug,omitempty"`                  // Specifying a drug or medicine used in a medication procedure.
-	Epidemiology          interface{} `json:"epidemiology,omitempty"`          // The characteristics of associated patients, such as age, gender, race etc.
-	ExpectedPrognosis     interface{} `json:"expectedPrognosis,omitempty"`     // The likely outcome in either the short term or long term of the medical condition.
-	NaturalProgression    interface{} `json:"naturalProgression,omitempty"`    // The expected progression of the condition if it is not treated and allowed to progress naturally.
-	Pathophysiology       interface{} `json:"pathophysiology,omitempty"`       // Changes in the normal mechanical, physical, and biochemical functions that are associated with this activity or condition.
-	PossibleComplication  interface{} `json:"possibleComplication,omitempty"`  // A possible unexpected and unfavorable evolution of a medical condition. Complications may include worsening of the signs or symptoms of the disease, extension of the condition to other organ systems, etc.
-	PossibleTreatment     interface{} `json:"possibleTreatment,omitempty"`     // A possible treatment to address this condition, sign or symptom.
-	PrimaryPrevention     interface{} `json:"primaryPrevention,omitempty"`     // A preventative therapy used to prevent an initial occurrence of the medical condition, such as vaccination.
-	RiskFactor            interface{} `json:"riskFactor,omitempty"`            // A modifiable or non-modifiable factor that increases the risk of a patient contracting this condition, e.g. age,  coexisting condition.
-	SecondaryPrevention   interface{} `json:"secondaryPrevention,omitempty"`   // A preventative therapy used to prevent reoccurrence of the medical condition after an initial episode of the condition.
-	SignOrSymptom         interface{} `json:"signOrSymptom,omitempty"`         // A sign or symptom of this condition. Signs are objective or physically observable manifestations of the medical condition while symptoms are the subjective experience of the medical condition.
-	Stage                 interface{} `json:"stage,omitempty"`                 // The stage of the condition, if applicable.
-	Status                interface{} `json:"status,omitempty"`                // The status of the study (enumerated).
-	TypicalTest           interface{} `json:"typicalTest,omitempty"`           // A medical test typically performed given this condition.
+	AssociatedAnatomy     Values `json:"associatedAnatomy,omitempty"`     // The anatomy of the underlying organ system or structures associated with this entity.
+	DifferentialDiagnosis Values `json:"differentialDiagnosis,omitempty"` // One of a set of differential diagnoses for the condition. Specifically, a closely-related or competing diagnosis typically considered later in the cognitive process whereby this medical condition is distinguished from others most likely responsible for a similar collection of signs and symptoms to reach the most parsimonious diagnosis or diagnoses in a patient.
+	Drug                  Values `json:"drug,omitempty"`                  // Specifying a drug or medicine used in a medication procedure.
+	Epidemiology          Values `json:"epidemiology,omitempty"`          // The characteristics of associated patients, such as age, gender, race etc.
+	ExpectedPrognosis     Values `json:"expectedPrognosis,omitempty"`     // The likely outcome in either the short term or long term of the medical condition.
+	NaturalProgression    Values `json:"naturalProgression,omitempty"`    // The expected progression of the condition if it is not treated and allowed to progress naturally.
+	Pathophysiology       Values `json:"pathophysiology,omitempty"`       // Changes in the normal mechanical, physical, and biochemical functions that are associated with this activity or condition.
+	PossibleComplication  Values `json:"possibleComplication,omitempty"`  // A possible unexpected and unfavorable evolution of a medical condition. Complications may include worsening of the signs or symptoms of the disease, extension of the condition to other organ systems, etc.
+	PossibleTreatment     Values `json:"possibleTreatment,omitempty"`     // A possible treatment to address this condition, sign or symptom.
+	PrimaryPrevention     Values `json:"primaryPrevention,omitempty"`     // A preventative therapy used to prevent an initial occurrence of the medical condition, such as vaccination.
+	RiskFactor            Values `json:"riskFactor,omitempty"`            // A modifiable or non-modifiable factor that increases the risk of a patient contracting this condition, e.g. age,  coexisting condition.
+	SecondaryPrevention   Values `json:"secondaryPrevention,omitempty"`   // A preventative therapy used to prevent reoccurrence of the medical condition after an initial episode of the condition.
+	SignOrSymptom         Values `json:"signOrSymptom,omitempty"`         // A sign or symptom of this condition. Signs are objective or physically observable manifestations of the medical condition while symptoms are the subjective experience of the medical condition.
+	Stage                 Values `json:"stage,omitempty"`                 // The stage of the condition, if applicable.
+	Status                Values `json:"status,omitempty"`                // The status of the study (enumerated).
+	TypicalTest           Values `json:"typicalTest,omitempty"`           // A medical test typically performed given this condition.
 }
 
 // A stage of a medical condition, such as 'Stage IIIa'.
 type MedicalConditionStage struct {
 	MedicalIntangible
 
-	StageAsNumber  interface{} `json:"stageAsNumber,omitempty"`  // The stage represented as a number, e.g. 3.
-	SubStageSuffix interface{} `json:"subStageSuffix,omitempty"` // The substage, e.g. 'a' for Stage IIIa.
+	StageAsNumber  Values `json:"stageAsNumber,omitempty"`  // The stage represented as a number, e.g. 3.
+	SubStageSuffix Values `json:"subStageSuffix,omitempty"` // The substage, e.g. 'a' for Stage IIIa.
 }
 
 // A condition or factor that serves as a reason to withhold a certain medical therapy. Contraindications can be absolute (there are no reasonable circumstances for undertaking a course of action) or relative (the patient is at higher risk of complications, but that these risks may be outweighed by other considerations or mitigated by other measures).
@@ -5657,12 +5657,12 @@ type MedicalContraindication struct {
 type MedicalDevice struct {
 	MedicalEntity
 
-	AdverseOutcome        interface{} `json:"adverseOutcome,omitempty"`        // A possible complication and/or side effect of this therapy. If it is known that an adverse outcome is serious (resulting in death, disability, or permanent damage; requiring hospitalization; or is otherwise life-threatening or requires immediate medical attention), tag it as a seriouseAdverseOutcome instead.
-	Contraindication      interface{} `json:"contraindication,omitempty"`      // A contraindication for this therapy.
-	PostOp                interface{} `json:"postOp,omitempty"`                // A description of the postoperative procedures, care, and/or followups for this device.
-	PreOp                 interface{} `json:"preOp,omitempty"`                 // A description of the workup, testing, and other preparations required before implanting this device.
-	Procedure             interface{} `json:"procedure,omitempty"`             // A description of the procedure involved in setting up, using, and/or installing the device.
-	SeriousAdverseOutcome interface{} `json:"seriousAdverseOutcome,omitempty"` // A possible serious complication and/or serious side effect of this therapy. Serious adverse outcomes include those that are life-threatening; result in death, disability, or permanent damage; require hospitalization or prolong existing hospitalization; cause congenital anomalies or birth defects; or jeopardize the patient and may require medical or surgical intervention to prevent one of the outcomes in this definition.
+	AdverseOutcome        Values `json:"adverseOutcome,omitempty"`        // A possible complication and/or side effect of this therapy. If it is known that an adverse outcome is serious (resulting in death, disability, or permanent damage; requiring hospitalization; or is otherwise life-threatening or requires immediate medical attention), tag it as a seriouseAdverseOutcome instead.
+	Contraindication      Values `json:"contraindication,omitempty"`      // A contraindication for this therapy.
+	PostOp                Values `json:"postOp,omitempty"`                // A description of the postoperative procedures, care, and/or followups for this device.
+	PreOp                 Values `json:"preOp,omitempty"`                 // A description of the workup, testing, and other preparations required before implanting this device.
+	Procedure             Values `json:"procedure,omitempty"`             // A description of the procedure involved in setting up, using, and/or installing the device.
+	SeriousAdverseOutcome Values `json:"seriousAdverseOutcome,omitempty"` // A possible serious complication and/or serious side effect of this therapy. Serious adverse outcomes include those that are life-threatening; result in death, disability, or permanent damage; require hospitalization or prolong existing hospitalization; cause congenital anomalies or birth defects; or jeopardize the patient and may require medical or surgical intervention to prevent one of the outcomes in this definition.
 }
 
 // Categories of medical devices, organized by the purpose or intended use of the device.
@@ -5674,14 +5674,14 @@ type MedicalDevicePurpose struct {
 type MedicalEntity struct {
 	Thing
 
-	Code                 interface{} `json:"code,omitempty"`                 // A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.
-	Funding              interface{} `json:"funding,omitempty"`              // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
-	Guideline            interface{} `json:"guideline,omitempty"`            // A medical guideline related to this entity.
-	LegalStatus          interface{} `json:"legalStatus,omitempty"`          // The drug or supplement's legal status, including any controlled substance schedules that apply.
-	MedicineSystem       interface{} `json:"medicineSystem,omitempty"`       // The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.
-	RecognizingAuthority interface{} `json:"recognizingAuthority,omitempty"` // If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.
-	RelevantSpecialty    interface{} `json:"relevantSpecialty,omitempty"`    // If applicable, a medical specialty in which this entity is relevant.
-	Study                interface{} `json:"study,omitempty"`                // A medical study or trial related to this entity.
+	Code                 Values `json:"code,omitempty"`                 // A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.
+	Funding              Values `json:"funding,omitempty"`              // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
+	Guideline            Values `json:"guideline,omitempty"`            // A medical guideline related to this entity.
+	LegalStatus          Values `json:"legalStatus,omitempty"`          // The drug or supplement's legal status, including any controlled substance schedules that apply.
+	MedicineSystem       Values `json:"medicineSystem,omitempty"`       // The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.
+	RecognizingAuthority Values `json:"recognizingAuthority,omitempty"` // If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.
+	RelevantSpecialty    Values `json:"relevantSpecialty,omitempty"`    // If applicable, a medical specialty in which this entity is relevant.
+	Study                Values `json:"study,omitempty"`                // A medical study or trial related to this entity.
 }
 
 // Enumerations related to health and the practice of medicine: A concept that is used to attribute a quality to another concept, as a qualifier, a collection of items or a listing of all of the elements of a set in medicine practice.
@@ -5698,10 +5698,10 @@ type MedicalEvidenceLevel struct {
 type MedicalGuideline struct {
 	MedicalEntity
 
-	EvidenceLevel    interface{} `json:"evidenceLevel,omitempty"`    // Strength of evidence of the data used to formulate the guideline (enumerated).
-	EvidenceOrigin   interface{} `json:"evidenceOrigin,omitempty"`   // Source of the data used to formulate the guidance, e.g. RCT, consensus opinion, etc.
-	GuidelineDate    interface{} `json:"guidelineDate,omitempty"`    // Date on which this guideline's recommendation was made.
-	GuidelineSubject interface{} `json:"guidelineSubject,omitempty"` // The medical conditions, treatments, etc. that are the subject of the guideline.
+	EvidenceLevel    Values `json:"evidenceLevel,omitempty"`    // Strength of evidence of the data used to formulate the guideline (enumerated).
+	EvidenceOrigin   Values `json:"evidenceOrigin,omitempty"`   // Source of the data used to formulate the guidance, e.g. RCT, consensus opinion, etc.
+	GuidelineDate    Values `json:"guidelineDate,omitempty"`    // Date on which this guideline's recommendation was made.
+	GuidelineSubject Values `json:"guidelineSubject,omitempty"` // The medical conditions, treatments, etc. that are the subject of the guideline.
 }
 
 // A guideline contraindication that designates a process as harmful and where quality of the data supporting the contraindication is sound.
@@ -5713,7 +5713,7 @@ type MedicalGuidelineContraindication struct {
 type MedicalGuidelineRecommendation struct {
 	MedicalGuideline
 
-	RecommendationStrength interface{} `json:"recommendationStrength,omitempty"` // Strength of the guideline's recommendation (e.g. 'class I').
+	RecommendationStrength Values `json:"recommendationStrength,omitempty"` // Strength of the guideline's recommendation (e.g. 'class I').
 }
 
 // Any medical imaging modality typically used for diagnostic purposes. Enumerated type.
@@ -5735,7 +5735,7 @@ type MedicalIntangible struct {
 type MedicalObservationalStudy struct {
 	MedicalStudy
 
-	StudyDesign interface{} `json:"studyDesign,omitempty"` // Specifics about the observational study design (enumerated).
+	StudyDesign Values `json:"studyDesign,omitempty"` // Specifics about the observational study design (enumerated).
 }
 
 // Design models for observational medical studies. Enumerated type.
@@ -5747,21 +5747,21 @@ type MedicalObservationalStudyDesign struct {
 type MedicalOrganization struct {
 	Organization
 
-	HealthPlanNetworkId    interface{} `json:"healthPlanNetworkId,omitempty"`    // Name or unique ID of network. (Networks are often reused across different insurance plans).
-	IsAcceptingNewPatients interface{} `json:"isAcceptingNewPatients,omitempty"` // Whether the provider is accepting new patients.
-	MedicalSpecialty       interface{} `json:"medicalSpecialty,omitempty"`       // A medical specialty of the provider.
+	HealthPlanNetworkId    Values `json:"healthPlanNetworkId,omitempty"`    // Name or unique ID of network. (Networks are often reused across different insurance plans).
+	IsAcceptingNewPatients Values `json:"isAcceptingNewPatients,omitempty"` // Whether the provider is accepting new patients.
+	MedicalSpecialty       Values `json:"medicalSpecialty,omitempty"`       // A medical specialty of the provider.
 }
 
 // A process of care used in either a diagnostic, therapeutic, preventive or palliative capacity that relies on invasive (surgical), non-invasive, or other techniques.
 type MedicalProcedure struct {
 	MedicalEntity
 
-	BodyLocation  interface{} `json:"bodyLocation,omitempty"`  // Location in the body of the anatomical structure.
-	Followup      interface{} `json:"followup,omitempty"`      // Typical or recommended followup care after the procedure is performed.
-	HowPerformed  interface{} `json:"howPerformed,omitempty"`  // How the procedure is performed.
-	Preparation   interface{} `json:"preparation,omitempty"`   // Typical preparation that a patient must undergo before having the procedure performed.
-	ProcedureType interface{} `json:"procedureType,omitempty"` // The type of procedure, for example Surgical, Noninvasive, or Percutaneous.
-	Status        interface{} `json:"status,omitempty"`        // The status of the study (enumerated).
+	BodyLocation  Values `json:"bodyLocation,omitempty"`  // Location in the body of the anatomical structure.
+	Followup      Values `json:"followup,omitempty"`      // Typical or recommended followup care after the procedure is performed.
+	HowPerformed  Values `json:"howPerformed,omitempty"`  // How the procedure is performed.
+	Preparation   Values `json:"preparation,omitempty"`   // Typical preparation that a patient must undergo before having the procedure performed.
+	ProcedureType Values `json:"procedureType,omitempty"` // The type of procedure, for example Surgical, Noninvasive, or Percutaneous.
+	Status        Values `json:"status,omitempty"`        // The status of the study (enumerated).
 }
 
 // An enumeration that describes different types of medical procedures.
@@ -5778,44 +5778,44 @@ type MedicalRiskCalculator struct {
 type MedicalRiskEstimator struct {
 	MedicalEntity
 
-	EstimatesRiskOf    interface{} `json:"estimatesRiskOf,omitempty"`    // The condition, complication, or symptom whose risk is being estimated.
-	IncludedRiskFactor interface{} `json:"includedRiskFactor,omitempty"` // A modifiable or non-modifiable risk factor included in the calculation, e.g. age, coexisting condition.
+	EstimatesRiskOf    Values `json:"estimatesRiskOf,omitempty"`    // The condition, complication, or symptom whose risk is being estimated.
+	IncludedRiskFactor Values `json:"includedRiskFactor,omitempty"` // A modifiable or non-modifiable risk factor included in the calculation, e.g. age, coexisting condition.
 }
 
 // A risk factor is anything that increases a person's likelihood of developing or contracting a disease, medical condition, or complication.
 type MedicalRiskFactor struct {
 	MedicalEntity
 
-	IncreasesRiskOf interface{} `json:"increasesRiskOf,omitempty"` // The condition, complication, etc. influenced by this factor.
+	IncreasesRiskOf Values `json:"increasesRiskOf,omitempty"` // The condition, complication, etc. influenced by this factor.
 }
 
 // A simple system that adds up the number of risk factors to yield a score that is associated with prognosis, e.g. CHAD score, TIMI risk score.
 type MedicalRiskScore struct {
 	MedicalRiskEstimator
 
-	Algorithm interface{} `json:"algorithm,omitempty"` // The algorithm or rules to follow to compute the score.
+	Algorithm Values `json:"algorithm,omitempty"` // The algorithm or rules to follow to compute the score.
 }
 
 // A scholarly article in the medical domain.
 type MedicalScholarlyArticle struct {
 	ScholarlyArticle
 
-	PublicationType interface{} `json:"publicationType,omitempty"` // The type of the medical article, taken from the US NLM MeSH publication type catalog. See also [MeSH documentation](http://www.nlm.nih.gov/mesh/pubtypes.html).
+	PublicationType Values `json:"publicationType,omitempty"` // The type of the medical article, taken from the US NLM MeSH publication type catalog. See also [MeSH documentation](http://www.nlm.nih.gov/mesh/pubtypes.html).
 }
 
 // Any physical manifestation of a person's medical condition discoverable by objective diagnostic tests or physical examination.
 type MedicalSign struct {
 	MedicalSignOrSymptom
 
-	IdentifyingExam interface{} `json:"identifyingExam,omitempty"` // A physical examination that can identify this sign.
-	IdentifyingTest interface{} `json:"identifyingTest,omitempty"` // A diagnostic test that can identify this sign.
+	IdentifyingExam Values `json:"identifyingExam,omitempty"` // A physical examination that can identify this sign.
+	IdentifyingTest Values `json:"identifyingTest,omitempty"` // A diagnostic test that can identify this sign.
 }
 
 // Any feature associated or not with a medical condition. In medicine a symptom is generally subjective while a sign is objective.
 type MedicalSignOrSymptom struct {
 	MedicalCondition
 
-	PossibleTreatment interface{} `json:"possibleTreatment,omitempty"` // A possible treatment to address this condition, sign or symptom.
+	PossibleTreatment Values `json:"possibleTreatment,omitempty"` // A possible treatment to address this condition, sign or symptom.
 }
 
 // Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type.
@@ -5828,11 +5828,11 @@ type MedicalSpecialty struct {
 type MedicalStudy struct {
 	MedicalEntity
 
-	HealthCondition interface{} `json:"healthCondition,omitempty"` // Specifying the health condition(s) of a patient, medical study, or other target audience.
-	Sponsor         interface{} `json:"sponsor,omitempty"`         // A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
-	Status          interface{} `json:"status,omitempty"`          // The status of the study (enumerated).
-	StudyLocation   interface{} `json:"studyLocation,omitempty"`   // The location in which the study is taking/took place.
-	StudySubject    interface{} `json:"studySubject,omitempty"`    // A subject of the study, i.e. one of the medical conditions, therapies, devices, drugs, etc. investigated by the study.
+	HealthCondition Values `json:"healthCondition,omitempty"` // Specifying the health condition(s) of a patient, medical study, or other target audience.
+	Sponsor         Values `json:"sponsor,omitempty"`         // A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+	Status          Values `json:"status,omitempty"`          // The status of the study (enumerated).
+	StudyLocation   Values `json:"studyLocation,omitempty"`   // The location in which the study is taking/took place.
+	StudySubject    Values `json:"studySubject,omitempty"`    // A subject of the study, i.e. one of the medical conditions, therapies, devices, drugs, etc. investigated by the study.
 }
 
 // The status of a medical study. Enumerated type.
@@ -5849,34 +5849,34 @@ type MedicalSymptom struct {
 type MedicalTest struct {
 	MedicalEntity
 
-	AffectedBy     interface{} `json:"affectedBy,omitempty"`     // Drugs that affect the test's results.
-	NormalRange    interface{} `json:"normalRange,omitempty"`    // Range of acceptable values for a typical patient, when applicable.
-	SignDetected   interface{} `json:"signDetected,omitempty"`   // A sign detected by the test.
-	UsedToDiagnose interface{} `json:"usedToDiagnose,omitempty"` // A condition the test is used to diagnose.
-	UsesDevice     interface{} `json:"usesDevice,omitempty"`     // Device used to perform the test.
+	AffectedBy     Values `json:"affectedBy,omitempty"`     // Drugs that affect the test's results.
+	NormalRange    Values `json:"normalRange,omitempty"`    // Range of acceptable values for a typical patient, when applicable.
+	SignDetected   Values `json:"signDetected,omitempty"`   // A sign detected by the test.
+	UsedToDiagnose Values `json:"usedToDiagnose,omitempty"` // A condition the test is used to diagnose.
+	UsesDevice     Values `json:"usesDevice,omitempty"`     // Device used to perform the test.
 }
 
 // Any collection of tests commonly ordered together.
 type MedicalTestPanel struct {
 	MedicalTest
 
-	SubTest interface{} `json:"subTest,omitempty"` // A component test of the panel.
+	SubTest Values `json:"subTest,omitempty"` // A component test of the panel.
 }
 
 // Any medical intervention designed to prevent, treat, and cure human diseases and medical conditions, including both curative and palliative therapies. Medical therapies are typically processes of care relying upon pharmacotherapy, behavioral therapy, supportive therapy (with fluid or nutrition for example), or detoxification (e.g. hemodialysis) aimed at improving or preventing a health condition.
 type MedicalTherapy struct {
 	TherapeuticProcedure
 
-	Contraindication      interface{} `json:"contraindication,omitempty"`      // A contraindication for this therapy.
-	DuplicateTherapy      interface{} `json:"duplicateTherapy,omitempty"`      // A therapy that duplicates or overlaps this one.
-	SeriousAdverseOutcome interface{} `json:"seriousAdverseOutcome,omitempty"` // A possible serious complication and/or serious side effect of this therapy. Serious adverse outcomes include those that are life-threatening; result in death, disability, or permanent damage; require hospitalization or prolong existing hospitalization; cause congenital anomalies or birth defects; or jeopardize the patient and may require medical or surgical intervention to prevent one of the outcomes in this definition.
+	Contraindication      Values `json:"contraindication,omitempty"`      // A contraindication for this therapy.
+	DuplicateTherapy      Values `json:"duplicateTherapy,omitempty"`      // A therapy that duplicates or overlaps this one.
+	SeriousAdverseOutcome Values `json:"seriousAdverseOutcome,omitempty"` // A possible serious complication and/or serious side effect of this therapy. Serious adverse outcomes include those that are life-threatening; result in death, disability, or permanent damage; require hospitalization or prolong existing hospitalization; cause congenital anomalies or birth defects; or jeopardize the patient and may require medical or surgical intervention to prevent one of the outcomes in this definition.
 }
 
 // A medical trial is a type of medical study that uses scientific process used to compare the safety and efficacy of medical therapies or medical procedures. In general, medical trials are controlled and subjects are allocated at random to the different treatment and/or control groups.
 type MedicalTrial struct {
 	MedicalStudy
 
-	TrialDesign interface{} `json:"trialDesign,omitempty"` // Specifics about the trial design (enumerated).
+	TrialDesign Values `json:"trialDesign,omitempty"` // Specifics about the trial design (enumerated).
 }
 
 // Design models for medical trials. Enumerated type.
@@ -5888,8 +5888,8 @@ type MedicalTrialDesign struct {
 type MedicalWebPage struct {
 	WebPage
 
-	Aspect          interface{} `json:"aspect,omitempty"`          // An aspect of medical practice that is considered on the page, such as 'diagnosis', 'treatment', 'causes', 'prognosis', 'etiology', 'epidemiology', etc.
-	MedicalAudience interface{} `json:"medicalAudience,omitempty"` // Medical audience for page.
+	Aspect          Values `json:"aspect,omitempty"`          // An aspect of medical practice that is considered on the page, such as 'diagnosis', 'treatment', 'causes', 'prognosis', 'etiology', 'epidemiology', etc.
+	MedicalAudience Values `json:"medicalAudience,omitempty"` // Medical audience for page.
 }
 
 // Systems of medical practice.
@@ -5915,29 +5915,29 @@ type MensClothingStore struct {
 type Menu struct {
 	CreativeWork
 
-	HasMenuItem    interface{} `json:"hasMenuItem,omitempty"`    // A food or drink item contained in a menu or menu section.
-	HasMenuSection interface{} `json:"hasMenuSection,omitempty"` // A subgrouping of the menu (by dishes, course, serving time period, etc.).
+	HasMenuItem    Values `json:"hasMenuItem,omitempty"`    // A food or drink item contained in a menu or menu section.
+	HasMenuSection Values `json:"hasMenuSection,omitempty"` // A subgrouping of the menu (by dishes, course, serving time period, etc.).
 }
 
 // A food or drink item listed in a menu or menu section.
 type MenuItem struct {
 	Intangible
 
-	MenuAddOn interface{} `json:"menuAddOn,omitempty"` // Additional menu item(s) such as a side dish of salad or side order of fries that can be added to this menu item. Additionally it can be a menu section containing allowed add-on menu items for this menu item.
-	Nutrition interface{} `json:"nutrition,omitempty"` // Nutrition information about the recipe or menu item.
-	Offers    interface{} `json:"offers,omitempty"`    /*
+	MenuAddOn Values `json:"menuAddOn,omitempty"` // Additional menu item(s) such as a side dish of salad or side order of fries that can be added to this menu item. Additionally it can be a menu section containing allowed add-on menu items for this menu item.
+	Nutrition Values `json:"nutrition,omitempty"` // Nutrition information about the recipe or menu item.
+	Offers    Values `json:"offers,omitempty"`    /*
 	An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
 
 	*/
-	SuitableForDiet interface{} `json:"suitableForDiet,omitempty"` // Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc.
+	SuitableForDiet Values `json:"suitableForDiet,omitempty"` // Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc.
 }
 
 // A sub-grouping of food or drink items in a menu. E.g. courses (such as 'Dinner', 'Breakfast', etc.), specific type of dishes (such as 'Meat', 'Vegan', 'Drinks', etc.), or some other classification made by the menu provider.
 type MenuSection struct {
 	CreativeWork
 
-	HasMenuItem    interface{} `json:"hasMenuItem,omitempty"`    // A food or drink item contained in a menu or menu section.
-	HasMenuSection interface{} `json:"hasMenuSection,omitempty"` // A subgrouping of the menu (by dishes, course, serving time period, etc.).
+	HasMenuItem    Values `json:"hasMenuItem,omitempty"`    // A food or drink item contained in a menu or menu section.
+	HasMenuSection Values `json:"hasMenuSection,omitempty"` // A subgrouping of the menu (by dishes, course, serving time period, etc.).
 }
 
 // Enumerates several kinds of product return policies.
@@ -5949,54 +5949,54 @@ type MerchantReturnEnumeration struct {
 type MerchantReturnPolicy struct {
 	Intangible
 
-	AdditionalProperty interface{} `json:"additionalProperty,omitempty"` /*
+	AdditionalProperty Values `json:"additionalProperty,omitempty"` /*
 	A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
 	*/
-	ApplicableCountry                       interface{} `json:"applicableCountry,omitempty"`                       // A country where a particular merchant return policy applies to, for example the two-letter ISO 3166-1 alpha-2 country code.
-	CustomerRemorseReturnFees               interface{} `json:"customerRemorseReturnFees,omitempty"`               // The type of return fees if the product is returned due to customer remorse.
-	CustomerRemorseReturnLabelSource        interface{} `json:"customerRemorseReturnLabelSource,omitempty"`        // The method (from an enumeration) by which the customer obtains a return shipping label for a product returned due to customer remorse.
-	CustomerRemorseReturnShippingFeesAmount interface{} `json:"customerRemorseReturnShippingFeesAmount,omitempty"` // The amount of shipping costs if a product is returned due to customer remorse. Applicable when property [[customerRemorseReturnFees]] equals [[ReturnShippingFees]].
-	InStoreReturnsOffered                   interface{} `json:"inStoreReturnsOffered,omitempty"`                   // Are in-store returns offered? (for more advanced return methods use the [[returnMethod]] property)
-	ItemCondition                           interface{} `json:"itemCondition,omitempty"`                           // A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns.
-	ItemDefectReturnFees                    interface{} `json:"itemDefectReturnFees,omitempty"`                    // The type of return fees for returns of defect products.
-	ItemDefectReturnLabelSource             interface{} `json:"itemDefectReturnLabelSource,omitempty"`             // The method (from an enumeration) by which the customer obtains a return shipping label for a defect product.
-	ItemDefectReturnShippingFeesAmount      interface{} `json:"itemDefectReturnShippingFeesAmount,omitempty"`      // Amount of shipping costs for defect product returns. Applicable when property [[itemDefectReturnFees]] equals [[ReturnShippingFees]].
-	MerchantReturnDays                      interface{} `json:"merchantReturnDays,omitempty"`                      // Specifies either a fixed return date or the number of days (from the delivery date) that a product can be returned. Used when the [[returnPolicyCategory]] property is specified as [[MerchantReturnFiniteReturnWindow]].
-	MerchantReturnLink                      interface{} `json:"merchantReturnLink,omitempty"`                      // Specifies a Web page or service by URL, for product returns.
-	RefundType                              interface{} `json:"refundType,omitempty"`                              // A refund type, from an enumerated list.
-	RestockingFee                           interface{} `json:"restockingFee,omitempty"`                           // Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use [[Number]] to specify a percentage of the product price paid by the customer.
-	ReturnFees                              interface{} `json:"returnFees,omitempty"`                              // The type of return fees for purchased products (for any return reason)
-	ReturnLabelSource                       interface{} `json:"returnLabelSource,omitempty"`                       // The method (from an enumeration) by which the customer obtains a return shipping label for a product returned for any reason.
-	ReturnMethod                            interface{} `json:"returnMethod,omitempty"`                            // The type of return method offered, specified from an enumeration.
-	ReturnPolicyCategory                    interface{} `json:"returnPolicyCategory,omitempty"`                    // Specifies an applicable return policy (from an enumeration).
-	ReturnPolicyCountry                     interface{} `json:"returnPolicyCountry,omitempty"`                     // The country where the product has to be sent to for returns, for example "Ireland" using the [[name]] property of [[Country]]. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1). Note that this can be different from the country where the product was originally shipped from or sent too.
-	ReturnPolicySeasonalOverride            interface{} `json:"returnPolicySeasonalOverride,omitempty"`            // Seasonal override of a return policy.
-	ReturnShippingFeesAmount                interface{} `json:"returnShippingFeesAmount,omitempty"`                // Amount of shipping costs for product returns (for any reason). Applicable when property [[returnFees]] equals [[ReturnShippingFees]].
+	ApplicableCountry                       Values `json:"applicableCountry,omitempty"`                       // A country where a particular merchant return policy applies to, for example the two-letter ISO 3166-1 alpha-2 country code.
+	CustomerRemorseReturnFees               Values `json:"customerRemorseReturnFees,omitempty"`               // The type of return fees if the product is returned due to customer remorse.
+	CustomerRemorseReturnLabelSource        Values `json:"customerRemorseReturnLabelSource,omitempty"`        // The method (from an enumeration) by which the customer obtains a return shipping label for a product returned due to customer remorse.
+	CustomerRemorseReturnShippingFeesAmount Values `json:"customerRemorseReturnShippingFeesAmount,omitempty"` // The amount of shipping costs if a product is returned due to customer remorse. Applicable when property [[customerRemorseReturnFees]] equals [[ReturnShippingFees]].
+	InStoreReturnsOffered                   Values `json:"inStoreReturnsOffered,omitempty"`                   // Are in-store returns offered? (for more advanced return methods use the [[returnMethod]] property)
+	ItemCondition                           Values `json:"itemCondition,omitempty"`                           // A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns.
+	ItemDefectReturnFees                    Values `json:"itemDefectReturnFees,omitempty"`                    // The type of return fees for returns of defect products.
+	ItemDefectReturnLabelSource             Values `json:"itemDefectReturnLabelSource,omitempty"`             // The method (from an enumeration) by which the customer obtains a return shipping label for a defect product.
+	ItemDefectReturnShippingFeesAmount      Values `json:"itemDefectReturnShippingFeesAmount,omitempty"`      // Amount of shipping costs for defect product returns. Applicable when property [[itemDefectReturnFees]] equals [[ReturnShippingFees]].
+	MerchantReturnDays                      Values `json:"merchantReturnDays,omitempty"`                      // Specifies either a fixed return date or the number of days (from the delivery date) that a product can be returned. Used when the [[returnPolicyCategory]] property is specified as [[MerchantReturnFiniteReturnWindow]].
+	MerchantReturnLink                      Values `json:"merchantReturnLink,omitempty"`                      // Specifies a Web page or service by URL, for product returns.
+	RefundType                              Values `json:"refundType,omitempty"`                              // A refund type, from an enumerated list.
+	RestockingFee                           Values `json:"restockingFee,omitempty"`                           // Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use [[Number]] to specify a percentage of the product price paid by the customer.
+	ReturnFees                              Values `json:"returnFees,omitempty"`                              // The type of return fees for purchased products (for any return reason)
+	ReturnLabelSource                       Values `json:"returnLabelSource,omitempty"`                       // The method (from an enumeration) by which the customer obtains a return shipping label for a product returned for any reason.
+	ReturnMethod                            Values `json:"returnMethod,omitempty"`                            // The type of return method offered, specified from an enumeration.
+	ReturnPolicyCategory                    Values `json:"returnPolicyCategory,omitempty"`                    // Specifies an applicable return policy (from an enumeration).
+	ReturnPolicyCountry                     Values `json:"returnPolicyCountry,omitempty"`                     // The country where the product has to be sent to for returns, for example "Ireland" using the [[name]] property of [[Country]]. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1). Note that this can be different from the country where the product was originally shipped from or sent too.
+	ReturnPolicySeasonalOverride            Values `json:"returnPolicySeasonalOverride,omitempty"`            // Seasonal override of a return policy.
+	ReturnShippingFeesAmount                Values `json:"returnShippingFeesAmount,omitempty"`                // Amount of shipping costs for product returns (for any reason). Applicable when property [[returnFees]] equals [[ReturnShippingFees]].
 }
 
 // A seasonal override of a return policy, for example used for holidays.
 type MerchantReturnPolicySeasonalOverride struct {
 	Intangible
 
-	EndDate              interface{} `json:"endDate,omitempty"`              // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
-	MerchantReturnDays   interface{} `json:"merchantReturnDays,omitempty"`   // Specifies either a fixed return date or the number of days (from the delivery date) that a product can be returned. Used when the [[returnPolicyCategory]] property is specified as [[MerchantReturnFiniteReturnWindow]].
-	ReturnPolicyCategory interface{} `json:"returnPolicyCategory,omitempty"` // Specifies an applicable return policy (from an enumeration).
-	StartDate            interface{} `json:"startDate,omitempty"`            // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	EndDate              Values `json:"endDate,omitempty"`              // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	MerchantReturnDays   Values `json:"merchantReturnDays,omitempty"`   // Specifies either a fixed return date or the number of days (from the delivery date) that a product can be returned. Used when the [[returnPolicyCategory]] property is specified as [[MerchantReturnFiniteReturnWindow]].
+	ReturnPolicyCategory Values `json:"returnPolicyCategory,omitempty"` // Specifies an applicable return policy (from an enumeration).
+	StartDate            Values `json:"startDate,omitempty"`            // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
 }
 
 // A single message from a sender to one or more organizations or people.
 type Message struct {
 	CreativeWork
 
-	BccRecipient      interface{} `json:"bccRecipient,omitempty"`      // A sub property of recipient. The recipient blind copied on a message.
-	CcRecipient       interface{} `json:"ccRecipient,omitempty"`       // A sub property of recipient. The recipient copied on a message.
-	DateRead          interface{} `json:"dateRead,omitempty"`          // The date/time at which the message has been read by the recipient if a single recipient exists.
-	DateReceived      interface{} `json:"dateReceived,omitempty"`      // The date/time the message was received if a single recipient exists.
-	DateSent          interface{} `json:"dateSent,omitempty"`          // The date/time at which the message was sent.
-	MessageAttachment interface{} `json:"messageAttachment,omitempty"` // A CreativeWork attached to the message.
-	Recipient         interface{} `json:"recipient,omitempty"`         // A sub property of participant. The participant who is at the receiving end of the action.
-	Sender            interface{} `json:"sender,omitempty"`            // A sub property of participant. The participant who is at the sending end of the action.
-	ToRecipient       interface{} `json:"toRecipient,omitempty"`       // A sub property of recipient. The recipient who was directly sent the message.
+	BccRecipient      Values `json:"bccRecipient,omitempty"`      // A sub property of recipient. The recipient blind copied on a message.
+	CcRecipient       Values `json:"ccRecipient,omitempty"`       // A sub property of recipient. The recipient copied on a message.
+	DateRead          Values `json:"dateRead,omitempty"`          // The date/time at which the message has been read by the recipient if a single recipient exists.
+	DateReceived      Values `json:"dateReceived,omitempty"`      // The date/time the message was received if a single recipient exists.
+	DateSent          Values `json:"dateSent,omitempty"`          // The date/time at which the message was sent.
+	MessageAttachment Values `json:"messageAttachment,omitempty"` // A CreativeWork attached to the message.
+	Recipient         Values `json:"recipient,omitempty"`         // A sub property of participant. The participant who is at the receiving end of the action.
+	Sender            Values `json:"sender,omitempty"`            // A sub property of participant. The participant who is at the sending end of the action.
+	ToRecipient       Values `json:"toRecipient,omitempty"`       // A sub property of recipient. The recipient who was directly sent the message.
 }
 
 // A middle school (typically for children aged around 11-14, although this varies somewhat).
@@ -6008,7 +6008,7 @@ type MiddleSchool struct {
 type MobileApplication struct {
 	SoftwareApplication
 
-	CarrierRequirements interface{} `json:"carrierRequirements,omitempty"` // Specifies specific carrier(s) requirements for the application (e.g. an application may only work on a specific carrier network).
+	CarrierRequirements Values `json:"carrierRequirements,omitempty"` // Specifies specific carrier(s) requirements for the application (e.g. an application may only work on a specific carrier network).
 }
 
 // A store that sells mobile phones and related accessories.
@@ -6020,58 +6020,58 @@ type MobilePhoneStore struct {
 type MolecularEntity struct {
 	BioChemEntity
 
-	ChemicalRole                interface{} `json:"chemicalRole,omitempty"`                // A role played by the BioChemEntity within a chemical context.
-	InChI                       interface{} `json:"inChI,omitempty"`                       // Non-proprietary identifier for molecular entity that can be used in printed and electronic data sources thus enabling easier linking of diverse data compilations.
-	InChIKey                    interface{} `json:"inChIKey,omitempty"`                    // InChIKey is a hashed version of the full InChI (using the SHA-256 algorithm).
-	IupacName                   interface{} `json:"iupacName,omitempty"`                   // Systematic method of naming chemical compounds as recommended by the International Union of Pure and Applied Chemistry (IUPAC).
-	MolecularFormula            interface{} `json:"molecularFormula,omitempty"`            // The empirical formula is the simplest whole number ratio of all the atoms in a molecule.
-	MolecularWeight             interface{} `json:"molecularWeight,omitempty"`             // This is the molecular weight of the entity being described, not of the parent. Units should be included in the form '&lt;Number&gt; &lt;unit&gt;', for example '12 amu' or as '&lt;QuantitativeValue&gt;.
-	MonoisotopicMolecularWeight interface{} `json:"monoisotopicMolecularWeight,omitempty"` // The monoisotopic mass is the sum of the masses of the atoms in a molecule using the unbound, ground-state, rest mass of the principal (most abundant) isotope for each element instead of the isotopic average mass. Please include the units the form '&lt;Number&gt; &lt;unit&gt;', for example '770.230488 g/mol' or as '&lt;QuantitativeValue&gt;.
-	PotentialUse                interface{} `json:"potentialUse,omitempty"`                // Intended use of the BioChemEntity by humans.
-	Smiles                      interface{} `json:"smiles,omitempty"`                      // A specification in form of a line notation for describing the structure of chemical species using short ASCII strings.  Double bond stereochemistry \ indicators may need to be escaped in the string in formats where the backslash is an escape character.
+	ChemicalRole                Values `json:"chemicalRole,omitempty"`                // A role played by the BioChemEntity within a chemical context.
+	InChI                       Values `json:"inChI,omitempty"`                       // Non-proprietary identifier for molecular entity that can be used in printed and electronic data sources thus enabling easier linking of diverse data compilations.
+	InChIKey                    Values `json:"inChIKey,omitempty"`                    // InChIKey is a hashed version of the full InChI (using the SHA-256 algorithm).
+	IupacName                   Values `json:"iupacName,omitempty"`                   // Systematic method of naming chemical compounds as recommended by the International Union of Pure and Applied Chemistry (IUPAC).
+	MolecularFormula            Values `json:"molecularFormula,omitempty"`            // The empirical formula is the simplest whole number ratio of all the atoms in a molecule.
+	MolecularWeight             Values `json:"molecularWeight,omitempty"`             // This is the molecular weight of the entity being described, not of the parent. Units should be included in the form '&lt;Number&gt; &lt;unit&gt;', for example '12 amu' or as '&lt;QuantitativeValue&gt;.
+	MonoisotopicMolecularWeight Values `json:"monoisotopicMolecularWeight,omitempty"` // The monoisotopic mass is the sum of the masses of the atoms in a molecule using the unbound, ground-state, rest mass of the principal (most abundant) isotope for each element instead of the isotopic average mass. Please include the units the form '&lt;Number&gt; &lt;unit&gt;', for example '770.230488 g/mol' or as '&lt;QuantitativeValue&gt;.
+	PotentialUse                Values `json:"potentialUse,omitempty"`                // Intended use of the BioChemEntity by humans.
+	Smiles                      Values `json:"smiles,omitempty"`                      // A specification in form of a line notation for describing the structure of chemical species using short ASCII strings.  Double bond stereochemistry \ indicators may need to be escaped in the string in formats where the backslash is an escape character.
 }
 
 // A monetary value or range. This type can be used to describe an amount of money such as $50 USD, or a range as in describing a bank account being suitable for a balance between £1,000 and £1,000,000 GBP, or the value of a salary, etc. It is recommended to use [[PriceSpecification]] Types to describe the price of an Offer, Invoice, etc.
 type MonetaryAmount struct {
 	StructuredValue
 
-	Currency     interface{} `json:"currency,omitempty"`     // The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
-	MaxValue     interface{} `json:"maxValue,omitempty"`     // The upper value of some characteristic or property.
-	MinValue     interface{} `json:"minValue,omitempty"`     // The lower value of some characteristic or property.
-	ValidFrom    interface{} `json:"validFrom,omitempty"`    // The date when the item becomes valid.
-	ValidThrough interface{} `json:"validThrough,omitempty"` // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	Value        interface{} `json:"value,omitempty"`        // The value of the quantitative value or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+	Currency     Values `json:"currency,omitempty"`     // The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
+	MaxValue     Values `json:"maxValue,omitempty"`     // The upper value of some characteristic or property.
+	MinValue     Values `json:"minValue,omitempty"`     // The lower value of some characteristic or property.
+	ValidFrom    Values `json:"validFrom,omitempty"`    // The date when the item becomes valid.
+	ValidThrough Values `json:"validThrough,omitempty"` // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
+	Value        Values `json:"value,omitempty"`        // The value of the quantitative value or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
 }
 
 // A statistical distribution of monetary amounts.
 type MonetaryAmountDistribution struct {
 	QuantitativeValueDistribution
 
-	Currency interface{} `json:"currency,omitempty"` // The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
+	Currency Values `json:"currency,omitempty"` // The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
 }
 
 // A monetary grant.
 type MonetaryGrant struct {
 	Grant
 
-	Amount interface{} `json:"amount,omitempty"` // The amount of money.
-	Funder interface{} `json:"funder,omitempty"` // A person or organization that supports (sponsors) something through some kind of financial contribution.
+	Amount Values `json:"amount,omitempty"` // The amount of money.
+	Funder Values `json:"funder,omitempty"` // A person or organization that supports (sponsors) something through some kind of financial contribution.
 }
 
 // The act of transferring money from one place to another place. This may occur electronically or physically.
 type MoneyTransfer struct {
 	TransferAction
 
-	Amount          interface{} `json:"amount,omitempty"`          // The amount of money.
-	BeneficiaryBank interface{} `json:"beneficiaryBank,omitempty"` // A bank or bank’s branch, financial institution or international financial institution operating the beneficiary’s bank account or releasing funds for the beneficiary.
+	Amount          Values `json:"amount,omitempty"`          // The amount of money.
+	BeneficiaryBank Values `json:"beneficiaryBank,omitempty"` // A bank or bank’s branch, financial institution or international financial institution operating the beneficiary’s bank account or releasing funds for the beneficiary.
 }
 
 // A loan in which property or real estate is used as collateral. (A loan securitized against some real estate).
 type MortgageLoan struct {
 	LoanOrCredit
 
-	DomiciledMortgage         interface{} `json:"domiciledMortgage,omitempty"`         // Whether borrower is a resident of the jurisdiction where the property is located.
-	LoanMortgageMandateAmount interface{} `json:"loanMortgageMandateAmount,omitempty"` // Amount of mortgage mandate that can be converted into a proper mortgage at a later stage.
+	DomiciledMortgage         Values `json:"domiciledMortgage,omitempty"`         // Whether borrower is a resident of the jurisdiction where the property is located.
+	LoanMortgageMandateAmount Values `json:"loanMortgageMandateAmount,omitempty"` // Amount of mortgage mandate that can be converted into a proper mortgage at a later stage.
 }
 
 // A mosque.
@@ -6117,37 +6117,37 @@ type Mountain struct {
 type MoveAction struct {
 	Action
 
-	FromLocation interface{} `json:"fromLocation,omitempty"` // A sub property of location. The original location of the object or the agent before the action.
-	ToLocation   interface{} `json:"toLocation,omitempty"`   // A sub property of location. The final location of the object or the agent after the action.
+	FromLocation Values `json:"fromLocation,omitempty"` // A sub property of location. The original location of the object or the agent before the action.
+	ToLocation   Values `json:"toLocation,omitempty"`   // A sub property of location. The final location of the object or the agent after the action.
 }
 
 // A movie.
 type Movie struct {
 	CreativeWork
 
-	Actor           interface{} `json:"actor,omitempty"`           // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
-	Actors          interface{} `json:"actors,omitempty"`          // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
-	CountryOfOrigin interface{} `json:"countryOfOrigin,omitempty"` /*
+	Actor           Values `json:"actor,omitempty"`           // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+	Actors          Values `json:"actors,omitempty"`          // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
+	CountryOfOrigin Values `json:"countryOfOrigin,omitempty"` /*
 	The country of origin of something, including products as well as creative  works such as movie and TV content.
 
 	In the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of [[CreativeWork]] it is difficult to provide fully general guidance, and properties such as [[contentLocation]] and [[locationCreated]] may be more applicable.
 
 	In the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.
 	*/
-	Director          interface{} `json:"director,omitempty"`          // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
-	Directors         interface{} `json:"directors,omitempty"`         // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
-	Duration          interface{} `json:"duration,omitempty"`          // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
-	MusicBy           interface{} `json:"musicBy,omitempty"`           // The composer of the soundtrack.
-	ProductionCompany interface{} `json:"productionCompany,omitempty"` // The production company or studio responsible for the item e.g. series, video game, episode etc.
-	SubtitleLanguage  interface{} `json:"subtitleLanguage,omitempty"`  // Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
-	TitleEIDR         interface{} `json:"titleEIDR,omitempty"`         /*
+	Director          Values `json:"director,omitempty"`          // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
+	Directors         Values `json:"directors,omitempty"`         // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
+	Duration          Values `json:"duration,omitempty"`          // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
+	MusicBy           Values `json:"musicBy,omitempty"`           // The composer of the soundtrack.
+	ProductionCompany Values `json:"productionCompany,omitempty"` // The production company or studio responsible for the item e.g. series, video game, episode etc.
+	SubtitleLanguage  Values `json:"subtitleLanguage,omitempty"`  // Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
+	TitleEIDR         Values `json:"titleEIDR,omitempty"`         /*
 	An [EIDR](https://eidr.org/) (Entertainment Identifier Registry) [[identifier]] representing at the most general/abstract level, a work of film or television.
 
 	For example, the motion picture known as "Ghostbusters" has a titleEIDR of  "10.5240/7EC7-228A-510A-053E-CBB8-J". This title (or work) may have several variants, which EIDR calls "edits". See [[editEIDR]].
 
 	Since schema.org types like [[Movie]] and [[TVEpisode]] can be used for both works and their multiple expressions, it is possible to use [[titleEIDR]] alone (for a general description), or alongside [[editEIDR]] for a more edit-specific description.
 	*/
-	Trailer interface{} `json:"trailer,omitempty"` // The trailer of a movie or tv/radio series, season, episode, etc.
+	Trailer Values `json:"trailer,omitempty"` // The trailer of a movie or tv/radio series, season, episode, etc.
 }
 
 // A short segment/part of a movie.
@@ -6164,13 +6164,13 @@ type MovieRentalStore struct {
 type MovieSeries struct {
 	CreativeWorkSeries
 
-	Actor             interface{} `json:"actor,omitempty"`             // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
-	Actors            interface{} `json:"actors,omitempty"`            // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
-	Director          interface{} `json:"director,omitempty"`          // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
-	Directors         interface{} `json:"directors,omitempty"`         // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
-	MusicBy           interface{} `json:"musicBy,omitempty"`           // The composer of the soundtrack.
-	ProductionCompany interface{} `json:"productionCompany,omitempty"` // The production company or studio responsible for the item e.g. series, video game, episode etc.
-	Trailer           interface{} `json:"trailer,omitempty"`           // The trailer of a movie or tv/radio series, season, episode, etc.
+	Actor             Values `json:"actor,omitempty"`             // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+	Actors            Values `json:"actors,omitempty"`            // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
+	Director          Values `json:"director,omitempty"`          // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
+	Directors         Values `json:"directors,omitempty"`         // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
+	MusicBy           Values `json:"musicBy,omitempty"`           // The composer of the soundtrack.
+	ProductionCompany Values `json:"productionCompany,omitempty"` // The production company or studio responsible for the item e.g. series, video game, episode etc.
+	Trailer           Values `json:"trailer,omitempty"`           // The trailer of a movie or tv/radio series, season, episode, etc.
 }
 
 // A movie theater.
@@ -6178,7 +6178,7 @@ type MovieTheater struct {
 	CivicStructure
 	// TODO: EntertainmentBusiness
 
-	ScreenCount interface{} `json:"screenCount,omitempty"` // The number of screens in the movie theater.
+	ScreenCount Values `json:"screenCount,omitempty"` // The number of screens in the movie theater.
 }
 
 // A moving company.
@@ -6190,11 +6190,11 @@ type MovingCompany struct {
 type Muscle struct {
 	AnatomicalStructure
 
-	Antagonist   interface{} `json:"antagonist,omitempty"`   // The muscle whose action counteracts the specified muscle.
-	BloodSupply  interface{} `json:"bloodSupply,omitempty"`  // The blood vessel that carries blood from the heart to the muscle.
-	Insertion    interface{} `json:"insertion,omitempty"`    // The place of attachment of a muscle, or what the muscle moves.
-	MuscleAction interface{} `json:"muscleAction,omitempty"` // The movement the muscle generates.
-	Nerve        interface{} `json:"nerve,omitempty"`        // The underlying innervation associated with the muscle.
+	Antagonist   Values `json:"antagonist,omitempty"`   // The muscle whose action counteracts the specified muscle.
+	BloodSupply  Values `json:"bloodSupply,omitempty"`  // The blood vessel that carries blood from the heart to the muscle.
+	Insertion    Values `json:"insertion,omitempty"`    // The place of attachment of a muscle, or what the muscle moves.
+	MuscleAction Values `json:"muscleAction,omitempty"` // The movement the muscle generates.
+	Nerve        Values `json:"nerve,omitempty"`        // The underlying innervation associated with the muscle.
 }
 
 // A museum.
@@ -6206,10 +6206,10 @@ type Museum struct {
 type MusicAlbum struct {
 	MusicPlaylist
 
-	AlbumProductionType interface{} `json:"albumProductionType,omitempty"` // Classification of the album by it's type of content: soundtrack, live album, studio album, etc.
-	AlbumRelease        interface{} `json:"albumRelease,omitempty"`        // A release of this album.
-	AlbumReleaseType    interface{} `json:"albumReleaseType,omitempty"`    // The kind of release which this album is: single, EP or album.
-	ByArtist            interface{} `json:"byArtist,omitempty"`            // The artist that performed this album or recording.
+	AlbumProductionType Values `json:"albumProductionType,omitempty"` // Classification of the album by it's type of content: soundtrack, live album, studio album, etc.
+	AlbumRelease        Values `json:"albumRelease,omitempty"`        // A release of this album.
+	AlbumReleaseType    Values `json:"albumReleaseType,omitempty"`    // The kind of release which this album is: single, EP or album.
+	ByArtist            Values `json:"byArtist,omitempty"`            // The artist that performed this album or recording.
 }
 
 // Classification of the album by it's type of content: soundtrack, live album, studio album, etc.
@@ -6226,16 +6226,16 @@ type MusicAlbumReleaseType struct {
 type MusicComposition struct {
 	CreativeWork
 
-	Composer             interface{} `json:"composer,omitempty"`             // The person or organization who wrote a composition, or who is the composer of a work performed at some event.
-	FirstPerformance     interface{} `json:"firstPerformance,omitempty"`     // The date and place the work was first performed.
-	IncludedComposition  interface{} `json:"includedComposition,omitempty"`  // Smaller compositions included in this work (e.g. a movement in a symphony).
-	IswcCode             interface{} `json:"iswcCode,omitempty"`             // The International Standard Musical Work Code for the composition.
-	Lyricist             interface{} `json:"lyricist,omitempty"`             // The person who wrote the words.
-	Lyrics               interface{} `json:"lyrics,omitempty"`               // The words in the song.
-	MusicArrangement     interface{} `json:"musicArrangement,omitempty"`     // An arrangement derived from the composition.
-	MusicCompositionForm interface{} `json:"musicCompositionForm,omitempty"` // The type of composition (e.g. overture, sonata, symphony, etc.).
-	MusicalKey           interface{} `json:"musicalKey,omitempty"`           // The key, mode, or scale this composition uses.
-	RecordedAs           interface{} `json:"recordedAs,omitempty"`           // An audio recording of the work.
+	Composer             Values `json:"composer,omitempty"`             // The person or organization who wrote a composition, or who is the composer of a work performed at some event.
+	FirstPerformance     Values `json:"firstPerformance,omitempty"`     // The date and place the work was first performed.
+	IncludedComposition  Values `json:"includedComposition,omitempty"`  // Smaller compositions included in this work (e.g. a movement in a symphony).
+	IswcCode             Values `json:"iswcCode,omitempty"`             // The International Standard Musical Work Code for the composition.
+	Lyricist             Values `json:"lyricist,omitempty"`             // The person who wrote the words.
+	Lyrics               Values `json:"lyrics,omitempty"`               // The words in the song.
+	MusicArrangement     Values `json:"musicArrangement,omitempty"`     // An arrangement derived from the composition.
+	MusicCompositionForm Values `json:"musicCompositionForm,omitempty"` // The type of composition (e.g. overture, sonata, symphony, etc.).
+	MusicalKey           Values `json:"musicalKey,omitempty"`           // The key, mode, or scale this composition uses.
+	RecordedAs           Values `json:"recordedAs,omitempty"`           // An audio recording of the work.
 }
 
 // Event type: Music event.
@@ -6247,45 +6247,45 @@ type MusicEvent struct {
 type MusicGroup struct {
 	PerformingGroup
 
-	Album            interface{} `json:"album,omitempty"`            // A music album.
-	Albums           interface{} `json:"albums,omitempty"`           // A collection of music albums.
-	Genre            interface{} `json:"genre,omitempty"`            // Genre of the creative work, broadcast channel or group.
-	MusicGroupMember interface{} `json:"musicGroupMember,omitempty"` // A member of a music group&#x2014;for example, John, Paul, George, or Ringo.
-	Track            interface{} `json:"track,omitempty"`            // A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording.
-	Tracks           interface{} `json:"tracks,omitempty"`           // A music recording (track)&#x2014;usually a single song.
+	Album            Values `json:"album,omitempty"`            // A music album.
+	Albums           Values `json:"albums,omitempty"`           // A collection of music albums.
+	Genre            Values `json:"genre,omitempty"`            // Genre of the creative work, broadcast channel or group.
+	MusicGroupMember Values `json:"musicGroupMember,omitempty"` // A member of a music group&#x2014;for example, John, Paul, George, or Ringo.
+	Track            Values `json:"track,omitempty"`            // A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording.
+	Tracks           Values `json:"tracks,omitempty"`           // A music recording (track)&#x2014;usually a single song.
 }
 
 // A collection of music tracks in playlist form.
 type MusicPlaylist struct {
 	CreativeWork
 
-	NumTracks interface{} `json:"numTracks,omitempty"` // The number of tracks in this album or playlist.
-	Track     interface{} `json:"track,omitempty"`     // A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording.
-	Tracks    interface{} `json:"tracks,omitempty"`    // A music recording (track)&#x2014;usually a single song.
+	NumTracks Values `json:"numTracks,omitempty"` // The number of tracks in this album or playlist.
+	Track     Values `json:"track,omitempty"`     // A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording.
+	Tracks    Values `json:"tracks,omitempty"`    // A music recording (track)&#x2014;usually a single song.
 }
 
 // A music recording (track), usually a single song.
 type MusicRecording struct {
 	CreativeWork
 
-	ByArtist    interface{} `json:"byArtist,omitempty"`    // The artist that performed this album or recording.
-	Duration    interface{} `json:"duration,omitempty"`    // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
-	InAlbum     interface{} `json:"inAlbum,omitempty"`     // The album to which this recording belongs.
-	InPlaylist  interface{} `json:"inPlaylist,omitempty"`  // The playlist to which this recording belongs.
-	IsrcCode    interface{} `json:"isrcCode,omitempty"`    // The International Standard Recording Code for the recording.
-	RecordingOf interface{} `json:"recordingOf,omitempty"` // The composition this track is a recording of.
+	ByArtist    Values `json:"byArtist,omitempty"`    // The artist that performed this album or recording.
+	Duration    Values `json:"duration,omitempty"`    // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
+	InAlbum     Values `json:"inAlbum,omitempty"`     // The album to which this recording belongs.
+	InPlaylist  Values `json:"inPlaylist,omitempty"`  // The playlist to which this recording belongs.
+	IsrcCode    Values `json:"isrcCode,omitempty"`    // The International Standard Recording Code for the recording.
+	RecordingOf Values `json:"recordingOf,omitempty"` // The composition this track is a recording of.
 }
 
 // A MusicRelease is a specific release of a music album.
 type MusicRelease struct {
 	MusicPlaylist
 
-	CatalogNumber      interface{} `json:"catalogNumber,omitempty"`      // The catalog number for the release.
-	CreditedTo         interface{} `json:"creditedTo,omitempty"`         // The group the release is credited to if different than the byArtist. For example, Red and Blue is credited to "Stefani Germanotta Band", but by Lady Gaga.
-	Duration           interface{} `json:"duration,omitempty"`           // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
-	MusicReleaseFormat interface{} `json:"musicReleaseFormat,omitempty"` // Format of this release (the type of recording media used, ie. compact disc, digital media, LP, etc.).
-	RecordLabel        interface{} `json:"recordLabel,omitempty"`        // The label that issued the release.
-	ReleaseOf          interface{} `json:"releaseOf,omitempty"`          // The album this is a release of.
+	CatalogNumber      Values `json:"catalogNumber,omitempty"`      // The catalog number for the release.
+	CreditedTo         Values `json:"creditedTo,omitempty"`         // The group the release is credited to if different than the byArtist. For example, Red and Blue is credited to "Stefani Germanotta Band", but by Lady Gaga.
+	Duration           Values `json:"duration,omitempty"`           // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
+	MusicReleaseFormat Values `json:"musicReleaseFormat,omitempty"` // Format of this release (the type of recording media used, ie. compact disc, digital media, LP, etc.).
+	RecordLabel        Values `json:"recordLabel,omitempty"`        // The label that issued the release.
+	ReleaseOf          Values `json:"releaseOf,omitempty"`          // The album this is a release of.
 }
 
 // Format of this release (the type of recording media used, ie. compact disc, digital media, LP, etc.).
@@ -6327,10 +6327,10 @@ type NailSalon struct {
 type Nerve struct {
 	AnatomicalStructure
 
-	Branch      interface{} `json:"branch,omitempty"`      // The branches that delineate from the nerve bundle. Not to be confused with [[branchOf]].
-	NerveMotor  interface{} `json:"nerveMotor,omitempty"`  // The neurological pathway extension that involves muscle control.
-	SensoryUnit interface{} `json:"sensoryUnit,omitempty"` // The neurological pathway extension that inputs and sends information to the brain or spinal cord.
-	SourcedFrom interface{} `json:"sourcedFrom,omitempty"` // The neurological pathway that originates the neurons.
+	Branch      Values `json:"branch,omitempty"`      // The branches that delineate from the nerve bundle. Not to be confused with [[branchOf]].
+	NerveMotor  Values `json:"nerveMotor,omitempty"`  // The neurological pathway extension that involves muscle control.
+	SensoryUnit Values `json:"sensoryUnit,omitempty"` // The neurological pathway extension that inputs and sends information to the brain or spinal cord.
+	SourcedFrom Values `json:"sourcedFrom,omitempty"` // The neurological pathway that originates the neurons.
 }
 
 /*
@@ -6341,7 +6341,7 @@ A more detailed overview of [schema.org News markup](/docs/news.html) is also av
 type NewsArticle struct {
 	Article
 
-	Dateline interface{} `json:"dateline,omitempty"` /*
+	Dateline Values `json:"dateline,omitempty"` /*
 	A [dateline](https://en.wikipedia.org/wiki/Dateline) is a brief piece of text included in news articles that describes where and when the story was written or filed though the date is often omitted. Sometimes only a placename is provided.
 
 	Structured representations of dateline-related information can also be expressed more explicitly using [[locationCreated]] (which represents where a work was created e.g. where a news report was written).  For location depicted or described in the content, use [[contentLocation]].
@@ -6349,27 +6349,27 @@ type NewsArticle struct {
 	Dateline summaries are oriented more towards human readers than towards automated processing, and can vary substantially. Some examples: "BEIRUT, Lebanon, June 2.", "Paris, France", "December 19, 2017 11:43AM Reporting from Washington", "Beijing/Moscow", "QUEZON CITY, Philippines".
 
 	*/
-	PrintColumn  interface{} `json:"printColumn,omitempty"`  // The number of the column in which the NewsArticle appears in the print edition.
-	PrintEdition interface{} `json:"printEdition,omitempty"` // The edition of the print product in which the NewsArticle appears.
-	PrintPage    interface{} `json:"printPage,omitempty"`    // If this NewsArticle appears in print, this field indicates the name of the page on which the article is found. Please note that this field is intended for the exact page name (e.g. A5, B18).
-	PrintSection interface{} `json:"printSection,omitempty"` // If this NewsArticle appears in print, this field indicates the print section in which the article appeared.
+	PrintColumn  Values `json:"printColumn,omitempty"`  // The number of the column in which the NewsArticle appears in the print edition.
+	PrintEdition Values `json:"printEdition,omitempty"` // The edition of the print product in which the NewsArticle appears.
+	PrintPage    Values `json:"printPage,omitempty"`    // If this NewsArticle appears in print, this field indicates the name of the page on which the article is found. Please note that this field is intended for the exact page name (e.g. A5, B18).
+	PrintSection Values `json:"printSection,omitempty"` // If this NewsArticle appears in print, this field indicates the print section in which the article appeared.
 }
 
 // A News/Media organization such as a newspaper or TV station.
 type NewsMediaOrganization struct {
 	Organization
 
-	ActionableFeedbackPolicy        interface{} `json:"actionableFeedbackPolicy,omitempty"`        // For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
-	CorrectionsPolicy               interface{} `json:"correctionsPolicy,omitempty"`               // For an [[Organization]] (e.g. [[NewsMediaOrganization]]), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.
-	DiversityPolicy                 interface{} `json:"diversityPolicy,omitempty"`                 // Statement on diversity policy by an [[Organization]] e.g. a [[NewsMediaOrganization]]. For a [[NewsMediaOrganization]], a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
-	DiversityStaffingReport         interface{} `json:"diversityStaffingReport,omitempty"`         // For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.
-	EthicsPolicy                    interface{} `json:"ethicsPolicy,omitempty"`                    // Statement about ethics policy, e.g. of a [[NewsMediaOrganization]] regarding journalistic and publishing practices, or of a [[Restaurant]], a page describing food source policies. In the case of a [[NewsMediaOrganization]], an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.
-	Masthead                        interface{} `json:"masthead,omitempty"`                        // For a [[NewsMediaOrganization]], a link to the masthead page or a page listing top editorial management.
-	MissionCoveragePrioritiesPolicy interface{} `json:"missionCoveragePrioritiesPolicy,omitempty"` // For a [[NewsMediaOrganization]], a statement on coverage priorities, including any public agenda or stance on issues.
-	NoBylinesPolicy                 interface{} `json:"noBylinesPolicy,omitempty"`                 // For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement explaining when authors of articles are not named in bylines.
-	OwnershipFundingInfo            interface{} `json:"ownershipFundingInfo,omitempty"`            // For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the [[funder]] is also available and can be used to make basic funder information machine-readable.
-	UnnamedSourcesPolicy            interface{} `json:"unnamedSourcesPolicy,omitempty"`            // For an [[Organization]] (typically a [[NewsMediaOrganization]]), a statement about policy on use of unnamed sources and the decision process required.
-	VerificationFactCheckingPolicy  interface{} `json:"verificationFactCheckingPolicy,omitempty"`  // Disclosure about verification and fact-checking processes for a [[NewsMediaOrganization]] or other fact-checking [[Organization]].
+	ActionableFeedbackPolicy        Values `json:"actionableFeedbackPolicy,omitempty"`        // For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
+	CorrectionsPolicy               Values `json:"correctionsPolicy,omitempty"`               // For an [[Organization]] (e.g. [[NewsMediaOrganization]]), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.
+	DiversityPolicy                 Values `json:"diversityPolicy,omitempty"`                 // Statement on diversity policy by an [[Organization]] e.g. a [[NewsMediaOrganization]]. For a [[NewsMediaOrganization]], a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
+	DiversityStaffingReport         Values `json:"diversityStaffingReport,omitempty"`         // For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.
+	EthicsPolicy                    Values `json:"ethicsPolicy,omitempty"`                    // Statement about ethics policy, e.g. of a [[NewsMediaOrganization]] regarding journalistic and publishing practices, or of a [[Restaurant]], a page describing food source policies. In the case of a [[NewsMediaOrganization]], an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.
+	Masthead                        Values `json:"masthead,omitempty"`                        // For a [[NewsMediaOrganization]], a link to the masthead page or a page listing top editorial management.
+	MissionCoveragePrioritiesPolicy Values `json:"missionCoveragePrioritiesPolicy,omitempty"` // For a [[NewsMediaOrganization]], a statement on coverage priorities, including any public agenda or stance on issues.
+	NoBylinesPolicy                 Values `json:"noBylinesPolicy,omitempty"`                 // For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement explaining when authors of articles are not named in bylines.
+	OwnershipFundingInfo            Values `json:"ownershipFundingInfo,omitempty"`            // For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the [[funder]] is also available and can be used to make basic funder information machine-readable.
+	UnnamedSourcesPolicy            Values `json:"unnamedSourcesPolicy,omitempty"`            // For an [[Organization]] (typically a [[NewsMediaOrganization]]), a statement about policy on use of unnamed sources and the decision process required.
+	VerificationFactCheckingPolicy  Values `json:"verificationFactCheckingPolicy,omitempty"`  // Disclosure about verification and fact-checking processes for a [[NewsMediaOrganization]] or other fact-checking [[Organization]].
 }
 
 // A publication containing information about varied topics that are pertinent to general information, a geographic area, or a specific subject matter (i.e. business, culture, education). Often published daily.
@@ -6404,18 +6404,18 @@ type Number struct{}
 type NutritionInformation struct {
 	StructuredValue
 
-	Calories              interface{} `json:"calories,omitempty"`              // The number of calories.
-	CarbohydrateContent   interface{} `json:"carbohydrateContent,omitempty"`   // The number of grams of carbohydrates.
-	CholesterolContent    interface{} `json:"cholesterolContent,omitempty"`    // The number of milligrams of cholesterol.
-	FatContent            interface{} `json:"fatContent,omitempty"`            // The number of grams of fat.
-	FiberContent          interface{} `json:"fiberContent,omitempty"`          // The number of grams of fiber.
-	ProteinContent        interface{} `json:"proteinContent,omitempty"`        // The number of grams of protein.
-	SaturatedFatContent   interface{} `json:"saturatedFatContent,omitempty"`   // The number of grams of saturated fat.
-	ServingSize           interface{} `json:"servingSize,omitempty"`           // The serving size, in terms of the number of volume or mass.
-	SodiumContent         interface{} `json:"sodiumContent,omitempty"`         // The number of milligrams of sodium.
-	SugarContent          interface{} `json:"sugarContent,omitempty"`          // The number of grams of sugar.
-	TransFatContent       interface{} `json:"transFatContent,omitempty"`       // The number of grams of trans fat.
-	UnsaturatedFatContent interface{} `json:"unsaturatedFatContent,omitempty"` // The number of grams of unsaturated fat.
+	Calories              Values `json:"calories,omitempty"`              // The number of calories.
+	CarbohydrateContent   Values `json:"carbohydrateContent,omitempty"`   // The number of grams of carbohydrates.
+	CholesterolContent    Values `json:"cholesterolContent,omitempty"`    // The number of milligrams of cholesterol.
+	FatContent            Values `json:"fatContent,omitempty"`            // The number of grams of fat.
+	FiberContent          Values `json:"fiberContent,omitempty"`          // The number of grams of fiber.
+	ProteinContent        Values `json:"proteinContent,omitempty"`        // The number of grams of protein.
+	SaturatedFatContent   Values `json:"saturatedFatContent,omitempty"`   // The number of grams of saturated fat.
+	ServingSize           Values `json:"servingSize,omitempty"`           // The serving size, in terms of the number of volume or mass.
+	SodiumContent         Values `json:"sodiumContent,omitempty"`         // The number of milligrams of sodium.
+	SugarContent          Values `json:"sugarContent,omitempty"`          // The number of grams of sugar.
+	TransFatContent       Values `json:"transFatContent,omitempty"`       // The number of grams of trans fat.
+	UnsaturatedFatContent Values `json:"unsaturatedFatContent,omitempty"` // The number of grams of unsaturated fat.
 }
 
 /*
@@ -6426,35 +6426,35 @@ See also [[StatisticalPopulation]], and the [data and datasets](/docs/data-and-d
 type Observation struct {
 	Intangible
 
-	MarginOfError    interface{} `json:"marginOfError,omitempty"`    // A marginOfError for an [[Observation]].
-	MeasuredProperty interface{} `json:"measuredProperty,omitempty"` // The measuredProperty of an [[Observation]], either a schema.org property, a property from other RDF-compatible systems e.g. W3C RDF Data Cube, or schema.org extensions such as [GS1's](https://www.gs1.org/voc/?show=properties).
-	MeasuredValue    interface{} `json:"measuredValue,omitempty"`    // The measuredValue of an [[Observation]].
-	ObservationDate  interface{} `json:"observationDate,omitempty"`  // The observationDate of an [[Observation]].
-	ObservedNode     interface{} `json:"observedNode,omitempty"`     // The observedNode of an [[Observation]], often a [[StatisticalPopulation]].
+	MarginOfError    Values `json:"marginOfError,omitempty"`    // A marginOfError for an [[Observation]].
+	MeasuredProperty Values `json:"measuredProperty,omitempty"` // The measuredProperty of an [[Observation]], either a schema.org property, a property from other RDF-compatible systems e.g. W3C RDF Data Cube, or schema.org extensions such as [GS1's](https://www.gs1.org/voc/?show=properties).
+	MeasuredValue    Values `json:"measuredValue,omitempty"`    // The measuredValue of an [[Observation]].
+	ObservationDate  Values `json:"observationDate,omitempty"`  // The observationDate of an [[Observation]].
+	ObservedNode     Values `json:"observedNode,omitempty"`     // The observedNode of an [[Observation]], often a [[StatisticalPopulation]].
 }
 
 // A profession, may involve prolonged training and/or a formal qualification.
 type Occupation struct {
 	Intangible
 
-	EducationRequirements  interface{} `json:"educationRequirements,omitempty"`  // Educational background needed for the position or Occupation.
-	EstimatedSalary        interface{} `json:"estimatedSalary,omitempty"`        // An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.
-	ExperienceRequirements interface{} `json:"experienceRequirements,omitempty"` // Description of skills and experience needed for the position or Occupation.
-	OccupationLocation     interface{} `json:"occupationLocation,omitempty"`     //  The region/country for which this occupational description is appropriate. Note that educational requirements and qualifications can vary between jurisdictions.
-	OccupationalCategory   interface{} `json:"occupationalCategory,omitempty"`   /*
+	EducationRequirements  Values `json:"educationRequirements,omitempty"`  // Educational background needed for the position or Occupation.
+	EstimatedSalary        Values `json:"estimatedSalary,omitempty"`        // An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.
+	ExperienceRequirements Values `json:"experienceRequirements,omitempty"` // Description of skills and experience needed for the position or Occupation.
+	OccupationLocation     Values `json:"occupationLocation,omitempty"`     //  The region/country for which this occupational description is appropriate. Note that educational requirements and qualifications can vary between jurisdictions.
+	OccupationalCategory   Values `json:"occupationalCategory,omitempty"`   /*
 	A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\n
 	Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.
 	*/
-	Qualifications   interface{} `json:"qualifications,omitempty"`   // Specific qualifications required for this role or Occupation.
-	Responsibilities interface{} `json:"responsibilities,omitempty"` // Responsibilities associated with this role or Occupation.
-	Skills           interface{} `json:"skills,omitempty"`           // A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is desired or required to fulfill this role or to work in this occupation.
+	Qualifications   Values `json:"qualifications,omitempty"`   // Specific qualifications required for this role or Occupation.
+	Responsibilities Values `json:"responsibilities,omitempty"` // Responsibilities associated with this role or Occupation.
+	Skills           Values `json:"skills,omitempty"`           // A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is desired or required to fulfill this role or to work in this occupation.
 }
 
 // Indicates employment-related experience requirements, e.g. [[monthsOfExperience]].
 type OccupationalExperienceRequirements struct {
 	Intangible
 
-	MonthsOfExperience interface{} `json:"monthsOfExperience,omitempty"` // Indicates the minimal number of months of experience required for a position.
+	MonthsOfExperience Values `json:"monthsOfExperience,omitempty"` // Indicates the minimal number of months of experience required for a position.
 }
 
 // A treatment of people with physical, emotional, or social problems, using purposeful activity to help them overcome or learn to deal with their problems.
@@ -6471,66 +6471,66 @@ type OceanBodyOfWater struct {
 type Offer struct {
 	Intangible
 
-	AcceptedPaymentMethod     interface{} `json:"acceptedPaymentMethod,omitempty"`     // The payment method(s) accepted by seller for this offer.
-	AddOn                     interface{} `json:"addOn,omitempty"`                     // An additional offer that can only be obtained in combination with the first base offer (e.g. supplements and extensions that are available for a surcharge).
-	AdvanceBookingRequirement interface{} `json:"advanceBookingRequirement,omitempty"` // The amount of time that is required between accepting the offer and the actual usage of the resource or service.
-	AggregateRating           interface{} `json:"aggregateRating,omitempty"`           // The overall rating, based on a collection of reviews or ratings, of the item.
-	AreaServed                interface{} `json:"areaServed,omitempty"`                // The geographic area where a service or offered item is provided.
-	Availability              interface{} `json:"availability,omitempty"`              // The availability of this item&#x2014;for example In stock, Out of stock, Pre-order, etc.
-	AvailabilityEnds          interface{} `json:"availabilityEnds,omitempty"`          // The end of the availability of the product or service included in the offer.
-	AvailabilityStarts        interface{} `json:"availabilityStarts,omitempty"`        // The beginning of the availability of the product or service included in the offer.
-	AvailableAtOrFrom         interface{} `json:"availableAtOrFrom,omitempty"`         // The place(s) from which the offer can be obtained (e.g. store locations).
-	AvailableDeliveryMethod   interface{} `json:"availableDeliveryMethod,omitempty"`   // The delivery method(s) available for this offer.
-	BusinessFunction          interface{} `json:"businessFunction,omitempty"`          // The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
-	Category                  interface{} `json:"category,omitempty"`                  // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
-	DeliveryLeadTime          interface{} `json:"deliveryLeadTime,omitempty"`          // The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup.
-	EligibleCustomerType      interface{} `json:"eligibleCustomerType,omitempty"`      // The type(s) of customers for which the given offer is valid.
-	EligibleDuration          interface{} `json:"eligibleDuration,omitempty"`          // The duration for which the given offer is valid.
-	EligibleQuantity          interface{} `json:"eligibleQuantity,omitempty"`          // The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.
-	EligibleRegion            interface{} `json:"eligibleRegion,omitempty"`            /*
+	AcceptedPaymentMethod     Values `json:"acceptedPaymentMethod,omitempty"`     // The payment method(s) accepted by seller for this offer.
+	AddOn                     Values `json:"addOn,omitempty"`                     // An additional offer that can only be obtained in combination with the first base offer (e.g. supplements and extensions that are available for a surcharge).
+	AdvanceBookingRequirement Values `json:"advanceBookingRequirement,omitempty"` // The amount of time that is required between accepting the offer and the actual usage of the resource or service.
+	AggregateRating           Values `json:"aggregateRating,omitempty"`           // The overall rating, based on a collection of reviews or ratings, of the item.
+	AreaServed                Values `json:"areaServed,omitempty"`                // The geographic area where a service or offered item is provided.
+	Availability              Values `json:"availability,omitempty"`              // The availability of this item&#x2014;for example In stock, Out of stock, Pre-order, etc.
+	AvailabilityEnds          Values `json:"availabilityEnds,omitempty"`          // The end of the availability of the product or service included in the offer.
+	AvailabilityStarts        Values `json:"availabilityStarts,omitempty"`        // The beginning of the availability of the product or service included in the offer.
+	AvailableAtOrFrom         Values `json:"availableAtOrFrom,omitempty"`         // The place(s) from which the offer can be obtained (e.g. store locations).
+	AvailableDeliveryMethod   Values `json:"availableDeliveryMethod,omitempty"`   // The delivery method(s) available for this offer.
+	BusinessFunction          Values `json:"businessFunction,omitempty"`          // The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
+	Category                  Values `json:"category,omitempty"`                  // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+	DeliveryLeadTime          Values `json:"deliveryLeadTime,omitempty"`          // The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup.
+	EligibleCustomerType      Values `json:"eligibleCustomerType,omitempty"`      // The type(s) of customers for which the given offer is valid.
+	EligibleDuration          Values `json:"eligibleDuration,omitempty"`          // The duration for which the given offer is valid.
+	EligibleQuantity          Values `json:"eligibleQuantity,omitempty"`          // The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.
+	EligibleRegion            Values `json:"eligibleRegion,omitempty"`            /*
 	The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\n\nSee also [[ineligibleRegion]].
 
 	*/
-	EligibleTransactionVolume interface{} `json:"eligibleTransactionVolume,omitempty"` // The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount.
-	Gtin                      interface{} `json:"gtin,omitempty"`                      /*
+	EligibleTransactionVolume Values `json:"eligibleTransactionVolume,omitempty"` // The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount.
+	Gtin                      Values `json:"gtin,omitempty"`                      /*
 	A Global Trade Item Number ([GTIN](https://www.gs1.org/standards/id-keys/gtin)). GTINs identify trade items, including products and services, using numeric identification codes. The [[gtin]] property generalizes the earlier [[gtin8]], [[gtin12]], [[gtin13]], and [[gtin14]] properties. The GS1 [digital link specifications](https://www.gs1.org/standards/Digital-Link/) express GTINs as URLs. A correct [[gtin]] value should be a valid GTIN, which means that it should be an all-numeric string of either 8, 12, 13 or 14 digits, or a "GS1 Digital Link" URL based on such a string. The numeric component should also have a [valid GS1 check digit](https://www.gs1.org/services/check-digit-calculator) and meet the other rules for valid GTINs. See also [GS1's GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) and [Wikipedia](https://en.wikipedia.org/wiki/Global_Trade_Item_Number) for more details. Left-padding of the gtin values is not required or encouraged.
 
 	*/
-	Gtin12                  interface{} `json:"gtin12,omitempty"`                  // The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	Gtin13                  interface{} `json:"gtin13,omitempty"`                  // The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceding zero. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	Gtin14                  interface{} `json:"gtin14,omitempty"`                  // The GTIN-14 code of the product, or the product to which the offer refers. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	Gtin8                   interface{} `json:"gtin8,omitempty"`                   // The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	HasAdultConsideration   interface{} `json:"hasAdultConsideration,omitempty"`   // Used to tag an item to be intended or suitable for consumption or use by adults only.
-	HasMeasurement          interface{} `json:"hasMeasurement,omitempty"`          // A product measurement, for example the inseam of pants, the wheel size of a bicycle, or the gauge of a screw. Usually an exact measurement, but can also be a range of measurements for adjustable products, for example belts and ski bindings.
-	HasMerchantReturnPolicy interface{} `json:"hasMerchantReturnPolicy,omitempty"` // Specifies a MerchantReturnPolicy that may be applicable.
-	IncludesObject          interface{} `json:"includesObject,omitempty"`          // This links to a node or nodes indicating the exact quantity of the products included in  an [[Offer]] or [[ProductCollection]].
-	IneligibleRegion        interface{} `json:"ineligibleRegion,omitempty"`        /*
+	Gtin12                  Values `json:"gtin12,omitempty"`                  // The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	Gtin13                  Values `json:"gtin13,omitempty"`                  // The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceding zero. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	Gtin14                  Values `json:"gtin14,omitempty"`                  // The GTIN-14 code of the product, or the product to which the offer refers. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	Gtin8                   Values `json:"gtin8,omitempty"`                   // The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	HasAdultConsideration   Values `json:"hasAdultConsideration,omitempty"`   // Used to tag an item to be intended or suitable for consumption or use by adults only.
+	HasMeasurement          Values `json:"hasMeasurement,omitempty"`          // A product measurement, for example the inseam of pants, the wheel size of a bicycle, or the gauge of a screw. Usually an exact measurement, but can also be a range of measurements for adjustable products, for example belts and ski bindings.
+	HasMerchantReturnPolicy Values `json:"hasMerchantReturnPolicy,omitempty"` // Specifies a MerchantReturnPolicy that may be applicable.
+	IncludesObject          Values `json:"includesObject,omitempty"`          // This links to a node or nodes indicating the exact quantity of the products included in  an [[Offer]] or [[ProductCollection]].
+	IneligibleRegion        Values `json:"ineligibleRegion,omitempty"`        /*
 	The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\n\nSee also [[eligibleRegion]].
 
 	*/
-	InventoryLevel   interface{} `json:"inventoryLevel,omitempty"`   // The current approximate inventory level for the item or items.
-	IsFamilyFriendly interface{} `json:"isFamilyFriendly,omitempty"` // Indicates whether this content is family friendly.
-	ItemCondition    interface{} `json:"itemCondition,omitempty"`    // A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns.
-	ItemOffered      interface{} `json:"itemOffered,omitempty"`      // An item being offered (or demanded). The transactional nature of the offer or demand is documented using [[businessFunction]], e.g. sell, lease etc. While several common expected types are listed explicitly in this definition, others can be used. Using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
-	LeaseLength      interface{} `json:"leaseLength,omitempty"`      // Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.
-	Mpn              interface{} `json:"mpn,omitempty"`              // The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
-	OfferedBy        interface{} `json:"offeredBy,omitempty"`        // A pointer to the organization or person making the offer.
-	Price            interface{} `json:"price,omitempty"`            /*
+	InventoryLevel   Values `json:"inventoryLevel,omitempty"`   // The current approximate inventory level for the item or items.
+	IsFamilyFriendly Values `json:"isFamilyFriendly,omitempty"` // Indicates whether this content is family friendly.
+	ItemCondition    Values `json:"itemCondition,omitempty"`    // A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns.
+	ItemOffered      Values `json:"itemOffered,omitempty"`      // An item being offered (or demanded). The transactional nature of the offer or demand is documented using [[businessFunction]], e.g. sell, lease etc. While several common expected types are listed explicitly in this definition, others can be used. Using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
+	LeaseLength      Values `json:"leaseLength,omitempty"`      // Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.
+	Mpn              Values `json:"mpn,omitempty"`              // The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
+	OfferedBy        Values `json:"offeredBy,omitempty"`        // A pointer to the organization or person making the offer.
+	Price            Values `json:"price,omitempty"`            /*
 	The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\n\nUsage guidelines:\n\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a "content=" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.
 
 	*/
-	PriceCurrency      interface{} `json:"priceCurrency,omitempty"`      // The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
-	PriceSpecification interface{} `json:"priceSpecification,omitempty"` // One or more detailed price specifications, indicating the unit price and delivery or payment charges.
-	PriceValidUntil    interface{} `json:"priceValidUntil,omitempty"`    // The date after which the price is no longer available.
-	Review             interface{} `json:"review,omitempty"`             // A review of the item.
-	Reviews            interface{} `json:"reviews,omitempty"`            // Review of the item.
-	Seller             interface{} `json:"seller,omitempty"`             // An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
-	SerialNumber       interface{} `json:"serialNumber,omitempty"`       // The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
-	ShippingDetails    interface{} `json:"shippingDetails,omitempty"`    // Indicates information about the shipping policies and options associated with an [[Offer]].
-	Sku                interface{} `json:"sku,omitempty"`                // The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
-	ValidFrom          interface{} `json:"validFrom,omitempty"`          // The date when the item becomes valid.
-	ValidThrough       interface{} `json:"validThrough,omitempty"`       // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	Warranty           interface{} `json:"warranty,omitempty"`           // The warranty promise(s) included in the offer.
+	PriceCurrency      Values `json:"priceCurrency,omitempty"`      // The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
+	PriceSpecification Values `json:"priceSpecification,omitempty"` // One or more detailed price specifications, indicating the unit price and delivery or payment charges.
+	PriceValidUntil    Values `json:"priceValidUntil,omitempty"`    // The date after which the price is no longer available.
+	Review             Values `json:"review,omitempty"`             // A review of the item.
+	Reviews            Values `json:"reviews,omitempty"`            // Review of the item.
+	Seller             Values `json:"seller,omitempty"`             // An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
+	SerialNumber       Values `json:"serialNumber,omitempty"`       // The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
+	ShippingDetails    Values `json:"shippingDetails,omitempty"`    // Indicates information about the shipping policies and options associated with an [[Offer]].
+	Sku                Values `json:"sku,omitempty"`                // The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
+	ValidFrom          Values `json:"validFrom,omitempty"`          // The date when the item becomes valid.
+	ValidThrough       Values `json:"validThrough,omitempty"`       // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
+	Warranty           Values `json:"warranty,omitempty"`           // The warranty promise(s) included in the offer.
 }
 
 // An OfferCatalog is an ItemList that contains related Offers and/or further OfferCatalogs that are offeredBy the same provider.
@@ -6580,13 +6580,13 @@ or Fast and expensive: $15 in 1-2 days.
 type OfferShippingDetails struct {
 	StructuredValue
 
-	DeliveryTime         interface{} `json:"deliveryTime,omitempty"`         // The total delay between the receipt of the order and the goods reaching the final customer.
-	DoesNotShip          interface{} `json:"doesNotShip,omitempty"`          // Indicates when shipping to a particular [[shippingDestination]] is not available.
-	ShippingDestination  interface{} `json:"shippingDestination,omitempty"`  // indicates (possibly multiple) shipping destinations. These can be defined in several ways e.g. postalCode ranges.
-	ShippingLabel        interface{} `json:"shippingLabel,omitempty"`        // Label to match an [[OfferShippingDetails]] with a [[ShippingRateSettings]] (within the context of a [[shippingSettingsLink]] cross-reference).
-	ShippingRate         interface{} `json:"shippingRate,omitempty"`         // The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.
-	ShippingSettingsLink interface{} `json:"shippingSettingsLink,omitempty"` // Link to a page containing [[ShippingRateSettings]] and [[DeliveryTimeSettings]] details.
-	TransitTimeLabel     interface{} `json:"transitTimeLabel,omitempty"`     // Label to match an [[OfferShippingDetails]] with a [[DeliveryTimeSettings]] (within the context of a [[shippingSettingsLink]] cross-reference).
+	DeliveryTime         Values `json:"deliveryTime,omitempty"`         // The total delay between the receipt of the order and the goods reaching the final customer.
+	DoesNotShip          Values `json:"doesNotShip,omitempty"`          // Indicates when shipping to a particular [[shippingDestination]] is not available.
+	ShippingDestination  Values `json:"shippingDestination,omitempty"`  // indicates (possibly multiple) shipping destinations. These can be defined in several ways e.g. postalCode ranges.
+	ShippingLabel        Values `json:"shippingLabel,omitempty"`        // Label to match an [[OfferShippingDetails]] with a [[ShippingRateSettings]] (within the context of a [[shippingSettingsLink]] cross-reference).
+	ShippingRate         Values `json:"shippingRate,omitempty"`         // The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.
+	ShippingSettingsLink Values `json:"shippingSettingsLink,omitempty"` // Link to a page containing [[ShippingRateSettings]] and [[DeliveryTimeSettings]] details.
+	TransitTimeLabel     Values `json:"transitTimeLabel,omitempty"`     // Label to match an [[OfferShippingDetails]] with a [[DeliveryTimeSettings]] (within the context of a [[shippingSettingsLink]] cross-reference).
 }
 
 // An office equipment store.
@@ -6617,11 +6617,11 @@ The place is __open__ if the [[opens]] property is specified, and __closed__ oth
 type OpeningHoursSpecification struct {
 	StructuredValue
 
-	Closes       interface{} `json:"closes,omitempty"`       // The closing hour of the place or service on the given day(s) of the week.
-	DayOfWeek    interface{} `json:"dayOfWeek,omitempty"`    // The day of the week for which these opening hours are valid.
-	Opens        interface{} `json:"opens,omitempty"`        // The opening hour of the place or service on the given day(s) of the week.
-	ValidFrom    interface{} `json:"validFrom,omitempty"`    // The date when the item becomes valid.
-	ValidThrough interface{} `json:"validThrough,omitempty"` // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
+	Closes       Values `json:"closes,omitempty"`       // The closing hour of the place or service on the given day(s) of the week.
+	DayOfWeek    Values `json:"dayOfWeek,omitempty"`    // The day of the week for which these opening hours are valid.
+	Opens        Values `json:"opens,omitempty"`        // The opening hour of the place or service on the given day(s) of the week.
+	ValidFrom    Values `json:"validFrom,omitempty"`    // The date when the item becomes valid.
+	ValidThrough Values `json:"validThrough,omitempty"` // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
 }
 
 // An [[OpinionNewsArticle]] is a [[NewsArticle]] that primarily expresses opinions rather than journalistic reporting of news and events. For example, a [[NewsArticle]] consisting of a column or [[Blog]]/[[BlogPosting]] entry in the Opinions section of a news publication.
@@ -6638,46 +6638,46 @@ type Optician struct {
 type Order struct {
 	Intangible
 
-	AcceptedOffer      interface{} `json:"acceptedOffer,omitempty"`      // The offer(s) -- e.g., product, quantity and price combinations -- included in the order.
-	BillingAddress     interface{} `json:"billingAddress,omitempty"`     // The billing address for the order.
-	Broker             interface{} `json:"broker,omitempty"`             // An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
-	ConfirmationNumber interface{} `json:"confirmationNumber,omitempty"` // A number that confirms the given order or payment has been received.
-	Customer           interface{} `json:"customer,omitempty"`           // Party placing the order or paying the invoice.
-	Discount           interface{} `json:"discount,omitempty"`           // Any discount applied (to an Order).
-	DiscountCode       interface{} `json:"discountCode,omitempty"`       // Code used to redeem a discount.
-	DiscountCurrency   interface{} `json:"discountCurrency,omitempty"`   // The currency of the discount.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
-	IsGift             interface{} `json:"isGift,omitempty"`             // Was the offer accepted as a gift for someone other than the buyer.
-	Merchant           interface{} `json:"merchant,omitempty"`           // 'merchant' is an out-dated term for 'seller'.
-	OrderDate          interface{} `json:"orderDate,omitempty"`          // Date order was placed.
-	OrderDelivery      interface{} `json:"orderDelivery,omitempty"`      // The delivery of the parcel related to this order or order item.
-	OrderNumber        interface{} `json:"orderNumber,omitempty"`        // The identifier of the transaction.
-	OrderStatus        interface{} `json:"orderStatus,omitempty"`        // The current status of the order.
-	OrderedItem        interface{} `json:"orderedItem,omitempty"`        // The item ordered.
-	PartOfInvoice      interface{} `json:"partOfInvoice,omitempty"`      // The order is being paid as part of the referenced Invoice.
-	PaymentDue         interface{} `json:"paymentDue,omitempty"`         // The date that payment is due.
-	PaymentDueDate     interface{} `json:"paymentDueDate,omitempty"`     // The date that payment is due.
-	PaymentMethod      interface{} `json:"paymentMethod,omitempty"`      // The name of the credit card or other method of payment for the order.
-	PaymentMethodId    interface{} `json:"paymentMethodId,omitempty"`    // An identifier for the method of payment used (e.g. the last 4 digits of the credit card).
-	PaymentUrl         interface{} `json:"paymentUrl,omitempty"`         // The URL for sending a payment.
-	Seller             interface{} `json:"seller,omitempty"`             // An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
+	AcceptedOffer      Values `json:"acceptedOffer,omitempty"`      // The offer(s) -- e.g., product, quantity and price combinations -- included in the order.
+	BillingAddress     Values `json:"billingAddress,omitempty"`     // The billing address for the order.
+	Broker             Values `json:"broker,omitempty"`             // An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
+	ConfirmationNumber Values `json:"confirmationNumber,omitempty"` // A number that confirms the given order or payment has been received.
+	Customer           Values `json:"customer,omitempty"`           // Party placing the order or paying the invoice.
+	Discount           Values `json:"discount,omitempty"`           // Any discount applied (to an Order).
+	DiscountCode       Values `json:"discountCode,omitempty"`       // Code used to redeem a discount.
+	DiscountCurrency   Values `json:"discountCurrency,omitempty"`   // The currency of the discount.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
+	IsGift             Values `json:"isGift,omitempty"`             // Was the offer accepted as a gift for someone other than the buyer.
+	Merchant           Values `json:"merchant,omitempty"`           // 'merchant' is an out-dated term for 'seller'.
+	OrderDate          Values `json:"orderDate,omitempty"`          // Date order was placed.
+	OrderDelivery      Values `json:"orderDelivery,omitempty"`      // The delivery of the parcel related to this order or order item.
+	OrderNumber        Values `json:"orderNumber,omitempty"`        // The identifier of the transaction.
+	OrderStatus        Values `json:"orderStatus,omitempty"`        // The current status of the order.
+	OrderedItem        Values `json:"orderedItem,omitempty"`        // The item ordered.
+	PartOfInvoice      Values `json:"partOfInvoice,omitempty"`      // The order is being paid as part of the referenced Invoice.
+	PaymentDue         Values `json:"paymentDue,omitempty"`         // The date that payment is due.
+	PaymentDueDate     Values `json:"paymentDueDate,omitempty"`     // The date that payment is due.
+	PaymentMethod      Values `json:"paymentMethod,omitempty"`      // The name of the credit card or other method of payment for the order.
+	PaymentMethodId    Values `json:"paymentMethodId,omitempty"`    // An identifier for the method of payment used (e.g. the last 4 digits of the credit card).
+	PaymentUrl         Values `json:"paymentUrl,omitempty"`         // The URL for sending a payment.
+	Seller             Values `json:"seller,omitempty"`             // An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
 }
 
 // An agent orders an object/product/service to be delivered/sent.
 type OrderAction struct {
 	TradeAction
 
-	DeliveryMethod interface{} `json:"deliveryMethod,omitempty"` // A sub property of instrument. The method of delivery.
+	DeliveryMethod Values `json:"deliveryMethod,omitempty"` // A sub property of instrument. The method of delivery.
 }
 
 // An order item is a line of an order. It includes the quantity and shipping details of a bought offer.
 type OrderItem struct {
 	Intangible
 
-	OrderDelivery   interface{} `json:"orderDelivery,omitempty"`   // The delivery of the parcel related to this order or order item.
-	OrderItemNumber interface{} `json:"orderItemNumber,omitempty"` // The identifier of the order item.
-	OrderItemStatus interface{} `json:"orderItemStatus,omitempty"` // The current status of the order item.
-	OrderQuantity   interface{} `json:"orderQuantity,omitempty"`   // The number of the item ordered. If the property is not set, assume the quantity is one.
-	OrderedItem     interface{} `json:"orderedItem,omitempty"`     // The item ordered.
+	OrderDelivery   Values `json:"orderDelivery,omitempty"`   // The delivery of the parcel related to this order or order item.
+	OrderItemNumber Values `json:"orderItemNumber,omitempty"` // The identifier of the order item.
+	OrderItemStatus Values `json:"orderItemStatus,omitempty"` // The current status of the order item.
+	OrderQuantity   Values `json:"orderQuantity,omitempty"`   // The number of the item ordered. If the property is not set, assume the quantity is one.
+	OrderedItem     Values `json:"orderedItem,omitempty"`     // The item ordered.
 }
 
 // Enumerated status values for Order.
@@ -6689,83 +6689,83 @@ type OrderStatus struct {
 type Organization struct {
 	Thing
 
-	ActionableFeedbackPolicy interface{} `json:"actionableFeedbackPolicy,omitempty"` // For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
-	Address                  interface{} `json:"address,omitempty"`                  // Physical address of the item.
-	AggregateRating          interface{} `json:"aggregateRating,omitempty"`          // The overall rating, based on a collection of reviews or ratings, of the item.
-	Alumni                   interface{} `json:"alumni,omitempty"`                   // Alumni of an organization.
-	AreaServed               interface{} `json:"areaServed,omitempty"`               // The geographic area where a service or offered item is provided.
-	Award                    interface{} `json:"award,omitempty"`                    // An award won by or for this item.
-	Awards                   interface{} `json:"awards,omitempty"`                   // Awards won by or for this item.
-	Brand                    interface{} `json:"brand,omitempty"`                    // The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
-	ContactPoint             interface{} `json:"contactPoint,omitempty"`             // A contact point for a person or organization.
-	ContactPoints            interface{} `json:"contactPoints,omitempty"`            // A contact point for a person or organization.
-	CorrectionsPolicy        interface{} `json:"correctionsPolicy,omitempty"`        // For an [[Organization]] (e.g. [[NewsMediaOrganization]]), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.
-	Department               interface{} `json:"department,omitempty"`               // A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe.
-	DissolutionDate          interface{} `json:"dissolutionDate,omitempty"`          // The date that this organization was dissolved.
-	DiversityPolicy          interface{} `json:"diversityPolicy,omitempty"`          // Statement on diversity policy by an [[Organization]] e.g. a [[NewsMediaOrganization]]. For a [[NewsMediaOrganization]], a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
-	DiversityStaffingReport  interface{} `json:"diversityStaffingReport,omitempty"`  // For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.
-	Duns                     interface{} `json:"duns,omitempty"`                     // The Dun & Bradstreet DUNS number for identifying an organization or business person.
-	Email                    interface{} `json:"email,omitempty"`                    // Email address.
-	Employee                 interface{} `json:"employee,omitempty"`                 // Someone working for this organization.
-	Employees                interface{} `json:"employees,omitempty"`                // People working for this organization.
-	EthicsPolicy             interface{} `json:"ethicsPolicy,omitempty"`             // Statement about ethics policy, e.g. of a [[NewsMediaOrganization]] regarding journalistic and publishing practices, or of a [[Restaurant]], a page describing food source policies. In the case of a [[NewsMediaOrganization]], an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.
-	Event                    interface{} `json:"event,omitempty"`                    // Upcoming or past event associated with this place, organization, or action.
-	Events                   interface{} `json:"events,omitempty"`                   // Upcoming or past events associated with this place or organization.
-	FaxNumber                interface{} `json:"faxNumber,omitempty"`                // The fax number.
-	Founder                  interface{} `json:"founder,omitempty"`                  // A person who founded this organization.
-	Founders                 interface{} `json:"founders,omitempty"`                 // A person who founded this organization.
-	FoundingDate             interface{} `json:"foundingDate,omitempty"`             // The date that this organization was founded.
-	FoundingLocation         interface{} `json:"foundingLocation,omitempty"`         // The place where the Organization was founded.
-	Funder                   interface{} `json:"funder,omitempty"`                   // A person or organization that supports (sponsors) something through some kind of financial contribution.
-	Funding                  interface{} `json:"funding,omitempty"`                  // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
-	GlobalLocationNumber     interface{} `json:"globalLocationNumber,omitempty"`     // The [Global Location Number](http://www.gs1.org/gln) (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
-	HasCredential            interface{} `json:"hasCredential,omitempty"`            // A credential awarded to the Person or Organization.
-	HasMerchantReturnPolicy  interface{} `json:"hasMerchantReturnPolicy,omitempty"`  // Specifies a MerchantReturnPolicy that may be applicable.
-	HasOfferCatalog          interface{} `json:"hasOfferCatalog,omitempty"`          // Indicates an OfferCatalog listing for this Organization, Person, or Service.
-	HasPOS                   interface{} `json:"hasPOS,omitempty"`                   // Points-of-Sales operated by the organization or person.
-	InteractionStatistic     interface{} `json:"interactionStatistic,omitempty"`     // The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.
-	IsicV4                   interface{} `json:"isicV4,omitempty"`                   // The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
-	Iso6523Code              interface{} `json:"iso6523Code,omitempty"`              // An organization identifier as defined in ISO 6523(-1). Note that many existing organization identifiers such as [leiCode](https://schema.org/leiCode), [duns](https://schema.org/duns) and [vatID](https://schema.org/vatID) can be expressed as an ISO 6523 identifier by setting the ICD part of the ISO 6523 identifier accordingly.
-	Keywords                 interface{} `json:"keywords,omitempty"`                 // Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
-	KnowsAbout               interface{} `json:"knowsAbout,omitempty"`               // Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or [[JobPosting]] descriptions.
-	KnowsLanguage            interface{} `json:"knowsLanguage,omitempty"`            // Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47).
-	LegalName                interface{} `json:"legalName,omitempty"`                // The official name of the organization, e.g. the registered company name.
-	LeiCode                  interface{} `json:"leiCode,omitempty"`                  // An organization identifier that uniquely identifies a legal entity as defined in ISO 17442.
-	Location                 interface{} `json:"location,omitempty"`                 // The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
-	Logo                     interface{} `json:"logo,omitempty"`                     // An associated logo.
-	MakesOffer               interface{} `json:"makesOffer,omitempty"`               // A pointer to products or services offered by the organization or person.
-	Member                   interface{} `json:"member,omitempty"`                   // A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.
-	MemberOf                 interface{} `json:"memberOf,omitempty"`                 // An Organization (or ProgramMembership) to which this Person or Organization belongs.
-	Members                  interface{} `json:"members,omitempty"`                  // A member of this organization.
-	Naics                    interface{} `json:"naics,omitempty"`                    // The North American Industry Classification System (NAICS) code for a particular organization or business person.
-	NonprofitStatus          interface{} `json:"nonprofitStatus,omitempty"`          // nonprofit Status indicates the legal status of a non-profit organization in its primary place of business.
-	NumberOfEmployees        interface{} `json:"numberOfEmployees,omitempty"`        // The number of employees in an organization e.g. business.
-	OwnershipFundingInfo     interface{} `json:"ownershipFundingInfo,omitempty"`     // For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the [[funder]] is also available and can be used to make basic funder information machine-readable.
-	Owns                     interface{} `json:"owns,omitempty"`                     // Products owned by the organization or person.
-	ParentOrganization       interface{} `json:"parentOrganization,omitempty"`       // The larger organization that this organization is a [[subOrganization]] of, if any.
-	PublishingPrinciples     interface{} `json:"publishingPrinciples,omitempty"`     /*
+	ActionableFeedbackPolicy Values `json:"actionableFeedbackPolicy,omitempty"` // For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
+	Address                  Values `json:"address,omitempty"`                  // Physical address of the item.
+	AggregateRating          Values `json:"aggregateRating,omitempty"`          // The overall rating, based on a collection of reviews or ratings, of the item.
+	Alumni                   Values `json:"alumni,omitempty"`                   // Alumni of an organization.
+	AreaServed               Values `json:"areaServed,omitempty"`               // The geographic area where a service or offered item is provided.
+	Award                    Values `json:"award,omitempty"`                    // An award won by or for this item.
+	Awards                   Values `json:"awards,omitempty"`                   // Awards won by or for this item.
+	Brand                    Values `json:"brand,omitempty"`                    // The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+	ContactPoint             Values `json:"contactPoint,omitempty"`             // A contact point for a person or organization.
+	ContactPoints            Values `json:"contactPoints,omitempty"`            // A contact point for a person or organization.
+	CorrectionsPolicy        Values `json:"correctionsPolicy,omitempty"`        // For an [[Organization]] (e.g. [[NewsMediaOrganization]]), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.
+	Department               Values `json:"department,omitempty"`               // A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe.
+	DissolutionDate          Values `json:"dissolutionDate,omitempty"`          // The date that this organization was dissolved.
+	DiversityPolicy          Values `json:"diversityPolicy,omitempty"`          // Statement on diversity policy by an [[Organization]] e.g. a [[NewsMediaOrganization]]. For a [[NewsMediaOrganization]], a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
+	DiversityStaffingReport  Values `json:"diversityStaffingReport,omitempty"`  // For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.
+	Duns                     Values `json:"duns,omitempty"`                     // The Dun & Bradstreet DUNS number for identifying an organization or business person.
+	Email                    Values `json:"email,omitempty"`                    // Email address.
+	Employee                 Values `json:"employee,omitempty"`                 // Someone working for this organization.
+	Employees                Values `json:"employees,omitempty"`                // People working for this organization.
+	EthicsPolicy             Values `json:"ethicsPolicy,omitempty"`             // Statement about ethics policy, e.g. of a [[NewsMediaOrganization]] regarding journalistic and publishing practices, or of a [[Restaurant]], a page describing food source policies. In the case of a [[NewsMediaOrganization]], an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.
+	Event                    Values `json:"event,omitempty"`                    // Upcoming or past event associated with this place, organization, or action.
+	Events                   Values `json:"events,omitempty"`                   // Upcoming or past events associated with this place or organization.
+	FaxNumber                Values `json:"faxNumber,omitempty"`                // The fax number.
+	Founder                  Values `json:"founder,omitempty"`                  // A person who founded this organization.
+	Founders                 Values `json:"founders,omitempty"`                 // A person who founded this organization.
+	FoundingDate             Values `json:"foundingDate,omitempty"`             // The date that this organization was founded.
+	FoundingLocation         Values `json:"foundingLocation,omitempty"`         // The place where the Organization was founded.
+	Funder                   Values `json:"funder,omitempty"`                   // A person or organization that supports (sponsors) something through some kind of financial contribution.
+	Funding                  Values `json:"funding,omitempty"`                  // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
+	GlobalLocationNumber     Values `json:"globalLocationNumber,omitempty"`     // The [Global Location Number](http://www.gs1.org/gln) (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
+	HasCredential            Values `json:"hasCredential,omitempty"`            // A credential awarded to the Person or Organization.
+	HasMerchantReturnPolicy  Values `json:"hasMerchantReturnPolicy,omitempty"`  // Specifies a MerchantReturnPolicy that may be applicable.
+	HasOfferCatalog          Values `json:"hasOfferCatalog,omitempty"`          // Indicates an OfferCatalog listing for this Organization, Person, or Service.
+	HasPOS                   Values `json:"hasPOS,omitempty"`                   // Points-of-Sales operated by the organization or person.
+	InteractionStatistic     Values `json:"interactionStatistic,omitempty"`     // The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.
+	IsicV4                   Values `json:"isicV4,omitempty"`                   // The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
+	Iso6523Code              Values `json:"iso6523Code,omitempty"`              // An organization identifier as defined in ISO 6523(-1). Note that many existing organization identifiers such as [leiCode](https://schema.org/leiCode), [duns](https://schema.org/duns) and [vatID](https://schema.org/vatID) can be expressed as an ISO 6523 identifier by setting the ICD part of the ISO 6523 identifier accordingly.
+	Keywords                 Values `json:"keywords,omitempty"`                 // Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
+	KnowsAbout               Values `json:"knowsAbout,omitempty"`               // Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or [[JobPosting]] descriptions.
+	KnowsLanguage            Values `json:"knowsLanguage,omitempty"`            // Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47).
+	LegalName                Values `json:"legalName,omitempty"`                // The official name of the organization, e.g. the registered company name.
+	LeiCode                  Values `json:"leiCode,omitempty"`                  // An organization identifier that uniquely identifies a legal entity as defined in ISO 17442.
+	Location                 Values `json:"location,omitempty"`                 // The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+	Logo                     Values `json:"logo,omitempty"`                     // An associated logo.
+	MakesOffer               Values `json:"makesOffer,omitempty"`               // A pointer to products or services offered by the organization or person.
+	Member                   Values `json:"member,omitempty"`                   // A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.
+	MemberOf                 Values `json:"memberOf,omitempty"`                 // An Organization (or ProgramMembership) to which this Person or Organization belongs.
+	Members                  Values `json:"members,omitempty"`                  // A member of this organization.
+	Naics                    Values `json:"naics,omitempty"`                    // The North American Industry Classification System (NAICS) code for a particular organization or business person.
+	NonprofitStatus          Values `json:"nonprofitStatus,omitempty"`          // nonprofit Status indicates the legal status of a non-profit organization in its primary place of business.
+	NumberOfEmployees        Values `json:"numberOfEmployees,omitempty"`        // The number of employees in an organization e.g. business.
+	OwnershipFundingInfo     Values `json:"ownershipFundingInfo,omitempty"`     // For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the [[funder]] is also available and can be used to make basic funder information machine-readable.
+	Owns                     Values `json:"owns,omitempty"`                     // Products owned by the organization or person.
+	ParentOrganization       Values `json:"parentOrganization,omitempty"`       // The larger organization that this organization is a [[subOrganization]] of, if any.
+	PublishingPrinciples     Values `json:"publishingPrinciples,omitempty"`     /*
 	The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].
 
 	While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology.
 	*/
-	Review               interface{} `json:"review,omitempty"`               // A review of the item.
-	Reviews              interface{} `json:"reviews,omitempty"`              // Review of the item.
-	Seeks                interface{} `json:"seeks,omitempty"`                // A pointer to products or services sought by the organization or person (demand).
-	ServiceArea          interface{} `json:"serviceArea,omitempty"`          // The geographic area where the service is provided.
-	Slogan               interface{} `json:"slogan,omitempty"`               // A slogan or motto associated with the item.
-	Sponsor              interface{} `json:"sponsor,omitempty"`              // A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
-	SubOrganization      interface{} `json:"subOrganization,omitempty"`      // A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property.
-	TaxID                interface{} `json:"taxID,omitempty"`                // The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
-	Telephone            interface{} `json:"telephone,omitempty"`            // The telephone number.
-	UnnamedSourcesPolicy interface{} `json:"unnamedSourcesPolicy,omitempty"` // For an [[Organization]] (typically a [[NewsMediaOrganization]]), a statement about policy on use of unnamed sources and the decision process required.
-	VatID                interface{} `json:"vatID,omitempty"`                // The Value-added Tax ID of the organization or person.
+	Review               Values `json:"review,omitempty"`               // A review of the item.
+	Reviews              Values `json:"reviews,omitempty"`              // Review of the item.
+	Seeks                Values `json:"seeks,omitempty"`                // A pointer to products or services sought by the organization or person (demand).
+	ServiceArea          Values `json:"serviceArea,omitempty"`          // The geographic area where the service is provided.
+	Slogan               Values `json:"slogan,omitempty"`               // A slogan or motto associated with the item.
+	Sponsor              Values `json:"sponsor,omitempty"`              // A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+	SubOrganization      Values `json:"subOrganization,omitempty"`      // A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property.
+	TaxID                Values `json:"taxID,omitempty"`                // The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
+	Telephone            Values `json:"telephone,omitempty"`            // The telephone number.
+	UnnamedSourcesPolicy Values `json:"unnamedSourcesPolicy,omitempty"` // For an [[Organization]] (typically a [[NewsMediaOrganization]]), a statement about policy on use of unnamed sources and the decision process required.
+	VatID                Values `json:"vatID,omitempty"`                // The Value-added Tax ID of the organization or person.
 }
 
 // A subclass of Role used to describe roles within organizations.
 type OrganizationRole struct {
 	Role
 
-	NumberedPosition interface{} `json:"numberedPosition,omitempty"` // A number associated with a role in an organization, for example, the number on an athlete's jersey.
+	NumberedPosition Values `json:"numberedPosition,omitempty"` // A number associated with a role in an organization, for example, the number on an athlete's jersey.
 }
 
 // The act of manipulating/administering/supervising/controlling one or more objects.
@@ -6782,10 +6782,10 @@ type OutletStore struct {
 type OwnershipInfo struct {
 	StructuredValue
 
-	AcquiredFrom interface{} `json:"acquiredFrom,omitempty"` // The organization or person from which the product was acquired.
-	OwnedFrom    interface{} `json:"ownedFrom,omitempty"`    // The date and time of obtaining the product.
-	OwnedThrough interface{} `json:"ownedThrough,omitempty"` // The date and time of giving up ownership on the product.
-	TypeOfGood   interface{} `json:"typeOfGood,omitempty"`   // The product that this structured value is referring to.
+	AcquiredFrom Values `json:"acquiredFrom,omitempty"` // The organization or person from which the product was acquired.
+	OwnedFrom    Values `json:"ownedFrom,omitempty"`    // The date and time of obtaining the product.
+	OwnedThrough Values `json:"ownedThrough,omitempty"` // The date and time of giving up ownership on the product.
+	TypeOfGood   Values `json:"typeOfGood,omitempty"`   // The product that this structured value is referring to.
 }
 
 // The act of producing a painting, typically with paint and canvas as instruments.
@@ -6808,26 +6808,26 @@ type PalliativeProcedure struct {
 type ParcelDelivery struct {
 	Intangible
 
-	Carrier              interface{} `json:"carrier,omitempty"`              // 'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights.
-	DeliveryAddress      interface{} `json:"deliveryAddress,omitempty"`      // Destination address.
-	DeliveryStatus       interface{} `json:"deliveryStatus,omitempty"`       // New entry added as the package passes through each leg of its journey (from shipment to final delivery).
-	ExpectedArrivalFrom  interface{} `json:"expectedArrivalFrom,omitempty"`  // The earliest date the package may arrive.
-	ExpectedArrivalUntil interface{} `json:"expectedArrivalUntil,omitempty"` // The latest date the package may arrive.
-	HasDeliveryMethod    interface{} `json:"hasDeliveryMethod,omitempty"`    // Method used for delivery or shipping.
-	ItemShipped          interface{} `json:"itemShipped,omitempty"`          // Item(s) being shipped.
-	OriginAddress        interface{} `json:"originAddress,omitempty"`        // Shipper's address.
-	PartOfOrder          interface{} `json:"partOfOrder,omitempty"`          // The overall order the items in this delivery were included in.
-	Provider             interface{} `json:"provider,omitempty"`             // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
-	TrackingNumber       interface{} `json:"trackingNumber,omitempty"`       // Shipper tracking number.
-	TrackingUrl          interface{} `json:"trackingUrl,omitempty"`          // Tracking url for the parcel delivery.
+	Carrier              Values `json:"carrier,omitempty"`              // 'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights.
+	DeliveryAddress      Values `json:"deliveryAddress,omitempty"`      // Destination address.
+	DeliveryStatus       Values `json:"deliveryStatus,omitempty"`       // New entry added as the package passes through each leg of its journey (from shipment to final delivery).
+	ExpectedArrivalFrom  Values `json:"expectedArrivalFrom,omitempty"`  // The earliest date the package may arrive.
+	ExpectedArrivalUntil Values `json:"expectedArrivalUntil,omitempty"` // The latest date the package may arrive.
+	HasDeliveryMethod    Values `json:"hasDeliveryMethod,omitempty"`    // Method used for delivery or shipping.
+	ItemShipped          Values `json:"itemShipped,omitempty"`          // Item(s) being shipped.
+	OriginAddress        Values `json:"originAddress,omitempty"`        // Shipper's address.
+	PartOfOrder          Values `json:"partOfOrder,omitempty"`          // The overall order the items in this delivery were included in.
+	Provider             Values `json:"provider,omitempty"`             // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+	TrackingNumber       Values `json:"trackingNumber,omitempty"`       // Shipper tracking number.
+	TrackingUrl          Values `json:"trackingUrl,omitempty"`          // Tracking url for the parcel delivery.
 }
 
 // A set of characteristics describing parents, who can be interested in viewing some content.
 type ParentAudience struct {
 	PeopleAudience
 
-	ChildMaxAge interface{} `json:"childMaxAge,omitempty"` // Maximal age of the child.
-	ChildMinAge interface{} `json:"childMinAge,omitempty"` // Minimal age of the child.
+	ChildMaxAge Values `json:"childMaxAge,omitempty"` // Maximal age of the child.
+	ChildMinAge Values `json:"childMinAge,omitempty"` // Minimal age of the child.
 }
 
 // A park.
@@ -6844,7 +6844,7 @@ type ParkingFacility struct {
 type PathologyTest struct {
 	MedicalTest
 
-	TissueSample interface{} `json:"tissueSample,omitempty"` // The type of tissue sample required for the test.
+	TissueSample Values `json:"tissueSample,omitempty"` // The type of tissue sample required for the test.
 }
 
 // A patient is any person recipient of health care services.
@@ -6852,9 +6852,9 @@ type Patient struct {
 	MedicalAudience
 	// TODO: Person
 
-	Diagnosis       interface{} `json:"diagnosis,omitempty"`       // One or more alternative conditions considered in the differential diagnosis process as output of a diagnosis process.
-	Drug            interface{} `json:"drug,omitempty"`            // Specifying a drug or medicine used in a medication procedure.
-	HealthCondition interface{} `json:"healthCondition,omitempty"` // Specifying the health condition(s) of a patient, medical study, or other target audience.
+	Diagnosis       Values `json:"diagnosis,omitempty"`       // One or more alternative conditions considered in the differential diagnosis process as output of a diagnosis process.
+	Drug            Values `json:"drug,omitempty"`            // Specifying a drug or medicine used in a medication procedure.
+	HealthCondition Values `json:"healthCondition,omitempty"` // Specifying the health condition(s) of a patient, medical study, or other target audience.
 }
 
 // A shop that will buy, or lend money against the security of, personal possessions.
@@ -6866,7 +6866,7 @@ type PawnShop struct {
 type PayAction struct {
 	TradeAction
 
-	Recipient interface{} `json:"recipient,omitempty"` // A sub property of participant. The participant who is at the receiving end of the action.
+	Recipient Values `json:"recipient,omitempty"` // A sub property of participant. The participant who is at the receiving end of the action.
 }
 
 // A payment method using a credit, debit, store or other card to associate the payment with an account.
@@ -6874,18 +6874,18 @@ type PaymentCard struct {
 	FinancialProduct
 	// TODO: PaymentMethod
 
-	CashBack                      interface{} `json:"cashBack,omitempty"`                      // A cardholder benefit that pays the cardholder a small percentage of their net expenditures.
-	ContactlessPayment            interface{} `json:"contactlessPayment,omitempty"`            // A secure method for consumers to purchase products or services via debit, credit or smartcards by using RFID or NFC technology.
-	FloorLimit                    interface{} `json:"floorLimit,omitempty"`                    // A floor limit is the amount of money above which credit card transactions must be authorized.
-	MonthlyMinimumRepaymentAmount interface{} `json:"monthlyMinimumRepaymentAmount,omitempty"` // The minimum payment is the lowest amount of money that one is required to pay on a credit card statement each month.
+	CashBack                      Values `json:"cashBack,omitempty"`                      // A cardholder benefit that pays the cardholder a small percentage of their net expenditures.
+	ContactlessPayment            Values `json:"contactlessPayment,omitempty"`            // A secure method for consumers to purchase products or services via debit, credit or smartcards by using RFID or NFC technology.
+	FloorLimit                    Values `json:"floorLimit,omitempty"`                    // A floor limit is the amount of money above which credit card transactions must be authorized.
+	MonthlyMinimumRepaymentAmount Values `json:"monthlyMinimumRepaymentAmount,omitempty"` // The minimum payment is the lowest amount of money that one is required to pay on a credit card statement each month.
 }
 
 // The costs of settling the payment using a particular payment method.
 type PaymentChargeSpecification struct {
 	PriceSpecification
 
-	AppliesToDeliveryMethod interface{} `json:"appliesToDeliveryMethod,omitempty"` // The delivery method(s) to which the delivery charge or payment charge specification applies.
-	AppliesToPaymentMethod  interface{} `json:"appliesToPaymentMethod,omitempty"`  // The payment method(s) to which the payment charge specification applies.
+	AppliesToDeliveryMethod Values `json:"appliesToDeliveryMethod,omitempty"` // The delivery method(s) to which the delivery charge or payment charge specification applies.
+	AppliesToPaymentMethod  Values `json:"appliesToPaymentMethod,omitempty"`  // The payment method(s) to which the payment charge specification applies.
 }
 
 /*
@@ -6910,29 +6910,29 @@ type PaymentStatusType struct {
 type PeopleAudience struct {
 	Audience
 
-	HealthCondition      interface{} `json:"healthCondition,omitempty"`      // Specifying the health condition(s) of a patient, medical study, or other target audience.
-	RequiredGender       interface{} `json:"requiredGender,omitempty"`       // Audiences defined by a person's gender.
-	RequiredMaxAge       interface{} `json:"requiredMaxAge,omitempty"`       // Audiences defined by a person's maximum age.
-	RequiredMinAge       interface{} `json:"requiredMinAge,omitempty"`       // Audiences defined by a person's minimum age.
-	SuggestedAge         interface{} `json:"suggestedAge,omitempty"`         // The age or age range for the intended audience or person, for example 3-12 months for infants, 1-5 years for toddlers.
-	SuggestedGender      interface{} `json:"suggestedGender,omitempty"`      // The suggested gender of the intended person or audience, for example "male", "female", or "unisex".
-	SuggestedMaxAge      interface{} `json:"suggestedMaxAge,omitempty"`      // Maximum recommended age in years for the audience or user.
-	SuggestedMeasurement interface{} `json:"suggestedMeasurement,omitempty"` // A suggested range of body measurements for the intended audience or person, for example inseam between 32 and 34 inches or height between 170 and 190 cm. Typically found on a size chart for wearable products.
-	SuggestedMinAge      interface{} `json:"suggestedMinAge,omitempty"`      // Minimum recommended age in years for the audience or user.
+	HealthCondition      Values `json:"healthCondition,omitempty"`      // Specifying the health condition(s) of a patient, medical study, or other target audience.
+	RequiredGender       Values `json:"requiredGender,omitempty"`       // Audiences defined by a person's gender.
+	RequiredMaxAge       Values `json:"requiredMaxAge,omitempty"`       // Audiences defined by a person's maximum age.
+	RequiredMinAge       Values `json:"requiredMinAge,omitempty"`       // Audiences defined by a person's minimum age.
+	SuggestedAge         Values `json:"suggestedAge,omitempty"`         // The age or age range for the intended audience or person, for example 3-12 months for infants, 1-5 years for toddlers.
+	SuggestedGender      Values `json:"suggestedGender,omitempty"`      // The suggested gender of the intended person or audience, for example "male", "female", or "unisex".
+	SuggestedMaxAge      Values `json:"suggestedMaxAge,omitempty"`      // Maximum recommended age in years for the audience or user.
+	SuggestedMeasurement Values `json:"suggestedMeasurement,omitempty"` // A suggested range of body measurements for the intended audience or person, for example inseam between 32 and 34 inches or height between 170 and 190 cm. Typically found on a size chart for wearable products.
+	SuggestedMinAge      Values `json:"suggestedMinAge,omitempty"`      // Minimum recommended age in years for the audience or user.
 }
 
 // The act of participating in performance arts.
 type PerformAction struct {
 	PlayAction
 
-	EntertainmentBusiness interface{} `json:"entertainmentBusiness,omitempty"` // A sub property of location. The entertainment business where the action occurred.
+	EntertainmentBusiness Values `json:"entertainmentBusiness,omitempty"` // A sub property of location. The entertainment business where the action occurred.
 }
 
 // A PerformanceRole is a Role that some entity places with regard to a theatrical performance, e.g. in a Movie, TVSeries etc.
 type PerformanceRole struct {
 	Role
 
-	CharacterName interface{} `json:"characterName,omitempty"` // The name of a character played in some acting or performing role, i.e. in a PerformanceRole.
+	CharacterName Values `json:"characterName,omitempty"` // The name of a character played in some acting or performing role, i.e. in a PerformanceRole.
 }
 
 // A theater or other performing art center.
@@ -6954,86 +6954,86 @@ type Periodical struct {
 type Permit struct {
 	Intangible
 
-	IssuedBy       interface{} `json:"issuedBy,omitempty"`       // The organization issuing the ticket or permit.
-	IssuedThrough  interface{} `json:"issuedThrough,omitempty"`  // The service through with the permit was granted.
-	PermitAudience interface{} `json:"permitAudience,omitempty"` // The target audience for this permit.
-	ValidFor       interface{} `json:"validFor,omitempty"`       // The duration of validity of a permit or similar thing.
-	ValidFrom      interface{} `json:"validFrom,omitempty"`      // The date when the item becomes valid.
-	ValidIn        interface{} `json:"validIn,omitempty"`        // The geographic area where a permit or similar thing is valid.
-	ValidUntil     interface{} `json:"validUntil,omitempty"`     // The date when the item is no longer valid.
+	IssuedBy       Values `json:"issuedBy,omitempty"`       // The organization issuing the ticket or permit.
+	IssuedThrough  Values `json:"issuedThrough,omitempty"`  // The service through with the permit was granted.
+	PermitAudience Values `json:"permitAudience,omitempty"` // The target audience for this permit.
+	ValidFor       Values `json:"validFor,omitempty"`       // The duration of validity of a permit or similar thing.
+	ValidFrom      Values `json:"validFrom,omitempty"`      // The date when the item becomes valid.
+	ValidIn        Values `json:"validIn,omitempty"`        // The geographic area where a permit or similar thing is valid.
+	ValidUntil     Values `json:"validUntil,omitempty"`     // The date when the item is no longer valid.
 }
 
 // A person (alive, dead, undead, or fictional).
 type Person struct {
 	Thing
 
-	AdditionalName       interface{} `json:"additionalName,omitempty"`       // An additional name for a Person, can be used for a middle name.
-	Address              interface{} `json:"address,omitempty"`              // Physical address of the item.
-	Affiliation          interface{} `json:"affiliation,omitempty"`          // An organization that this person is affiliated with. For example, a school/university, a club, or a team.
-	AlumniOf             interface{} `json:"alumniOf,omitempty"`             // An organization that the person is an alumni of.
-	Award                interface{} `json:"award,omitempty"`                // An award won by or for this item.
-	Awards               interface{} `json:"awards,omitempty"`               // Awards won by or for this item.
-	BirthDate            interface{} `json:"birthDate,omitempty"`            // Date of birth.
-	BirthPlace           interface{} `json:"birthPlace,omitempty"`           // The place where the person was born.
-	Brand                interface{} `json:"brand,omitempty"`                // The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
-	CallSign             interface{} `json:"callSign,omitempty"`             // A [callsign](https://en.wikipedia.org/wiki/Call_sign), as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles.
-	Children             interface{} `json:"children,omitempty"`             // A child of the person.
-	Colleague            interface{} `json:"colleague,omitempty"`            // A colleague of the person.
-	Colleagues           interface{} `json:"colleagues,omitempty"`           // A colleague of the person.
-	ContactPoint         interface{} `json:"contactPoint,omitempty"`         // A contact point for a person or organization.
-	ContactPoints        interface{} `json:"contactPoints,omitempty"`        // A contact point for a person or organization.
-	DeathDate            interface{} `json:"deathDate,omitempty"`            // Date of death.
-	DeathPlace           interface{} `json:"deathPlace,omitempty"`           // The place where the person died.
-	Duns                 interface{} `json:"duns,omitempty"`                 // The Dun & Bradstreet DUNS number for identifying an organization or business person.
-	Email                interface{} `json:"email,omitempty"`                // Email address.
-	FamilyName           interface{} `json:"familyName,omitempty"`           // Family name. In the U.S., the last name of a Person.
-	FaxNumber            interface{} `json:"faxNumber,omitempty"`            // The fax number.
-	Follows              interface{} `json:"follows,omitempty"`              // The most generic uni-directional social relation.
-	Funder               interface{} `json:"funder,omitempty"`               // A person or organization that supports (sponsors) something through some kind of financial contribution.
-	Funding              interface{} `json:"funding,omitempty"`              // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
-	Gender               interface{} `json:"gender,omitempty"`               // Gender of something, typically a [[Person]], but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who do not identify as a binary gender. The [[gender]] property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender [[SportsTeam]] can be indicated with a text value of "Mixed".
-	GivenName            interface{} `json:"givenName,omitempty"`            // Given name. In the U.S., the first name of a Person.
-	GlobalLocationNumber interface{} `json:"globalLocationNumber,omitempty"` // The [Global Location Number](http://www.gs1.org/gln) (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
-	HasCredential        interface{} `json:"hasCredential,omitempty"`        // A credential awarded to the Person or Organization.
-	HasOccupation        interface{} `json:"hasOccupation,omitempty"`        // The Person's occupation. For past professions, use Role for expressing dates.
-	HasOfferCatalog      interface{} `json:"hasOfferCatalog,omitempty"`      // Indicates an OfferCatalog listing for this Organization, Person, or Service.
-	HasPOS               interface{} `json:"hasPOS,omitempty"`               // Points-of-Sales operated by the organization or person.
-	Height               interface{} `json:"height,omitempty"`               // The height of the item.
-	HomeLocation         interface{} `json:"homeLocation,omitempty"`         // A contact location for a person's residence.
-	HonorificPrefix      interface{} `json:"honorificPrefix,omitempty"`      // An honorific prefix preceding a Person's name such as Dr/Mrs/Mr.
-	HonorificSuffix      interface{} `json:"honorificSuffix,omitempty"`      // An honorific suffix following a Person's name such as M.D. /PhD/MSCSW.
-	InteractionStatistic interface{} `json:"interactionStatistic,omitempty"` // The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.
-	IsicV4               interface{} `json:"isicV4,omitempty"`               // The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
-	JobTitle             interface{} `json:"jobTitle,omitempty"`             // The job title of the person (for example, Financial Manager).
-	Knows                interface{} `json:"knows,omitempty"`                // The most generic bi-directional social/work relation.
-	KnowsAbout           interface{} `json:"knowsAbout,omitempty"`           // Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or [[JobPosting]] descriptions.
-	KnowsLanguage        interface{} `json:"knowsLanguage,omitempty"`        // Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47).
-	MakesOffer           interface{} `json:"makesOffer,omitempty"`           // A pointer to products or services offered by the organization or person.
-	MemberOf             interface{} `json:"memberOf,omitempty"`             // An Organization (or ProgramMembership) to which this Person or Organization belongs.
-	Naics                interface{} `json:"naics,omitempty"`                // The North American Industry Classification System (NAICS) code for a particular organization or business person.
-	Nationality          interface{} `json:"nationality,omitempty"`          // Nationality of the person.
-	NetWorth             interface{} `json:"netWorth,omitempty"`             // The total financial value of the person as calculated by subtracting assets from liabilities.
-	Owns                 interface{} `json:"owns,omitempty"`                 // Products owned by the organization or person.
-	Parent               interface{} `json:"parent,omitempty"`               // A parent of this person.
-	Parents              interface{} `json:"parents,omitempty"`              // A parents of the person.
-	PerformerIn          interface{} `json:"performerIn,omitempty"`          // Event that this person is a performer or participant in.
-	PublishingPrinciples interface{} `json:"publishingPrinciples,omitempty"` /*
+	AdditionalName       Values `json:"additionalName,omitempty"`       // An additional name for a Person, can be used for a middle name.
+	Address              Values `json:"address,omitempty"`              // Physical address of the item.
+	Affiliation          Values `json:"affiliation,omitempty"`          // An organization that this person is affiliated with. For example, a school/university, a club, or a team.
+	AlumniOf             Values `json:"alumniOf,omitempty"`             // An organization that the person is an alumni of.
+	Award                Values `json:"award,omitempty"`                // An award won by or for this item.
+	Awards               Values `json:"awards,omitempty"`               // Awards won by or for this item.
+	BirthDate            Values `json:"birthDate,omitempty"`            // Date of birth.
+	BirthPlace           Values `json:"birthPlace,omitempty"`           // The place where the person was born.
+	Brand                Values `json:"brand,omitempty"`                // The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+	CallSign             Values `json:"callSign,omitempty"`             // A [callsign](https://en.wikipedia.org/wiki/Call_sign), as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles.
+	Children             Values `json:"children,omitempty"`             // A child of the person.
+	Colleague            Values `json:"colleague,omitempty"`            // A colleague of the person.
+	Colleagues           Values `json:"colleagues,omitempty"`           // A colleague of the person.
+	ContactPoint         Values `json:"contactPoint,omitempty"`         // A contact point for a person or organization.
+	ContactPoints        Values `json:"contactPoints,omitempty"`        // A contact point for a person or organization.
+	DeathDate            Values `json:"deathDate,omitempty"`            // Date of death.
+	DeathPlace           Values `json:"deathPlace,omitempty"`           // The place where the person died.
+	Duns                 Values `json:"duns,omitempty"`                 // The Dun & Bradstreet DUNS number for identifying an organization or business person.
+	Email                Values `json:"email,omitempty"`                // Email address.
+	FamilyName           Values `json:"familyName,omitempty"`           // Family name. In the U.S., the last name of a Person.
+	FaxNumber            Values `json:"faxNumber,omitempty"`            // The fax number.
+	Follows              Values `json:"follows,omitempty"`              // The most generic uni-directional social relation.
+	Funder               Values `json:"funder,omitempty"`               // A person or organization that supports (sponsors) something through some kind of financial contribution.
+	Funding              Values `json:"funding,omitempty"`              // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
+	Gender               Values `json:"gender,omitempty"`               // Gender of something, typically a [[Person]], but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who do not identify as a binary gender. The [[gender]] property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender [[SportsTeam]] can be indicated with a text value of "Mixed".
+	GivenName            Values `json:"givenName,omitempty"`            // Given name. In the U.S., the first name of a Person.
+	GlobalLocationNumber Values `json:"globalLocationNumber,omitempty"` // The [Global Location Number](http://www.gs1.org/gln) (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
+	HasCredential        Values `json:"hasCredential,omitempty"`        // A credential awarded to the Person or Organization.
+	HasOccupation        Values `json:"hasOccupation,omitempty"`        // The Person's occupation. For past professions, use Role for expressing dates.
+	HasOfferCatalog      Values `json:"hasOfferCatalog,omitempty"`      // Indicates an OfferCatalog listing for this Organization, Person, or Service.
+	HasPOS               Values `json:"hasPOS,omitempty"`               // Points-of-Sales operated by the organization or person.
+	Height               Values `json:"height,omitempty"`               // The height of the item.
+	HomeLocation         Values `json:"homeLocation,omitempty"`         // A contact location for a person's residence.
+	HonorificPrefix      Values `json:"honorificPrefix,omitempty"`      // An honorific prefix preceding a Person's name such as Dr/Mrs/Mr.
+	HonorificSuffix      Values `json:"honorificSuffix,omitempty"`      // An honorific suffix following a Person's name such as M.D. /PhD/MSCSW.
+	InteractionStatistic Values `json:"interactionStatistic,omitempty"` // The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.
+	IsicV4               Values `json:"isicV4,omitempty"`               // The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
+	JobTitle             Values `json:"jobTitle,omitempty"`             // The job title of the person (for example, Financial Manager).
+	Knows                Values `json:"knows,omitempty"`                // The most generic bi-directional social/work relation.
+	KnowsAbout           Values `json:"knowsAbout,omitempty"`           // Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or relate this to educational content, events, objectives or [[JobPosting]] descriptions.
+	KnowsLanguage        Values `json:"knowsLanguage,omitempty"`        // Of a [[Person]], and less typically of an [[Organization]], to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47).
+	MakesOffer           Values `json:"makesOffer,omitempty"`           // A pointer to products or services offered by the organization or person.
+	MemberOf             Values `json:"memberOf,omitempty"`             // An Organization (or ProgramMembership) to which this Person or Organization belongs.
+	Naics                Values `json:"naics,omitempty"`                // The North American Industry Classification System (NAICS) code for a particular organization or business person.
+	Nationality          Values `json:"nationality,omitempty"`          // Nationality of the person.
+	NetWorth             Values `json:"netWorth,omitempty"`             // The total financial value of the person as calculated by subtracting assets from liabilities.
+	Owns                 Values `json:"owns,omitempty"`                 // Products owned by the organization or person.
+	Parent               Values `json:"parent,omitempty"`               // A parent of this person.
+	Parents              Values `json:"parents,omitempty"`              // A parents of the person.
+	PerformerIn          Values `json:"performerIn,omitempty"`          // Event that this person is a performer or participant in.
+	PublishingPrinciples Values `json:"publishingPrinciples,omitempty"` /*
 	The publishingPrinciples property indicates (typically via [[URL]]) a document describing the editorial principles of an [[Organization]] (or individual e.g. a [[Person]] writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a [[CreativeWork]] (e.g. [[NewsArticle]]) the principles are those of the party primarily responsible for the creation of the [[CreativeWork]].
 
 	While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a [[funder]]) can be expressed using schema.org terminology.
 	*/
-	RelatedTo    interface{} `json:"relatedTo,omitempty"`    // The most generic familial relation.
-	Seeks        interface{} `json:"seeks,omitempty"`        // A pointer to products or services sought by the organization or person (demand).
-	Sibling      interface{} `json:"sibling,omitempty"`      // A sibling of the person.
-	Siblings     interface{} `json:"siblings,omitempty"`     // A sibling of the person.
-	Sponsor      interface{} `json:"sponsor,omitempty"`      // A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
-	Spouse       interface{} `json:"spouse,omitempty"`       // The person's spouse.
-	TaxID        interface{} `json:"taxID,omitempty"`        // The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
-	Telephone    interface{} `json:"telephone,omitempty"`    // The telephone number.
-	VatID        interface{} `json:"vatID,omitempty"`        // The Value-added Tax ID of the organization or person.
-	Weight       interface{} `json:"weight,omitempty"`       // The weight of the product or person.
-	WorkLocation interface{} `json:"workLocation,omitempty"` // A contact location for a person's place of work.
-	WorksFor     interface{} `json:"worksFor,omitempty"`     // Organizations that the person works for.
+	RelatedTo    Values `json:"relatedTo,omitempty"`    // The most generic familial relation.
+	Seeks        Values `json:"seeks,omitempty"`        // A pointer to products or services sought by the organization or person (demand).
+	Sibling      Values `json:"sibling,omitempty"`      // A sibling of the person.
+	Siblings     Values `json:"siblings,omitempty"`     // A sibling of the person.
+	Sponsor      Values `json:"sponsor,omitempty"`      // A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+	Spouse       Values `json:"spouse,omitempty"`       // The person's spouse.
+	TaxID        Values `json:"taxID,omitempty"`        // The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
+	Telephone    Values `json:"telephone,omitempty"`    // The telephone number.
+	VatID        Values `json:"vatID,omitempty"`        // The Value-added Tax ID of the organization or person.
+	Weight       Values `json:"weight,omitempty"`       // The weight of the product or person.
+	WorkLocation Values `json:"workLocation,omitempty"` // A contact location for a person's place of work.
+	WorksFor     Values `json:"worksFor,omitempty"`     // Organizations that the person works for.
 }
 
 // A pet store.
@@ -7061,10 +7061,10 @@ type PhotographAction struct {
 type PhysicalActivity struct {
 	LifestyleModification
 
-	AssociatedAnatomy interface{} `json:"associatedAnatomy,omitempty"` // The anatomy of the underlying organ system or structures associated with this entity.
-	Category          interface{} `json:"category,omitempty"`          // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
-	Epidemiology      interface{} `json:"epidemiology,omitempty"`      // The characteristics of associated patients, such as age, gender, race etc.
-	Pathophysiology   interface{} `json:"pathophysiology,omitempty"`   // Changes in the normal mechanical, physical, and biochemical functions that are associated with this activity or condition.
+	AssociatedAnatomy Values `json:"associatedAnatomy,omitempty"` // The anatomy of the underlying organ system or structures associated with this entity.
+	Category          Values `json:"category,omitempty"`          // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+	Epidemiology      Values `json:"epidemiology,omitempty"`      // The characteristics of associated patients, such as age, gender, race etc.
+	Pathophysiology   Values `json:"pathophysiology,omitempty"`   // Changes in the normal mechanical, physical, and biochemical functions that are associated with this activity or condition.
 }
 
 // Categories of physical activity, organized by physiologic classification.
@@ -7088,68 +7088,68 @@ type Physician struct {
 	MedicalBusiness
 	// TODO: MedicalOrganization
 
-	AvailableService    interface{} `json:"availableService,omitempty"`    // A medical service available from this provider.
-	HospitalAffiliation interface{} `json:"hospitalAffiliation,omitempty"` // A hospital with which the physician or office is affiliated.
-	MedicalSpecialty    interface{} `json:"medicalSpecialty,omitempty"`    // A medical specialty of the provider.
+	AvailableService    Values `json:"availableService,omitempty"`    // A medical service available from this provider.
+	HospitalAffiliation Values `json:"hospitalAffiliation,omitempty"` // A hospital with which the physician or office is affiliated.
+	MedicalSpecialty    Values `json:"medicalSpecialty,omitempty"`    // A medical specialty of the provider.
 }
 
 // Entities that have a somewhat fixed, physical extension.
 type Place struct {
 	Thing
 
-	AdditionalProperty interface{} `json:"additionalProperty,omitempty"` /*
+	AdditionalProperty Values `json:"additionalProperty,omitempty"` /*
 	A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
 	*/
-	Address         interface{} `json:"address,omitempty"`         // Physical address of the item.
-	AggregateRating interface{} `json:"aggregateRating,omitempty"` // The overall rating, based on a collection of reviews or ratings, of the item.
-	AmenityFeature  interface{} `json:"amenityFeature,omitempty"`  // An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
-	BranchCode      interface{} `json:"branchCode,omitempty"`      /*
+	Address         Values `json:"address,omitempty"`         // Physical address of the item.
+	AggregateRating Values `json:"aggregateRating,omitempty"` // The overall rating, based on a collection of reviews or ratings, of the item.
+	AmenityFeature  Values `json:"amenityFeature,omitempty"`  // An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
+	BranchCode      Values `json:"branchCode,omitempty"`      /*
 	A short textual code (also called "store code") that uniquely identifies a place of business. The code is typically assigned by the parentOrganization and used in structured URLs.\n\nFor example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047 the code "3047" is a branchCode for a particular branch.
 
 	*/
-	ContainedIn                      interface{} `json:"containedIn,omitempty"`                      // The basic containment relation between a place and one that contains it.
-	ContainedInPlace                 interface{} `json:"containedInPlace,omitempty"`                 // The basic containment relation between a place and one that contains it.
-	ContainsPlace                    interface{} `json:"containsPlace,omitempty"`                    // The basic containment relation between a place and another that it contains.
-	Event                            interface{} `json:"event,omitempty"`                            // Upcoming or past event associated with this place, organization, or action.
-	Events                           interface{} `json:"events,omitempty"`                           // Upcoming or past events associated with this place or organization.
-	FaxNumber                        interface{} `json:"faxNumber,omitempty"`                        // The fax number.
-	Geo                              interface{} `json:"geo,omitempty"`                              // The geo coordinates of the place.
-	GeoContains                      interface{} `json:"geoContains,omitempty"`                      // Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. "a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GeoCoveredBy                     interface{} `json:"geoCoveredBy,omitempty"`                     // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GeoCovers                        interface{} `json:"geoCovers,omitempty"`                        // Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. "Every point of b is a point of (the interior or boundary of) a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GeoCrosses                       interface{} `json:"geoCrosses,omitempty"`                       // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: "a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GeoDisjoint                      interface{} `json:"geoDisjoint,omitempty"`                      // Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: they have no point in common. They form a set of disconnected geometries." (a symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM))
-	GeoEquals                        interface{} `json:"geoEquals,omitempty"`                        // Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM). "Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other" (a symmetric relationship)
-	GeoIntersects                    interface{} `json:"geoIntersects,omitempty"`                    // Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GeoOverlaps                      interface{} `json:"geoOverlaps,omitempty"`                      // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GeoTouches                       interface{} `json:"geoTouches,omitempty"`                       // Represents spatial relations in which two geometries (or the places they represent) touch: they have at least one boundary point in common, but no interior points." (a symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM) )
-	GeoWithin                        interface{} `json:"geoWithin,omitempty"`                        // Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
-	GlobalLocationNumber             interface{} `json:"globalLocationNumber,omitempty"`             // The [Global Location Number](http://www.gs1.org/gln) (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
-	HasDriveThroughService           interface{} `json:"hasDriveThroughService,omitempty"`           // Indicates whether some facility (e.g. [[FoodEstablishment]], [[CovidTestingFacility]]) offers a service that can be used by driving through in a car. In the case of [[CovidTestingFacility]] such facilities could potentially help with social distancing from other potentially-infected users.
-	HasMap                           interface{} `json:"hasMap,omitempty"`                           // A URL to a map of the place.
-	IsAccessibleForFree              interface{} `json:"isAccessibleForFree,omitempty"`              // A flag to signal that the item, event, or place is accessible for free.
-	IsicV4                           interface{} `json:"isicV4,omitempty"`                           // The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
-	Keywords                         interface{} `json:"keywords,omitempty"`                         // Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
-	Latitude                         interface{} `json:"latitude,omitempty"`                         // The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
-	Logo                             interface{} `json:"logo,omitempty"`                             // An associated logo.
-	Longitude                        interface{} `json:"longitude,omitempty"`                        // The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
-	Map                              interface{} `json:"map,omitempty"`                              // A URL to a map of the place.
-	Maps                             interface{} `json:"maps,omitempty"`                             // A URL to a map of the place.
-	MaximumAttendeeCapacity          interface{} `json:"maximumAttendeeCapacity,omitempty"`          // The total number of individuals that may attend an event or venue.
-	OpeningHoursSpecification        interface{} `json:"openingHoursSpecification,omitempty"`        // The opening hours of a certain place.
-	Photo                            interface{} `json:"photo,omitempty"`                            // A photograph of this place.
-	Photos                           interface{} `json:"photos,omitempty"`                           // Photographs of this place.
-	PublicAccess                     interface{} `json:"publicAccess,omitempty"`                     // A flag to signal that the [[Place]] is open to public visitors.  If this property is omitted there is no assumed default boolean value
-	Review                           interface{} `json:"review,omitempty"`                           // A review of the item.
-	Reviews                          interface{} `json:"reviews,omitempty"`                          // Review of the item.
-	Slogan                           interface{} `json:"slogan,omitempty"`                           // A slogan or motto associated with the item.
-	SmokingAllowed                   interface{} `json:"smokingAllowed,omitempty"`                   // Indicates whether it is allowed to smoke in the place, e.g. in the restaurant, hotel or hotel room.
-	SpecialOpeningHoursSpecification interface{} `json:"specialOpeningHoursSpecification,omitempty"` /*
+	ContainedIn                      Values `json:"containedIn,omitempty"`                      // The basic containment relation between a place and one that contains it.
+	ContainedInPlace                 Values `json:"containedInPlace,omitempty"`                 // The basic containment relation between a place and one that contains it.
+	ContainsPlace                    Values `json:"containsPlace,omitempty"`                    // The basic containment relation between a place and another that it contains.
+	Event                            Values `json:"event,omitempty"`                            // Upcoming or past event associated with this place, organization, or action.
+	Events                           Values `json:"events,omitempty"`                           // Upcoming or past events associated with this place or organization.
+	FaxNumber                        Values `json:"faxNumber,omitempty"`                        // The fax number.
+	Geo                              Values `json:"geo,omitempty"`                              // The geo coordinates of the place.
+	GeoContains                      Values `json:"geoContains,omitempty"`                      // Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. "a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoCoveredBy                     Values `json:"geoCoveredBy,omitempty"`                     // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoCovers                        Values `json:"geoCovers,omitempty"`                        // Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. "Every point of b is a point of (the interior or boundary of) a". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoCrosses                       Values `json:"geoCrosses,omitempty"`                       // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: "a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoDisjoint                      Values `json:"geoDisjoint,omitempty"`                      // Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: they have no point in common. They form a set of disconnected geometries." (a symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM))
+	GeoEquals                        Values `json:"geoEquals,omitempty"`                        // Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM). "Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other" (a symmetric relationship)
+	GeoIntersects                    Values `json:"geoIntersects,omitempty"`                    // Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoOverlaps                      Values `json:"geoOverlaps,omitempty"`                      // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GeoTouches                       Values `json:"geoTouches,omitempty"`                       // Represents spatial relations in which two geometries (or the places they represent) touch: they have at least one boundary point in common, but no interior points." (a symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM) )
+	GeoWithin                        Values `json:"geoWithin,omitempty"`                        // Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).
+	GlobalLocationNumber             Values `json:"globalLocationNumber,omitempty"`             // The [Global Location Number](http://www.gs1.org/gln) (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
+	HasDriveThroughService           Values `json:"hasDriveThroughService,omitempty"`           // Indicates whether some facility (e.g. [[FoodEstablishment]], [[CovidTestingFacility]]) offers a service that can be used by driving through in a car. In the case of [[CovidTestingFacility]] such facilities could potentially help with social distancing from other potentially-infected users.
+	HasMap                           Values `json:"hasMap,omitempty"`                           // A URL to a map of the place.
+	IsAccessibleForFree              Values `json:"isAccessibleForFree,omitempty"`              // A flag to signal that the item, event, or place is accessible for free.
+	IsicV4                           Values `json:"isicV4,omitempty"`                           // The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
+	Keywords                         Values `json:"keywords,omitempty"`                         // Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
+	Latitude                         Values `json:"latitude,omitempty"`                         // The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
+	Logo                             Values `json:"logo,omitempty"`                             // An associated logo.
+	Longitude                        Values `json:"longitude,omitempty"`                        // The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
+	Map                              Values `json:"map,omitempty"`                              // A URL to a map of the place.
+	Maps                             Values `json:"maps,omitempty"`                             // A URL to a map of the place.
+	MaximumAttendeeCapacity          Values `json:"maximumAttendeeCapacity,omitempty"`          // The total number of individuals that may attend an event or venue.
+	OpeningHoursSpecification        Values `json:"openingHoursSpecification,omitempty"`        // The opening hours of a certain place.
+	Photo                            Values `json:"photo,omitempty"`                            // A photograph of this place.
+	Photos                           Values `json:"photos,omitempty"`                           // Photographs of this place.
+	PublicAccess                     Values `json:"publicAccess,omitempty"`                     // A flag to signal that the [[Place]] is open to public visitors.  If this property is omitted there is no assumed default boolean value
+	Review                           Values `json:"review,omitempty"`                           // A review of the item.
+	Reviews                          Values `json:"reviews,omitempty"`                          // Review of the item.
+	Slogan                           Values `json:"slogan,omitempty"`                           // A slogan or motto associated with the item.
+	SmokingAllowed                   Values `json:"smokingAllowed,omitempty"`                   // Indicates whether it is allowed to smoke in the place, e.g. in the restaurant, hotel or hotel room.
+	SpecialOpeningHoursSpecification Values `json:"specialOpeningHoursSpecification,omitempty"` /*
 	The special opening hours of a certain place.\n\nUse this to explicitly override general opening hours brought in scope by [[openingHoursSpecification]] or [[openingHours]].
 
 	*/
-	Telephone       interface{} `json:"telephone,omitempty"`       // The telephone number.
-	TourBookingPage interface{} `json:"tourBookingPage,omitempty"` // A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]] or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.
+	Telephone       Values `json:"telephone,omitempty"`       // The telephone number.
+	TourBookingPage Values `json:"tourBookingPage,omitempty"` // A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]] or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.
 }
 
 // Place of worship, such as a church, synagogue, or mosque.
@@ -7161,7 +7161,7 @@ type PlaceOfWorship struct {
 type PlanAction struct {
 	OrganizeAction
 
-	ScheduledTime interface{} `json:"scheduledTime,omitempty"` // The time the object is scheduled to.
+	ScheduledTime Values `json:"scheduledTime,omitempty"` // The time the object is scheduled to.
 }
 
 // A play is a form of literature, usually consisting of dialogue between characters, intended for theatrical performance rather than just reading. Note: A performance of a Play would be a [[TheaterEvent]] or [[BroadcastEvent]] - the *Play* being the [[workPerformed]].
@@ -7173,15 +7173,15 @@ type Play struct {
 type PlayAction struct {
 	Action
 
-	Audience interface{} `json:"audience,omitempty"` // An intended audience, i.e. a group for whom something was created.
-	Event    interface{} `json:"event,omitempty"`    // Upcoming or past event associated with this place, organization, or action.
+	Audience Values `json:"audience,omitempty"` // An intended audience, i.e. a group for whom something was created.
+	Event    Values `json:"event,omitempty"`    // Upcoming or past event associated with this place, organization, or action.
 }
 
 // The act of playing a video game.
 type PlayGameAction struct {
 	ConsumeAction
 
-	GameAvailabilityType interface{} `json:"gameAvailabilityType,omitempty"` // Indicates the availability type of the game content associated with this action, such as whether it is a full version or a demo.
+	GameAvailabilityType Values `json:"gameAvailabilityType,omitempty"` // Indicates the availability type of the game content associated with this action, such as whether it is a full version or a demo.
 }
 
 // A playground.
@@ -7208,8 +7208,8 @@ type PodcastSeason struct {
 type PodcastSeries struct {
 	CreativeWorkSeries
 
-	Actor   interface{} `json:"actor,omitempty"`   // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
-	WebFeed interface{} `json:"webFeed,omitempty"` // The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom.
+	Actor   Values `json:"actor,omitempty"`   // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+	WebFeed Values `json:"webFeed,omitempty"` // The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom.
 }
 
 // A police station.
@@ -7232,20 +7232,20 @@ type PostOffice struct {
 type PostalAddress struct {
 	ContactPoint
 
-	AddressCountry      interface{} `json:"addressCountry,omitempty"`      // The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).
-	AddressLocality     interface{} `json:"addressLocality,omitempty"`     // The locality in which the street address is, and which is in the region. For example, Mountain View.
-	AddressRegion       interface{} `json:"addressRegion,omitempty"`       // The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country)
-	PostOfficeBoxNumber interface{} `json:"postOfficeBoxNumber,omitempty"` // The post office box number for PO box addresses.
-	PostalCode          interface{} `json:"postalCode,omitempty"`          // The postal code. For example, 94043.
-	StreetAddress       interface{} `json:"streetAddress,omitempty"`       // The street address. For example, 1600 Amphitheatre Pkwy.
+	AddressCountry      Values `json:"addressCountry,omitempty"`      // The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).
+	AddressLocality     Values `json:"addressLocality,omitempty"`     // The locality in which the street address is, and which is in the region. For example, Mountain View.
+	AddressRegion       Values `json:"addressRegion,omitempty"`       // The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country)
+	PostOfficeBoxNumber Values `json:"postOfficeBoxNumber,omitempty"` // The post office box number for PO box addresses.
+	PostalCode          Values `json:"postalCode,omitempty"`          // The postal code. For example, 94043.
+	StreetAddress       Values `json:"streetAddress,omitempty"`       // The street address. For example, 1600 Amphitheatre Pkwy.
 }
 
 // Indicates a range of postalcodes, usually defined as the set of valid codes between [[postalCodeBegin]] and [[postalCodeEnd]], inclusively.
 type PostalCodeRangeSpecification struct {
 	StructuredValue
 
-	PostalCodeBegin interface{} `json:"postalCodeBegin,omitempty"` // First postal code in a range (included).
-	PostalCodeEnd   interface{} `json:"postalCodeEnd,omitempty"`   // Last postal code in the range (included). Needs to be after [[postalCodeBegin]].
+	PostalCodeBegin Values `json:"postalCodeBegin,omitempty"` // First postal code in a range (included).
+	PostalCodeEnd   Values `json:"postalCodeEnd,omitempty"`   // Last postal code in the range (included). Needs to be after [[postalCodeBegin]].
 }
 
 // A large, usually printed placard, bill, or announcement, often illustrated, that is posted to advertise or publicize something.
@@ -7287,18 +7287,18 @@ type PriceComponentTypeEnumeration struct {
 type PriceSpecification struct {
 	StructuredValue
 
-	EligibleQuantity          interface{} `json:"eligibleQuantity,omitempty"`          // The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.
-	EligibleTransactionVolume interface{} `json:"eligibleTransactionVolume,omitempty"` // The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount.
-	MaxPrice                  interface{} `json:"maxPrice,omitempty"`                  // The highest price if the price is a range.
-	MinPrice                  interface{} `json:"minPrice,omitempty"`                  // The lowest price if the price is a range.
-	Price                     interface{} `json:"price,omitempty"`                     /*
+	EligibleQuantity          Values `json:"eligibleQuantity,omitempty"`          // The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.
+	EligibleTransactionVolume Values `json:"eligibleTransactionVolume,omitempty"` // The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount.
+	MaxPrice                  Values `json:"maxPrice,omitempty"`                  // The highest price if the price is a range.
+	MinPrice                  Values `json:"minPrice,omitempty"`                  // The lowest price if the price is a range.
+	Price                     Values `json:"price,omitempty"`                     /*
 	The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\n\nUsage guidelines:\n\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a "content=" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.
 
 	*/
-	PriceCurrency         interface{} `json:"priceCurrency,omitempty"`         // The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
-	ValidFrom             interface{} `json:"validFrom,omitempty"`             // The date when the item becomes valid.
-	ValidThrough          interface{} `json:"validThrough,omitempty"`          // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	ValueAddedTaxIncluded interface{} `json:"valueAddedTaxIncluded,omitempty"` // Specifies whether the applicable value-added tax (VAT) is included in the price specification or not.
+	PriceCurrency         Values `json:"priceCurrency,omitempty"`         // The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
+	ValidFrom             Values `json:"validFrom,omitempty"`             // The date when the item becomes valid.
+	ValidThrough          Values `json:"validThrough,omitempty"`          // The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
+	ValueAddedTaxIncluded Values `json:"valueAddedTaxIncluded,omitempty"` // Specifies whether the applicable value-added tax (VAT) is included in the price specification or not.
 }
 
 // Enumerates different price types, for example list price, invoice price, and sale price.
@@ -7310,71 +7310,71 @@ type PriceTypeEnumeration struct {
 type Product struct {
 	Thing
 
-	AdditionalProperty interface{} `json:"additionalProperty,omitempty"` /*
+	AdditionalProperty Values `json:"additionalProperty,omitempty"` /*
 	A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
 	*/
-	AggregateRating         interface{} `json:"aggregateRating,omitempty"`         // The overall rating, based on a collection of reviews or ratings, of the item.
-	Audience                interface{} `json:"audience,omitempty"`                // An intended audience, i.e. a group for whom something was created.
-	Award                   interface{} `json:"award,omitempty"`                   // An award won by or for this item.
-	Awards                  interface{} `json:"awards,omitempty"`                  // Awards won by or for this item.
-	Brand                   interface{} `json:"brand,omitempty"`                   // The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
-	Category                interface{} `json:"category,omitempty"`                // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
-	Color                   interface{} `json:"color,omitempty"`                   // The color of the product.
-	CountryOfAssembly       interface{} `json:"countryOfAssembly,omitempty"`       // The place where the product was assembled.
-	CountryOfLastProcessing interface{} `json:"countryOfLastProcessing,omitempty"` // The place where the item (typically [[Product]]) was last processed and tested before importation.
-	CountryOfOrigin         interface{} `json:"countryOfOrigin,omitempty"`         /*
+	AggregateRating         Values `json:"aggregateRating,omitempty"`         // The overall rating, based on a collection of reviews or ratings, of the item.
+	Audience                Values `json:"audience,omitempty"`                // An intended audience, i.e. a group for whom something was created.
+	Award                   Values `json:"award,omitempty"`                   // An award won by or for this item.
+	Awards                  Values `json:"awards,omitempty"`                  // Awards won by or for this item.
+	Brand                   Values `json:"brand,omitempty"`                   // The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+	Category                Values `json:"category,omitempty"`                // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+	Color                   Values `json:"color,omitempty"`                   // The color of the product.
+	CountryOfAssembly       Values `json:"countryOfAssembly,omitempty"`       // The place where the product was assembled.
+	CountryOfLastProcessing Values `json:"countryOfLastProcessing,omitempty"` // The place where the item (typically [[Product]]) was last processed and tested before importation.
+	CountryOfOrigin         Values `json:"countryOfOrigin,omitempty"`         /*
 	The country of origin of something, including products as well as creative  works such as movie and TV content.
 
 	In the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of [[CreativeWork]] it is difficult to provide fully general guidance, and properties such as [[contentLocation]] and [[locationCreated]] may be more applicable.
 
 	In the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.
 	*/
-	Depth   interface{} `json:"depth,omitempty"`   // The depth of the item.
-	Funding interface{} `json:"funding,omitempty"` // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
-	Gtin    interface{} `json:"gtin,omitempty"`    /*
+	Depth   Values `json:"depth,omitempty"`   // The depth of the item.
+	Funding Values `json:"funding,omitempty"` // A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].
+	Gtin    Values `json:"gtin,omitempty"`    /*
 	A Global Trade Item Number ([GTIN](https://www.gs1.org/standards/id-keys/gtin)). GTINs identify trade items, including products and services, using numeric identification codes. The [[gtin]] property generalizes the earlier [[gtin8]], [[gtin12]], [[gtin13]], and [[gtin14]] properties. The GS1 [digital link specifications](https://www.gs1.org/standards/Digital-Link/) express GTINs as URLs. A correct [[gtin]] value should be a valid GTIN, which means that it should be an all-numeric string of either 8, 12, 13 or 14 digits, or a "GS1 Digital Link" URL based on such a string. The numeric component should also have a [valid GS1 check digit](https://www.gs1.org/services/check-digit-calculator) and meet the other rules for valid GTINs. See also [GS1's GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) and [Wikipedia](https://en.wikipedia.org/wiki/Global_Trade_Item_Number) for more details. Left-padding of the gtin values is not required or encouraged.
 
 	*/
-	Gtin12                      interface{} `json:"gtin12,omitempty"`                      // The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	Gtin13                      interface{} `json:"gtin13,omitempty"`                      // The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceding zero. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	Gtin14                      interface{} `json:"gtin14,omitempty"`                      // The GTIN-14 code of the product, or the product to which the offer refers. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	Gtin8                       interface{} `json:"gtin8,omitempty"`                       // The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	HasAdultConsideration       interface{} `json:"hasAdultConsideration,omitempty"`       // Used to tag an item to be intended or suitable for consumption or use by adults only.
-	HasEnergyConsumptionDetails interface{} `json:"hasEnergyConsumptionDetails,omitempty"` // Defines the energy efficiency Category (also known as "class" or "rating") for a product according to an international energy efficiency standard.
-	HasMeasurement              interface{} `json:"hasMeasurement,omitempty"`              // A product measurement, for example the inseam of pants, the wheel size of a bicycle, or the gauge of a screw. Usually an exact measurement, but can also be a range of measurements for adjustable products, for example belts and ski bindings.
-	HasMerchantReturnPolicy     interface{} `json:"hasMerchantReturnPolicy,omitempty"`     // Specifies a MerchantReturnPolicy that may be applicable.
-	Height                      interface{} `json:"height,omitempty"`                      // The height of the item.
-	InProductGroupWithID        interface{} `json:"inProductGroupWithID,omitempty"`        // Indicates the [[productGroupID]] for a [[ProductGroup]] that this product [[isVariantOf]].
-	IsAccessoryOrSparePartFor   interface{} `json:"isAccessoryOrSparePartFor,omitempty"`   // A pointer to another product (or multiple products) for which this product is an accessory or spare part.
-	IsConsumableFor             interface{} `json:"isConsumableFor,omitempty"`             // A pointer to another product (or multiple products) for which this product is a consumable.
-	IsFamilyFriendly            interface{} `json:"isFamilyFriendly,omitempty"`            // Indicates whether this content is family friendly.
-	IsRelatedTo                 interface{} `json:"isRelatedTo,omitempty"`                 // A pointer to another, somehow related product (or multiple products).
-	IsSimilarTo                 interface{} `json:"isSimilarTo,omitempty"`                 // A pointer to another, functionally similar product (or multiple products).
-	IsVariantOf                 interface{} `json:"isVariantOf,omitempty"`                 // Indicates the kind of product that this is a variant of. In the case of [[ProductModel]], this is a pointer (from a ProductModel) to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive. In the case of a [[ProductGroup]], the group description also serves as a template, representing a set of Products that vary on explicitly defined, specific dimensions only (so it defines both a set of variants, as well as which values distinguish amongst those variants). When used with [[ProductGroup]], this property can apply to any [[Product]] included in the group.
-	ItemCondition               interface{} `json:"itemCondition,omitempty"`               // A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns.
-	Keywords                    interface{} `json:"keywords,omitempty"`                    // Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
-	Logo                        interface{} `json:"logo,omitempty"`                        // An associated logo.
-	Manufacturer                interface{} `json:"manufacturer,omitempty"`                // The manufacturer of the product.
-	Material                    interface{} `json:"material,omitempty"`                    // A material that something is made from, e.g. leather, wool, cotton, paper.
-	Model                       interface{} `json:"model,omitempty"`                       // The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.
-	Mpn                         interface{} `json:"mpn,omitempty"`                         // The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
-	Nsn                         interface{} `json:"nsn,omitempty"`                         // Indicates the [NATO stock number](https://en.wikipedia.org/wiki/NATO_Stock_Number) (nsn) of a [[Product]].
-	Offers                      interface{} `json:"offers,omitempty"`                      /*
+	Gtin12                      Values `json:"gtin12,omitempty"`                      // The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	Gtin13                      Values `json:"gtin13,omitempty"`                      // The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceding zero. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	Gtin14                      Values `json:"gtin14,omitempty"`                      // The GTIN-14 code of the product, or the product to which the offer refers. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	Gtin8                       Values `json:"gtin8,omitempty"`                       // The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	HasAdultConsideration       Values `json:"hasAdultConsideration,omitempty"`       // Used to tag an item to be intended or suitable for consumption or use by adults only.
+	HasEnergyConsumptionDetails Values `json:"hasEnergyConsumptionDetails,omitempty"` // Defines the energy efficiency Category (also known as "class" or "rating") for a product according to an international energy efficiency standard.
+	HasMeasurement              Values `json:"hasMeasurement,omitempty"`              // A product measurement, for example the inseam of pants, the wheel size of a bicycle, or the gauge of a screw. Usually an exact measurement, but can also be a range of measurements for adjustable products, for example belts and ski bindings.
+	HasMerchantReturnPolicy     Values `json:"hasMerchantReturnPolicy,omitempty"`     // Specifies a MerchantReturnPolicy that may be applicable.
+	Height                      Values `json:"height,omitempty"`                      // The height of the item.
+	InProductGroupWithID        Values `json:"inProductGroupWithID,omitempty"`        // Indicates the [[productGroupID]] for a [[ProductGroup]] that this product [[isVariantOf]].
+	IsAccessoryOrSparePartFor   Values `json:"isAccessoryOrSparePartFor,omitempty"`   // A pointer to another product (or multiple products) for which this product is an accessory or spare part.
+	IsConsumableFor             Values `json:"isConsumableFor,omitempty"`             // A pointer to another product (or multiple products) for which this product is a consumable.
+	IsFamilyFriendly            Values `json:"isFamilyFriendly,omitempty"`            // Indicates whether this content is family friendly.
+	IsRelatedTo                 Values `json:"isRelatedTo,omitempty"`                 // A pointer to another, somehow related product (or multiple products).
+	IsSimilarTo                 Values `json:"isSimilarTo,omitempty"`                 // A pointer to another, functionally similar product (or multiple products).
+	IsVariantOf                 Values `json:"isVariantOf,omitempty"`                 // Indicates the kind of product that this is a variant of. In the case of [[ProductModel]], this is a pointer (from a ProductModel) to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive. In the case of a [[ProductGroup]], the group description also serves as a template, representing a set of Products that vary on explicitly defined, specific dimensions only (so it defines both a set of variants, as well as which values distinguish amongst those variants). When used with [[ProductGroup]], this property can apply to any [[Product]] included in the group.
+	ItemCondition               Values `json:"itemCondition,omitempty"`               // A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns.
+	Keywords                    Values `json:"keywords,omitempty"`                    // Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.
+	Logo                        Values `json:"logo,omitempty"`                        // An associated logo.
+	Manufacturer                Values `json:"manufacturer,omitempty"`                // The manufacturer of the product.
+	Material                    Values `json:"material,omitempty"`                    // A material that something is made from, e.g. leather, wool, cotton, paper.
+	Model                       Values `json:"model,omitempty"`                       // The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.
+	Mpn                         Values `json:"mpn,omitempty"`                         // The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
+	Nsn                         Values `json:"nsn,omitempty"`                         // Indicates the [NATO stock number](https://en.wikipedia.org/wiki/NATO_Stock_Number) (nsn) of a [[Product]].
+	Offers                      Values `json:"offers,omitempty"`                      /*
 	An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
 
 	*/
-	Pattern        interface{} `json:"pattern,omitempty"`        // A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'. Values are typically expressed as text, although links to controlled value schemes are also supported.
-	ProductID      interface{} `json:"productID,omitempty"`      // The product identifier, such as ISBN. For example: ``` meta itemprop="productID" content="isbn:123-456-789" ```.
-	ProductionDate interface{} `json:"productionDate,omitempty"` // The date of production of the item, e.g. vehicle.
-	PurchaseDate   interface{} `json:"purchaseDate,omitempty"`   // The date the item e.g. vehicle was purchased by the current owner.
-	ReleaseDate    interface{} `json:"releaseDate,omitempty"`    // The release date of a product or product model. This can be used to distinguish the exact variant of a product.
-	Review         interface{} `json:"review,omitempty"`         // A review of the item.
-	Reviews        interface{} `json:"reviews,omitempty"`        // Review of the item.
-	Size           interface{} `json:"size,omitempty"`           // A standardized size of a product or creative work, specified either through a simple textual string (for example 'XL', '32Wx34L'), a  QuantitativeValue with a unitCode, or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]], [[height]], [[depth]] and [[weight]] properties may be more applicable.
-	Sku            interface{} `json:"sku,omitempty"`            // The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
-	Slogan         interface{} `json:"slogan,omitempty"`         // A slogan or motto associated with the item.
-	Weight         interface{} `json:"weight,omitempty"`         // The weight of the product or person.
-	Width          interface{} `json:"width,omitempty"`          // The width of the item.
+	Pattern        Values `json:"pattern,omitempty"`        // A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'. Values are typically expressed as text, although links to controlled value schemes are also supported.
+	ProductID      Values `json:"productID,omitempty"`      // The product identifier, such as ISBN. For example: ``` meta itemprop="productID" content="isbn:123-456-789" ```.
+	ProductionDate Values `json:"productionDate,omitempty"` // The date of production of the item, e.g. vehicle.
+	PurchaseDate   Values `json:"purchaseDate,omitempty"`   // The date the item e.g. vehicle was purchased by the current owner.
+	ReleaseDate    Values `json:"releaseDate,omitempty"`    // The release date of a product or product model. This can be used to distinguish the exact variant of a product.
+	Review         Values `json:"review,omitempty"`         // A review of the item.
+	Reviews        Values `json:"reviews,omitempty"`        // Review of the item.
+	Size           Values `json:"size,omitempty"`           // A standardized size of a product or creative work, specified either through a simple textual string (for example 'XL', '32Wx34L'), a  QuantitativeValue with a unitCode, or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]], [[height]], [[depth]] and [[weight]] properties may be more applicable.
+	Sku            Values `json:"sku,omitempty"`            // The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
+	Slogan         Values `json:"slogan,omitempty"`         // A slogan or motto associated with the item.
+	Weight         Values `json:"weight,omitempty"`         // The weight of the product or person.
+	Width          Values `json:"width,omitempty"`          // The width of the item.
 }
 
 // A set of products (either [[ProductGroup]]s or specific variants) that are listed together e.g. in an [[Offer]].
@@ -7382,7 +7382,7 @@ type ProductCollection struct {
 	Collection
 	// TODO: Product
 
-	IncludesObject interface{} `json:"includesObject,omitempty"` // This links to a node or nodes indicating the exact quantity of the products included in  an [[Offer]] or [[ProductCollection]].
+	IncludesObject Values `json:"includesObject,omitempty"` // This links to a node or nodes indicating the exact quantity of the products included in  an [[Offer]] or [[ProductCollection]].
 }
 
 /*
@@ -7393,18 +7393,18 @@ While a ProductGroup itself is not directly offered for sale, the various varyin
 type ProductGroup struct {
 	Product
 
-	HasVariant     interface{} `json:"hasVariant,omitempty"`     // Indicates a [[Product]] that is a member of this [[ProductGroup]] (or [[ProductModel]]).
-	ProductGroupID interface{} `json:"productGroupID,omitempty"` // Indicates a textual identifier for a ProductGroup.
-	VariesBy       interface{} `json:"variesBy,omitempty"`       // Indicates the property or properties by which the variants in a [[ProductGroup]] vary, e.g. their size, color etc. Schema.org properties can be referenced by their short name e.g. "color"; terms defined elsewhere can be referenced with their URIs.
+	HasVariant     Values `json:"hasVariant,omitempty"`     // Indicates a [[Product]] that is a member of this [[ProductGroup]] (or [[ProductModel]]).
+	ProductGroupID Values `json:"productGroupID,omitempty"` // Indicates a textual identifier for a ProductGroup.
+	VariesBy       Values `json:"variesBy,omitempty"`       // Indicates the property or properties by which the variants in a [[ProductGroup]] vary, e.g. their size, color etc. Schema.org properties can be referenced by their short name e.g. "color"; terms defined elsewhere can be referenced with their URIs.
 }
 
 // A datasheet or vendor specification of a product (in the sense of a prototypical description).
 type ProductModel struct {
 	Product
 
-	IsVariantOf   interface{} `json:"isVariantOf,omitempty"`   // Indicates the kind of product that this is a variant of. In the case of [[ProductModel]], this is a pointer (from a ProductModel) to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive. In the case of a [[ProductGroup]], the group description also serves as a template, representing a set of Products that vary on explicitly defined, specific dimensions only (so it defines both a set of variants, as well as which values distinguish amongst those variants). When used with [[ProductGroup]], this property can apply to any [[Product]] included in the group.
-	PredecessorOf interface{} `json:"predecessorOf,omitempty"` // A pointer from a previous, often discontinued variant of the product to its newer variant.
-	SuccessorOf   interface{} `json:"successorOf,omitempty"`   // A pointer from a newer variant of a product  to its previous, often discontinued predecessor.
+	IsVariantOf   Values `json:"isVariantOf,omitempty"`   // Indicates the kind of product that this is a variant of. In the case of [[ProductModel]], this is a pointer (from a ProductModel) to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive. In the case of a [[ProductGroup]], the group description also serves as a template, representing a set of Products that vary on explicitly defined, specific dimensions only (so it defines both a set of variants, as well as which values distinguish amongst those variants). When used with [[ProductGroup]], this property can apply to any [[Product]] included in the group.
+	PredecessorOf Values `json:"predecessorOf,omitempty"` // A pointer from a previous, often discontinued variant of the product to its newer variant.
+	SuccessorOf   Values `json:"successorOf,omitempty"`   // A pointer from a newer variant of a product  to its previous, often discontinued predecessor.
 }
 
 /*
@@ -7425,12 +7425,12 @@ type ProfilePage struct {
 type ProgramMembership struct {
 	Intangible
 
-	HostingOrganization    interface{} `json:"hostingOrganization,omitempty"`    // The organization (airline, travelers' club, etc.) the membership is made with.
-	Member                 interface{} `json:"member,omitempty"`                 // A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.
-	Members                interface{} `json:"members,omitempty"`                // A member of this organization.
-	MembershipNumber       interface{} `json:"membershipNumber,omitempty"`       // A unique identifier for the membership.
-	MembershipPointsEarned interface{} `json:"membershipPointsEarned,omitempty"` // The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (e.g. stars, miles, etc.)
-	ProgramName            interface{} `json:"programName,omitempty"`            // The program providing the membership.
+	HostingOrganization    Values `json:"hostingOrganization,omitempty"`    // The organization (airline, travelers' club, etc.) the membership is made with.
+	Member                 Values `json:"member,omitempty"`                 // A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.
+	Members                Values `json:"members,omitempty"`                // A member of this organization.
+	MembershipNumber       Values `json:"membershipNumber,omitempty"`       // A unique identifier for the membership.
+	MembershipPointsEarned Values `json:"membershipPointsEarned,omitempty"` // The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (e.g. stars, miles, etc.)
+	ProgramName            Values `json:"programName,omitempty"`            // The program providing the membership.
 }
 
 /*
@@ -7446,20 +7446,20 @@ type Project struct {
 type PronounceableText struct {
 	Text
 
-	InLanguage         interface{} `json:"inLanguage,omitempty"`         // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
-	PhoneticText       interface{} `json:"phoneticText,omitempty"`       // Representation of a text [[textValue]] using the specified [[speechToTextMarkup]]. For example the city name of Houston in IPA: /ˈhjuːstən/.
-	SpeechToTextMarkup interface{} `json:"speechToTextMarkup,omitempty"` // Form of markup used. eg. [SSML](https://www.w3.org/TR/speech-synthesis11) or [IPA](https://www.wikidata.org/wiki/Property:P898).
-	TextValue          interface{} `json:"textValue,omitempty"`          // Text value being annotated.
+	InLanguage         Values `json:"inLanguage,omitempty"`         // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+	PhoneticText       Values `json:"phoneticText,omitempty"`       // Representation of a text [[textValue]] using the specified [[speechToTextMarkup]]. For example the city name of Houston in IPA: /ˈhjuːstən/.
+	SpeechToTextMarkup Values `json:"speechToTextMarkup,omitempty"` // Form of markup used. eg. [SSML](https://www.w3.org/TR/speech-synthesis11) or [IPA](https://www.wikidata.org/wiki/Property:P898).
+	TextValue          Values `json:"textValue,omitempty"`          // Text value being annotated.
 }
 
 // A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.
 type Property struct {
 	Intangible
 
-	DomainIncludes interface{} `json:"domainIncludes,omitempty"` // Relates a property to a class that is (one of) the type(s) the property is expected to be used on.
-	InverseOf      interface{} `json:"inverseOf,omitempty"`      // Relates a property to a property that is its inverse. Inverse properties relate the same pairs of items to each other, but in reversed direction. For example, the 'alumni' and 'alumniOf' properties are inverseOf each other. Some properties don't have explicit inverses; in these situations RDFa and JSON-LD syntax for reverse properties can be used.
-	RangeIncludes  interface{} `json:"rangeIncludes,omitempty"`  // Relates a property to a class that constitutes (one of) the expected type(s) for values of the property.
-	SupersededBy   interface{} `json:"supersededBy,omitempty"`   // Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
+	DomainIncludes Values `json:"domainIncludes,omitempty"` // Relates a property to a class that is (one of) the type(s) the property is expected to be used on.
+	InverseOf      Values `json:"inverseOf,omitempty"`      // Relates a property to a property that is its inverse. Inverse properties relate the same pairs of items to each other, but in reversed direction. For example, the 'alumni' and 'alumniOf' properties are inverseOf each other. Some properties don't have explicit inverses; in these situations RDFa and JSON-LD syntax for reverse properties can be used.
+	RangeIncludes  Values `json:"rangeIncludes,omitempty"`  // Relates a property to a class that constitutes (one of) the expected type(s) for values of the property.
+	SupersededBy   Values `json:"supersededBy,omitempty"`   // Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
 }
 
 /*
@@ -7469,8 +7469,8 @@ A property-value pair, e.g. representing a feature of a product or place. Use th
 type PropertyValue struct {
 	StructuredValue
 
-	MaxValue             interface{} `json:"maxValue,omitempty"`             // The upper value of some characteristic or property.
-	MeasurementTechnique interface{} `json:"measurementTechnique,omitempty"` /*
+	MaxValue             Values `json:"maxValue,omitempty"`             // The upper value of some characteristic or property.
+	MeasurementTechnique Values `json:"measurementTechnique,omitempty"` /*
 	A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),
 	corresponding to the method used for measuring the corresponding variable(s) (described using [[variableMeasured]]). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.
 
@@ -7481,44 +7481,44 @@ type PropertyValue struct {
 	If there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]].
 
 	*/
-	MinValue   interface{} `json:"minValue,omitempty"`   // The lower value of some characteristic or property.
-	PropertyID interface{} `json:"propertyID,omitempty"` /*
+	MinValue   Values `json:"minValue,omitempty"`   // The lower value of some characteristic or property.
+	PropertyID Values `json:"propertyID,omitempty"` /*
 	A commonly used identifier for the characteristic represented by the property, e.g. a manufacturer or a standard code for a property. propertyID can be
 	(1) a prefixed string, mainly meant to be used with standards for product properties; (2) a site-specific, non-prefixed string (e.g. the primary key of the property or the vendor-specific id of the property), or (3)
 	a URL indicating the type of the property, either pointing to an external vocabulary, or a Web resource that describes the property (e.g. a glossary entry).
 	Standards bodies should promote a standard prefix for the identifiers of properties from their standards.
 	*/
-	UnitCode interface{} `json:"unitCode,omitempty"` // The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
-	UnitText interface{} `json:"unitText,omitempty"` /*
+	UnitCode Values `json:"unitCode,omitempty"` // The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
+	UnitText Values `json:"unitText,omitempty"` /*
 	A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for
 	<a href='unitCode'>unitCode</a>.
 	*/
-	Value          interface{} `json:"value,omitempty"`          // The value of the quantitative value or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
-	ValueReference interface{} `json:"valueReference,omitempty"` // A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.
+	Value          Values `json:"value,omitempty"`          // The value of the quantitative value or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+	ValueReference Values `json:"valueReference,omitempty"` // A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.
 }
 
 // A Property value specification.
 type PropertyValueSpecification struct {
 	Intangible
 
-	DefaultValue   interface{} `json:"defaultValue,omitempty"`   // The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values.
-	MaxValue       interface{} `json:"maxValue,omitempty"`       // The upper value of some characteristic or property.
-	MinValue       interface{} `json:"minValue,omitempty"`       // The lower value of some characteristic or property.
-	MultipleValues interface{} `json:"multipleValues,omitempty"` // Whether multiple values are allowed for the property.  Default is false.
-	ReadonlyValue  interface{} `json:"readonlyValue,omitempty"`  // Whether or not a property is mutable.  Default is false. Specifying this for a property that also has a value makes it act similar to a "hidden" input in an HTML form.
-	StepValue      interface{} `json:"stepValue,omitempty"`      // The stepValue attribute indicates the granularity that is expected (and required) of the value in a PropertyValueSpecification.
-	ValueMaxLength interface{} `json:"valueMaxLength,omitempty"` // Specifies the allowed range for number of characters in a literal value.
-	ValueMinLength interface{} `json:"valueMinLength,omitempty"` // Specifies the minimum allowed range for number of characters in a literal value.
-	ValueName      interface{} `json:"valueName,omitempty"`      // Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name.
-	ValuePattern   interface{} `json:"valuePattern,omitempty"`   // Specifies a regular expression for testing literal values according to the HTML spec.
-	ValueRequired  interface{} `json:"valueRequired,omitempty"`  // Whether the property must be filled in to complete the action.  Default is false.
+	DefaultValue   Values `json:"defaultValue,omitempty"`   // The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values.
+	MaxValue       Values `json:"maxValue,omitempty"`       // The upper value of some characteristic or property.
+	MinValue       Values `json:"minValue,omitempty"`       // The lower value of some characteristic or property.
+	MultipleValues Values `json:"multipleValues,omitempty"` // Whether multiple values are allowed for the property.  Default is false.
+	ReadonlyValue  Values `json:"readonlyValue,omitempty"`  // Whether or not a property is mutable.  Default is false. Specifying this for a property that also has a value makes it act similar to a "hidden" input in an HTML form.
+	StepValue      Values `json:"stepValue,omitempty"`      // The stepValue attribute indicates the granularity that is expected (and required) of the value in a PropertyValueSpecification.
+	ValueMaxLength Values `json:"valueMaxLength,omitempty"` // Specifies the allowed range for number of characters in a literal value.
+	ValueMinLength Values `json:"valueMinLength,omitempty"` // Specifies the minimum allowed range for number of characters in a literal value.
+	ValueName      Values `json:"valueName,omitempty"`      // Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name.
+	ValuePattern   Values `json:"valuePattern,omitempty"`   // Specifies a regular expression for testing literal values according to the HTML spec.
+	ValueRequired  Values `json:"valueRequired,omitempty"`  // Whether the property must be filled in to complete the action.  Default is false.
 }
 
 // Protein is here used in its widest possible definition, as classes of amino acid based molecules. Amyloid-beta Protein in human (UniProt P05067), eukaryota (e.g. an OrthoDB group) or even a single molecule that one can point to are all of type schema:Protein. A protein can thus be a subclass of another protein, e.g. schema:Protein as a UniProt record can have multiple isoforms inside it which would also be schema:Protein. They can be imagined, synthetic, hypothetical or naturally occurring.
 type Protein struct {
 	BioChemEntity
 
-	HasBioPolymerSequence interface{} `json:"hasBioPolymerSequence,omitempty"` // A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of a Gene or an amino acid sequence of a Protein.
+	HasBioPolymerSequence Values `json:"hasBioPolymerSequence,omitempty"` // A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of a Gene or an amino acid sequence of a Protein.
 }
 
 // A process of care relying upon counseling, dialogue and communication  aimed at improving a mental health condition without use of drugs.
@@ -7540,29 +7540,29 @@ type PublicToilet struct {
 type PublicationEvent struct {
 	Event
 
-	Free        interface{} `json:"free,omitempty"`        // A flag to signal that the item, event, or place is accessible for free.
-	PublishedBy interface{} `json:"publishedBy,omitempty"` // An agent associated with the publication event.
-	PublishedOn interface{} `json:"publishedOn,omitempty"` // A broadcast service associated with the publication event.
+	Free        Values `json:"free,omitempty"`        // A flag to signal that the item, event, or place is accessible for free.
+	PublishedBy Values `json:"publishedBy,omitempty"` // An agent associated with the publication event.
+	PublishedOn Values `json:"publishedOn,omitempty"` // A broadcast service associated with the publication event.
 }
 
 // A part of a successively published publication such as a periodical or publication volume, often numbered, usually containing a grouping of works such as articles.\n\nSee also [blog post](http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html).
 type PublicationIssue struct {
 	CreativeWork
 
-	IssueNumber interface{} `json:"issueNumber,omitempty"` // Identifies the issue of publication; for example, "iii" or "2".
-	PageEnd     interface{} `json:"pageEnd,omitempty"`     // The page on which the work ends; for example "138" or "xvi".
-	PageStart   interface{} `json:"pageStart,omitempty"`   // The page on which the work starts; for example "135" or "xiii".
-	Pagination  interface{} `json:"pagination,omitempty"`  // Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
+	IssueNumber Values `json:"issueNumber,omitempty"` // Identifies the issue of publication; for example, "iii" or "2".
+	PageEnd     Values `json:"pageEnd,omitempty"`     // The page on which the work ends; for example "138" or "xvi".
+	PageStart   Values `json:"pageStart,omitempty"`   // The page on which the work starts; for example "135" or "xiii".
+	Pagination  Values `json:"pagination,omitempty"`  // Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
 }
 
 // A part of a successively published publication such as a periodical or multi-volume work, often numbered. It may represent a time span, such as a year.\n\nSee also [blog post](http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html).
 type PublicationVolume struct {
 	CreativeWork
 
-	PageEnd      interface{} `json:"pageEnd,omitempty"`      // The page on which the work ends; for example "138" or "xvi".
-	PageStart    interface{} `json:"pageStart,omitempty"`    // The page on which the work starts; for example "135" or "xiii".
-	Pagination   interface{} `json:"pagination,omitempty"`   // Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
-	VolumeNumber interface{} `json:"volumeNumber,omitempty"` // Identifies the volume of publication or multi-part work; for example, "iii" or "2".
+	PageEnd      Values `json:"pageEnd,omitempty"`      // The page on which the work ends; for example "138" or "xvi".
+	PageStart    Values `json:"pageStart,omitempty"`    // The page on which the work starts; for example "135" or "xiii".
+	Pagination   Values `json:"pagination,omitempty"`   // Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
+	VolumeNumber Values `json:"volumeNumber,omitempty"` // Identifies the volume of publication or multi-part work; for example, "iii" or "2".
 }
 
 // A QAPage is a WebPage focussed on a specific Question and its Answer(s), e.g. in a question answering site or documenting Frequently Asked Questions (FAQs).
@@ -7574,46 +7574,46 @@ type QAPage struct {
 type QualitativeValue struct {
 	Enumeration
 
-	AdditionalProperty interface{} `json:"additionalProperty,omitempty"` /*
+	AdditionalProperty Values `json:"additionalProperty,omitempty"` /*
 	A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
 	*/
-	Equal          interface{} `json:"equal,omitempty"`          // This ordering relation for qualitative values indicates that the subject is equal to the object.
-	Greater        interface{} `json:"greater,omitempty"`        // This ordering relation for qualitative values indicates that the subject is greater than the object.
-	GreaterOrEqual interface{} `json:"greaterOrEqual,omitempty"` // This ordering relation for qualitative values indicates that the subject is greater than or equal to the object.
-	Lesser         interface{} `json:"lesser,omitempty"`         // This ordering relation for qualitative values indicates that the subject is lesser than the object.
-	LesserOrEqual  interface{} `json:"lesserOrEqual,omitempty"`  // This ordering relation for qualitative values indicates that the subject is lesser than or equal to the object.
-	NonEqual       interface{} `json:"nonEqual,omitempty"`       // This ordering relation for qualitative values indicates that the subject is not equal to the object.
-	ValueReference interface{} `json:"valueReference,omitempty"` // A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.
+	Equal          Values `json:"equal,omitempty"`          // This ordering relation for qualitative values indicates that the subject is equal to the object.
+	Greater        Values `json:"greater,omitempty"`        // This ordering relation for qualitative values indicates that the subject is greater than the object.
+	GreaterOrEqual Values `json:"greaterOrEqual,omitempty"` // This ordering relation for qualitative values indicates that the subject is greater than or equal to the object.
+	Lesser         Values `json:"lesser,omitempty"`         // This ordering relation for qualitative values indicates that the subject is lesser than the object.
+	LesserOrEqual  Values `json:"lesserOrEqual,omitempty"`  // This ordering relation for qualitative values indicates that the subject is lesser than or equal to the object.
+	NonEqual       Values `json:"nonEqual,omitempty"`       // This ordering relation for qualitative values indicates that the subject is not equal to the object.
+	ValueReference Values `json:"valueReference,omitempty"` // A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.
 }
 
 //  A point value or interval for product characteristics and other purposes.
 type QuantitativeValue struct {
 	StructuredValue
 
-	AdditionalProperty interface{} `json:"additionalProperty,omitempty"` /*
+	AdditionalProperty Values `json:"additionalProperty,omitempty"` /*
 	A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color, https://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
 	*/
-	MaxValue interface{} `json:"maxValue,omitempty"` // The upper value of some characteristic or property.
-	MinValue interface{} `json:"minValue,omitempty"` // The lower value of some characteristic or property.
-	UnitCode interface{} `json:"unitCode,omitempty"` // The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
-	UnitText interface{} `json:"unitText,omitempty"` /*
+	MaxValue Values `json:"maxValue,omitempty"` // The upper value of some characteristic or property.
+	MinValue Values `json:"minValue,omitempty"` // The lower value of some characteristic or property.
+	UnitCode Values `json:"unitCode,omitempty"` // The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
+	UnitText Values `json:"unitText,omitempty"` /*
 	A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for
 	<a href='unitCode'>unitCode</a>.
 	*/
-	Value          interface{} `json:"value,omitempty"`          // The value of the quantitative value or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
-	ValueReference interface{} `json:"valueReference,omitempty"` // A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.
+	Value          Values `json:"value,omitempty"`          // The value of the quantitative value or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+	ValueReference Values `json:"valueReference,omitempty"` // A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement.
 }
 
 // A statistical distribution of values.
 type QuantitativeValueDistribution struct {
 	StructuredValue
 
-	Duration     interface{} `json:"duration,omitempty"`     // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
-	Median       interface{} `json:"median,omitempty"`       // The median value.
-	Percentile10 interface{} `json:"percentile10,omitempty"` // The 10th percentile value.
-	Percentile25 interface{} `json:"percentile25,omitempty"` // The 25th percentile value.
-	Percentile75 interface{} `json:"percentile75,omitempty"` // The 75th percentile value.
-	Percentile90 interface{} `json:"percentile90,omitempty"` // The 90th percentile value.
+	Duration     Values `json:"duration,omitempty"`     // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
+	Median       Values `json:"median,omitempty"`       // The median value.
+	Percentile10 Values `json:"percentile10,omitempty"` // The 10th percentile value.
+	Percentile25 Values `json:"percentile25,omitempty"` // The 25th percentile value.
+	Percentile75 Values `json:"percentile75,omitempty"` // The 75th percentile value.
+	Percentile90 Values `json:"percentile90,omitempty"` // The 90th percentile value.
 }
 
 // Quantities such as distance, time, mass, weight, etc. Particular instances of say Mass are entities like '3 Kg' or '4 milligrams'.
@@ -7625,10 +7625,10 @@ type Quantity struct {
 type Question struct {
 	Comment
 
-	AcceptedAnswer  interface{} `json:"acceptedAnswer,omitempty"`  // The answer(s) that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author.
-	AnswerCount     interface{} `json:"answerCount,omitempty"`     // The number of answers this question has received.
-	EduQuestionType interface{} `json:"eduQuestionType,omitempty"` // For questions that are part of learning resources (e.g. Quiz), eduQuestionType indicates the format of question being given. Example: "Multiple choice", "Open ended", "Flashcard".
-	SuggestedAnswer interface{} `json:"suggestedAnswer,omitempty"` // An answer (possibly one of several, possibly incorrect) to a Question, e.g. on a Question/Answer site.
+	AcceptedAnswer  Values `json:"acceptedAnswer,omitempty"`  // The answer(s) that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author.
+	AnswerCount     Values `json:"answerCount,omitempty"`     // The number of answers this question has received.
+	EduQuestionType Values `json:"eduQuestionType,omitempty"` // For questions that are part of learning resources (e.g. Quiz), eduQuestionType indicates the format of question being given. Example: "Multiple choice", "Open ended", "Flashcard".
+	SuggestedAnswer Values `json:"suggestedAnswer,omitempty"` // An answer (possibly one of several, possibly incorrect) to a Question, e.g. on a Question/Answer site.
 }
 
 // Quiz: A test of knowledge, skills and abilities.
@@ -7640,7 +7640,7 @@ type Quiz struct {
 type Quotation struct {
 	CreativeWork
 
-	SpokenByCharacter interface{} `json:"spokenByCharacter,omitempty"` // The (e.g. fictional) character, Person or Organization to whom the quotation is attributed within the containing CreativeWork.
+	SpokenByCharacter Values `json:"spokenByCharacter,omitempty"` // The (e.g. fictional) character, Person or Organization to whom the quotation is attributed within the containing CreativeWork.
 }
 
 // An agent quotes/estimates/appraises an object/product/service with a price at a location/store.
@@ -7687,20 +7687,20 @@ type RadioSeason struct {
 type RadioSeries struct {
 	CreativeWorkSeries
 
-	Actor             interface{} `json:"actor,omitempty"`             // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
-	Actors            interface{} `json:"actors,omitempty"`            // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
-	ContainsSeason    interface{} `json:"containsSeason,omitempty"`    // A season that is part of the media series.
-	Director          interface{} `json:"director,omitempty"`          // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
-	Directors         interface{} `json:"directors,omitempty"`         // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
-	Episode           interface{} `json:"episode,omitempty"`           // An episode of a tv, radio or game media within a series or season.
-	Episodes          interface{} `json:"episodes,omitempty"`          // An episode of a TV/radio series or season.
-	MusicBy           interface{} `json:"musicBy,omitempty"`           // The composer of the soundtrack.
-	NumberOfEpisodes  interface{} `json:"numberOfEpisodes,omitempty"`  // The number of episodes in this season or series.
-	NumberOfSeasons   interface{} `json:"numberOfSeasons,omitempty"`   // The number of seasons in this series.
-	ProductionCompany interface{} `json:"productionCompany,omitempty"` // The production company or studio responsible for the item e.g. series, video game, episode etc.
-	Season            interface{} `json:"season,omitempty"`            // A season in a media series.
-	Seasons           interface{} `json:"seasons,omitempty"`           // A season in a media series.
-	Trailer           interface{} `json:"trailer,omitempty"`           // The trailer of a movie or tv/radio series, season, episode, etc.
+	Actor             Values `json:"actor,omitempty"`             // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+	Actors            Values `json:"actors,omitempty"`            // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
+	ContainsSeason    Values `json:"containsSeason,omitempty"`    // A season that is part of the media series.
+	Director          Values `json:"director,omitempty"`          // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
+	Directors         Values `json:"directors,omitempty"`         // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
+	Episode           Values `json:"episode,omitempty"`           // An episode of a tv, radio or game media within a series or season.
+	Episodes          Values `json:"episodes,omitempty"`          // An episode of a TV/radio series or season.
+	MusicBy           Values `json:"musicBy,omitempty"`           // The composer of the soundtrack.
+	NumberOfEpisodes  Values `json:"numberOfEpisodes,omitempty"`  // The number of episodes in this season or series.
+	NumberOfSeasons   Values `json:"numberOfSeasons,omitempty"`   // The number of seasons in this series.
+	ProductionCompany Values `json:"productionCompany,omitempty"` // The production company or studio responsible for the item e.g. series, video game, episode etc.
+	Season            Values `json:"season,omitempty"`            // A season in a media series.
+	Seasons           Values `json:"seasons,omitempty"`           // A season in a media series.
+	Trailer           Values `json:"trailer,omitempty"`           // The trailer of a movie or tv/radio series, season, episode, etc.
 }
 
 // A radio station.
@@ -7712,12 +7712,12 @@ type RadioStation struct {
 type Rating struct {
 	Intangible
 
-	Author            interface{} `json:"author,omitempty"`            // The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.
-	BestRating        interface{} `json:"bestRating,omitempty"`        // The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.
-	RatingExplanation interface{} `json:"ratingExplanation,omitempty"` // A short explanation (e.g. one to two sentences) providing background context and other information that led to the conclusion expressed in the rating. This is particularly applicable to ratings associated with "fact check" markup using [[ClaimReview]].
-	RatingValue       interface{} `json:"ratingValue,omitempty"`       // The rating for the content.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
-	ReviewAspect      interface{} `json:"reviewAspect,omitempty"`      // This Review or Rating is relevant to this part or facet of the itemReviewed.
-	WorstRating       interface{} `json:"worstRating,omitempty"`       // The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.
+	Author            Values `json:"author,omitempty"`            // The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.
+	BestRating        Values `json:"bestRating,omitempty"`        // The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.
+	RatingExplanation Values `json:"ratingExplanation,omitempty"` // A short explanation (e.g. one to two sentences) providing background context and other information that led to the conclusion expressed in the rating. This is particularly applicable to ratings associated with "fact check" markup using [[ClaimReview]].
+	RatingValue       Values `json:"ratingValue,omitempty"`       // The rating for the content.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+	ReviewAspect      Values `json:"reviewAspect,omitempty"`      // This Review or Rating is relevant to this part or facet of the itemReviewed.
+	WorstRating       Values `json:"worstRating,omitempty"`       // The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.
 }
 
 // The act of responding instinctively and emotionally to an object, expressing a sentiment.
@@ -7743,39 +7743,39 @@ A [[RealEstateListing]] is a listing that describes one or more real-estate [[Of
 type RealEstateListing struct {
 	WebPage
 
-	DatePosted  interface{} `json:"datePosted,omitempty"`  // Publication date of an online listing.
-	LeaseLength interface{} `json:"leaseLength,omitempty"` // Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.
+	DatePosted  Values `json:"datePosted,omitempty"`  // Publication date of an online listing.
+	LeaseLength Values `json:"leaseLength,omitempty"` // Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.
 }
 
 // The act of physically/electronically taking delivery of an object that has been transferred from an origin to a destination. Reciprocal of SendAction.\n\nRelated actions:\n\n* [[SendAction]]: The reciprocal of ReceiveAction.\n* [[TakeAction]]: Unlike TakeAction, ReceiveAction does not imply that the ownership has been transfered (e.g. I can receive a package, but it does not mean the package is now mine).
 type ReceiveAction struct {
 	TransferAction
 
-	DeliveryMethod interface{} `json:"deliveryMethod,omitempty"` // A sub property of instrument. The method of delivery.
-	Sender         interface{} `json:"sender,omitempty"`         // A sub property of participant. The participant who is at the sending end of the action.
+	DeliveryMethod Values `json:"deliveryMethod,omitempty"` // A sub property of instrument. The method of delivery.
+	Sender         Values `json:"sender,omitempty"`         // A sub property of participant. The participant who is at the sending end of the action.
 }
 
 // A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via [[suitableForDiet]]. The [[keywords]] property can also be used to add more detail.
 type Recipe struct {
 	HowTo
 
-	CookTime           interface{} `json:"cookTime,omitempty"`           // The time it takes to actually cook the dish, in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
-	CookingMethod      interface{} `json:"cookingMethod,omitempty"`      // The method of cooking, such as Frying, Steaming, ...
-	Ingredients        interface{} `json:"ingredients,omitempty"`        // A single ingredient used in the recipe, e.g. sugar, flour or garlic.
-	Nutrition          interface{} `json:"nutrition,omitempty"`          // Nutrition information about the recipe or menu item.
-	RecipeCategory     interface{} `json:"recipeCategory,omitempty"`     // The category of the recipe—for example, appetizer, entree, etc.
-	RecipeCuisine      interface{} `json:"recipeCuisine,omitempty"`      // The cuisine of the recipe (for example, French or Ethiopian).
-	RecipeIngredient   interface{} `json:"recipeIngredient,omitempty"`   // A single ingredient used in the recipe, e.g. sugar, flour or garlic.
-	RecipeInstructions interface{} `json:"recipeInstructions,omitempty"` // A step in making the recipe, in the form of a single item (document, video, etc.) or an ordered list with HowToStep and/or HowToSection items.
-	RecipeYield        interface{} `json:"recipeYield,omitempty"`        // The quantity produced by the recipe (for example, number of people served, number of servings, etc).
-	SuitableForDiet    interface{} `json:"suitableForDiet,omitempty"`    // Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc.
+	CookTime           Values `json:"cookTime,omitempty"`           // The time it takes to actually cook the dish, in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
+	CookingMethod      Values `json:"cookingMethod,omitempty"`      // The method of cooking, such as Frying, Steaming, ...
+	Ingredients        Values `json:"ingredients,omitempty"`        // A single ingredient used in the recipe, e.g. sugar, flour or garlic.
+	Nutrition          Values `json:"nutrition,omitempty"`          // Nutrition information about the recipe or menu item.
+	RecipeCategory     Values `json:"recipeCategory,omitempty"`     // The category of the recipe—for example, appetizer, entree, etc.
+	RecipeCuisine      Values `json:"recipeCuisine,omitempty"`      // The cuisine of the recipe (for example, French or Ethiopian).
+	RecipeIngredient   Values `json:"recipeIngredient,omitempty"`   // A single ingredient used in the recipe, e.g. sugar, flour or garlic.
+	RecipeInstructions Values `json:"recipeInstructions,omitempty"` // A step in making the recipe, in the form of a single item (document, video, etc.) or an ordered list with HowToStep and/or HowToSection items.
+	RecipeYield        Values `json:"recipeYield,omitempty"`        // The quantity produced by the recipe (for example, number of people served, number of servings, etc).
+	SuitableForDiet    Values `json:"suitableForDiet,omitempty"`    // Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc.
 }
 
 // [[Recommendation]] is a type of [[Review]] that suggests or proposes something as the best option or best course of action. Recommendations may be for products or services, or other concrete things, as in the case of a ranked list or product guide. A [[Guide]] may list multiple recommendations for different categories. For example, in a [[Guide]] about which TVs to buy, the author may have several [[Recommendation]]s.
 type Recommendation struct {
 	Review
 
-	Category interface{} `json:"category,omitempty"` // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+	Category Values `json:"category,omitempty"` // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
 }
 
 // A recommended dosing schedule for a drug or supplement as prescribed or recommended by an authority or by the drug/supplement's manufacturer. Capture the recommending authority in the recognizingAuthority property of MedicalEntity.
@@ -7807,51 +7807,51 @@ type RejectAction struct {
 type RentAction struct {
 	TradeAction
 
-	Landlord        interface{} `json:"landlord,omitempty"`        // A sub property of participant. The owner of the real estate property.
-	RealEstateAgent interface{} `json:"realEstateAgent,omitempty"` // A sub property of participant. The real estate agent involved in the action.
+	Landlord        Values `json:"landlord,omitempty"`        // A sub property of participant. The owner of the real estate property.
+	RealEstateAgent Values `json:"realEstateAgent,omitempty"` // A sub property of participant. The real estate agent involved in the action.
 }
 
 // A reservation for a rental car.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
 type RentalCarReservation struct {
 	Reservation
 
-	DropoffLocation interface{} `json:"dropoffLocation,omitempty"` // Where a rental car can be dropped off.
-	DropoffTime     interface{} `json:"dropoffTime,omitempty"`     // When a rental car can be dropped off.
-	PickupLocation  interface{} `json:"pickupLocation,omitempty"`  // Where a taxi will pick up a passenger or a rental car can be picked up.
-	PickupTime      interface{} `json:"pickupTime,omitempty"`      // When a taxi will pickup a passenger or a rental car can be picked up.
+	DropoffLocation Values `json:"dropoffLocation,omitempty"` // Where a rental car can be dropped off.
+	DropoffTime     Values `json:"dropoffTime,omitempty"`     // When a rental car can be dropped off.
+	PickupLocation  Values `json:"pickupLocation,omitempty"`  // Where a taxi will pick up a passenger or a rental car can be picked up.
+	PickupTime      Values `json:"pickupTime,omitempty"`      // When a taxi will pickup a passenger or a rental car can be picked up.
 }
 
 // A structured value representing repayment.
 type RepaymentSpecification struct {
 	StructuredValue
 
-	DownPayment            interface{} `json:"downPayment,omitempty"`            // a type of payment made in cash during the onset of the purchase of an expensive good/service. The payment typically represents only a percentage of the full purchase price.
-	EarlyPrepaymentPenalty interface{} `json:"earlyPrepaymentPenalty,omitempty"` // The amount to be paid as a penalty in the event of early payment of the loan.
-	LoanPaymentAmount      interface{} `json:"loanPaymentAmount,omitempty"`      // The amount of money to pay in a single payment.
-	LoanPaymentFrequency   interface{} `json:"loanPaymentFrequency,omitempty"`   // Frequency of payments due, i.e. number of months between payments. This is defined as a frequency, i.e. the reciprocal of a period of time.
-	NumberOfLoanPayments   interface{} `json:"numberOfLoanPayments,omitempty"`   // The number of payments contractually required at origination to repay the loan. For monthly paying loans this is the number of months from the contractual first payment date to the maturity date.
+	DownPayment            Values `json:"downPayment,omitempty"`            // a type of payment made in cash during the onset of the purchase of an expensive good/service. The payment typically represents only a percentage of the full purchase price.
+	EarlyPrepaymentPenalty Values `json:"earlyPrepaymentPenalty,omitempty"` // The amount to be paid as a penalty in the event of early payment of the loan.
+	LoanPaymentAmount      Values `json:"loanPaymentAmount,omitempty"`      // The amount of money to pay in a single payment.
+	LoanPaymentFrequency   Values `json:"loanPaymentFrequency,omitempty"`   // Frequency of payments due, i.e. number of months between payments. This is defined as a frequency, i.e. the reciprocal of a period of time.
+	NumberOfLoanPayments   Values `json:"numberOfLoanPayments,omitempty"`   // The number of payments contractually required at origination to repay the loan. For monthly paying loans this is the number of months from the contractual first payment date to the maturity date.
 }
 
 // The act of editing a recipient by replacing an old object with a new object.
 type ReplaceAction struct {
 	UpdateAction
 
-	Replacee interface{} `json:"replacee,omitempty"` // A sub property of object. The object that is being replaced.
-	Replacer interface{} `json:"replacer,omitempty"` // A sub property of object. The object that replaces.
+	Replacee Values `json:"replacee,omitempty"` // A sub property of object. The object that is being replaced.
+	Replacer Values `json:"replacer,omitempty"` // A sub property of object. The object that replaces.
 }
 
 // The act of responding to a question/message asked/sent by the object. Related to [[AskAction]]\n\nRelated actions:\n\n* [[AskAction]]: Appears generally as an origin of a ReplyAction.
 type ReplyAction struct {
 	CommunicateAction
 
-	ResultComment interface{} `json:"resultComment,omitempty"` // A sub property of result. The Comment created or sent as a result of this action.
+	ResultComment Values `json:"resultComment,omitempty"` // A sub property of result. The Comment created or sent as a result of this action.
 }
 
 // A Report generated by governmental or non-governmental organization.
 type Report struct {
 	Article
 
-	ReportNumber interface{} `json:"reportNumber,omitempty"` // The number or other unique designator assigned to a Report by the publishing organization.
+	ReportNumber Values `json:"reportNumber,omitempty"` // The number or other unique designator assigned to a Report by the publishing organization.
 }
 
 /*
@@ -7892,26 +7892,26 @@ type Researcher struct {
 type Reservation struct {
 	Intangible
 
-	BookingAgent          interface{} `json:"bookingAgent,omitempty"`          // 'bookingAgent' is an out-dated term indicating a 'broker' that serves as a booking agent.
-	BookingTime           interface{} `json:"bookingTime,omitempty"`           // The date and time the reservation was booked.
-	Broker                interface{} `json:"broker,omitempty"`                // An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
-	ModifiedTime          interface{} `json:"modifiedTime,omitempty"`          // The date and time the reservation was modified.
-	PriceCurrency         interface{} `json:"priceCurrency,omitempty"`         // The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
-	ProgramMembershipUsed interface{} `json:"programMembershipUsed,omitempty"` // Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the reservation.
-	Provider              interface{} `json:"provider,omitempty"`              // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
-	ReservationFor        interface{} `json:"reservationFor,omitempty"`        // The thing -- flight, event, restaurant,etc. being reserved.
-	ReservationId         interface{} `json:"reservationId,omitempty"`         // A unique identifier for the reservation.
-	ReservationStatus     interface{} `json:"reservationStatus,omitempty"`     // The current status of the reservation.
-	ReservedTicket        interface{} `json:"reservedTicket,omitempty"`        // A ticket associated with the reservation.
-	TotalPrice            interface{} `json:"totalPrice,omitempty"`            // The total price for the reservation or ticket, including applicable taxes, shipping, etc.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
-	UnderName             interface{} `json:"underName,omitempty"`             // The person or organization the reservation or ticket is for.
+	BookingAgent          Values `json:"bookingAgent,omitempty"`          // 'bookingAgent' is an out-dated term indicating a 'broker' that serves as a booking agent.
+	BookingTime           Values `json:"bookingTime,omitempty"`           // The date and time the reservation was booked.
+	Broker                Values `json:"broker,omitempty"`                // An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
+	ModifiedTime          Values `json:"modifiedTime,omitempty"`          // The date and time the reservation was modified.
+	PriceCurrency         Values `json:"priceCurrency,omitempty"`         // The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
+	ProgramMembershipUsed Values `json:"programMembershipUsed,omitempty"` // Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the reservation.
+	Provider              Values `json:"provider,omitempty"`              // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+	ReservationFor        Values `json:"reservationFor,omitempty"`        // The thing -- flight, event, restaurant,etc. being reserved.
+	ReservationId         Values `json:"reservationId,omitempty"`         // A unique identifier for the reservation.
+	ReservationStatus     Values `json:"reservationStatus,omitempty"`     // The current status of the reservation.
+	ReservedTicket        Values `json:"reservedTicket,omitempty"`        // A ticket associated with the reservation.
+	TotalPrice            Values `json:"totalPrice,omitempty"`            // The total price for the reservation or ticket, including applicable taxes, shipping, etc.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+	UnderName             Values `json:"underName,omitempty"`             // The person or organization the reservation or ticket is for.
 }
 
 // A group of multiple reservations with common values for all sub-reservations.
 type ReservationPackage struct {
 	Reservation
 
-	SubReservation interface{} `json:"subReservation,omitempty"` // The individual reservations included in the package. Typically a repeated property.
+	SubReservation Values `json:"subReservation,omitempty"` // The individual reservations included in the package. Typically a repeated property.
 }
 
 // Enumerated status values for Reservation.
@@ -7933,7 +7933,7 @@ type Reservoir struct {
 type Residence struct {
 	Place
 
-	AccommodationFloorPlan interface{} `json:"accommodationFloorPlan,omitempty"` // A floorplan of some [[Accommodation]].
+	AccommodationFloorPlan Values `json:"accommodationFloorPlan,omitempty"` // A floorplan of some [[Accommodation]].
 }
 
 /*
@@ -7965,7 +7965,7 @@ type ResumeAction struct {
 type ReturnAction struct {
 	TransferAction
 
-	Recipient interface{} `json:"recipient,omitempty"` // A sub property of participant. The participant who is at the receiving end of the action.
+	Recipient Values `json:"recipient,omitempty"` // A sub property of participant. The participant who is at the receiving end of the action.
 }
 
 // Enumerates several kinds of policies for product return fees.
@@ -7987,22 +7987,22 @@ type ReturnMethodEnumeration struct {
 type Review struct {
 	CreativeWork
 
-	AssociatedClaimReview interface{} `json:"associatedClaimReview,omitempty"` // An associated [[ClaimReview]], related by specific common content, topic or claim. The expectation is that this property would be most typically used in cases where a single activity is conducting both claim reviews and media reviews, in which case [[relatedMediaReview]] would commonly be used on a [[ClaimReview]], while [[relatedClaimReview]] would be used on [[MediaReview]].
-	AssociatedMediaReview interface{} `json:"associatedMediaReview,omitempty"` // An associated [[MediaReview]], related by specific common content, topic or claim. The expectation is that this property would be most typically used in cases where a single activity is conducting both claim reviews and media reviews, in which case [[relatedMediaReview]] would commonly be used on a [[ClaimReview]], while [[relatedClaimReview]] would be used on [[MediaReview]].
-	AssociatedReview      interface{} `json:"associatedReview,omitempty"`      // An associated [[Review]].
-	ItemReviewed          interface{} `json:"itemReviewed,omitempty"`          // The item that is being reviewed/rated.
-	NegativeNotes         interface{} `json:"negativeNotes,omitempty"`         // Indicates, in the context of a [[Review]] (e.g. framed as 'pro' vs 'con' considerations), negative considerations - either as unstructured text, or a list.
-	PositiveNotes         interface{} `json:"positiveNotes,omitempty"`         // Indicates, in the context of a [[Review]] (e.g. framed as 'pro' vs 'con' considerations), positive considerations - either as unstructured text, or a list.
-	ReviewAspect          interface{} `json:"reviewAspect,omitempty"`          // This Review or Rating is relevant to this part or facet of the itemReviewed.
-	ReviewBody            interface{} `json:"reviewBody,omitempty"`            // The actual body of the review.
-	ReviewRating          interface{} `json:"reviewRating,omitempty"`          // The rating given in this review. Note that reviews can themselves be rated. The ```reviewRating``` applies to rating given by the review. The [[aggregateRating]] property applies to the review itself, as a creative work.
+	AssociatedClaimReview Values `json:"associatedClaimReview,omitempty"` // An associated [[ClaimReview]], related by specific common content, topic or claim. The expectation is that this property would be most typically used in cases where a single activity is conducting both claim reviews and media reviews, in which case [[relatedMediaReview]] would commonly be used on a [[ClaimReview]], while [[relatedClaimReview]] would be used on [[MediaReview]].
+	AssociatedMediaReview Values `json:"associatedMediaReview,omitempty"` // An associated [[MediaReview]], related by specific common content, topic or claim. The expectation is that this property would be most typically used in cases where a single activity is conducting both claim reviews and media reviews, in which case [[relatedMediaReview]] would commonly be used on a [[ClaimReview]], while [[relatedClaimReview]] would be used on [[MediaReview]].
+	AssociatedReview      Values `json:"associatedReview,omitempty"`      // An associated [[Review]].
+	ItemReviewed          Values `json:"itemReviewed,omitempty"`          // The item that is being reviewed/rated.
+	NegativeNotes         Values `json:"negativeNotes,omitempty"`         // Indicates, in the context of a [[Review]] (e.g. framed as 'pro' vs 'con' considerations), negative considerations - either as unstructured text, or a list.
+	PositiveNotes         Values `json:"positiveNotes,omitempty"`         // Indicates, in the context of a [[Review]] (e.g. framed as 'pro' vs 'con' considerations), positive considerations - either as unstructured text, or a list.
+	ReviewAspect          Values `json:"reviewAspect,omitempty"`          // This Review or Rating is relevant to this part or facet of the itemReviewed.
+	ReviewBody            Values `json:"reviewBody,omitempty"`            // The actual body of the review.
+	ReviewRating          Values `json:"reviewRating,omitempty"`          // The rating given in this review. Note that reviews can themselves be rated. The ```reviewRating``` applies to rating given by the review. The [[aggregateRating]] property applies to the review itself, as a creative work.
 }
 
 // The act of producing a balanced opinion about the object for an audience. An agent reviews an object with participants resulting in a review.
 type ReviewAction struct {
 	AssessAction
 
-	ResultReview interface{} `json:"resultReview,omitempty"` // A sub property of result. The review that resulted in the performing of the action.
+	ResultReview Values `json:"resultReview,omitempty"` // A sub property of result. The review that resulted in the performing of the action.
 }
 
 // A [[NewsArticle]] and [[CriticReview]] providing a professional critic's assessment of a service, product, performance, or artistic or literary work.
@@ -8020,10 +8020,10 @@ type RiverBodyOfWater struct {
 type Role struct {
 	Intangible
 
-	EndDate       interface{} `json:"endDate,omitempty"`       // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
-	NamedPosition interface{} `json:"namedPosition,omitempty"` // A position played, performed or filled by a person or organization, as part of an organization. For example, an athlete in a SportsTeam might play in the position named 'Quarterback'.
-	RoleName      interface{} `json:"roleName,omitempty"`      // A role played, performed or filled by a person or organization. For example, the team of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer'; or an athlete in a SportsTeam might play in the position named 'Quarterback'.
-	StartDate     interface{} `json:"startDate,omitempty"`     // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	EndDate       Values `json:"endDate,omitempty"`       // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	NamedPosition Values `json:"namedPosition,omitempty"` // A position played, performed or filled by a person or organization, as part of an organization. For example, an athlete in a SportsTeam might play in the position named 'Quarterback'.
+	RoleName      Values `json:"roleName,omitempty"`      // A role played, performed or filled by a person or organization. For example, the team of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer'; or an athlete in a SportsTeam might play in the position named 'Quarterback'.
+	StartDate     Values `json:"startDate,omitempty"`     // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
 }
 
 // A roofing contractor.
@@ -8044,9 +8044,9 @@ type Room struct {
 type RsvpAction struct {
 	InformAction
 
-	AdditionalNumberOfGuests interface{} `json:"additionalNumberOfGuests,omitempty"` // If responding yes, the number of guests who will attend in addition to the invitee.
-	Comment                  interface{} `json:"comment,omitempty"`                  // Comments, typically from users.
-	RsvpResponse             interface{} `json:"rsvpResponse,omitempty"`             // The response (yes, no, maybe) to the RSVP.
+	AdditionalNumberOfGuests Values `json:"additionalNumberOfGuests,omitempty"` // If responding yes, the number of guests who will attend in addition to the invitee.
+	Comment                  Values `json:"comment,omitempty"`                  // Comments, typically from users.
+	RsvpResponse             Values `json:"rsvpResponse,omitempty"`             // The response (yes, no, maybe) to the RSVP.
 }
 
 // RsvpResponseType is an enumeration type whose instances represent responding to an RSVP request.
@@ -8072,27 +8072,27 @@ A schedule defines a repeating time period used to describe a regularly occurrin
 type Schedule struct {
 	Intangible
 
-	ByDay       interface{} `json:"byDay,omitempty"`       // Defines the day(s) of the week on which a recurring [[Event]] takes place. May be specified using either [[DayOfWeek]], or alternatively [[Text]] conforming to iCal's syntax for byDay recurrence rules.
-	ByMonth     interface{} `json:"byMonth,omitempty"`     // Defines the month(s) of the year on which a recurring [[Event]] takes place. Specified as an [[Integer]] between 1-12. January is 1.
-	ByMonthDay  interface{} `json:"byMonthDay,omitempty"`  // Defines the day(s) of the month on which a recurring [[Event]] takes place. Specified as an [[Integer]] between 1-31.
-	ByMonthWeek interface{} `json:"byMonthWeek,omitempty"` // Defines the week(s) of the month on which a recurring Event takes place. Specified as an Integer between 1-5. For clarity, byMonthWeek is best used in conjunction with byDay to indicate concepts like the first and third Mondays of a month.
-	Duration    interface{} `json:"duration,omitempty"`    // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
-	EndDate     interface{} `json:"endDate,omitempty"`     // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
-	EndTime     interface{} `json:"endTime,omitempty"`     // The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
-	ExceptDate  interface{} `json:"exceptDate,omitempty"`  /*
+	ByDay       Values `json:"byDay,omitempty"`       // Defines the day(s) of the week on which a recurring [[Event]] takes place. May be specified using either [[DayOfWeek]], or alternatively [[Text]] conforming to iCal's syntax for byDay recurrence rules.
+	ByMonth     Values `json:"byMonth,omitempty"`     // Defines the month(s) of the year on which a recurring [[Event]] takes place. Specified as an [[Integer]] between 1-12. January is 1.
+	ByMonthDay  Values `json:"byMonthDay,omitempty"`  // Defines the day(s) of the month on which a recurring [[Event]] takes place. Specified as an [[Integer]] between 1-31.
+	ByMonthWeek Values `json:"byMonthWeek,omitempty"` // Defines the week(s) of the month on which a recurring Event takes place. Specified as an Integer between 1-5. For clarity, byMonthWeek is best used in conjunction with byDay to indicate concepts like the first and third Mondays of a month.
+	Duration    Values `json:"duration,omitempty"`    // The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).
+	EndDate     Values `json:"endDate,omitempty"`     // The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	EndTime     Values `json:"endTime,omitempty"`     // The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
+	ExceptDate  Values `json:"exceptDate,omitempty"`  /*
 	Defines a [[Date]] or [[DateTime]] during which a scheduled [[Event]] will not take place. The property allows exceptions to
 	      a [[Schedule]] to be specified. If an exception is specified as a [[DateTime]] then only the event that would have started at that specific date and time
 	      should be excluded from the schedule. If an exception is specified as a [[Date]] then any event that is scheduled for that 24 hour period should be
 	      excluded from the schedule. This allows a whole day to be excluded from the schedule without having to itemise every scheduled event.
 	*/
-	RepeatCount     interface{} `json:"repeatCount,omitempty"`     // Defines the number of times a recurring [[Event]] will take place
-	RepeatFrequency interface{} `json:"repeatFrequency,omitempty"` /*
+	RepeatCount     Values `json:"repeatCount,omitempty"`     // Defines the number of times a recurring [[Event]] will take place
+	RepeatFrequency Values `json:"repeatFrequency,omitempty"` /*
 	Defines the frequency at which [[Event]]s will occur according to a schedule [[Schedule]]. The intervals between
 	      events should be defined as a [[Duration]] of time.
 	*/
-	ScheduleTimezone interface{} `json:"scheduleTimezone,omitempty"` // Indicates the timezone for which the time(s) indicated in the [[Schedule]] are given. The value provided should be among those listed in the IANA Time Zone Database.
-	StartDate        interface{} `json:"startDate,omitempty"`        // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
-	StartTime        interface{} `json:"startTime,omitempty"`        // The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
+	ScheduleTimezone Values `json:"scheduleTimezone,omitempty"` // Indicates the timezone for which the time(s) indicated in the [[Schedule]] are given. The value provided should be among those listed in the IANA Time Zone Database.
+	StartDate        Values `json:"startDate,omitempty"`        // The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+	StartTime        Values `json:"startTime,omitempty"`        // The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
 }
 
 // Scheduling future actions, events, or tasks.\n\nRelated actions:\n\n* [[ReserveAction]]: Unlike ReserveAction, ScheduleAction allocates future actions (e.g. an event, a task, etc) towards a time slot / spatial allocation.
@@ -8119,9 +8119,9 @@ type SchoolDistrict struct {
 type ScreeningEvent struct {
 	Event
 
-	SubtitleLanguage interface{} `json:"subtitleLanguage,omitempty"` // Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
-	VideoFormat      interface{} `json:"videoFormat,omitempty"`      // The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).
-	WorkPresented    interface{} `json:"workPresented,omitempty"`    // The movie presented during this event.
+	SubtitleLanguage Values `json:"subtitleLanguage,omitempty"` // Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
+	VideoFormat      Values `json:"videoFormat,omitempty"`      // The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).
+	WorkPresented    Values `json:"workPresented,omitempty"`    // The movie presented during this event.
 }
 
 // A piece of sculpture.
@@ -8138,7 +8138,7 @@ type SeaBodyOfWater struct {
 type SearchAction struct {
 	Action
 
-	Query interface{} `json:"query,omitempty"` // A sub property of instrument. The query used on this action.
+	Query Values `json:"query,omitempty"` // A sub property of instrument. The query used on this action.
 }
 
 // A Search and Rescue organization of some kind.
@@ -8160,17 +8160,17 @@ type Season struct {
 type Seat struct {
 	Intangible
 
-	SeatNumber  interface{} `json:"seatNumber,omitempty"`  // The location of the reserved seat (e.g., 27).
-	SeatRow     interface{} `json:"seatRow,omitempty"`     // The row location of the reserved seat (e.g., B).
-	SeatSection interface{} `json:"seatSection,omitempty"` // The section location of the reserved seat (e.g. Orchestra).
-	SeatingType interface{} `json:"seatingType,omitempty"` // The type/class of the seat.
+	SeatNumber  Values `json:"seatNumber,omitempty"`  // The location of the reserved seat (e.g., 27).
+	SeatRow     Values `json:"seatRow,omitempty"`     // The row location of the reserved seat (e.g., B).
+	SeatSection Values `json:"seatSection,omitempty"` // The section location of the reserved seat (e.g. Orchestra).
+	SeatingType Values `json:"seatingType,omitempty"` // The type/class of the seat.
 }
 
 // This is the [[Action]] of navigating to a specific [[startOffset]] timestamp within a [[VideoObject]], typically represented with a URL template structure.
 type SeekToAction struct {
 	Action
 
-	StartOffset interface{} `json:"startOffset,omitempty"` // The start time of the clip expressed as the number of seconds from the beginning of the work.
+	StartOffset Values `json:"startOffset,omitempty"` // The start time of the clip expressed as the number of seconds from the beginning of the work.
 }
 
 // A self-storage facility.
@@ -8182,16 +8182,16 @@ type SelfStorage struct {
 type SellAction struct {
 	TradeAction
 
-	Buyer           interface{} `json:"buyer,omitempty"`           // A sub property of participant. The participant/person/organization that bought the object.
-	WarrantyPromise interface{} `json:"warrantyPromise,omitempty"` // The warranty promise(s) included in the offer.
+	Buyer           Values `json:"buyer,omitempty"`           // A sub property of participant. The participant/person/organization that bought the object.
+	WarrantyPromise Values `json:"warrantyPromise,omitempty"` // The warranty promise(s) included in the offer.
 }
 
 // The act of physically/electronically dispatching an object for transfer from an origin to a destination.Related actions:\n\n* [[ReceiveAction]]: The reciprocal of SendAction.\n* [[GiveAction]]: Unlike GiveAction, SendAction does not imply the transfer of ownership (e.g. I can send you my laptop, but I'm not necessarily giving it to you).
 type SendAction struct {
 	TransferAction
 
-	DeliveryMethod interface{} `json:"deliveryMethod,omitempty"` // A sub property of instrument. The method of delivery.
-	Recipient      interface{} `json:"recipient,omitempty"`      // A sub property of participant. The participant who is at the receiving end of the action.
+	DeliveryMethod Values `json:"deliveryMethod,omitempty"` // A sub property of instrument. The method of delivery.
+	Recipient      Values `json:"recipient,omitempty"`      // A sub property of participant. The participant who is at the receiving end of the action.
 }
 
 // A Series in schema.org is a group of related items, typically but not necessarily of the same kind. See also [[CreativeWorkSeries]], [[EventSeries]].
@@ -8203,47 +8203,47 @@ type Series struct {
 type Service struct {
 	Intangible
 
-	AggregateRating  interface{} `json:"aggregateRating,omitempty"`  // The overall rating, based on a collection of reviews or ratings, of the item.
-	AreaServed       interface{} `json:"areaServed,omitempty"`       // The geographic area where a service or offered item is provided.
-	Audience         interface{} `json:"audience,omitempty"`         // An intended audience, i.e. a group for whom something was created.
-	AvailableChannel interface{} `json:"availableChannel,omitempty"` // A means of accessing the service (e.g. a phone bank, a web site, a location, etc.).
-	Award            interface{} `json:"award,omitempty"`            // An award won by or for this item.
-	Brand            interface{} `json:"brand,omitempty"`            // The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
-	Broker           interface{} `json:"broker,omitempty"`           // An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
-	Category         interface{} `json:"category,omitempty"`         // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
-	HasOfferCatalog  interface{} `json:"hasOfferCatalog,omitempty"`  // Indicates an OfferCatalog listing for this Organization, Person, or Service.
-	HoursAvailable   interface{} `json:"hoursAvailable,omitempty"`   // The hours during which this service or contact is available.
-	IsRelatedTo      interface{} `json:"isRelatedTo,omitempty"`      // A pointer to another, somehow related product (or multiple products).
-	IsSimilarTo      interface{} `json:"isSimilarTo,omitempty"`      // A pointer to another, functionally similar product (or multiple products).
-	Logo             interface{} `json:"logo,omitempty"`             // An associated logo.
-	Offers           interface{} `json:"offers,omitempty"`           /*
+	AggregateRating  Values `json:"aggregateRating,omitempty"`  // The overall rating, based on a collection of reviews or ratings, of the item.
+	AreaServed       Values `json:"areaServed,omitempty"`       // The geographic area where a service or offered item is provided.
+	Audience         Values `json:"audience,omitempty"`         // An intended audience, i.e. a group for whom something was created.
+	AvailableChannel Values `json:"availableChannel,omitempty"` // A means of accessing the service (e.g. a phone bank, a web site, a location, etc.).
+	Award            Values `json:"award,omitempty"`            // An award won by or for this item.
+	Brand            Values `json:"brand,omitempty"`            // The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+	Broker           Values `json:"broker,omitempty"`           // An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
+	Category         Values `json:"category,omitempty"`         // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+	HasOfferCatalog  Values `json:"hasOfferCatalog,omitempty"`  // Indicates an OfferCatalog listing for this Organization, Person, or Service.
+	HoursAvailable   Values `json:"hoursAvailable,omitempty"`   // The hours during which this service or contact is available.
+	IsRelatedTo      Values `json:"isRelatedTo,omitempty"`      // A pointer to another, somehow related product (or multiple products).
+	IsSimilarTo      Values `json:"isSimilarTo,omitempty"`      // A pointer to another, functionally similar product (or multiple products).
+	Logo             Values `json:"logo,omitempty"`             // An associated logo.
+	Offers           Values `json:"offers,omitempty"`           /*
 	An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
 
 	*/
-	Produces         interface{} `json:"produces,omitempty"`         // The tangible thing generated by the service, e.g. a passport, permit, etc.
-	Provider         interface{} `json:"provider,omitempty"`         // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
-	ProviderMobility interface{} `json:"providerMobility,omitempty"` // Indicates the mobility of a provided service (e.g. 'static', 'dynamic').
-	Review           interface{} `json:"review,omitempty"`           // A review of the item.
-	ServiceArea      interface{} `json:"serviceArea,omitempty"`      // The geographic area where the service is provided.
-	ServiceAudience  interface{} `json:"serviceAudience,omitempty"`  // The audience eligible for this service.
-	ServiceOutput    interface{} `json:"serviceOutput,omitempty"`    // The tangible thing generated by the service, e.g. a passport, permit, etc.
-	ServiceType      interface{} `json:"serviceType,omitempty"`      // The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
-	Slogan           interface{} `json:"slogan,omitempty"`           // A slogan or motto associated with the item.
-	TermsOfService   interface{} `json:"termsOfService,omitempty"`   // Human-readable terms of service documentation.
+	Produces         Values `json:"produces,omitempty"`         // The tangible thing generated by the service, e.g. a passport, permit, etc.
+	Provider         Values `json:"provider,omitempty"`         // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+	ProviderMobility Values `json:"providerMobility,omitempty"` // Indicates the mobility of a provided service (e.g. 'static', 'dynamic').
+	Review           Values `json:"review,omitempty"`           // A review of the item.
+	ServiceArea      Values `json:"serviceArea,omitempty"`      // The geographic area where the service is provided.
+	ServiceAudience  Values `json:"serviceAudience,omitempty"`  // The audience eligible for this service.
+	ServiceOutput    Values `json:"serviceOutput,omitempty"`    // The tangible thing generated by the service, e.g. a passport, permit, etc.
+	ServiceType      Values `json:"serviceType,omitempty"`      // The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
+	Slogan           Values `json:"slogan,omitempty"`           // A slogan or motto associated with the item.
+	TermsOfService   Values `json:"termsOfService,omitempty"`   // Human-readable terms of service documentation.
 }
 
 // A means for accessing a service, e.g. a government office location, web site, or phone number.
 type ServiceChannel struct {
 	Intangible
 
-	AvailableLanguage    interface{} `json:"availableLanguage,omitempty"`    // A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]]
-	ProcessingTime       interface{} `json:"processingTime,omitempty"`       // Estimated processing time for the service using this channel.
-	ProvidesService      interface{} `json:"providesService,omitempty"`      // The service provided by this channel.
-	ServiceLocation      interface{} `json:"serviceLocation,omitempty"`      // The location (e.g. civic structure, local business, etc.) where a person can go to access the service.
-	ServicePhone         interface{} `json:"servicePhone,omitempty"`         // The phone number to use to access the service.
-	ServicePostalAddress interface{} `json:"servicePostalAddress,omitempty"` // The address for accessing the service by mail.
-	ServiceSmsNumber     interface{} `json:"serviceSmsNumber,omitempty"`     // The number to access the service by text message.
-	ServiceUrl           interface{} `json:"serviceUrl,omitempty"`           // The website to access the service.
+	AvailableLanguage    Values `json:"availableLanguage,omitempty"`    // A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]]
+	ProcessingTime       Values `json:"processingTime,omitempty"`       // Estimated processing time for the service using this channel.
+	ProvidesService      Values `json:"providesService,omitempty"`      // The service provided by this channel.
+	ServiceLocation      Values `json:"serviceLocation,omitempty"`      // The location (e.g. civic structure, local business, etc.) where a person can go to access the service.
+	ServicePhone         Values `json:"servicePhone,omitempty"`         // The phone number to use to access the service.
+	ServicePostalAddress Values `json:"servicePostalAddress,omitempty"` // The address for accessing the service by mail.
+	ServiceSmsNumber     Values `json:"serviceSmsNumber,omitempty"`     // The number to access the service by text message.
+	ServiceUrl           Values `json:"serviceUrl,omitempty"`           // The website to access the service.
 }
 
 // The act of distributing content to people for their amusement or edification.
@@ -8260,22 +8260,22 @@ type SheetMusic struct {
 type ShippingDeliveryTime struct {
 	StructuredValue
 
-	BusinessDays interface{} `json:"businessDays,omitempty"` // Days of the week when the merchant typically operates, indicated via opening hours markup.
-	CutoffTime   interface{} `json:"cutoffTime,omitempty"`   // Order cutoff time allows merchants to describe the time after which they will no longer process orders received on that day. For orders processed after cutoff time, one day gets added to the delivery time estimate. This property is expected to be most typically used via the [[ShippingRateSettings]] publication pattern. The time is indicated using the ISO-8601 Time format, e.g. "23:30:00-05:00" would represent 6:30 pm Eastern Standard Time (EST) which is 5 hours behind Coordinated Universal Time (UTC).
-	HandlingTime interface{} `json:"handlingTime,omitempty"` // The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup. Typical properties: minValue, maxValue, unitCode (d for DAY).  This is by common convention assumed to mean business days (if a unitCode is used, coded as "d"), i.e. only counting days when the business normally operates.
-	TransitTime  interface{} `json:"transitTime,omitempty"`  // The typical delay the order has been sent for delivery and the goods reach the final customer. Typical properties: minValue, maxValue, unitCode (d for DAY).
+	BusinessDays Values `json:"businessDays,omitempty"` // Days of the week when the merchant typically operates, indicated via opening hours markup.
+	CutoffTime   Values `json:"cutoffTime,omitempty"`   // Order cutoff time allows merchants to describe the time after which they will no longer process orders received on that day. For orders processed after cutoff time, one day gets added to the delivery time estimate. This property is expected to be most typically used via the [[ShippingRateSettings]] publication pattern. The time is indicated using the ISO-8601 Time format, e.g. "23:30:00-05:00" would represent 6:30 pm Eastern Standard Time (EST) which is 5 hours behind Coordinated Universal Time (UTC).
+	HandlingTime Values `json:"handlingTime,omitempty"` // The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup. Typical properties: minValue, maxValue, unitCode (d for DAY).  This is by common convention assumed to mean business days (if a unitCode is used, coded as "d"), i.e. only counting days when the business normally operates.
+	TransitTime  Values `json:"transitTime,omitempty"`  // The typical delay the order has been sent for delivery and the goods reach the final customer. Typical properties: minValue, maxValue, unitCode (d for DAY).
 }
 
 // A ShippingRateSettings represents re-usable pieces of shipping information. It is designed for publication on an URL that may be referenced via the [[shippingSettingsLink]] property of an [[OfferShippingDetails]]. Several occurrences can be published, distinguished and matched (i.e. identified/referenced) by their different values for [[shippingLabel]].
 type ShippingRateSettings struct {
 	StructuredValue
 
-	DoesNotShip           interface{} `json:"doesNotShip,omitempty"`           // Indicates when shipping to a particular [[shippingDestination]] is not available.
-	FreeShippingThreshold interface{} `json:"freeShippingThreshold,omitempty"` // A monetary value above which (or equal to) the shipping rate becomes free. Intended to be used via an [[OfferShippingDetails]] with [[shippingSettingsLink]] matching this [[ShippingRateSettings]].
-	IsUnlabelledFallback  interface{} `json:"isUnlabelledFallback,omitempty"`  // This can be marked 'true' to indicate that some published [[DeliveryTimeSettings]] or [[ShippingRateSettings]] are intended to apply to all [[OfferShippingDetails]] published by the same merchant, when referenced by a [[shippingSettingsLink]] in those settings. It is not meaningful to use a 'true' value for this property alongside a transitTimeLabel (for [[DeliveryTimeSettings]]) or shippingLabel (for [[ShippingRateSettings]]), since this property is for use with unlabelled settings.
-	ShippingDestination   interface{} `json:"shippingDestination,omitempty"`   // indicates (possibly multiple) shipping destinations. These can be defined in several ways e.g. postalCode ranges.
-	ShippingLabel         interface{} `json:"shippingLabel,omitempty"`         // Label to match an [[OfferShippingDetails]] with a [[ShippingRateSettings]] (within the context of a [[shippingSettingsLink]] cross-reference).
-	ShippingRate          interface{} `json:"shippingRate,omitempty"`          // The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.
+	DoesNotShip           Values `json:"doesNotShip,omitempty"`           // Indicates when shipping to a particular [[shippingDestination]] is not available.
+	FreeShippingThreshold Values `json:"freeShippingThreshold,omitempty"` // A monetary value above which (or equal to) the shipping rate becomes free. Intended to be used via an [[OfferShippingDetails]] with [[shippingSettingsLink]] matching this [[ShippingRateSettings]].
+	IsUnlabelledFallback  Values `json:"isUnlabelledFallback,omitempty"`  // This can be marked 'true' to indicate that some published [[DeliveryTimeSettings]] or [[ShippingRateSettings]] are intended to apply to all [[OfferShippingDetails]] published by the same merchant, when referenced by a [[shippingSettingsLink]] in those settings. It is not meaningful to use a 'true' value for this property alongside a transitTimeLabel (for [[DeliveryTimeSettings]]) or shippingLabel (for [[ShippingRateSettings]]), since this property is for use with unlabelled settings.
+	ShippingDestination   Values `json:"shippingDestination,omitempty"`   // indicates (possibly multiple) shipping destinations. These can be defined in several ways e.g. postalCode ranges.
+	ShippingLabel         Values `json:"shippingLabel,omitempty"`         // Label to match an [[OfferShippingDetails]] with a [[ShippingRateSettings]] (within the context of a [[shippingSettingsLink]] cross-reference).
+	ShippingRate          Values `json:"shippingRate,omitempty"`          // The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.
 }
 
 // A shoe store.
@@ -8297,11 +8297,11 @@ type ShortStory struct {
 type SingleFamilyResidence struct {
 	House
 
-	NumberOfRooms interface{} `json:"numberOfRooms,omitempty"` /*
+	NumberOfRooms Values `json:"numberOfRooms,omitempty"` /*
 	The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business.
 	Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
 	*/
-	Occupancy interface{} `json:"occupancy,omitempty"` /*
+	Occupancy Values `json:"occupancy,omitempty"` /*
 	The allowed total occupancy for the accommodation in persons (including infants etc). For individual accommodations, this is not necessarily the legal maximum but defines the permitted usage as per the contractual agreement (e.g. a double room used by a single person).
 	Typical unit code(s): C62 for person
 	*/
@@ -8321,12 +8321,12 @@ type SizeGroupEnumeration struct {
 type SizeSpecification struct {
 	QualitativeValue
 
-	HasMeasurement       interface{} `json:"hasMeasurement,omitempty"`       // A product measurement, for example the inseam of pants, the wheel size of a bicycle, or the gauge of a screw. Usually an exact measurement, but can also be a range of measurements for adjustable products, for example belts and ski bindings.
-	SizeGroup            interface{} `json:"sizeGroup,omitempty"`            // The size group (also known as "size type") for a product's size. Size groups are common in the fashion industry to define size segments and suggested audiences for wearable products. Multiple values can be combined, for example "men's big and tall", "petite maternity" or "regular"
-	SizeSystem           interface{} `json:"sizeSystem,omitempty"`           // The size system used to identify a product's size. Typically either a standard (for example, "GS1" or "ISO-EN13402"), country code (for example "US" or "JP"), or a measuring system (for example "Metric" or "Imperial").
-	SuggestedAge         interface{} `json:"suggestedAge,omitempty"`         // The age or age range for the intended audience or person, for example 3-12 months for infants, 1-5 years for toddlers.
-	SuggestedGender      interface{} `json:"suggestedGender,omitempty"`      // The suggested gender of the intended person or audience, for example "male", "female", or "unisex".
-	SuggestedMeasurement interface{} `json:"suggestedMeasurement,omitempty"` // A suggested range of body measurements for the intended audience or person, for example inseam between 32 and 34 inches or height between 170 and 190 cm. Typically found on a size chart for wearable products.
+	HasMeasurement       Values `json:"hasMeasurement,omitempty"`       // A product measurement, for example the inseam of pants, the wheel size of a bicycle, or the gauge of a screw. Usually an exact measurement, but can also be a range of measurements for adjustable products, for example belts and ski bindings.
+	SizeGroup            Values `json:"sizeGroup,omitempty"`            // The size group (also known as "size type") for a product's size. Size groups are common in the fashion industry to define size segments and suggested audiences for wearable products. Multiple values can be combined, for example "men's big and tall", "petite maternity" or "regular"
+	SizeSystem           Values `json:"sizeSystem,omitempty"`           // The size system used to identify a product's size. Typically either a standard (for example, "GS1" or "ISO-EN13402"), country code (for example "US" or "JP"), or a measuring system (for example "Metric" or "Imperial").
+	SuggestedAge         Values `json:"suggestedAge,omitempty"`         // The age or age range for the intended audience or person, for example 3-12 months for infants, 1-5 years for toddlers.
+	SuggestedGender      Values `json:"suggestedGender,omitempty"`      // The suggested gender of the intended person or audience, for example "male", "female", or "unisex".
+	SuggestedMeasurement Values `json:"suggestedMeasurement,omitempty"` // A suggested range of body measurements for the intended audience or person, for example inseam between 32 and 34 inches or height between 170 and 190 cm. Typically found on a size chart for wearable products.
 }
 
 // Enumerates common size systems for different categories of products, for example "EN-13402" or "UK" for wearables or "Imperial" for screws.
@@ -8349,72 +8349,72 @@ type SocialEvent struct {
 type SocialMediaPosting struct {
 	Article
 
-	SharedContent interface{} `json:"sharedContent,omitempty"` // A CreativeWork such as an image, video, or audio clip shared as part of this posting.
+	SharedContent Values `json:"sharedContent,omitempty"` // A CreativeWork such as an image, video, or audio clip shared as part of this posting.
 }
 
 // A software application.
 type SoftwareApplication struct {
 	CreativeWork
 
-	ApplicationCategory    interface{} `json:"applicationCategory,omitempty"`    // Type of software application, e.g. 'Game, Multimedia'.
-	ApplicationSubCategory interface{} `json:"applicationSubCategory,omitempty"` // Subcategory of the application, e.g. 'Arcade Game'.
-	ApplicationSuite       interface{} `json:"applicationSuite,omitempty"`       // The name of the application suite to which the application belongs (e.g. Excel belongs to Office).
-	AvailableOnDevice      interface{} `json:"availableOnDevice,omitempty"`      // Device required to run the application. Used in cases where a specific make/model is required to run the application.
-	CountriesNotSupported  interface{} `json:"countriesNotSupported,omitempty"`  // Countries for which the application is not supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
-	CountriesSupported     interface{} `json:"countriesSupported,omitempty"`     // Countries for which the application is supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
-	Device                 interface{} `json:"device,omitempty"`                 // Device required to run the application. Used in cases where a specific make/model is required to run the application.
-	DownloadUrl            interface{} `json:"downloadUrl,omitempty"`            // If the file can be downloaded, URL to download the binary.
-	FeatureList            interface{} `json:"featureList,omitempty"`            // Features or modules provided by this application (and possibly required by other applications).
-	FileSize               interface{} `json:"fileSize,omitempty"`               // Size of the application / package (e.g. 18MB). In the absence of a unit (MB, KB etc.), KB will be assumed.
-	InstallUrl             interface{} `json:"installUrl,omitempty"`             // URL at which the app may be installed, if different from the URL of the item.
-	MemoryRequirements     interface{} `json:"memoryRequirements,omitempty"`     // Minimum memory requirements.
-	OperatingSystem        interface{} `json:"operatingSystem,omitempty"`        // Operating systems supported (Windows 7, OSX 10.6, Android 1.6).
-	Permissions            interface{} `json:"permissions,omitempty"`            // Permission(s) required to run the app (for example, a mobile app may require full internet access or may run only on wifi).
-	ProcessorRequirements  interface{} `json:"processorRequirements,omitempty"`  // Processor architecture required to run the application (e.g. IA64).
-	ReleaseNotes           interface{} `json:"releaseNotes,omitempty"`           // Description of what changed in this version.
-	Requirements           interface{} `json:"requirements,omitempty"`           // Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).
-	Screenshot             interface{} `json:"screenshot,omitempty"`             // A link to a screenshot image of the app.
-	SoftwareAddOn          interface{} `json:"softwareAddOn,omitempty"`          // Additional content for a software application.
-	SoftwareHelp           interface{} `json:"softwareHelp,omitempty"`           // Software application help.
-	SoftwareRequirements   interface{} `json:"softwareRequirements,omitempty"`   // Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).
-	SoftwareVersion        interface{} `json:"softwareVersion,omitempty"`        // Version of the software instance.
-	StorageRequirements    interface{} `json:"storageRequirements,omitempty"`    // Storage requirements (free space required).
-	SupportingData         interface{} `json:"supportingData,omitempty"`         // Supporting data for a SoftwareApplication.
+	ApplicationCategory    Values `json:"applicationCategory,omitempty"`    // Type of software application, e.g. 'Game, Multimedia'.
+	ApplicationSubCategory Values `json:"applicationSubCategory,omitempty"` // Subcategory of the application, e.g. 'Arcade Game'.
+	ApplicationSuite       Values `json:"applicationSuite,omitempty"`       // The name of the application suite to which the application belongs (e.g. Excel belongs to Office).
+	AvailableOnDevice      Values `json:"availableOnDevice,omitempty"`      // Device required to run the application. Used in cases where a specific make/model is required to run the application.
+	CountriesNotSupported  Values `json:"countriesNotSupported,omitempty"`  // Countries for which the application is not supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
+	CountriesSupported     Values `json:"countriesSupported,omitempty"`     // Countries for which the application is supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
+	Device                 Values `json:"device,omitempty"`                 // Device required to run the application. Used in cases where a specific make/model is required to run the application.
+	DownloadUrl            Values `json:"downloadUrl,omitempty"`            // If the file can be downloaded, URL to download the binary.
+	FeatureList            Values `json:"featureList,omitempty"`            // Features or modules provided by this application (and possibly required by other applications).
+	FileSize               Values `json:"fileSize,omitempty"`               // Size of the application / package (e.g. 18MB). In the absence of a unit (MB, KB etc.), KB will be assumed.
+	InstallUrl             Values `json:"installUrl,omitempty"`             // URL at which the app may be installed, if different from the URL of the item.
+	MemoryRequirements     Values `json:"memoryRequirements,omitempty"`     // Minimum memory requirements.
+	OperatingSystem        Values `json:"operatingSystem,omitempty"`        // Operating systems supported (Windows 7, OSX 10.6, Android 1.6).
+	Permissions            Values `json:"permissions,omitempty"`            // Permission(s) required to run the app (for example, a mobile app may require full internet access or may run only on wifi).
+	ProcessorRequirements  Values `json:"processorRequirements,omitempty"`  // Processor architecture required to run the application (e.g. IA64).
+	ReleaseNotes           Values `json:"releaseNotes,omitempty"`           // Description of what changed in this version.
+	Requirements           Values `json:"requirements,omitempty"`           // Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).
+	Screenshot             Values `json:"screenshot,omitempty"`             // A link to a screenshot image of the app.
+	SoftwareAddOn          Values `json:"softwareAddOn,omitempty"`          // Additional content for a software application.
+	SoftwareHelp           Values `json:"softwareHelp,omitempty"`           // Software application help.
+	SoftwareRequirements   Values `json:"softwareRequirements,omitempty"`   // Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).
+	SoftwareVersion        Values `json:"softwareVersion,omitempty"`        // Version of the software instance.
+	StorageRequirements    Values `json:"storageRequirements,omitempty"`    // Storage requirements (free space required).
+	SupportingData         Values `json:"supportingData,omitempty"`         // Supporting data for a SoftwareApplication.
 }
 
 // Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates.
 type SoftwareSourceCode struct {
 	CreativeWork
 
-	CodeRepository      interface{} `json:"codeRepository,omitempty"`      // Link to the repository where the un-compiled, human readable code and related code is located (SVN, github, CodePlex).
-	CodeSampleType      interface{} `json:"codeSampleType,omitempty"`      // What type of code sample: full (compile ready) solution, code snippet, inline code, scripts, template.
-	ProgrammingLanguage interface{} `json:"programmingLanguage,omitempty"` // The computer programming language.
-	Runtime             interface{} `json:"runtime,omitempty"`             // Runtime platform or script interpreter dependencies (Example - Java v1, Python2.3, .Net Framework 3.0).
-	RuntimePlatform     interface{} `json:"runtimePlatform,omitempty"`     // Runtime platform or script interpreter dependencies (Example - Java v1, Python2.3, .Net Framework 3.0).
-	SampleType          interface{} `json:"sampleType,omitempty"`          // What type of code sample: full (compile ready) solution, code snippet, inline code, scripts, template.
-	TargetProduct       interface{} `json:"targetProduct,omitempty"`       // Target Operating System / Product to which the code applies.  If applies to several versions, just the product name can be used.
+	CodeRepository      Values `json:"codeRepository,omitempty"`      // Link to the repository where the un-compiled, human readable code and related code is located (SVN, github, CodePlex).
+	CodeSampleType      Values `json:"codeSampleType,omitempty"`      // What type of code sample: full (compile ready) solution, code snippet, inline code, scripts, template.
+	ProgrammingLanguage Values `json:"programmingLanguage,omitempty"` // The computer programming language.
+	Runtime             Values `json:"runtime,omitempty"`             // Runtime platform or script interpreter dependencies (Example - Java v1, Python2.3, .Net Framework 3.0).
+	RuntimePlatform     Values `json:"runtimePlatform,omitempty"`     // Runtime platform or script interpreter dependencies (Example - Java v1, Python2.3, .Net Framework 3.0).
+	SampleType          Values `json:"sampleType,omitempty"`          // What type of code sample: full (compile ready) solution, code snippet, inline code, scripts, template.
+	TargetProduct       Values `json:"targetProduct,omitempty"`       // Target Operating System / Product to which the code applies.  If applies to several versions, just the product name can be used.
 }
 
 // The action that takes in a math expression and directs users to a page potentially capable of solving/simplifying that expression.
 type SolveMathAction struct {
 	Action
 
-	EduQuestionType interface{} `json:"eduQuestionType,omitempty"` // For questions that are part of learning resources (e.g. Quiz), eduQuestionType indicates the format of question being given. Example: "Multiple choice", "Open ended", "Flashcard".
+	EduQuestionType Values `json:"eduQuestionType,omitempty"` // For questions that are part of learning resources (e.g. Quiz), eduQuestionType indicates the format of question being given. Example: "Multiple choice", "Open ended", "Flashcard".
 }
 
 // A placeholder for multiple similar products of the same kind.
 type SomeProducts struct {
 	Product
 
-	InventoryLevel interface{} `json:"inventoryLevel,omitempty"` // The current approximate inventory level for the item or items.
+	InventoryLevel Values `json:"inventoryLevel,omitempty"` // The current approximate inventory level for the item or items.
 }
 
 // A SpeakableSpecification indicates (typically via [[xpath]] or [[cssSelector]]) sections of a document that are highlighted as particularly [[speakable]]. Instances of this type are expected to be used primarily as values of the [[speakable]] property.
 type SpeakableSpecification struct {
 	Intangible
 
-	CssSelector interface{} `json:"cssSelector,omitempty"` // A CSS selector, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element".
-	Xpath       interface{} `json:"xpath,omitempty"`       // An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element".
+	CssSelector Values `json:"cssSelector,omitempty"` // A CSS selector, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element".
+	Xpath       Values `json:"xpath,omitempty"`       // An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element".
 }
 
 /*
@@ -8457,23 +8457,23 @@ media type information e.g. "application/rss+xml" or "application/atom+xml".
 type SpecialAnnouncement struct {
 	CreativeWork
 
-	AnnouncementLocation    interface{} `json:"announcementLocation,omitempty"`    // Indicates a specific [[CivicStructure]] or [[LocalBusiness]] associated with the SpecialAnnouncement. For example, a specific testing facility or business with special opening hours. For a larger geographic region like a quarantine of an entire region, use [[spatialCoverage]].
-	Category                interface{} `json:"category,omitempty"`                // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
-	DatePosted              interface{} `json:"datePosted,omitempty"`              // Publication date of an online listing.
-	DiseasePreventionInfo   interface{} `json:"diseasePreventionInfo,omitempty"`   // Information about disease prevention.
-	DiseaseSpreadStatistics interface{} `json:"diseaseSpreadStatistics,omitempty"` /*
+	AnnouncementLocation    Values `json:"announcementLocation,omitempty"`    // Indicates a specific [[CivicStructure]] or [[LocalBusiness]] associated with the SpecialAnnouncement. For example, a specific testing facility or business with special opening hours. For a larger geographic region like a quarantine of an entire region, use [[spatialCoverage]].
+	Category                Values `json:"category,omitempty"`                // A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+	DatePosted              Values `json:"datePosted,omitempty"`              // Publication date of an online listing.
+	DiseasePreventionInfo   Values `json:"diseasePreventionInfo,omitempty"`   // Information about disease prevention.
+	DiseaseSpreadStatistics Values `json:"diseaseSpreadStatistics,omitempty"` /*
 	Statistical information about the spread of a disease, either as [[WebContent]], or
 	  described directly as a [[Dataset]], or the specific [[Observation]]s in the dataset. When a [[WebContent]] URL is
 	  provided, the page indicated might also contain more such markup.
 	*/
-	GettingTestedInfo           interface{} `json:"gettingTestedInfo,omitempty"`           // Information about getting tested (for a [[MedicalCondition]]), e.g. in the context of a pandemic.
-	GovernmentBenefitsInfo      interface{} `json:"governmentBenefitsInfo,omitempty"`      // governmentBenefitsInfo provides information about government benefits associated with a SpecialAnnouncement.
-	NewsUpdatesAndGuidelines    interface{} `json:"newsUpdatesAndGuidelines,omitempty"`    // Indicates a page with news updates and guidelines. This could often be (but is not required to be) the main page containing [[SpecialAnnouncement]] markup on a site.
-	PublicTransportClosuresInfo interface{} `json:"publicTransportClosuresInfo,omitempty"` // Information about public transport closures.
-	QuarantineGuidelines        interface{} `json:"quarantineGuidelines,omitempty"`        // Guidelines about quarantine rules, e.g. in the context of a pandemic.
-	SchoolClosuresInfo          interface{} `json:"schoolClosuresInfo,omitempty"`          // Information about school closures.
-	TravelBans                  interface{} `json:"travelBans,omitempty"`                  // Information about travel bans, e.g. in the context of a pandemic.
-	WebFeed                     interface{} `json:"webFeed,omitempty"`                     // The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom.
+	GettingTestedInfo           Values `json:"gettingTestedInfo,omitempty"`           // Information about getting tested (for a [[MedicalCondition]]), e.g. in the context of a pandemic.
+	GovernmentBenefitsInfo      Values `json:"governmentBenefitsInfo,omitempty"`      // governmentBenefitsInfo provides information about government benefits associated with a SpecialAnnouncement.
+	NewsUpdatesAndGuidelines    Values `json:"newsUpdatesAndGuidelines,omitempty"`    // Indicates a page with news updates and guidelines. This could often be (but is not required to be) the main page containing [[SpecialAnnouncement]] markup on a site.
+	PublicTransportClosuresInfo Values `json:"publicTransportClosuresInfo,omitempty"` // Information about public transport closures.
+	QuarantineGuidelines        Values `json:"quarantineGuidelines,omitempty"`        // Guidelines about quarantine rules, e.g. in the context of a pandemic.
+	SchoolClosuresInfo          Values `json:"schoolClosuresInfo,omitempty"`          // Information about school closures.
+	TravelBans                  Values `json:"travelBans,omitempty"`                  // Information about travel bans, e.g. in the context of a pandemic.
+	WebFeed                     Values `json:"webFeed,omitempty"`                     // The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom.
 }
 
 // Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort.
@@ -8500,26 +8500,26 @@ type SportsClub struct {
 type SportsEvent struct {
 	Event
 
-	AwayTeam   interface{} `json:"awayTeam,omitempty"`   // The away team in a sports event.
-	Competitor interface{} `json:"competitor,omitempty"` // A competitor in a sports event.
-	HomeTeam   interface{} `json:"homeTeam,omitempty"`   // The home team in a sports event.
-	Sport      interface{} `json:"sport,omitempty"`      // A type of sport (e.g. Baseball).
+	AwayTeam   Values `json:"awayTeam,omitempty"`   // The away team in a sports event.
+	Competitor Values `json:"competitor,omitempty"` // A competitor in a sports event.
+	HomeTeam   Values `json:"homeTeam,omitempty"`   // The home team in a sports event.
+	Sport      Values `json:"sport,omitempty"`      // A type of sport (e.g. Baseball).
 }
 
 // Represents the collection of all sports organizations, including sports teams, governing bodies, and sports associations.
 type SportsOrganization struct {
 	Organization
 
-	Sport interface{} `json:"sport,omitempty"` // A type of sport (e.g. Baseball).
+	Sport Values `json:"sport,omitempty"` // A type of sport (e.g. Baseball).
 }
 
 // Organization: Sports team.
 type SportsTeam struct {
 	SportsOrganization
 
-	Athlete interface{} `json:"athlete,omitempty"` // A person that acts as performing member of a sports team; a player as opposed to a coach.
-	Coach   interface{} `json:"coach,omitempty"`   // A person that acts in a coaching role for a sports team.
-	Gender  interface{} `json:"gender,omitempty"`  // Gender of something, typically a [[Person]], but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who do not identify as a binary gender. The [[gender]] property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender [[SportsTeam]] can be indicated with a text value of "Mixed".
+	Athlete Values `json:"athlete,omitempty"` // A person that acts as performing member of a sports team; a player as opposed to a coach.
+	Coach   Values `json:"coach,omitempty"`   // A person that acts in a coaching role for a sports team.
+	Gender  Values `json:"gender,omitempty"`  // Gender of something, typically a [[Person]], but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who do not identify as a binary gender. The [[gender]] property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender [[SportsTeam]] can be indicated with a text value of "Mixed".
 }
 
 // A spreadsheet file.
@@ -8552,12 +8552,12 @@ population, and does not imply that the population consists of people. For examp
 type StatisticalPopulation struct {
 	Intangible
 
-	ConstrainingProperty interface{} `json:"constrainingProperty,omitempty"` /*
+	ConstrainingProperty Values `json:"constrainingProperty,omitempty"` /*
 	Indicates a property used as a constraint to define a [[StatisticalPopulation]] with respect to the set of entities
 	  corresponding to an indicated type (via [[populationType]]).
 	*/
-	NumConstraints interface{} `json:"numConstraints,omitempty"` // Indicates the number of constraints (not counting [[populationType]]) defined for a particular [[StatisticalPopulation]]. This helps applications understand if they have access to a sufficiently complete description of a [[StatisticalPopulation]].
-	PopulationType interface{} `json:"populationType,omitempty"` // Indicates the populationType common to all members of a [[StatisticalPopulation]].
+	NumConstraints Values `json:"numConstraints,omitempty"` // Indicates the number of constraints (not counting [[populationType]]) defined for a particular [[StatisticalPopulation]]. This helps applications understand if they have access to a sufficiently complete description of a [[StatisticalPopulation]].
+	PopulationType Values `json:"populationType,omitempty"` // Indicates the populationType common to all members of a [[StatisticalPopulation]].
 }
 
 // Lists or enumerations dealing with status types.
@@ -8589,8 +8589,8 @@ type SubscribeAction struct {
 type Substance struct {
 	MedicalEntity
 
-	ActiveIngredient interface{} `json:"activeIngredient,omitempty"` // An active ingredient, typically chemical compounds and/or biologic substances.
-	MaximumIntake    interface{} `json:"maximumIntake,omitempty"`    // Recommended intake of this supplement for a given population as defined by a specific recommending authority.
+	ActiveIngredient Values `json:"activeIngredient,omitempty"` // An active ingredient, typically chemical compounds and/or biologic substances.
+	MaximumIntake    Values `json:"maximumIntake,omitempty"`    // Recommended intake of this supplement for a given population as defined by a specific recommending authority.
 }
 
 // A subway station.
@@ -8606,15 +8606,15 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
 type Suite struct {
 	Accommodation
 
-	Bed interface{} `json:"bed,omitempty"` /*
+	Bed Values `json:"bed,omitempty"` /*
 	The type of bed or beds included in the accommodation. For the single case of just one bed of a certain type, you use bed directly with a text.
 	      If you want to indicate the quantity of a certain kind of bed, use an instance of BedDetails. For more detailed information, use the amenityFeature property.
 	*/
-	NumberOfRooms interface{} `json:"numberOfRooms,omitempty"` /*
+	NumberOfRooms Values `json:"numberOfRooms,omitempty"` /*
 	The number of rooms (excluding bathrooms and closets) of the accommodation or lodging business.
 	Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
 	*/
-	Occupancy interface{} `json:"occupancy,omitempty"` /*
+	Occupancy Values `json:"occupancy,omitempty"` /*
 	The allowed total occupancy for the accommodation in persons (including infants etc). For individual accommodations, this is not necessarily the legal maximum but defines the permitted usage as per the contractual agreement (e.g. a double room used by a single person).
 	Typical unit code(s): C62 for person
 	*/
@@ -8624,11 +8624,11 @@ type Suite struct {
 type SuperficialAnatomy struct {
 	MedicalEntity
 
-	AssociatedPathophysiology interface{} `json:"associatedPathophysiology,omitempty"` // If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system.
-	RelatedAnatomy            interface{} `json:"relatedAnatomy,omitempty"`            // Anatomical systems or structures that relate to the superficial anatomy.
-	RelatedCondition          interface{} `json:"relatedCondition,omitempty"`          // A medical condition associated with this anatomy.
-	RelatedTherapy            interface{} `json:"relatedTherapy,omitempty"`            // A medical therapy related to this anatomy.
-	Significance              interface{} `json:"significance,omitempty"`              // The significance associated with the superficial anatomy; as an example, how characteristics of the superficial anatomy can suggest underlying medical conditions or courses of treatment.
+	AssociatedPathophysiology Values `json:"associatedPathophysiology,omitempty"` // If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system.
+	RelatedAnatomy            Values `json:"relatedAnatomy,omitempty"`            // Anatomical systems or structures that relate to the superficial anatomy.
+	RelatedCondition          Values `json:"relatedCondition,omitempty"`          // A medical condition associated with this anatomy.
+	RelatedTherapy            Values `json:"relatedTherapy,omitempty"`            // A medical therapy related to this anatomy.
+	Significance              Values `json:"significance,omitempty"`              // The significance associated with the superficial anatomy; as an example, how characteristics of the superficial anatomy can suggest underlying medical conditions or courses of treatment.
 }
 
 // A medical procedure involving an incision with instruments; performed for diagnose, or therapeutic purposes.
@@ -8650,23 +8650,23 @@ type Synagogue struct {
 type TVClip struct {
 	Clip
 
-	PartOfTVSeries interface{} `json:"partOfTVSeries,omitempty"` // The TV series to which this episode or season belongs.
+	PartOfTVSeries Values `json:"partOfTVSeries,omitempty"` // The TV series to which this episode or season belongs.
 }
 
 // A TV episode which can be part of a series or season.
 type TVEpisode struct {
 	Episode
 
-	CountryOfOrigin interface{} `json:"countryOfOrigin,omitempty"` /*
+	CountryOfOrigin Values `json:"countryOfOrigin,omitempty"` /*
 	The country of origin of something, including products as well as creative  works such as movie and TV content.
 
 	In the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of [[CreativeWork]] it is difficult to provide fully general guidance, and properties such as [[contentLocation]] and [[locationCreated]] may be more applicable.
 
 	In the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.
 	*/
-	PartOfTVSeries   interface{} `json:"partOfTVSeries,omitempty"`   // The TV series to which this episode or season belongs.
-	SubtitleLanguage interface{} `json:"subtitleLanguage,omitempty"` // Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
-	TitleEIDR        interface{} `json:"titleEIDR,omitempty"`        /*
+	PartOfTVSeries   Values `json:"partOfTVSeries,omitempty"`   // The TV series to which this episode or season belongs.
+	SubtitleLanguage Values `json:"subtitleLanguage,omitempty"` // Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
+	TitleEIDR        Values `json:"titleEIDR,omitempty"`        /*
 	An [EIDR](https://eidr.org/) (Entertainment Identifier Registry) [[identifier]] representing at the most general/abstract level, a work of film or television.
 
 	For example, the motion picture known as "Ghostbusters" has a titleEIDR of  "10.5240/7EC7-228A-510A-053E-CBB8-J". This title (or work) may have several variants, which EIDR calls "edits". See [[editEIDR]].
@@ -8680,14 +8680,14 @@ type TVSeason struct {
 	CreativeWork
 	// TODO: CreativeWorkSeason
 
-	CountryOfOrigin interface{} `json:"countryOfOrigin,omitempty"` /*
+	CountryOfOrigin Values `json:"countryOfOrigin,omitempty"` /*
 	The country of origin of something, including products as well as creative  works such as movie and TV content.
 
 	In the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of [[CreativeWork]] it is difficult to provide fully general guidance, and properties such as [[contentLocation]] and [[locationCreated]] may be more applicable.
 
 	In the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.
 	*/
-	PartOfTVSeries interface{} `json:"partOfTVSeries,omitempty"` // The TV series to which this episode or season belongs.
+	PartOfTVSeries Values `json:"partOfTVSeries,omitempty"` // The TV series to which this episode or season belongs.
 }
 
 // CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
@@ -8695,27 +8695,27 @@ type TVSeries struct {
 	CreativeWork
 	// TODO: CreativeWorkSeries
 
-	Actor           interface{} `json:"actor,omitempty"`           // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
-	Actors          interface{} `json:"actors,omitempty"`          // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
-	ContainsSeason  interface{} `json:"containsSeason,omitempty"`  // A season that is part of the media series.
-	CountryOfOrigin interface{} `json:"countryOfOrigin,omitempty"` /*
+	Actor           Values `json:"actor,omitempty"`           // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+	Actors          Values `json:"actors,omitempty"`          // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
+	ContainsSeason  Values `json:"containsSeason,omitempty"`  // A season that is part of the media series.
+	CountryOfOrigin Values `json:"countryOfOrigin,omitempty"` /*
 	The country of origin of something, including products as well as creative  works such as movie and TV content.
 
 	In the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of [[CreativeWork]] it is difficult to provide fully general guidance, and properties such as [[contentLocation]] and [[locationCreated]] may be more applicable.
 
 	In the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.
 	*/
-	Director          interface{} `json:"director,omitempty"`          // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
-	Directors         interface{} `json:"directors,omitempty"`         // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
-	Episode           interface{} `json:"episode,omitempty"`           // An episode of a tv, radio or game media within a series or season.
-	Episodes          interface{} `json:"episodes,omitempty"`          // An episode of a TV/radio series or season.
-	MusicBy           interface{} `json:"musicBy,omitempty"`           // The composer of the soundtrack.
-	NumberOfEpisodes  interface{} `json:"numberOfEpisodes,omitempty"`  // The number of episodes in this season or series.
-	NumberOfSeasons   interface{} `json:"numberOfSeasons,omitempty"`   // The number of seasons in this series.
-	ProductionCompany interface{} `json:"productionCompany,omitempty"` // The production company or studio responsible for the item e.g. series, video game, episode etc.
-	Season            interface{} `json:"season,omitempty"`            // A season in a media series.
-	Seasons           interface{} `json:"seasons,omitempty"`           // A season in a media series.
-	Trailer           interface{} `json:"trailer,omitempty"`           // The trailer of a movie or tv/radio series, season, episode, etc.
+	Director          Values `json:"director,omitempty"`          // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
+	Directors         Values `json:"directors,omitempty"`         // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
+	Episode           Values `json:"episode,omitempty"`           // An episode of a tv, radio or game media within a series or season.
+	Episodes          Values `json:"episodes,omitempty"`          // An episode of a TV/radio series or season.
+	MusicBy           Values `json:"musicBy,omitempty"`           // The composer of the soundtrack.
+	NumberOfEpisodes  Values `json:"numberOfEpisodes,omitempty"`  // The number of episodes in this season or series.
+	NumberOfSeasons   Values `json:"numberOfSeasons,omitempty"`   // The number of seasons in this series.
+	ProductionCompany Values `json:"productionCompany,omitempty"` // The production company or studio responsible for the item e.g. series, video game, episode etc.
+	Season            Values `json:"season,omitempty"`            // A season in a media series.
+	Seasons           Values `json:"seasons,omitempty"`           // A season in a media series.
+	Trailer           Values `json:"trailer,omitempty"`           // The trailer of a movie or tv/radio series, season, episode, etc.
 }
 
 // A table on a Web page.
@@ -8742,9 +8742,9 @@ type Taxi struct {
 type TaxiReservation struct {
 	Reservation
 
-	PartySize      interface{} `json:"partySize,omitempty"`      // Number of people the reservation should accommodate.
-	PickupLocation interface{} `json:"pickupLocation,omitempty"` // Where a taxi will pick up a passenger or a rental car can be picked up.
-	PickupTime     interface{} `json:"pickupTime,omitempty"`     // When a taxi will pickup a passenger or a rental car can be picked up.
+	PartySize      Values `json:"partySize,omitempty"`      // Number of people the reservation should accommodate.
+	PickupLocation Values `json:"pickupLocation,omitempty"` // Where a taxi will pick up a passenger or a rental car can be picked up.
+	PickupTime     Values `json:"pickupTime,omitempty"`     // When a taxi will pickup a passenger or a rental car can be picked up.
 }
 
 // A service for a vehicle for hire with a driver for local travel. Fares are usually calculated based on distance traveled.
@@ -8761,18 +8761,18 @@ type TaxiStand struct {
 type Taxon struct {
 	Thing
 
-	ChildTaxon     interface{} `json:"childTaxon,omitempty"`     // Closest child taxa of the taxon in question.
-	HasDefinedTerm interface{} `json:"hasDefinedTerm,omitempty"` // A Defined Term contained in this term set.
-	ParentTaxon    interface{} `json:"parentTaxon,omitempty"`    // Closest parent taxon of the taxon in question.
-	TaxonRank      interface{} `json:"taxonRank,omitempty"`      // The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary – (typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs).
+	ChildTaxon     Values `json:"childTaxon,omitempty"`     // Closest child taxa of the taxon in question.
+	HasDefinedTerm Values `json:"hasDefinedTerm,omitempty"` // A Defined Term contained in this term set.
+	ParentTaxon    Values `json:"parentTaxon,omitempty"`    // Closest parent taxon of the taxon in question.
+	TaxonRank      Values `json:"taxonRank,omitempty"`      // The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary – (typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs).
 }
 
 // A technical article - Example: How-to (task) topics, step-by-step, procedural troubleshooting, specifications, etc.
 type TechArticle struct {
 	Article
 
-	Dependencies     interface{} `json:"dependencies,omitempty"`     // Prerequisites needed to fulfill steps in article.
-	ProficiencyLevel interface{} `json:"proficiencyLevel,omitempty"` // Proficiency needed for this content; expected values: 'Beginner', 'Expert'.
+	Dependencies     Values `json:"dependencies,omitempty"`     // Prerequisites needed to fulfill steps in article.
+	ProficiencyLevel Values `json:"proficiencyLevel,omitempty"` // Proficiency needed for this content; expected values: 'Beginner', 'Expert'.
 }
 
 // A unique instance of a television BroadcastService on a CableOrSatelliteService lineup.
@@ -8812,49 +8812,49 @@ type TheaterGroup struct {
 type TherapeuticProcedure struct {
 	MedicalProcedure
 
-	AdverseOutcome interface{} `json:"adverseOutcome,omitempty"` // A possible complication and/or side effect of this therapy. If it is known that an adverse outcome is serious (resulting in death, disability, or permanent damage; requiring hospitalization; or is otherwise life-threatening or requires immediate medical attention), tag it as a seriouseAdverseOutcome instead.
-	DoseSchedule   interface{} `json:"doseSchedule,omitempty"`   // A dosing schedule for the drug for a given population, either observed, recommended, or maximum dose based on the type used.
-	Drug           interface{} `json:"drug,omitempty"`           // Specifying a drug or medicine used in a medication procedure.
+	AdverseOutcome Values `json:"adverseOutcome,omitempty"` // A possible complication and/or side effect of this therapy. If it is known that an adverse outcome is serious (resulting in death, disability, or permanent damage; requiring hospitalization; or is otherwise life-threatening or requires immediate medical attention), tag it as a seriouseAdverseOutcome instead.
+	DoseSchedule   Values `json:"doseSchedule,omitempty"`   // A dosing schedule for the drug for a given population, either observed, recommended, or maximum dose based on the type used.
+	Drug           Values `json:"drug,omitempty"`           // Specifying a drug or medicine used in a medication procedure.
 }
 
 // A thesis or dissertation document submitted in support of candidature for an academic degree or professional qualification.
 type Thesis struct {
 	CreativeWork
 
-	InSupportOf interface{} `json:"inSupportOf,omitempty"` // Qualification, candidature, degree, application that Thesis supports.
+	InSupportOf Values `json:"inSupportOf,omitempty"` // Qualification, candidature, degree, application that Thesis supports.
 }
 
 // The most generic type of item.
 type Thing struct {
-	AdditionalType            interface{} `json:"additionalType,omitempty"`            // An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.
-	AlternateName             interface{} `json:"alternateName,omitempty"`             // An alias for the item.
-	Description               interface{} `json:"description,omitempty"`               // A description of the item.
-	DisambiguatingDescription interface{} `json:"disambiguatingDescription,omitempty"` // A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
-	Identifier                interface{} `json:"identifier,omitempty"`                /*
+	AdditionalType            Values `json:"additionalType,omitempty"`            // An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.
+	AlternateName             Values `json:"alternateName,omitempty"`             // An alias for the item.
+	Description               Values `json:"description,omitempty"`               // A description of the item.
+	DisambiguatingDescription Values `json:"disambiguatingDescription,omitempty"` // A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
+	Identifier                Values `json:"identifier,omitempty"`                /*
 	The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.
 
 	*/
-	Image            interface{} `json:"image,omitempty"`            // An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].
-	MainEntityOfPage interface{} `json:"mainEntityOfPage,omitempty"` // Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.
-	Name             interface{} `json:"name,omitempty"`             // The name of the item.
-	PotentialAction  interface{} `json:"potentialAction,omitempty"`  // Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.
-	SameAs           interface{} `json:"sameAs,omitempty"`           // URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.
-	SubjectOf        interface{} `json:"subjectOf,omitempty"`        // A CreativeWork or Event about this Thing.
-	Url              interface{} `json:"url,omitempty"`              // URL of the item.
+	Image            Values `json:"image,omitempty"`            // An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].
+	MainEntityOfPage Values `json:"mainEntityOfPage,omitempty"` // Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.
+	Name             Values `json:"name,omitempty"`             // The name of the item.
+	PotentialAction  Values `json:"potentialAction,omitempty"`  // Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.
+	SameAs           Values `json:"sameAs,omitempty"`           // URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.
+	SubjectOf        Values `json:"subjectOf,omitempty"`        // A CreativeWork or Event about this Thing.
+	Url              Values `json:"url,omitempty"`              // URL of the item.
 }
 
 // Used to describe a ticket to an event, a flight, a bus ride, etc.
 type Ticket struct {
 	Intangible
 
-	DateIssued    interface{} `json:"dateIssued,omitempty"`    // The date the ticket was issued.
-	IssuedBy      interface{} `json:"issuedBy,omitempty"`      // The organization issuing the ticket or permit.
-	PriceCurrency interface{} `json:"priceCurrency,omitempty"` // The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
-	TicketNumber  interface{} `json:"ticketNumber,omitempty"`  // The unique identifier for the ticket.
-	TicketToken   interface{} `json:"ticketToken,omitempty"`   // Reference to an asset (e.g., Barcode, QR code image or PDF) usable for entrance.
-	TicketedSeat  interface{} `json:"ticketedSeat,omitempty"`  // The seat associated with the ticket.
-	TotalPrice    interface{} `json:"totalPrice,omitempty"`    // The total price for the reservation or ticket, including applicable taxes, shipping, etc.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
-	UnderName     interface{} `json:"underName,omitempty"`     // The person or organization the reservation or ticket is for.
+	DateIssued    Values `json:"dateIssued,omitempty"`    // The date the ticket was issued.
+	IssuedBy      Values `json:"issuedBy,omitempty"`      // The organization issuing the ticket or permit.
+	PriceCurrency Values `json:"priceCurrency,omitempty"` // The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
+	TicketNumber  Values `json:"ticketNumber,omitempty"`  // The unique identifier for the ticket.
+	TicketToken   Values `json:"ticketToken,omitempty"`   // Reference to an asset (e.g., Barcode, QR code image or PDF) usable for entrance.
+	TicketedSeat  Values `json:"ticketedSeat,omitempty"`  // The seat associated with the ticket.
+	TotalPrice    Values `json:"totalPrice,omitempty"`    // The total price for the reservation or ticket, including applicable taxes, shipping, etc.\n\nUsage guidelines:\n\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+	UnderName     Values `json:"underName,omitempty"`     // The person or organization the reservation or ticket is for.
 }
 
 // The act of reaching a draw in a competitive activity.
@@ -8869,7 +8869,7 @@ type Time struct{}
 type TipAction struct {
 	TradeAction
 
-	Recipient interface{} `json:"recipient,omitempty"` // A sub property of participant. The participant who is at the receiving end of the action.
+	Recipient Values `json:"recipient,omitempty"` // A sub property of participant. The participant who is at the receiving end of the action.
 }
 
 // A tire shop.
@@ -8881,8 +8881,8 @@ type TireShop struct {
 type TouristAttraction struct {
 	Place
 
-	AvailableLanguage interface{} `json:"availableLanguage,omitempty"` // A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]]
-	TouristType       interface{} `json:"touristType,omitempty"`       // Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular country, etc.
+	AvailableLanguage Values `json:"availableLanguage,omitempty"` // A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]]
+	TouristType       Values `json:"touristType,omitempty"`       // Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular country, etc.
 }
 
 /*
@@ -8892,8 +8892,8 @@ A tourist destination. In principle any [[Place]] can be a [[TouristDestination]
 type TouristDestination struct {
 	Place
 
-	IncludesAttraction interface{} `json:"includesAttraction,omitempty"` // Attraction located at destination.
-	TouristType        interface{} `json:"touristType,omitempty"`        // Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular country, etc.
+	IncludesAttraction Values `json:"includesAttraction,omitempty"` // Attraction located at destination.
+	TouristType        Values `json:"touristType,omitempty"`        // Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular country, etc.
 }
 
 // A tourist information center.
@@ -8908,7 +8908,7 @@ A tourist trip. A created itinerary of visits to one or more places of interest 
 type TouristTrip struct {
 	Trip
 
-	TouristType interface{} `json:"touristType,omitempty"` // Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular country, etc.
+	TouristType Values `json:"touristType,omitempty"` // Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular country, etc.
 }
 
 // A toy store.
@@ -8920,19 +8920,19 @@ type ToyStore struct {
 type TrackAction struct {
 	FindAction
 
-	DeliveryMethod interface{} `json:"deliveryMethod,omitempty"` // A sub property of instrument. The method of delivery.
+	DeliveryMethod Values `json:"deliveryMethod,omitempty"` // A sub property of instrument. The method of delivery.
 }
 
 // The act of participating in an exchange of goods and services for monetary compensation. An agent trades an object, product or service with a participant in exchange for a one time or periodic payment.
 type TradeAction struct {
 	Action
 
-	Price interface{} `json:"price,omitempty"` /*
+	Price Values `json:"price,omitempty"` /*
 	The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\n\nUsage guidelines:\n\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a "content=" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.
 
 	*/
-	PriceCurrency      interface{} `json:"priceCurrency,omitempty"`      // The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
-	PriceSpecification interface{} `json:"priceSpecification,omitempty"` // One or more detailed price specifications, indicating the unit price and delivery or payment charges.
+	PriceCurrency      Values `json:"priceCurrency,omitempty"`      // The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. "BTC"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. "Ithaca HOUR".
+	PriceSpecification Values `json:"priceSpecification,omitempty"` // One or more detailed price specifications, indicating the unit price and delivery or payment charges.
 }
 
 // A reservation for train travel.\n\nNote: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].
@@ -8949,27 +8949,27 @@ type TrainStation struct {
 type TrainTrip struct {
 	Trip
 
-	ArrivalPlatform   interface{} `json:"arrivalPlatform,omitempty"`   // The platform where the train arrives.
-	ArrivalStation    interface{} `json:"arrivalStation,omitempty"`    // The station where the train trip ends.
-	DeparturePlatform interface{} `json:"departurePlatform,omitempty"` // The platform from which the train departs.
-	DepartureStation  interface{} `json:"departureStation,omitempty"`  // The station from which the train departs.
-	TrainName         interface{} `json:"trainName,omitempty"`         // The name of the train (e.g. The Orient Express).
-	TrainNumber       interface{} `json:"trainNumber,omitempty"`       // The unique identifier for the train.
+	ArrivalPlatform   Values `json:"arrivalPlatform,omitempty"`   // The platform where the train arrives.
+	ArrivalStation    Values `json:"arrivalStation,omitempty"`    // The station where the train trip ends.
+	DeparturePlatform Values `json:"departurePlatform,omitempty"` // The platform from which the train departs.
+	DepartureStation  Values `json:"departureStation,omitempty"`  // The station from which the train departs.
+	TrainName         Values `json:"trainName,omitempty"`         // The name of the train (e.g. The Orient Express).
+	TrainNumber       Values `json:"trainNumber,omitempty"`       // The unique identifier for the train.
 }
 
 // The act of transferring/moving (abstract or concrete) animate or inanimate objects from one place to another.
 type TransferAction struct {
 	Action
 
-	FromLocation interface{} `json:"fromLocation,omitempty"` // A sub property of location. The original location of the object or the agent before the action.
-	ToLocation   interface{} `json:"toLocation,omitempty"`   // A sub property of location. The final location of the object or the agent after the action.
+	FromLocation Values `json:"fromLocation,omitempty"` // A sub property of location. The original location of the object or the agent before the action.
+	ToLocation   Values `json:"toLocation,omitempty"`   // A sub property of location. The final location of the object or the agent after the action.
 }
 
 // The act of traveling from an fromLocation to a destination by a specified mode of transport, optionally with participants.
 type TravelAction struct {
 	MoveAction
 
-	Distance interface{} `json:"distance,omitempty"` // The distance travelled, e.g. exercising or travelling.
+	Distance Values `json:"distance,omitempty"` // The distance travelled, e.g. exercising or travelling.
 }
 
 // A travel agency.
@@ -8986,27 +8986,27 @@ type TreatmentIndication struct {
 type Trip struct {
 	Intangible
 
-	ArrivalTime   interface{} `json:"arrivalTime,omitempty"`   // The expected arrival time.
-	DepartureTime interface{} `json:"departureTime,omitempty"` // The expected departure time.
-	Itinerary     interface{} `json:"itinerary,omitempty"`     // Destination(s) ( [[Place]] ) that make up a trip. For a trip where destination order is important use [[ItemList]] to specify that order (see examples).
-	Offers        interface{} `json:"offers,omitempty"`        /*
+	ArrivalTime   Values `json:"arrivalTime,omitempty"`   // The expected arrival time.
+	DepartureTime Values `json:"departureTime,omitempty"` // The expected departure time.
+	Itinerary     Values `json:"itinerary,omitempty"`     // Destination(s) ( [[Place]] ) that make up a trip. For a trip where destination order is important use [[ItemList]] to specify that order (see examples).
+	Offers        Values `json:"offers,omitempty"`        /*
 	An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.
 
 	*/
-	PartOfTrip interface{} `json:"partOfTrip,omitempty"` // Identifies that this [[Trip]] is a subTrip of another Trip.  For example Day 1, Day 2, etc. of a multi-day trip.
-	Provider   interface{} `json:"provider,omitempty"`   // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
-	SubTrip    interface{} `json:"subTrip,omitempty"`    // Identifies a [[Trip]] that is a subTrip of this Trip.  For example Day 1, Day 2, etc. of a multi-day trip.
+	PartOfTrip Values `json:"partOfTrip,omitempty"` // Identifies that this [[Trip]] is a subTrip of another Trip.  For example Day 1, Day 2, etc. of a multi-day trip.
+	Provider   Values `json:"provider,omitempty"`   // The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+	SubTrip    Values `json:"subTrip,omitempty"`    // Identifies a [[Trip]] that is a subTrip of this Trip.  For example Day 1, Day 2, etc. of a multi-day trip.
 }
 
 // A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer.
 type TypeAndQuantityNode struct {
 	StructuredValue
 
-	AmountOfThisGood interface{} `json:"amountOfThisGood,omitempty"` // The quantity of the goods included in the offer.
-	BusinessFunction interface{} `json:"businessFunction,omitempty"` // The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
-	TypeOfGood       interface{} `json:"typeOfGood,omitempty"`       // The product that this structured value is referring to.
-	UnitCode         interface{} `json:"unitCode,omitempty"`         // The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
-	UnitText         interface{} `json:"unitText,omitempty"`         /*
+	AmountOfThisGood Values `json:"amountOfThisGood,omitempty"` // The quantity of the goods included in the offer.
+	BusinessFunction Values `json:"businessFunction,omitempty"` // The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
+	TypeOfGood       Values `json:"typeOfGood,omitempty"`       // The product that this structured value is referring to.
+	UnitCode         Values `json:"unitCode,omitempty"`         // The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
+	UnitText         Values `json:"unitText,omitempty"`         /*
 	A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for
 	<a href='unitCode'>unitCode</a>.
 	*/
@@ -9036,14 +9036,14 @@ type UnRegisterAction struct {
 type UnitPriceSpecification struct {
 	PriceSpecification
 
-	BillingDuration    interface{} `json:"billingDuration,omitempty"`    // Specifies for how long this price (or price component) will be billed. Can be used, for example, to model the contractual duration of a subscription or payment plan. Type can be either a Duration or a Number (in which case the unit of measurement, for example month, is specified by the unitCode property).
-	BillingIncrement   interface{} `json:"billingIncrement,omitempty"`   // This property specifies the minimal quantity and rounding increment that will be the basis for the billing. The unit of measurement is specified by the unitCode property.
-	BillingStart       interface{} `json:"billingStart,omitempty"`       // Specifies after how much time this price (or price component) becomes valid and billing starts. Can be used, for example, to model a price increase after the first year of a subscription. The unit of measurement is specified by the unitCode property.
-	PriceComponentType interface{} `json:"priceComponentType,omitempty"` // Identifies a price component (for example, a line item on an invoice), part of the total price for an offer.
-	PriceType          interface{} `json:"priceType,omitempty"`          // Defines the type of a price specified for an offered product, for example a list price, a (temporary) sale price or a manufacturer suggested retail price. If multiple prices are specified for an offer the [[priceType]] property can be used to identify the type of each such specified price. The value of priceType can be specified as a value from enumeration PriceTypeEnumeration or as a free form text string for price types that are not already predefined in PriceTypeEnumeration.
-	ReferenceQuantity  interface{} `json:"referenceQuantity,omitempty"`  // The reference quantity for which a certain price applies, e.g. 1 EUR per 4 kWh of electricity. This property is a replacement for unitOfMeasurement for the advanced cases where the price does not relate to a standard unit.
-	UnitCode           interface{} `json:"unitCode,omitempty"`           // The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
-	UnitText           interface{} `json:"unitText,omitempty"`           /*
+	BillingDuration    Values `json:"billingDuration,omitempty"`    // Specifies for how long this price (or price component) will be billed. Can be used, for example, to model the contractual duration of a subscription or payment plan. Type can be either a Duration or a Number (in which case the unit of measurement, for example month, is specified by the unitCode property).
+	BillingIncrement   Values `json:"billingIncrement,omitempty"`   // This property specifies the minimal quantity and rounding increment that will be the basis for the billing. The unit of measurement is specified by the unitCode property.
+	BillingStart       Values `json:"billingStart,omitempty"`       // Specifies after how much time this price (or price component) becomes valid and billing starts. Can be used, for example, to model a price increase after the first year of a subscription. The unit of measurement is specified by the unitCode property.
+	PriceComponentType Values `json:"priceComponentType,omitempty"` // Identifies a price component (for example, a line item on an invoice), part of the total price for an offer.
+	PriceType          Values `json:"priceType,omitempty"`          // Defines the type of a price specified for an offered product, for example a list price, a (temporary) sale price or a manufacturer suggested retail price. If multiple prices are specified for an offer the [[priceType]] property can be used to identify the type of each such specified price. The value of priceType can be specified as a value from enumeration PriceTypeEnumeration or as a free form text string for price types that are not already predefined in PriceTypeEnumeration.
+	ReferenceQuantity  Values `json:"referenceQuantity,omitempty"`  // The reference quantity for which a certain price applies, e.g. 1 EUR per 4 kWh of electricity. This property is a replacement for unitOfMeasurement for the advanced cases where the price does not relate to a standard unit.
+	UnitCode           Values `json:"unitCode,omitempty"`           // The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
+	UnitText           Values `json:"unitText,omitempty"`           /*
 	A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for
 	<a href='unitCode'>unitCode</a>.
 	*/
@@ -9053,8 +9053,8 @@ type UnitPriceSpecification struct {
 type UpdateAction struct {
 	Action
 
-	Collection       interface{} `json:"collection,omitempty"`       // A sub property of object. The collection target of the action.
-	TargetCollection interface{} `json:"targetCollection,omitempty"` // A sub property of object. The collection target of the action.
+	Collection       Values `json:"collection,omitempty"`       // A sub property of object. The collection target of the action.
+	TargetCollection Values `json:"targetCollection,omitempty"` // A sub property of object. The collection target of the action.
 }
 
 // The act of applying an object to its intended purpose.
@@ -9076,11 +9076,11 @@ type UserCheckins struct {
 type UserComments struct {
 	UserInteraction
 
-	CommentText interface{} `json:"commentText,omitempty"` // The text of the UserComment.
-	CommentTime interface{} `json:"commentTime,omitempty"` // The time at which the UserComment was made.
-	Creator     interface{} `json:"creator,omitempty"`     // The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.
-	Discusses   interface{} `json:"discusses,omitempty"`   // Specifies the CreativeWork associated with the UserComment.
-	ReplyToUrl  interface{} `json:"replyToUrl,omitempty"`  // The URL at which a reply may be posted to the specified UserComment.
+	CommentText Values `json:"commentText,omitempty"` // The text of the UserComment.
+	CommentTime Values `json:"commentTime,omitempty"` // The time at which the UserComment was made.
+	Creator     Values `json:"creator,omitempty"`     // The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.
+	Discusses   Values `json:"discusses,omitempty"`   // Specifies the CreativeWork associated with the UserComment.
+	ReplyToUrl  Values `json:"replyToUrl,omitempty"`  // The URL at which a reply may be posted to the specified UserComment.
 }
 
 // UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
@@ -9127,54 +9127,54 @@ type UserTweets struct {
 type Vehicle struct {
 	Product
 
-	AccelerationTime            interface{} `json:"accelerationTime,omitempty"`            // The time needed to accelerate the vehicle from a given start velocity to a given target velocity.\n\nTypical unit code(s): SEC for seconds\n\n* Note: There are unfortunately no standard unit codes for seconds/0..100 km/h or seconds/0..60 mph. Simply use "SEC" for seconds and indicate the velocities in the [[name]] of the [[QuantitativeValue]], or use [[valueReference]] with a [[QuantitativeValue]] of 0..60 mph or 0..100 km/h to specify the reference speeds.
-	BodyType                    interface{} `json:"bodyType,omitempty"`                    // Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
-	CallSign                    interface{} `json:"callSign,omitempty"`                    // A [callsign](https://en.wikipedia.org/wiki/Call_sign), as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles.
-	CargoVolume                 interface{} `json:"cargoVolume,omitempty"`                 // The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.\n\nTypical unit code(s): LTR for liters, FTQ for cubic foot/feet\n\nNote: You can use [[minValue]] and [[maxValue]] to indicate ranges.
-	DateVehicleFirstRegistered  interface{} `json:"dateVehicleFirstRegistered,omitempty"`  // The date of the first registration of the vehicle with the respective public authorities.
-	DriveWheelConfiguration     interface{} `json:"driveWheelConfiguration,omitempty"`     // The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle's engine via the drivetrain.
-	EmissionsCO2                interface{} `json:"emissionsCO2,omitempty"`                // The CO2 emissions in g/km. When used in combination with a QuantitativeValue, put "g/km" into the unitText property of that value, since there is no UN/CEFACT Common Code for "g/km".
-	FuelCapacity                interface{} `json:"fuelCapacity,omitempty"`                // The capacity of the fuel tank or in the case of electric cars, the battery. If there are multiple components for storage, this should indicate the total of all storage of the same type.\n\nTypical unit code(s): LTR for liters, GLL of US gallons, GLI for UK / imperial gallons, AMH for ampere-hours (for electrical vehicles).
-	FuelConsumption             interface{} `json:"fuelConsumption,omitempty"`             // The amount of fuel consumed for traveling a particular distance or temporal duration with the given vehicle (e.g. liters per 100 km).\n\n* Note 1: There are unfortunately no standard unit codes for liters per 100 km.  Use [[unitText]] to indicate the unit of measurement, e.g. L/100 km.\n* Note 2: There are two ways of indicating the fuel consumption, [[fuelConsumption]] (e.g. 8 liters per 100 km) and [[fuelEfficiency]] (e.g. 30 miles per gallon). They are reciprocal.\n* Note 3: Often, the absolute value is useful only when related to driving speed ("at 80 km/h") or usage pattern ("city traffic"). You can use [[valueReference]] to link the value for the fuel consumption to another value.
-	FuelEfficiency              interface{} `json:"fuelEfficiency,omitempty"`              // The distance traveled per unit of fuel used; most commonly miles per gallon (mpg) or kilometers per liter (km/L).\n\n* Note 1: There are unfortunately no standard unit codes for miles per gallon or kilometers per liter. Use [[unitText]] to indicate the unit of measurement, e.g. mpg or km/L.\n* Note 2: There are two ways of indicating the fuel consumption, [[fuelConsumption]] (e.g. 8 liters per 100 km) and [[fuelEfficiency]] (e.g. 30 miles per gallon). They are reciprocal.\n* Note 3: Often, the absolute value is useful only when related to driving speed ("at 80 km/h") or usage pattern ("city traffic"). You can use [[valueReference]] to link the value for the fuel economy to another value.
-	FuelType                    interface{} `json:"fuelType,omitempty"`                    // The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.
-	KnownVehicleDamages         interface{} `json:"knownVehicleDamages,omitempty"`         // A textual description of known damages, both repaired and unrepaired.
-	MeetsEmissionStandard       interface{} `json:"meetsEmissionStandard,omitempty"`       // Indicates that the vehicle meets the respective emission standard.
-	MileageFromOdometer         interface{} `json:"mileageFromOdometer,omitempty"`         // The total distance travelled by the particular vehicle since its initial production, as read from its odometer.\n\nTypical unit code(s): KMT for kilometers, SMI for statute miles
-	ModelDate                   interface{} `json:"modelDate,omitempty"`                   // The release date of a vehicle model (often used to differentiate versions of the same make and model).
-	NumberOfAirbags             interface{} `json:"numberOfAirbags,omitempty"`             // The number or type of airbags in the vehicle.
-	NumberOfAxles               interface{} `json:"numberOfAxles,omitempty"`               // The number of axles.\n\nTypical unit code(s): C62
-	NumberOfDoors               interface{} `json:"numberOfDoors,omitempty"`               // The number of doors.\n\nTypical unit code(s): C62
-	NumberOfForwardGears        interface{} `json:"numberOfForwardGears,omitempty"`        // The total number of forward gears available for the transmission system of the vehicle.\n\nTypical unit code(s): C62
-	NumberOfPreviousOwners      interface{} `json:"numberOfPreviousOwners,omitempty"`      // The number of owners of the vehicle, including the current one.\n\nTypical unit code(s): C62
-	Payload                     interface{} `json:"payload,omitempty"`                     // The permitted weight of passengers and cargo, EXCLUDING the weight of the empty vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\n* Note 1: Many databases specify the permitted TOTAL weight instead, which is the sum of [[weight]] and [[payload]]\n* Note 2: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 3: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]].\n* Note 4: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges.
-	ProductionDate              interface{} `json:"productionDate,omitempty"`              // The date of production of the item, e.g. vehicle.
-	PurchaseDate                interface{} `json:"purchaseDate,omitempty"`                // The date the item e.g. vehicle was purchased by the current owner.
-	SeatingCapacity             interface{} `json:"seatingCapacity,omitempty"`             // The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.\n\nTypical unit code(s): C62 for persons
-	Speed                       interface{} `json:"speed,omitempty"`                       // The speed range of the vehicle. If the vehicle is powered by an engine, the upper limit of the speed range (indicated by [[maxValue]] should be the maximum speed achievable under regular conditions.\n\nTypical unit code(s): KMH for km/h, HM for mile per hour (0.447 04 m/s), KNT for knot\n\n*Note 1: Use [[minValue]] and [[maxValue]] to indicate the range. Typically, the minimal value is zero.\n* Note 2: There are many different ways of measuring the speed range. You can link to information about how the given value has been determined using the [[valueReference]] property.
-	SteeringPosition            interface{} `json:"steeringPosition,omitempty"`            // The position of the steering wheel or similar device (mostly for cars).
-	TongueWeight                interface{} `json:"tongueWeight,omitempty"`                // The permitted vertical load (TWR) of a trailer attached to the vehicle. Also referred to as Tongue Load Rating (TLR) or Vertical Load Rating (VLR)\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]].\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges.
-	TrailerWeight               interface{} `json:"trailerWeight,omitempty"`               // The permitted weight of a trailer attached to the vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]].\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges.
-	VehicleConfiguration        interface{} `json:"vehicleConfiguration,omitempty"`        // A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.
-	VehicleEngine               interface{} `json:"vehicleEngine,omitempty"`               // Information about the engine or engines of the vehicle.
-	VehicleIdentificationNumber interface{} `json:"vehicleIdentificationNumber,omitempty"` // The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles.
-	VehicleInteriorColor        interface{} `json:"vehicleInteriorColor,omitempty"`        // The color or color combination of the interior of the vehicle.
-	VehicleInteriorType         interface{} `json:"vehicleInteriorType,omitempty"`         // The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.). While most interior types are characterized by the material used, an interior type can also be based on vehicle usage or target audience.
-	VehicleModelDate            interface{} `json:"vehicleModelDate,omitempty"`            // The release date of a vehicle model (often used to differentiate versions of the same make and model).
-	VehicleSeatingCapacity      interface{} `json:"vehicleSeatingCapacity,omitempty"`      // The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.\n\nTypical unit code(s): C62 for persons.
-	VehicleSpecialUsage         interface{} `json:"vehicleSpecialUsage,omitempty"`         // Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school, or as a taxi. The legislation in many countries requires this information to be revealed when offering a car for sale.
-	VehicleTransmission         interface{} `json:"vehicleTransmission,omitempty"`         // The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) ("gearbox" for cars).
-	WeightTotal                 interface{} `json:"weightTotal,omitempty"`                 // The permitted total weight of the loaded vehicle, including passengers and cargo and the weight of the empty vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]].\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges.
-	Wheelbase                   interface{} `json:"wheelbase,omitempty"`                   // The distance between the centers of the front and rear wheels.\n\nTypical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet
+	AccelerationTime            Values `json:"accelerationTime,omitempty"`            // The time needed to accelerate the vehicle from a given start velocity to a given target velocity.\n\nTypical unit code(s): SEC for seconds\n\n* Note: There are unfortunately no standard unit codes for seconds/0..100 km/h or seconds/0..60 mph. Simply use "SEC" for seconds and indicate the velocities in the [[name]] of the [[QuantitativeValue]], or use [[valueReference]] with a [[QuantitativeValue]] of 0..60 mph or 0..100 km/h to specify the reference speeds.
+	BodyType                    Values `json:"bodyType,omitempty"`                    // Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
+	CallSign                    Values `json:"callSign,omitempty"`                    // A [callsign](https://en.wikipedia.org/wiki/Call_sign), as used in broadcasting and radio communications to identify people, radio and TV stations, or vehicles.
+	CargoVolume                 Values `json:"cargoVolume,omitempty"`                 // The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.\n\nTypical unit code(s): LTR for liters, FTQ for cubic foot/feet\n\nNote: You can use [[minValue]] and [[maxValue]] to indicate ranges.
+	DateVehicleFirstRegistered  Values `json:"dateVehicleFirstRegistered,omitempty"`  // The date of the first registration of the vehicle with the respective public authorities.
+	DriveWheelConfiguration     Values `json:"driveWheelConfiguration,omitempty"`     // The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle's engine via the drivetrain.
+	EmissionsCO2                Values `json:"emissionsCO2,omitempty"`                // The CO2 emissions in g/km. When used in combination with a QuantitativeValue, put "g/km" into the unitText property of that value, since there is no UN/CEFACT Common Code for "g/km".
+	FuelCapacity                Values `json:"fuelCapacity,omitempty"`                // The capacity of the fuel tank or in the case of electric cars, the battery. If there are multiple components for storage, this should indicate the total of all storage of the same type.\n\nTypical unit code(s): LTR for liters, GLL of US gallons, GLI for UK / imperial gallons, AMH for ampere-hours (for electrical vehicles).
+	FuelConsumption             Values `json:"fuelConsumption,omitempty"`             // The amount of fuel consumed for traveling a particular distance or temporal duration with the given vehicle (e.g. liters per 100 km).\n\n* Note 1: There are unfortunately no standard unit codes for liters per 100 km.  Use [[unitText]] to indicate the unit of measurement, e.g. L/100 km.\n* Note 2: There are two ways of indicating the fuel consumption, [[fuelConsumption]] (e.g. 8 liters per 100 km) and [[fuelEfficiency]] (e.g. 30 miles per gallon). They are reciprocal.\n* Note 3: Often, the absolute value is useful only when related to driving speed ("at 80 km/h") or usage pattern ("city traffic"). You can use [[valueReference]] to link the value for the fuel consumption to another value.
+	FuelEfficiency              Values `json:"fuelEfficiency,omitempty"`              // The distance traveled per unit of fuel used; most commonly miles per gallon (mpg) or kilometers per liter (km/L).\n\n* Note 1: There are unfortunately no standard unit codes for miles per gallon or kilometers per liter. Use [[unitText]] to indicate the unit of measurement, e.g. mpg or km/L.\n* Note 2: There are two ways of indicating the fuel consumption, [[fuelConsumption]] (e.g. 8 liters per 100 km) and [[fuelEfficiency]] (e.g. 30 miles per gallon). They are reciprocal.\n* Note 3: Often, the absolute value is useful only when related to driving speed ("at 80 km/h") or usage pattern ("city traffic"). You can use [[valueReference]] to link the value for the fuel economy to another value.
+	FuelType                    Values `json:"fuelType,omitempty"`                    // The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.
+	KnownVehicleDamages         Values `json:"knownVehicleDamages,omitempty"`         // A textual description of known damages, both repaired and unrepaired.
+	MeetsEmissionStandard       Values `json:"meetsEmissionStandard,omitempty"`       // Indicates that the vehicle meets the respective emission standard.
+	MileageFromOdometer         Values `json:"mileageFromOdometer,omitempty"`         // The total distance travelled by the particular vehicle since its initial production, as read from its odometer.\n\nTypical unit code(s): KMT for kilometers, SMI for statute miles
+	ModelDate                   Values `json:"modelDate,omitempty"`                   // The release date of a vehicle model (often used to differentiate versions of the same make and model).
+	NumberOfAirbags             Values `json:"numberOfAirbags,omitempty"`             // The number or type of airbags in the vehicle.
+	NumberOfAxles               Values `json:"numberOfAxles,omitempty"`               // The number of axles.\n\nTypical unit code(s): C62
+	NumberOfDoors               Values `json:"numberOfDoors,omitempty"`               // The number of doors.\n\nTypical unit code(s): C62
+	NumberOfForwardGears        Values `json:"numberOfForwardGears,omitempty"`        // The total number of forward gears available for the transmission system of the vehicle.\n\nTypical unit code(s): C62
+	NumberOfPreviousOwners      Values `json:"numberOfPreviousOwners,omitempty"`      // The number of owners of the vehicle, including the current one.\n\nTypical unit code(s): C62
+	Payload                     Values `json:"payload,omitempty"`                     // The permitted weight of passengers and cargo, EXCLUDING the weight of the empty vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\n* Note 1: Many databases specify the permitted TOTAL weight instead, which is the sum of [[weight]] and [[payload]]\n* Note 2: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 3: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]].\n* Note 4: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges.
+	ProductionDate              Values `json:"productionDate,omitempty"`              // The date of production of the item, e.g. vehicle.
+	PurchaseDate                Values `json:"purchaseDate,omitempty"`                // The date the item e.g. vehicle was purchased by the current owner.
+	SeatingCapacity             Values `json:"seatingCapacity,omitempty"`             // The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.\n\nTypical unit code(s): C62 for persons
+	Speed                       Values `json:"speed,omitempty"`                       // The speed range of the vehicle. If the vehicle is powered by an engine, the upper limit of the speed range (indicated by [[maxValue]] should be the maximum speed achievable under regular conditions.\n\nTypical unit code(s): KMH for km/h, HM for mile per hour (0.447 04 m/s), KNT for knot\n\n*Note 1: Use [[minValue]] and [[maxValue]] to indicate the range. Typically, the minimal value is zero.\n* Note 2: There are many different ways of measuring the speed range. You can link to information about how the given value has been determined using the [[valueReference]] property.
+	SteeringPosition            Values `json:"steeringPosition,omitempty"`            // The position of the steering wheel or similar device (mostly for cars).
+	TongueWeight                Values `json:"tongueWeight,omitempty"`                // The permitted vertical load (TWR) of a trailer attached to the vehicle. Also referred to as Tongue Load Rating (TLR) or Vertical Load Rating (VLR)\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]].\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges.
+	TrailerWeight               Values `json:"trailerWeight,omitempty"`               // The permitted weight of a trailer attached to the vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]].\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges.
+	VehicleConfiguration        Values `json:"vehicleConfiguration,omitempty"`        // A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.
+	VehicleEngine               Values `json:"vehicleEngine,omitempty"`               // Information about the engine or engines of the vehicle.
+	VehicleIdentificationNumber Values `json:"vehicleIdentificationNumber,omitempty"` // The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles.
+	VehicleInteriorColor        Values `json:"vehicleInteriorColor,omitempty"`        // The color or color combination of the interior of the vehicle.
+	VehicleInteriorType         Values `json:"vehicleInteriorType,omitempty"`         // The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.). While most interior types are characterized by the material used, an interior type can also be based on vehicle usage or target audience.
+	VehicleModelDate            Values `json:"vehicleModelDate,omitempty"`            // The release date of a vehicle model (often used to differentiate versions of the same make and model).
+	VehicleSeatingCapacity      Values `json:"vehicleSeatingCapacity,omitempty"`      // The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.\n\nTypical unit code(s): C62 for persons.
+	VehicleSpecialUsage         Values `json:"vehicleSpecialUsage,omitempty"`         // Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school, or as a taxi. The legislation in many countries requires this information to be revealed when offering a car for sale.
+	VehicleTransmission         Values `json:"vehicleTransmission,omitempty"`         // The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) ("gearbox" for cars).
+	WeightTotal                 Values `json:"weightTotal,omitempty"`                 // The permitted total weight of the loaded vehicle, including passengers and cargo and the weight of the empty vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]].\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges.
+	Wheelbase                   Values `json:"wheelbase,omitempty"`                   // The distance between the centers of the front and rear wheels.\n\nTypical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet
 }
 
 // A type of blood vessel that specifically carries blood to the heart.
 type Vein struct {
 	Vessel
 
-	DrainsTo      interface{} `json:"drainsTo,omitempty"`      // The vasculature that the vein drains into.
-	RegionDrained interface{} `json:"regionDrained,omitempty"` // The anatomical or organ system drained by this vessel; generally refers to a specific part of an organ.
-	Tributary     interface{} `json:"tributary,omitempty"`     // The anatomical or organ system that the vein flows into; a larger structure that the vein connects to.
+	DrainsTo      Values `json:"drainsTo,omitempty"`      // The vasculature that the vein drains into.
+	RegionDrained Values `json:"regionDrained,omitempty"` // The anatomical or organ system drained by this vessel; generally refers to a specific part of an organ.
+	Tributary     Values `json:"tributary,omitempty"`     // The anatomical or organ system that the vein flows into; a larger structure that the vein connects to.
 }
 
 // A component of the human body circulatory system comprised of an intricate network of hollow tubes that transport blood throughout the entire body.
@@ -9197,18 +9197,18 @@ type VideoGame struct {
 	Game
 	// TODO: SoftwareApplication
 
-	Actor        interface{} `json:"actor,omitempty"`        // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
-	Actors       interface{} `json:"actors,omitempty"`       // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
-	CheatCode    interface{} `json:"cheatCode,omitempty"`    // Cheat codes to the game.
-	Director     interface{} `json:"director,omitempty"`     // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
-	Directors    interface{} `json:"directors,omitempty"`    // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
-	GameEdition  interface{} `json:"gameEdition,omitempty"`  // The edition of a video game.
-	GamePlatform interface{} `json:"gamePlatform,omitempty"` // The electronic systems used to play <a href="http://en.wikipedia.org/wiki/Category:Video_game_platforms">video games</a>.
-	GameServer   interface{} `json:"gameServer,omitempty"`   // The server on which  it is possible to play the game.
-	GameTip      interface{} `json:"gameTip,omitempty"`      // Links to tips, tactics, etc.
-	MusicBy      interface{} `json:"musicBy,omitempty"`      // The composer of the soundtrack.
-	PlayMode     interface{} `json:"playMode,omitempty"`     // Indicates whether this game is multi-player, co-op or single-player.  The game can be marked as multi-player, co-op and single-player at the same time.
-	Trailer      interface{} `json:"trailer,omitempty"`      // The trailer of a movie or tv/radio series, season, episode, etc.
+	Actor        Values `json:"actor,omitempty"`        // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+	Actors       Values `json:"actors,omitempty"`       // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
+	CheatCode    Values `json:"cheatCode,omitempty"`    // Cheat codes to the game.
+	Director     Values `json:"director,omitempty"`     // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
+	Directors    Values `json:"directors,omitempty"`    // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
+	GameEdition  Values `json:"gameEdition,omitempty"`  // The edition of a video game.
+	GamePlatform Values `json:"gamePlatform,omitempty"` // The electronic systems used to play <a href="http://en.wikipedia.org/wiki/Category:Video_game_platforms">video games</a>.
+	GameServer   Values `json:"gameServer,omitempty"`   // The server on which  it is possible to play the game.
+	GameTip      Values `json:"gameTip,omitempty"`      // Links to tips, tactics, etc.
+	MusicBy      Values `json:"musicBy,omitempty"`      // The composer of the soundtrack.
+	PlayMode     Values `json:"playMode,omitempty"`     // Indicates whether this game is multi-player, co-op or single-player.  The game can be marked as multi-player, co-op and single-player at the same time.
+	Trailer      Values `json:"trailer,omitempty"`      // The trailer of a movie or tv/radio series, season, episode, etc.
 }
 
 // A short segment/part of a video game.
@@ -9220,45 +9220,45 @@ type VideoGameClip struct {
 type VideoGameSeries struct {
 	CreativeWorkSeries
 
-	Actor              interface{} `json:"actor,omitempty"`              // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
-	Actors             interface{} `json:"actors,omitempty"`             // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
-	CharacterAttribute interface{} `json:"characterAttribute,omitempty"` // A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage).
-	CheatCode          interface{} `json:"cheatCode,omitempty"`          // Cheat codes to the game.
-	ContainsSeason     interface{} `json:"containsSeason,omitempty"`     // A season that is part of the media series.
-	Director           interface{} `json:"director,omitempty"`           // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
-	Directors          interface{} `json:"directors,omitempty"`          // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
-	Episode            interface{} `json:"episode,omitempty"`            // An episode of a tv, radio or game media within a series or season.
-	Episodes           interface{} `json:"episodes,omitempty"`           // An episode of a TV/radio series or season.
-	GameItem           interface{} `json:"gameItem,omitempty"`           // An item is an object within the game world that can be collected by a player or, occasionally, a non-player character.
-	GameLocation       interface{} `json:"gameLocation,omitempty"`       // Real or fictional location of the game (or part of game).
-	GamePlatform       interface{} `json:"gamePlatform,omitempty"`       // The electronic systems used to play <a href="http://en.wikipedia.org/wiki/Category:Video_game_platforms">video games</a>.
-	MusicBy            interface{} `json:"musicBy,omitempty"`            // The composer of the soundtrack.
-	NumberOfEpisodes   interface{} `json:"numberOfEpisodes,omitempty"`   // The number of episodes in this season or series.
-	NumberOfPlayers    interface{} `json:"numberOfPlayers,omitempty"`    // Indicate how many people can play this game (minimum, maximum, or range).
-	NumberOfSeasons    interface{} `json:"numberOfSeasons,omitempty"`    // The number of seasons in this series.
-	PlayMode           interface{} `json:"playMode,omitempty"`           // Indicates whether this game is multi-player, co-op or single-player.  The game can be marked as multi-player, co-op and single-player at the same time.
-	ProductionCompany  interface{} `json:"productionCompany,omitempty"`  // The production company or studio responsible for the item e.g. series, video game, episode etc.
-	Quest              interface{} `json:"quest,omitempty"`              // The task that a player-controlled character, or group of characters may complete in order to gain a reward.
-	Season             interface{} `json:"season,omitempty"`             // A season in a media series.
-	Seasons            interface{} `json:"seasons,omitempty"`            // A season in a media series.
-	Trailer            interface{} `json:"trailer,omitempty"`            // The trailer of a movie or tv/radio series, season, episode, etc.
+	Actor              Values `json:"actor,omitempty"`              // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+	Actors             Values `json:"actors,omitempty"`             // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
+	CharacterAttribute Values `json:"characterAttribute,omitempty"` // A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage).
+	CheatCode          Values `json:"cheatCode,omitempty"`          // Cheat codes to the game.
+	ContainsSeason     Values `json:"containsSeason,omitempty"`     // A season that is part of the media series.
+	Director           Values `json:"director,omitempty"`           // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
+	Directors          Values `json:"directors,omitempty"`          // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
+	Episode            Values `json:"episode,omitempty"`            // An episode of a tv, radio or game media within a series or season.
+	Episodes           Values `json:"episodes,omitempty"`           // An episode of a TV/radio series or season.
+	GameItem           Values `json:"gameItem,omitempty"`           // An item is an object within the game world that can be collected by a player or, occasionally, a non-player character.
+	GameLocation       Values `json:"gameLocation,omitempty"`       // Real or fictional location of the game (or part of game).
+	GamePlatform       Values `json:"gamePlatform,omitempty"`       // The electronic systems used to play <a href="http://en.wikipedia.org/wiki/Category:Video_game_platforms">video games</a>.
+	MusicBy            Values `json:"musicBy,omitempty"`            // The composer of the soundtrack.
+	NumberOfEpisodes   Values `json:"numberOfEpisodes,omitempty"`   // The number of episodes in this season or series.
+	NumberOfPlayers    Values `json:"numberOfPlayers,omitempty"`    // Indicate how many people can play this game (minimum, maximum, or range).
+	NumberOfSeasons    Values `json:"numberOfSeasons,omitempty"`    // The number of seasons in this series.
+	PlayMode           Values `json:"playMode,omitempty"`           // Indicates whether this game is multi-player, co-op or single-player.  The game can be marked as multi-player, co-op and single-player at the same time.
+	ProductionCompany  Values `json:"productionCompany,omitempty"`  // The production company or studio responsible for the item e.g. series, video game, episode etc.
+	Quest              Values `json:"quest,omitempty"`              // The task that a player-controlled character, or group of characters may complete in order to gain a reward.
+	Season             Values `json:"season,omitempty"`             // A season in a media series.
+	Seasons            Values `json:"seasons,omitempty"`            // A season in a media series.
+	Trailer            Values `json:"trailer,omitempty"`            // The trailer of a movie or tv/radio series, season, episode, etc.
 }
 
 // A video file.
 type VideoObject struct {
 	MediaObject
 
-	Actor               interface{} `json:"actor,omitempty"`               // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
-	Actors              interface{} `json:"actors,omitempty"`              // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
-	Caption             interface{} `json:"caption,omitempty"`             // The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].
-	Director            interface{} `json:"director,omitempty"`            // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
-	Directors           interface{} `json:"directors,omitempty"`           // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
-	EmbeddedTextCaption interface{} `json:"embeddedTextCaption,omitempty"` // Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'.
-	MusicBy             interface{} `json:"musicBy,omitempty"`             // The composer of the soundtrack.
-	Thumbnail           interface{} `json:"thumbnail,omitempty"`           // Thumbnail image for an image or video.
-	Transcript          interface{} `json:"transcript,omitempty"`          // If this MediaObject is an AudioObject or VideoObject, the transcript of that object.
-	VideoFrameSize      interface{} `json:"videoFrameSize,omitempty"`      // The frame size of the video.
-	VideoQuality        interface{} `json:"videoQuality,omitempty"`        // The quality of the video.
+	Actor               Values `json:"actor,omitempty"`               // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+	Actors              Values `json:"actors,omitempty"`              // An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
+	Caption             Values `json:"caption,omitempty"`             // The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the [[encodingFormat]].
+	Director            Values `json:"director,omitempty"`            // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
+	Directors           Values `json:"directors,omitempty"`           // A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
+	EmbeddedTextCaption Values `json:"embeddedTextCaption,omitempty"` // Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'.
+	MusicBy             Values `json:"musicBy,omitempty"`             // The composer of the soundtrack.
+	Thumbnail           Values `json:"thumbnail,omitempty"`           // Thumbnail image for an image or video.
+	Transcript          Values `json:"transcript,omitempty"`          // If this MediaObject is an AudioObject or VideoObject, the transcript of that object.
+	VideoFrameSize      Values `json:"videoFrameSize,omitempty"`      // The frame size of the video.
+	VideoQuality        Values `json:"videoQuality,omitempty"`        // The quality of the video.
 }
 
 // A specific and exact (byte-for-byte) version of a [[VideoObject]]. Two byte-for-byte identical files, for the purposes of this type, considered identical. If they have different embedded metadata the files will differ. Different external facts about the files, e.g. creator or dateCreated that aren't represented in their actual content, do not affect this notion of identity.
@@ -9285,23 +9285,23 @@ type VisualArtsEvent struct {
 type VisualArtwork struct {
 	CreativeWork
 
-	ArtEdition interface{} `json:"artEdition,omitempty"` // The number of copies when multiple copies of a piece of artwork are produced - e.g. for a limited edition of 20 prints, 'artEdition' refers to the total number of copies (in this example "20").
-	ArtMedium  interface{} `json:"artMedium,omitempty"`  // The material used. (e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc.)
-	Artform    interface{} `json:"artform,omitempty"`    // e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc.
-	Artist     interface{} `json:"artist,omitempty"`     /*
+	ArtEdition Values `json:"artEdition,omitempty"` // The number of copies when multiple copies of a piece of artwork are produced - e.g. for a limited edition of 20 prints, 'artEdition' refers to the total number of copies (in this example "20").
+	ArtMedium  Values `json:"artMedium,omitempty"`  // The material used. (e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc.)
+	Artform    Values `json:"artform,omitempty"`    // e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc.
+	Artist     Values `json:"artist,omitempty"`     /*
 	The primary artist for a work
 	    	in a medium other than pencils or digital line art--for example, if the
 	    	primary artwork is done in watercolors or digital paints.
 	*/
-	ArtworkSurface interface{} `json:"artworkSurface,omitempty"` // The supporting materials for the artwork, e.g. Canvas, Paper, Wood, Board, etc.
-	Colorist       interface{} `json:"colorist,omitempty"`       // The individual who adds color to inked drawings.
-	Depth          interface{} `json:"depth,omitempty"`          // The depth of the item.
-	Height         interface{} `json:"height,omitempty"`         // The height of the item.
-	Inker          interface{} `json:"inker,omitempty"`          // The individual who traces over the pencil drawings in ink after pencils are complete.
-	Letterer       interface{} `json:"letterer,omitempty"`       // The individual who adds lettering, including speech balloons and sound effects, to artwork.
-	Penciler       interface{} `json:"penciler,omitempty"`       // The individual who draws the primary narrative artwork.
-	Surface        interface{} `json:"surface,omitempty"`        // A material used as a surface in some artwork, e.g. Canvas, Paper, Wood, Board, etc.
-	Width          interface{} `json:"width,omitempty"`          // The width of the item.
+	ArtworkSurface Values `json:"artworkSurface,omitempty"` // The supporting materials for the artwork, e.g. Canvas, Paper, Wood, Board, etc.
+	Colorist       Values `json:"colorist,omitempty"`       // The individual who adds color to inked drawings.
+	Depth          Values `json:"depth,omitempty"`          // The depth of the item.
+	Height         Values `json:"height,omitempty"`         // The height of the item.
+	Inker          Values `json:"inker,omitempty"`          // The individual who traces over the pencil drawings in ink after pencils are complete.
+	Letterer       Values `json:"letterer,omitempty"`       // The individual who adds lettering, including speech balloons and sound effects, to artwork.
+	Penciler       Values `json:"penciler,omitempty"`       // The individual who draws the primary narrative artwork.
+	Surface        Values `json:"surface,omitempty"`        // A material used as a surface in some artwork, e.g. Canvas, Paper, Wood, Board, etc.
+	Width          Values `json:"width,omitempty"`          // The width of the item.
 }
 
 // Vital signs are measures of various physiological functions in order to assess the most basic body functions.
@@ -9318,7 +9318,7 @@ type Volcano struct {
 type VoteAction struct {
 	ChooseAction
 
-	Candidate interface{} `json:"candidate,omitempty"` // A sub property of object. The candidate subject of this action.
+	Candidate Values `json:"candidate,omitempty"` // A sub property of object. The candidate subject of this action.
 }
 
 // An advertising section of the page.
@@ -9350,8 +9350,8 @@ type WantAction struct {
 type WarrantyPromise struct {
 	StructuredValue
 
-	DurationOfWarranty interface{} `json:"durationOfWarranty,omitempty"` // The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
-	WarrantyScope      interface{} `json:"warrantyScope,omitempty"`      // The scope of the warranty promise.
+	DurationOfWarranty Values `json:"durationOfWarranty,omitempty"` // The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
+	WarrantyScope      Values `json:"warrantyScope,omitempty"`      // The scope of the warranty promise.
 }
 
 /*
@@ -9396,14 +9396,14 @@ type WearableSizeSystemEnumeration struct {
 type WebAPI struct {
 	Service
 
-	Documentation interface{} `json:"documentation,omitempty"` // Further documentation describing the Web API in more detail.
+	Documentation Values `json:"documentation,omitempty"` // Further documentation describing the Web API in more detail.
 }
 
 // Web applications.
 type WebApplication struct {
 	SoftwareApplication
 
-	BrowserRequirements interface{} `json:"browserRequirements,omitempty"` // Specifies browser requirements in human-readable text. For example, 'requires HTML5 support'.
+	BrowserRequirements Values `json:"browserRequirements,omitempty"` // Specifies browser requirements in human-readable text. For example, 'requires HTML5 support'.
 }
 
 // WebContent is a type representing all [[WebPage]], [[WebSite]] and [[WebPageElement]] content. It is sometimes the case that detailed distinctions between Web pages, sites and their parts is not always important or obvious. The  [[WebContent]] type makes it easier to describe Web-addressable content without requiring such distinctions to always be stated. (The intent is that the existing types [[WebPage]], [[WebSite]] and [[WebPageElement]] will eventually be declared as subtypes of [[WebContent]]).
@@ -9415,15 +9415,15 @@ type WebContent struct {
 type WebPage struct {
 	CreativeWork
 
-	Breadcrumb         interface{} `json:"breadcrumb,omitempty"`         // A set of links that can help a user understand and navigate a website hierarchy.
-	LastReviewed       interface{} `json:"lastReviewed,omitempty"`       // Date on which the content on this web page was last reviewed for accuracy and/or completeness.
-	MainContentOfPage  interface{} `json:"mainContentOfPage,omitempty"`  // Indicates if this web page element is the main subject of the page.
-	PrimaryImageOfPage interface{} `json:"primaryImageOfPage,omitempty"` // Indicates the main image on the page.
-	RelatedLink        interface{} `json:"relatedLink,omitempty"`        // A link related to this web page, for example to other related web pages.
-	ReviewedBy         interface{} `json:"reviewedBy,omitempty"`         // People or organizations that have reviewed the content on this web page for accuracy and/or completeness.
-	SignificantLink    interface{} `json:"significantLink,omitempty"`    // One of the more significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most.
-	SignificantLinks   interface{} `json:"significantLinks,omitempty"`   // The most significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most.
-	Speakable          interface{} `json:"speakable,omitempty"`          /*
+	Breadcrumb         Values `json:"breadcrumb,omitempty"`         // A set of links that can help a user understand and navigate a website hierarchy.
+	LastReviewed       Values `json:"lastReviewed,omitempty"`       // Date on which the content on this web page was last reviewed for accuracy and/or completeness.
+	MainContentOfPage  Values `json:"mainContentOfPage,omitempty"`  // Indicates if this web page element is the main subject of the page.
+	PrimaryImageOfPage Values `json:"primaryImageOfPage,omitempty"` // Indicates the main image on the page.
+	RelatedLink        Values `json:"relatedLink,omitempty"`        // A link related to this web page, for example to other related web pages.
+	ReviewedBy         Values `json:"reviewedBy,omitempty"`         // People or organizations that have reviewed the content on this web page for accuracy and/or completeness.
+	SignificantLink    Values `json:"significantLink,omitempty"`    // One of the more significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most.
+	SignificantLinks   Values `json:"significantLinks,omitempty"`   // The most significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most.
+	Speakable          Values `json:"speakable,omitempty"`          /*
 	Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the 'speakable' property serves to indicate the parts most likely to be generally useful for speech.
 
 	The *speakable* property can be repeated an arbitrary number of times, with three kinds of possible 'content-locator' values:
@@ -9439,22 +9439,22 @@ type WebPage struct {
 	we define a supporting type, [[SpeakableSpecification]]  which is defined to be a possible value of the *speakable* property.
 
 	*/
-	Specialty interface{} `json:"specialty,omitempty"` // One of the domain specialities to which this web page's content applies.
+	Specialty Values `json:"specialty,omitempty"` // One of the domain specialities to which this web page's content applies.
 }
 
 // A web page element, like a table or an image.
 type WebPageElement struct {
 	CreativeWork
 
-	CssSelector interface{} `json:"cssSelector,omitempty"` // A CSS selector, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element".
-	Xpath       interface{} `json:"xpath,omitempty"`       // An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element".
+	CssSelector Values `json:"cssSelector,omitempty"` // A CSS selector, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element".
+	Xpath       Values `json:"xpath,omitempty"`       // An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element".
 }
 
 // A WebSite is a set of related web pages and other items typically served from a single web domain and accessible via URLs.
 type WebSite struct {
 	CreativeWork
 
-	Issn interface{} `json:"issn,omitempty"` // The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
+	Issn Values `json:"issn,omitempty"` // The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
 }
 
 // A wholesale store.
@@ -9466,7 +9466,7 @@ type WholesaleStore struct {
 type WinAction struct {
 	AchieveAction
 
-	Loser interface{} `json:"loser,omitempty"` // A sub property of participant. The loser of the action.
+	Loser Values `json:"loser,omitempty"` // A sub property of participant. The loser of the action.
 }
 
 // A winery.
@@ -9478,11 +9478,11 @@ type Winery struct {
 type WorkBasedProgram struct {
 	EducationalOccupationalProgram
 
-	OccupationalCategory interface{} `json:"occupationalCategory,omitempty"` /*
+	OccupationalCategory Values `json:"occupationalCategory,omitempty"` /*
 	A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\n
 	Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.
 	*/
-	TrainingSalary interface{} `json:"trainingSalary,omitempty"` // The estimated salary earned while in the program.
+	TrainingSalary Values `json:"trainingSalary,omitempty"` // The estimated salary earned while in the program.
 }
 
 // A Workers Union (also known as a Labor Union, Labour Union, or Trade Union) is an organization that promotes the interests of its worker members by collectively bargaining with management, organizing, and political lobbying.
@@ -9494,8 +9494,8 @@ type WorkersUnion struct {
 type WriteAction struct {
 	CreateAction
 
-	InLanguage interface{} `json:"inLanguage,omitempty"` // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
-	Language   interface{} `json:"language,omitempty"`   // A sub property of instrument. The language used on this action.
+	InLanguage Values `json:"inLanguage,omitempty"` // The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].
+	Language   Values `json:"language,omitempty"`   // A sub property of instrument. The language used on this action.
 }
 
 // Text representing an XPath (typically but not necessarily version 1.0).

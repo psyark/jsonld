@@ -30,13 +30,11 @@ func (pmap providerMap) SortedKeys() []string {
 }
 
 type Class struct {
-	goID               string
-	comment            string
-	isDataType         bool
-	parents            map[*Class]*parentOption
-	Members            []*Property
-	fieldDepthsChecked bool
-	depthAdjustMax     int
+	goID       string
+	comment    string
+	isDataType bool
+	parents    map[*Class]*parentOption
+	Members    []*Property
 }
 
 func newClass() *Class {
@@ -59,9 +57,7 @@ func (c *Class) getParents() []*Class {
 func (c *Class) TypeName() string {
 	return c.goID
 }
-func (c *Class) Expects(typeName string) bool {
-	return c.TypeName() == typeName
-}
+
 func (c *Class) IsDataType() bool {
 	for p := range c.parents {
 		if p.IsDataType() {
@@ -76,16 +72,7 @@ func (c *Class) Code() jen.Code {
 		return strings.Compare(c.Members[i].Name, c.Members[j].Name) < 0
 	})
 
-	code := jen.Comment(c.comment).Line()
-	c.buildStruct(code)
-	// c.buildDepthAdjuster(code)
-	// code.Comment(strings.Join(c.getDupedAccesors(), ", ")).Line()
-	return code
-}
-
-func (c *Class) buildStruct(code *jen.Statement) {
 	var fields = jen.Statement{}
-
 	for i, p := range c.getParents() {
 		if i == 0 {
 			fields.Add(jen.Id(p.TypeName()))
@@ -93,15 +80,17 @@ func (c *Class) buildStruct(code *jen.Statement) {
 			fields.Add(jen.Comment("TODO: " + p.TypeName()))
 		}
 	}
-
 	for i, p := range c.Members {
 		if i == 0 && len(fields) != 0 {
 			fields.Line()
 		}
 
 		jsonTag := map[string]string{"json": p.Name + ",omitempty"}
-		code := jen.Id(strings.Title(p.Name)).Interface().Tag(jsonTag).Comment(p.Comment)
+		code := jen.Id(strings.Title(p.Name)).Id("Values").Tag(jsonTag).Comment(p.Comment)
 		fields.Add(code)
 	}
+
+	code := jen.Comment(c.comment).Line()
 	code.Type().Id(c.TypeName()).Struct(fields...).Line()
+	return code
 }
