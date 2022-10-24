@@ -77,13 +77,13 @@ func (b *Builder) buildClasses() error {
 	for _, k := range classNames {
 		c := b.classMap[k]
 		if !c.IsDataType() {
-			code := jen.Case(jen.Lit(strings.ToLower(c.RawID))).Return().Op("&").Id(c.GoID()).Block()
+			code := jen.Case(jen.Lit(strings.ToLower(c.RawID))).Return().List(jen.Op("&").Id(c.GoID()).Block(), jen.Nil())
 			cases.Add(code)
 		}
 	}
-	classGo.Func().Id("NewThing").Call(jen.Id("name").String()).Interface().Block(
+	classGo.Func().Id("NewThing").Call(jen.Id("name").String()).Params(jen.Interface(), jen.Error()).Block(
 		jen.Switch(jen.Qual("strings", "ToLower").Call(jen.Id("name"))).Block(cases...),
-		jen.Panic(jen.Id("name")),
+		jen.Return().List(jen.Nil(), jen.Qual("fmt", "Errorf").Call(jen.Lit("unknown name: %q"), jen.Id("name"))),
 	)
 
 	for _, k := range classNames {

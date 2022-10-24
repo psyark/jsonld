@@ -48,7 +48,10 @@ func decodeObjectAs(data []byte, defType string) (interface{}, error) {
 			typeName = tn
 		}
 
-		thing := NewThing(typeName)
+		thing, err := NewThing(typeName)
+		if err != nil {
+			return nil, err
+		}
 		if err := json.Unmarshal(data, thing); err != nil {
 			return nil, err
 		}
